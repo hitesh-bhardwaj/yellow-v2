@@ -27,7 +27,8 @@ const Hero = () => {
         <Section className="py-0" id={"hero"}>
             <div className="w-screen h-screen relative">
                 <div className="overflow-hidden w-full h-full absolute">
-                    <video 
+                    <video
+                        poster="/assets/images/homepage/poster.webp"
                         autoPlay
                         muted
                         loop
@@ -52,6 +53,7 @@ const Hero = () => {
                     </div>
                 </div>
                 <VideoModal
+                    poster="/assets/images/homepage/poster.webp"
                     isOpen={isModalOpen}
                     onClose={handleClose}
                     videoSrc="/assets/showreel.mov"

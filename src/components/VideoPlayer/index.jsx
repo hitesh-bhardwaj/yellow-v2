@@ -2,7 +2,7 @@
 import { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 
-const VideoPlayer = ({ isOpen, onClose, videoSrc }) => {
+const VideoPlayer = ({ isOpen, onClose, videoSrc, poster }) => {
   const modalRef = useRef(null);
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -79,6 +79,7 @@ const VideoPlayer = ({ isOpen, onClose, videoSrc }) => {
         <video
           ref={videoRef}
           src={videoSrc}
+          poster={poster}
           loop
           className="w-full h-full object-cover tablet:object-contain mobile:object-contain"
         />
