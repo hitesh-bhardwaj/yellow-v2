@@ -9,7 +9,7 @@ const ScrollButton = () => {
         gsap.to(window, {
             duration: 1.5,
             scrollTo: {y: "#second-section"},
-            ease: "power3.out",
+            ease: "power3.inOut",
         });
     };
 
