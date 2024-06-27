@@ -3,6 +3,7 @@
 @tailwind utilities;
 @import url('./fonts.css');
 @import url('./button.css');
+@import url('./hamburger.css');
 
 .container{
     max-width: 100%;
@@ -16,6 +17,7 @@ body{
     font-family: 'Satoshi', Arial, sans-serif;
     text-rendering: geometricPrecision;
     color: #111111;
+    background-color: #ffffff;
 }
 
 .swiper {
