@@ -54,7 +54,7 @@ const Blogs = () => {
                                 />
                             </div>
                         </Link>
-                        <div className="flex flex-col h-full justify-between items-start">
+                        <div className="flex flex-col h-[16vw] justify-between items-start">
                             <Link href={link}>
                                 <h4 className="text-[2.5vw] font-medium w-[40vw] leading-[1.3]">
                                     {title}

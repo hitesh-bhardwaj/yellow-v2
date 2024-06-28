@@ -5,6 +5,8 @@ import { gsap } from "gsap";
 const VideoPlayer = ({ isOpen, onClose, videoSrc, poster }) => {
   const modalRef = useRef(null);
   const videoRef = useRef(null);
+  const cursorRef = useRef(null);
+  const cursorImgRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
   const [progress, setProgress] = useState(0);
@@ -43,6 +45,37 @@ const VideoPlayer = ({ isOpen, onClose, videoSrc, poster }) => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const cursor = cursorRef.current;
+      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    };
+
+    const handleMouseEnter = () => {
+      gsap.to(cursorImgRef.current, { scaleX: 1, scaleY: 1, duration: 0.2 });
+    };
+
+    const handleMouseLeave = () => {
+      gsap.to(cursorImgRef.current, { scaleX: 0, scaleY: 0, duration: 0.2 });
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+    const videoContainer = modalRef.current;
+
+    if (videoContainer) {
+      videoContainer.addEventListener("mouseenter", handleMouseEnter);
+      videoContainer.addEventListener("mouseleave", handleMouseLeave);
+    }
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      if (videoContainer) {
+        videoContainer.removeEventListener("mouseenter", handleMouseEnter);
+        videoContainer.removeEventListener("mouseleave", handleMouseLeave);
+      }
+    };
+  }, []);
+
   const handlePlayPause = () => {
     if (isPlaying) {
       videoRef.current.pause();
@@ -72,7 +105,7 @@ const VideoPlayer = ({ isOpen, onClose, videoSrc, poster }) => {
   return (
     <div
       ref={modalRef}
-      className="fixed top-0 left-0 w-full h-full flex items-center justify-center opacity-0 -z-10"
+      className="fixed top-0 cursor-none left-0 w-full h-full flex items-center justify-center opacity-0 -z-10"
       onClick={onClose}
     >
       <div className="relative w-full h-full bg-black" onClick={handleVideoClick}>
@@ -84,7 +117,7 @@ const VideoPlayer = ({ isOpen, onClose, videoSrc, poster }) => {
           className="w-full h-full object-cover tablet:object-contain mobile:object-contain"
         />
         <div
-          className="relative bottom-[10%] w-[70%] p-4 mx-auto tablet:w-[90%] mobile:w-full mobile:px-4"
+          className="relative bottom-[10%] cursor-pointer w-[70%] p-4 mx-auto tablet:w-[90%] mobile:w-full mobile:px-4"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex items-center justify-between w-full">
@@ -107,10 +140,13 @@ const VideoPlayer = ({ isOpen, onClose, videoSrc, poster }) => {
             </button>
           </div>
         </div>
-        <div className="w-[8vw] h-[8vw] mobile:w-[10vw] hidden tablet:block mobile:block absolute right-[7%] top-[5%] mobile:right-[5%] mobile:top-[5%]" onClick={onClose}>
-          <img src="/assets/icons/close-cursor.svg" alt="close-cursor"/>
+        <div
+          ref={cursorRef}
+          className="w-[7vw] h-[7vw] flex items-center justify-center absolute top-0 left-0 overflow-hidden pointer-events-none"
+          id="cursor"
+        >
+          <img ref={cursorImgRef} className="object-cover scale-0 h-full w-full" src="/assets/icons/close-cursor.svg" alt="close-cursor" />
         </div>
-
       </div>
     </div>
   )

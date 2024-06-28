@@ -23,9 +23,10 @@ const Header = () => {
     return (
         <header className="fixed top-0 bottom-0 right-0 left-0 w-full z-[200] mix-blend-exclusion pointer-events-none">
             <div className="container py-[1%] flex justify-between items-center">
-                <div className="w-fit">
+                <div className="w-fit overflow-hidden">
                     <Link href="/" className="pointer-events-auto">
                         <Image 
+                            id="header-logo"
                             src="/logo-white.png"
                             alt="Yellow Brand Logo"
                             width={100}
@@ -35,6 +36,7 @@ const Header = () => {
                 </div>
                 <div className="w-[3.5vw] mr-[-0.9vw] h-[3.5vw] mobile:w-[12vw] mobile:h-[12vw] relative tablet:w-[8vw] tablet:h-[10vw] ">
                     <button
+                        id="header-hamburger"
                         disabled={buttonDisabled}
                         onClick={handleMenuButtonClick}
                         aria-label="Open Menu"
