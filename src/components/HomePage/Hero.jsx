@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 import ScrollButton from "@/components/Button/ScrollButton";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { SplitInLineWord, initMagneticButton } from "../utils";
+import { initMagneticButton, SplitInLine } from "../utils";
 import CustomEase from "gsap/dist/CustomEase";
 
 gsap.registerPlugin(useGSAP, CustomEase);
@@ -39,24 +39,21 @@ const Hero = () => {
     CustomEase.create("primary-ease-out", ".34, 1.56, 0.64, 1");
 
     useGSAP(()=> {
-        SplitInLineWord(text.current);
+        SplitInLine(text.current);
 
         const tl = gsap.timeline({
             defaults: {
                 ease: "primary-ease",
             }
         });
-        tl.from(".lineWord .line .word",{
+        tl.from(".lineWord .line .line-internal",{
             yPercent: 100,
-            duration: 1,
-            stagger: {
-                from: 'edges',
-                each: "0.03"
-            },
+            duration: 1.47,
+            stagger: 0.07,
         })
         .to(".cover span", {
             scaleY: 0,
-            duration: 1.5,
+            duration: 1.47,
             delay: 0,
             stagger: {
                 each: '0.02',

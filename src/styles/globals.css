@@ -25,9 +25,49 @@ body{
     transition: transform 0.2s ease-out;
   }
 
+  .heading-anim,
+  .para-anim,
   .lineWord {
     font-kerning: none;
   }
+  .heading-anim .line,
+  .para-anim .line,
   .lineWord .line {
     overflow: hidden;
   }
+
+  .textbreak .line{
+    width: fit-content !important;
+    background: linear-gradient(90deg, #1a1a1a 50%, #1a1a1a2e 0);
+    background-size: 200% 100%;
+    background-position-x: 100%;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    position: relative;
+}
+
+
+/* Services Section Accordion - HomePage */
+.accordion .line-internal{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+.accordion .line-internal span{
+  display: flex !important;
+}
+
+/* Blog Multiple Line Underline */
+.under-multi {
+  text-decoration: none;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0, 0)), linear-gradient(#000000, #000000);
+  background-size: 100% 0px, 0% 1px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat, no-repeat;
+  transition: all 0.5s ease-out; 
+}
+
+.under-multi-parent:hover .under-multi {
+  background-size: 100% 0px, 100% 1px;
+}

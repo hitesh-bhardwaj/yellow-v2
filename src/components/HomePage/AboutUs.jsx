@@ -5,6 +5,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
+import { SplitInLineOnly } from "../utils";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -12,11 +13,15 @@ const AboutUs = () => {
     const containerRef = useRef(null);
     const pathRef = useRef(null);
     const textRef = useRef(null);
+    const texth2Ref = useRef(null);
 
     useGSAP(()=> {
         const container = containerRef.current;
         const text = textRef.current;
         const path = pathRef.current;
+        const texth2 = texth2Ref.current;
+
+        SplitInLineOnly(texth2);
 
         const tl = gsap.timeline({
             scrollTrigger: {
@@ -40,7 +45,44 @@ const AboutUs = () => {
             delay: -2,
             ease: 'power2.out'
         })
+        const textbreakLine = texth2.querySelectorAll(".line");
+        gsap.to(textbreakLine, {
+            scrollTrigger: {
+                trigger: container,
+                start: "top 80%",
+                end: "bottom 40%",
+                scrub: true,
+            },
+            backgroundPositionX: 0,
+            duration: 1,
+            stagger: 1,
+            ease: "power2.inOut"
+        })
     });
+
+    useGSAP(() => {
+        const fadeUps = document.querySelectorAll(".fadeUp");
+        fadeUps.forEach((fadeUp) => {
+          gsap.fromTo(
+            fadeUp,
+            {
+              rotationZ: 5,
+              y: 70,
+            },
+            {
+              rotationZ: 0,
+              y: 0,
+              duration: 0.6,
+              ease: "Power3.out",
+              scrollTrigger: {
+                trigger: fadeUp,
+                start: "top 85%",
+                toggleActions: "play none none reverse",
+              },
+            }
+          );
+        });
+      }, []);
 
     return (
         <Section className="py-[10%]" id="second-section">
@@ -52,7 +94,7 @@ const AboutUs = () => {
                 </div>
                 <div className="container">
                     <div className="flex justify-between items-start">
-                        <div className="w-[40%] h-[45vw] overflow-hidden rounded-xl relative">
+                        <div className="w-[40%] h-[45vw] overflow-hidden rounded-xl fadeIn relative">
                             <Image 
                                 src="/assets/images/homepage/about.png"
                                 alt="About Image"
@@ -65,8 +107,8 @@ const AboutUs = () => {
                         <div ref={textRef} className="w-[52%]">
                             <div className="text-left pr-[3vw] space-y-[2vw]">
                                 <p className="text-[1.2vw] font-medium">About</p>
-                                <h2 className="font-display text-[2.5vw]">A branding and communications agency in Dubai, Yellow stands for all that’s bright in business – collaboration, ambition, opportunity and transformation. Dubai-born and Dubai-bred, we have its optimisim and drive in our DNA. We’ve helped businesses start, grow and thrive here.</h2>
-                                <div>
+                                <h2 ref={texth2Ref} className="font-display text-[2.5vw] textbreak">A branding and communications agency in Dubai, Yellow stands for all that’s bright in business – collaboration, ambition, opportunity and transformation. Dubai-born and Dubai-bred, we have its optimisim and drive in our DNA. We’ve helped businesses start, grow and thrive here.</h2>
+                                <div className="fadeUp">
                                     <LinkButton btnLink="#" btnText="Get To Know Us"/>
                                 </div>
                             </div>

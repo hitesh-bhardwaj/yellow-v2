@@ -1,9 +1,8 @@
 import Link from "next/link"
 
-
 const BlackButton = ({btnLink, btnText, className=""}) => {
     return (
-        <Link href={btnLink} className={`cursor-pointer relative block text-[1.2vw] w-fit h-fit text-white bg-body py-[0.8vw] px-[1.2vw] rounded-full font-medium group ${className}`}>
+        <Link href={btnLink} className={`fadeUp cursor-pointer relative block text-[1.2vw] w-fit h-fit text-white bg-body py-[0.8vw] px-[1.2vw] rounded-full font-medium group ${className}`}>
             <div className="overflow-hidden flex items-center gap-[0.5vw] w-full">
                 <span data-text={btnText} className="relative inline-block after:content-[attr(data-text)] after:absolute after:top-[105%] after:left-0 group-hover:translate-y-[-105%] transition-transform duration-1000 ease-link after:block">{btnText}</span>
                 <svg className="relative -rotate-[135deg] w-[1.1vw] h-[1.1vw] overflow-hidden" width="19" height="23" viewBox="0 0 19 23" fill="none" xmlns="http://www.w3.org/2000/svg">
