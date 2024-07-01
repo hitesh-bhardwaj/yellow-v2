@@ -22,7 +22,8 @@ const Footer = () => {
                 trigger: ".footer-top",
                 start: "bottom bottom",
                 end: "bottom 50%",
-                scrub: 0.25,
+                scrub: 0.5,
+                invalidateOnRefresh: true
             }
         });
 
@@ -40,11 +41,11 @@ const Footer = () => {
             borderBottomRightRadius: "3vw",
         })
         .from(".footer-bottom", {
-            duration: 1,
+            duration: 0.8,
             delay: -0.5,
             opacity: "0"
         })
-    })
+    });
 
   return (
     <footer id="footer" className="footer bg-black">

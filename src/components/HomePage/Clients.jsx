@@ -53,8 +53,8 @@ const Clients = () => {
                 </div>
                 <div className="container mb-[8vw]">
                     <div className="space-y-[1.5vw]">
-                        <p className="text-[1.2vw] font-medium">Clients</p>
-                        <h4 className="text-[2.5vw] font-display leading-[1.35] w-1/2">Small or large, local or far, all of our clients are connected with our purpose of perfect execution.</h4>
+                        <p className="text-[1.2vw] font-medium fadeUp">Clients</p>
+                        <h4 className="text-[2.5vw] font-display leading-[1.35] w-1/2 para-anim">Small or large, local or far, all of our clients are connected with our purpose of perfect execution.</h4>
                     </div>
                 </div>
                 <div className="mb-[18vw] w-screen overflow-hidden">

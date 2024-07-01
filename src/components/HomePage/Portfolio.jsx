@@ -6,18 +6,21 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import LinkButton from "../Button/LinkButton";
+import { SplitInLine, SplitInLineWordChar } from "../utils";
+import CustomEase from "gsap/dist/CustomEase";
+
+gsap.registerPlugin(ScrollTrigger, CustomEase, useGSAP);
 
 const Portfolio = () => {
 
     const containerRef = useRef(null);
     const scrollRef = useRef(null);
 
-    useGSAP(()=> {
+    CustomEase.create("primary-ease", "0.62, 0.05, 0.01, 0.99");
 
+    useGSAP(()=> {
         const container = containerRef.current;
         const scroll = scrollRef.current;
-
-        gsap.registerPlugin(ScrollTrigger);
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: container,
@@ -27,7 +30,6 @@ const Portfolio = () => {
                 end: "=+4000 top",
             }
         });
-
         tl.fromTo(scroll, {
             x: '0',
         }, {
@@ -37,12 +39,85 @@ const Portfolio = () => {
         })
     })
 
+    useGSAP(() => {
+        const headings = document.querySelectorAll(".heading-anim");
+        headings.forEach((heading) => {
+          SplitInLineWordChar(heading);
+          let headingWord = heading.querySelectorAll(".word .char");
+          gsap.from(headingWord, {
+              scrollTrigger: {
+                trigger: heading,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            },
+            rotate: "5deg",
+            duration: 0.8,
+            yPercent: 100,
+            stagger: 0.05,
+            ease: 'primary-ease',
+          });
+        });
+      });
 
-    
+      useGSAP(() => {
+        const paraAnimations = document.querySelectorAll(".para-anim");
+        paraAnimations.forEach((paraAnimation) => {
+          SplitInLine(paraAnimation);
+          let paraLine = paraAnimation.querySelectorAll(".line .line-internal");
+          gsap.from(paraLine, {
+            scrollTrigger: {
+              trigger: paraAnimation,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+            duration: 1.47,
+            yPercent: 100,
+            stagger: 0.07,
+            ease: "primary-ease"
+          });
+        });
+      });
+
+      useGSAP(() => {
+        const lineDraws = document.querySelectorAll(".lineDraw");
+        lineDraws.forEach((lineDraw) => {
+          gsap.from(lineDraw, {
+            scrollTrigger: {
+              trigger: lineDraw,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+            scaleX: 0, 
+            transformOrigin: "left",
+            duration: 1.47,
+            yPercent: 100,
+            stagger: 0.07,
+            ease: "primary-ease"
+          });
+        });
+      });
+
+      useGSAP(() => {
+        const fadeIns = document.querySelectorAll(".fadeIn");
+        fadeIns.forEach((fadeIn) => {
+          gsap.from(fadeIn, {
+            scrollTrigger: {
+              trigger: fadeIn,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+            opacity: 0,
+            duration: 1.47,
+            stagger: 0.07,
+            ease: "primary-ease"
+          });
+        });
+      });
+
   return (
     <Section className="py-[5%]" id="portfolio">
       <div className="container">
-        <SectionTitle className="uppercase" text={"Our Work"} />
+        <SectionTitle text="Our Work" />
         <div className="flex justify-between items-end mt-[4vw]">
           <div className="flex items-center justify-start gap-[5vw]">
             <div className="flex items-end gap-[8px]">
@@ -55,7 +130,7 @@ const Portfolio = () => {
             </div>
           </div>
           <div className="w-[35%]">
-            <p className="text-[1.9vw] font-medium leading-[1.4]">
+            <p className="text-[1.9vw] font-medium leading-[1.4] para-anim">
               Here are many variations of passages of Lorem Ipsum available, but
               the majority have suffered
             </p>
