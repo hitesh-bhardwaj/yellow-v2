@@ -36,7 +36,6 @@ const Hero = () => {
      }, []);
 
     CustomEase.create("primary-ease", "0.62, 0.05, 0.01, 0.99");
-    CustomEase.create("primary-ease-out", ".34, 1.56, 0.64, 1");
 
     useGSAP(()=> {
         SplitInLine(text.current);

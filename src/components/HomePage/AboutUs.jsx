@@ -66,10 +66,12 @@ const AboutUs = () => {
           gsap.fromTo(
             fadeUp,
             {
+              opacity: 0,
               rotationZ: 5,
               y: 70,
             },
             {
+              opacity: 1,
               rotationZ: 0,
               y: 0,
               duration: 0.6,

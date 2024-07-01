@@ -162,9 +162,9 @@ const Footer = () => {
                         <p className="font-medium text-[1.15vw] capitalize">© 2024 | Yellow. All rights reserved.</p>
                     </div>
 
-                    <button aria-label="Scroll Down Button" onClick={handleScroll} className="absolute cursor-pointer scroll-btn w-fit left-1/2 -translate-x-1/2 text-[1.1vw] gap-[0.2vw] font-[400] group flex items-center justify-center">
+                    <button aria-label="Scroll Down Button" onClick={handleScroll} className="absolute cursor-pointer scroll-btn w-fit left-1/2 -translate-x-1/2 text-[1.1vw] gap-[0.5vw] font-[400] group flex items-center justify-center">
                         <span className="relative leading-[1.5] after:absolute after:block after:bottom-0 after:left-0 after:h-[1px] after:w-full after:bg-current after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0">Send me back up.</span>
-                        <span className="animate-bounce text-[1.5vw]">👆</span>
+                        <span className="animate-bounce text-[1.3vw]">👆</span>
                     </button>
                     
                     <div className="text-[1.15vw] font-medium capitalize">
