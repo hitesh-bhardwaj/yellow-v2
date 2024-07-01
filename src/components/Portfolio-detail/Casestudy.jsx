@@ -1,0 +1,188 @@
+import React from "react";
+
+export default function Casestudy() {
+  return (
+    <>
+      <section className="w-screen h-full py-[8%]">
+        <div className="container">
+          <div className="grid grid-cols-2 gap-x-[2.5vw] gap-y-[4vw]">
+            <div className="">
+              <h2 className="text-[4.8vw] mb-[3vw] leading-[1.1] font-display w-[50%]">
+                The Art of Rebellion
+              </h2>
+              <div className="text-[1.2vw] font-medium flex flex-wrap gap-[0.5vw] w-[70%]">
+                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70">
+                  Brand Strategy
+                </p>
+                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70">
+                  Logo Development
+                </p>
+                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70">
+                  Photography Style
+                </p>
+                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70">
+                  Brand Name
+                </p>
+                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70">
+                  Packaging
+                </p>
+                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70">
+                  Website
+                </p>
+                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70">
+                  Social Media
+                </p>
+              </div>
+            </div>
+            <div className="col-start-2 text-[1.4vw] font-medium pt-[1vw]">
+              <p className="mb-[4vw] leading-[1.3]">
+                Meet Rita & Ibrahim, an incredibly talented couple that left
+                their established careers to pursue their dreams of creating a
+                bold new fine jewelry brand. Rebellion was a major theme
+                throughout everything – from the playful, unexpectedness of the
+                pieces created to it being a purely DTC brand to the personality
+                of the founders. This segued into the essence of the brand being
+                centered on the idea of “The Art of Rebellion” – a narrative
+                that was all about celebrating self-expression, confidence,
+                colour, creativity, boldness and femininity.
+              </p>
+              <div className="flex gap-[5vw] text-[1.4vw]">
+                <div>
+                  <p className="text-[1vw] mb-[0.5vw]">Client</p>
+                  <p>Maveroc</p>
+                </div>
+                <div>
+                  <p className="text-[1vw] mb-[0.5vw]">Industry</p>
+                  <p>Website Development</p>
+                </div>
+              </div>
+            </div>
+            <div className="col-span-2 mt-[4vw]">
+              <img
+                src="/assets/images/portfolio/portfolio-detail/Maveroc-1.png"
+                alt="maveroc-1"
+              />
+            </div>
+            <div>
+              <img
+                src="/assets/images/portfolio/portfolio-detail/Maveroc-2.png"
+                alt="maveroc-2"
+              />
+            </div>
+            <div className="mb-[4vw]">
+              <img
+                src="/assets/images/portfolio/portfolio-detail/Maveroc-3.png"
+                alt="maveroc-3"
+              />
+            </div>
+            <div>
+              <h3 className="font-display text-[3vw]">Why Maveroc</h3>
+            </div>
+            <div className="col-start-2">
+              <p className="text-[1.4vw] font-medium">
+                <span className="mb-[2vw]">
+                  Naming is always one of the most challenging aspects of
+                  creating a brand. It’s incredibly personal, subjective and
+                  often all the great ideas you come up with are taken. We
+                  explored many themes and ideas, focusing predominantly on
+                  evocative and associative names – names that communicated the
+                  brand idea without being too descriptive (our favourite kind
+                  of names)! And thus Maveroc was born.
+                </span>
+                <br />
+                <br />
+                <span>
+                  With a strategic foundation in place, a name we all fell in
+                  love with and the essence of rebellion at the heart of the
+                  brand, we developed the brand identity that consisted of a
+                  vibrant colour palette made up of our favourite colours – pink
+                  and yellow! The colours of passion, optimism and creativity.
+                  We selected contemporary, bold typefaces, and created a visual
+                  language that allowed the hero of our story to shine: the
+                  jewelry. This was followed by developing all the supporting
+                  touchpoints where the brand really comes to life – from
+                  creating the packaging and image style to working closely with
+                  the founders and various partners to design, direct and launch
+                  the website, social media and photoshoots.
+                </span>
+              </p>
+            </div>
+            <div className="col-span-2 mt-[4vw]">
+              <div className="relative w-full h-full">
+                <img
+                  src="/assets/images/portfolio/portfolio-detail/Maveroc-11.png"
+                  alt="maveroc-reel-bg"
+                  className="w-full h-full"
+                />
+                <video
+                  src="/assets/images/portfolio/videos/Maveroc-reel.mp4"
+                  autoPlay={true}
+                  loop
+                  muted
+                  className="w-[80%] h-[80%] object-contain absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] "
+                ></video>
+              </div>
+            </div>
+            <div className="col-span-2">
+              <img
+                src="/assets/images/portfolio/portfolio-detail/Maveroc-10.png"
+                alt="maveroc-10"
+              />
+            </div>
+            <div className="w-full col-span-1">
+              <img
+                src="/assets/images/portfolio/portfolio-detail/maveroc-4.png"
+                alt="maveroc-4"
+                className="object-cover h-full w-full"
+              />
+            </div>
+            <div className="col-start-2 w-full">
+              <img
+                src="/assets/images/portfolio/portfolio-detail/maveroc-7.png"
+                alt="maveroc-7"
+                className="object-contain"
+              />
+            </div>
+            <div className="mt-[4vw]">
+              <h3 className="font-display text-[3vw]">
+                Passionate Cheerleaders
+              </h3>
+            </div>
+            <div className="col-start-2 mt-[5vw]">
+              <p className="text-[1.4vw] font-medium">
+                <span className="mb-[2vw]">
+                  The team: Yellow works collaboratively with our in-house team
+                  which was made up of Sarah, Mamta, Dan, Stuart along with a
+                  special shout out to our partners and collaborators.
+                </span>
+                <br />
+                <br />
+                <span>
+                  We’ve worked on some of the most successful homegrown brands
+                  in the region like OliOli, Cafu, Luma, Goat amongst many
+                  others. If you’ve been daydreaming of starting your own
+                  business, this is the sign you’ve been waiting for!
+                </span>
+              </p>
+            </div>
+            <div>
+                <img src="/assets/images/portfolio/portfolio-detail/maveroc-5.png"/>
+
+            </div>
+            <div>
+                <img src="/assets/images/portfolio/portfolio-detail/maveroc-8.png"/>
+            </div>
+            <div className="col-span-2">
+                <img src="/assets/images/portfolio/portfolio-detail/maveroc-9.png"/>
+
+            </div>
+            <div className="col-span-2">
+                <img src="/assets/images/portfolio/portfolio-detail/maveroc-6.png"/>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
