@@ -5,6 +5,11 @@
 @import url('./button.css');
 @import url('./hamburger.css');
 
+:root{
+  --primary-color: #111111;
+  --animation-primary: 0.735s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+}
+
 .container{
     max-width: 100%;
     padding-right: 5%;
@@ -16,7 +21,7 @@
 body{
     font-family: 'Satoshi', Arial, sans-serif;
     text-rendering: geometricPrecision;
-    color: #111111;
+    color: var(--primary-color);
     background-color: #ffffff;
 }
 
@@ -61,7 +66,7 @@ body{
 /* Blog Multiple Line Underline */
 .under-multi {
   text-decoration: none;
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0, 0)), linear-gradient(#000000, #000000);
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0, 0)), linear-gradient(#ffffff, #ffffff);
   background-size: 100% 0px, 0% 1px;
   background-position: 100% 100%, 0 100%;
   background-repeat: no-repeat, no-repeat;
@@ -70,4 +75,34 @@ body{
 
 .under-multi-parent:hover .under-multi {
   background-size: 100% 0px, 100% 1px;
+}
+
+/* Link Hover Animation */
+.links .char{
+  text-shadow: 0px 5vw 0px currentColor;
+}
+.social-link .char, .footer-social .char{
+  text-shadow: 0px 1.6vw 0px currentColor;
+}
+.link-line{
+  width: fit-content;
+  position: relative;
+}
+.link-line::after{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0em;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transform-origin: right;
+    transition: transform var(--animation-primary);
+    transform: scaleX(0) rotate(0.001deg);
+}
+
+.link-line:hover::after {
+  transform-origin: left;
+  transform: scaleX(1) rotate(0.001deg);
 }
