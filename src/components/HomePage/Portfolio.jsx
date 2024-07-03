@@ -152,12 +152,15 @@ const Portfolio = () => {
         >
           <div className="h-full w-[90vw] relative p-[5vw]">
             <video
-              src="/assets/images/portfolio/videos/Maveroc-bg.mp4"
-              autoPlay={true}
+              autoPlay
               loop
               muted
               className="w-screen h-full absolute top-0 left-0 object-cover z-[-1]"
-            ></video>
+              loading="lazy"
+              poster="/assets/images/portfolio/videos/mavroc-bg-poster.webp"
+            >
+              <source src="/assets/images/portfolio/videos/maveroc-bg-small.mp4" type="video/mp4"/>
+            </video>
             <div className="relative w-full flex text-white h-full items-end">
               <div className="flex justify-between">
                 <div className="whitespace-normal flex gap-[2.5vw] flex-col">

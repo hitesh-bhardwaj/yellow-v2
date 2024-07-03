@@ -101,7 +101,7 @@ const Hero = () => {
                         loading="lazy"
                         className="w-full h-full aspect-video object-cover"
                         >
-                        <source src="/assets/showreel-compressed.mp4" type="video/mp4"/>
+                        <source src="/assets/showreel-small.mp4" type="video/mp4"/>
                     </video>
                 </div>
                 <div className="container h-full flex justify-start items-center relative z-10" data-magnetic-target data-magnetic-strength="200">
