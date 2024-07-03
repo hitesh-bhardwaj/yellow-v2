@@ -100,8 +100,8 @@ const Hero = () => {
                         playsInline
                         loading="lazy"
                         className="w-full h-full aspect-video object-cover"
-                        src="/assets/showreel.mov"
                         >
+                        <source src="/assets/showreel-compressed.mp4" type="video/mp4"/>
                     </video>
                 </div>
                 <div className="container h-full flex justify-start items-center relative z-10" data-magnetic-target data-magnetic-strength="200">
@@ -119,7 +119,7 @@ const Hero = () => {
                         poster="/assets/images/homepage/poster.webp"
                         isOpen={isModalOpen}
                         onClose={handleClose}
-                        videoSrc="/assets/showreel.mov"
+                        videoSrc="/assets/showreel.mp4"
                     />
                 )}
             </div>

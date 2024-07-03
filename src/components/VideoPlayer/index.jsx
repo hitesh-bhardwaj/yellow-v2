@@ -111,11 +111,12 @@ const VideoPlayer = ({ isOpen, onClose, videoSrc, poster }) => {
       <div className="relative w-full h-full bg-black" onClick={handleVideoClick}>
         <video
           ref={videoRef}
-          src={videoSrc}
           poster={poster}
           loop
           className="w-full h-full object-cover tablet:object-contain mobile:object-contain"
-        />
+        >
+          <source src={videoSrc} type="video/mp4" />
+        </video>
         <div
           className="relative bottom-[10%] cursor-pointer w-[70%] p-4 mx-auto tablet:w-[90%] mobile:w-full mobile:px-4"
           onClick={(e) => e.stopPropagation()}

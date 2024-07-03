@@ -60,7 +60,6 @@ const Footer = () => {
         }).format(date);
       };
   
-
     useGSAP(() => {
         if (footerContainer.current) {
             const links = footerContainer.current.querySelectorAll('.footer-social');
@@ -72,7 +71,7 @@ const Footer = () => {
                 trigger: ".footer-top",
                 start: "bottom bottom",
                 end: "bottom 50%",
-                scrub: 0.5,
+                scrub: 0.25,
                 invalidateOnRefresh: true
             }
         });
@@ -90,10 +89,12 @@ const Footer = () => {
                 borderBottomLeftRadius: "3vw",
                 borderBottomRightRadius: "3vw",
             })
-            .from(".footer-bottom", {
+            .fromTo(".footer-bottom", {
+                opacity: 0,
+            }, {
+                opacity: 1,
                 duration: 0.8,
                 delay: -0.5,
-                opacity: "0"
             })
     });
 
@@ -108,12 +109,12 @@ const Footer = () => {
                                 Ready to Elevate Your Brand 👉
                             </h5>
                         </div>
-                        <div>
+                        <div className="fadeIn">
                             <Link
                                 className={`cursor-pointer flex w-fit relative text-[3.4vw] gap-[0.5vw] items-center font-medium group `}
                                 href="#"
                             >
-                                <span className="relative after:absolute leading-[1.3] after:block after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-body after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0">
+                                <span className="relative after:absolute leading-[1.3] after:block after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-body after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0 ">
                                     Let&apos;s Talk
                                 </span>
                                 <svg

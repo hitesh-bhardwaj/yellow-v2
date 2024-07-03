@@ -100,22 +100,24 @@ const Portfolio = () => {
     });
   });
 
-  useGSAP(() => {
-    const fadeIns = document.querySelectorAll(".fadeIn");
-    fadeIns.forEach((fadeIn) => {
-      gsap.from(fadeIn, {
-        scrollTrigger: {
-          trigger: fadeIn,
-          start: "top 85%",
-          toggleActions: "play none none reverse",
-        },
-        opacity: 0,
-        duration: 1.47,
-        stagger: 0.07,
-        ease: "primary-ease",
-      });
-    });
-  });
+  // useGSAP(() => {
+  //   const fadeIns = document.querySelectorAll(".fadeIn");
+  //   fadeIns.forEach((fadeIn) => {
+  //     gsap.fromTo(fadeIn, {
+  //       autoAlpha: 0,
+  //     },{
+  //       scrollTrigger: {
+  //         trigger: fadeIn,
+  //         start: "top 85%",
+  //         toggleActions: "play none none reverse",
+  //       },
+  //       autoAlpha: 1,
+  //       duration: 1.47,
+  //       stagger: 0.07,
+  //       ease: "primary-ease",
+  //     });
+  //   });
+  // });
 
   return (
     <Section className="py-[5%]" id="portfolio">

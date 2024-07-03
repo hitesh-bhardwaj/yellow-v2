@@ -63,28 +63,20 @@ const AboutUs = () => {
     useGSAP(() => {
         const fadeUps = document.querySelectorAll(".fadeUp");
         fadeUps.forEach((fadeUp) => {
-          gsap.fromTo(
-            fadeUp,
-            {
-              opacity: 0,
-              rotationZ: 5,
-              y: 70,
+          gsap.from(fadeUp, {
+            scrollTrigger: {
+              trigger: fadeUp,
+              start: "top 90%",
+              toggleActions: "play none none reverse",
             },
-            {
-              opacity: 1,
-              rotationZ: 0,
-              y: 0,
-              duration: 0.6,
-              ease: "Power3.out",
-              scrollTrigger: {
-                trigger: fadeUp,
-                start: "top 85%",
-                toggleActions: "play none none reverse",
-              },
-            }
-          );
+            opacity: 0,
+            rotationZ: 5,
+            y: 70,
+            duration: 0.6,
+            ease: "power3.out",
+          });
         });
-      }, []);
+      });
 
     return (
         <Section className="py-[10%]" id="second-section">
