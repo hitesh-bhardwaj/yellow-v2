@@ -20,26 +20,6 @@ const handleScroll = () => {
     });
 };
 
-function onMouseEnter(e) {
-    const letters = e.target.querySelectorAll(".footer-social .char");
-    gsap.to(letters, {
-      yPercent: -98,
-      duration: 0.5,
-      ease: "primary-ease",
-      stagger: { each: 0.05, from: "random" },
-    });
-  }
-  
-  function onMouseLeave(e) {
-    const letters = e.target.querySelectorAll(".footer-social .char");
-    gsap.to(letters, {
-      yPercent: 0,
-      duration: 0.5,
-      ease: "primary-ease",
-      stagger: { each: 0.05, from: "random" },
-    });
-  }
-
 const Footer = () => {
     const footerContainer = useRef(null);
     const [time, setTime] = useState(new Date());
@@ -170,8 +150,6 @@ const Footer = () => {
                                         <h6 className="text-[1.9vw] font-display leading-[1.2] mb-[1vw]">Phone</h6>
                                         <Link href="tel:+971545178971" className="text-[1.15vw] font-medium text-shadow">
                                             <span 
-                                                onMouseEnter={onMouseEnter}
-                                                onMouseLeave={onMouseLeave}
                                                 className="link-line footer-social overflow-hidden block">
                                                 +97 154 517 8971
                                             </span>
@@ -186,8 +164,6 @@ const Footer = () => {
                                     <li>
                                         <Link className="text-[1.15vw] font-medium uppercase text-shadow" href="#">
                                             <span 
-                                                onMouseEnter={onMouseEnter}
-                                                onMouseLeave={onMouseLeave}
                                                 className="link-line footer-social overflow-hidden block">
                                                 Linkedin
                                             </span>
@@ -196,8 +172,6 @@ const Footer = () => {
                                     <li>
                                         <Link className="text-[1.15vw] font-medium uppercase text-shadow" href="#">
                                             <span 
-                                                onMouseEnter={onMouseEnter}
-                                                onMouseLeave={onMouseLeave}
                                                 className="link-line footer-social overflow-hidden block">
                                                 Instagram
                                             </span>
@@ -206,8 +180,6 @@ const Footer = () => {
                                     <li>
                                         <Link className="text-[1.15vw] font-medium uppercase text-shadow" href="#">
                                             <span 
-                                                onMouseEnter={onMouseEnter}
-                                                onMouseLeave={onMouseLeave}
                                                 className="link-line footer-social overflow-hidden block">
                                                 behance
                                             </span>
@@ -216,8 +188,6 @@ const Footer = () => {
                                     <li>
                                         <Link className="text-[1.15vw] font-medium uppercase text-shadow" href="#">
                                             <span
-                                                onMouseEnter={onMouseEnter}
-                                                onMouseLeave={onMouseLeave} 
                                                 className="link-line footer-social overflow-hidden block">
                                                 Pinterest
                                             </span>
@@ -234,7 +204,7 @@ const Footer = () => {
 
                             <button aria-label="Scroll Down Button" onClick={handleScroll} className="absolute cursor-pointer scroll-btn w-fit left-1/2 -translate-x-1/2 text-[1.1vw] gap-[0.5vw] font-[400] group flex items-center justify-center">
                                 <span className="relative leading-[1.5] after:absolute after:block after:bottom-0 after:left-0 after:h-[1px] after:w-full after:bg-current after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0">Send me back up.</span>
-                                <span className="animate-bounce text-[1.3vw]">👆</span>
+                                <span className="text-[1.3vw]">👆</span>
                             </button>
 
                             <div className="text-[1.15vw] font-medium">
@@ -242,8 +212,6 @@ const Footer = () => {
                                     <Link 
                                         href="https://weareenigma.com" className="">
                                         <span 
-                                            onMouseEnter={onMouseEnter}
-                                            onMouseLeave={onMouseLeave} 
                                             className="link-line footer-social overflow-hidden block">
                                             Enigma
                                         </span>

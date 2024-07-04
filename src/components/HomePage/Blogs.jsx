@@ -39,8 +39,8 @@ const Blogs = () => {
 
     const BlogCard = ({title, src, date, link}) => {
         return (
-            <div className="group">
-                <span className="block w-full h-[1px] bg-body lineDraw"/>
+            <div className="group hide-first-child">
+                <span className="block w-full h-[1px] bg-body lineDraw hide"/>
                 <div className="w-full flex justify-between items-start mt-[2vw] mb-[4vw]">
                     <div className="flex items-start gap-[2vw]">
                         <Link href="#">
@@ -86,7 +86,7 @@ const Blogs = () => {
                     </div>
                 </div>
 
-                <div className="mt-[5vw]">
+                <div className="mt-[5vw] hide-first">
                     {blogData.map((blog, index)=> {
                         return (
                             <BlogCard 
