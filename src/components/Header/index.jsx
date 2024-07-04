@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
-const MenuDynamic = dynamic(() => import("./Menu"), { ssr: true });
+import Menu from "./Menu";
+// const MenuDynamic = dynamic(() => import("./Menu"), { ssr: true });
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -71,7 +72,8 @@ const Header = () => {
           </div>
         </div>
       </header>
-      <MenuDynamic menuOpen={menuOpen} />
+      <Menu menuOpen={menuOpen}/>
+      {/* <MenuDynamic menuOpen={menuOpen} /> */}
     </>
   );
 };
