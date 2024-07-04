@@ -8,6 +8,7 @@ import { useRef } from "react";
 import LinkButton from "../Button/LinkButton";
 import { SplitInLine, SplitInLineWordChar } from "../utils";
 import CustomEase from "gsap/dist/CustomEase";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger, CustomEase, useGSAP);
 
@@ -171,11 +172,12 @@ const Portfolio = () => {
             </div>
           </div>
           <div className="h-full w-[90vw] relative p-[5vw]">
-            <img
-              className="object-cover h-full w-full absolute top-0 left-0 right-0 bottom-0 brightness-[0.85]"
-              src="/assets/images/homepage/sufra.png"
+            <Image
+              className="object-cover h-full w-full"
+              src="/assets/images/homepage/sufra.webp"
               alt="Portfolio Image"
-              loading="lazy"
+              fill
+              priority={false}
             />
             <div className="relative w-full flex text-white h-full items-end">
               <div className="flex justify-between">
@@ -204,11 +206,12 @@ const Portfolio = () => {
             </div>
           </div>
           <div className="h-full w-[90vw] relative p-[5vw]">
-            <img
-              className="object-cover h-full w-full absolute top-0 left-0 right-0 bottom-0 brightness-[0.85]"
-              src="/assets/images/homepage/fineArts.png"
+            <Image
+              className="object-cover h-full w-full"
+              src="/assets/images/homepage/fineArts.webp"
               alt="Portfolio Image"
-              loading="lazy"
+              fill
+              priority={false}
             />
             <div className="relative w-full flex text-white h-full items-end">
               <div className="flex justify-between">
