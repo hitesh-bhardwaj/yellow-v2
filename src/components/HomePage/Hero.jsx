@@ -78,13 +78,10 @@ const Hero = () => {
     })
 
     return (
-        <Section className="py-0" id={"hero"}>
+        <Section className="py-0 dark" id={"hero"}>
             <div className="w-screen h-screen relative">
-                <div className="absolute bottom-[5%] cursor-pointer left-1/2 -translate-x-1/2 z-[11]">
-                    <ScrollButton />
-                </div>
                 <div className="overflow-hidden w-full h-full absolute">
-                    <div ref={cover} className="absolute w-full h-full flex items-start justify-start pointer-events-none bg-transparent cover">
+                    <div ref={cover} className="absolute w-full h-full flex pointer-events-none items-start justify-start bg-transparent cover z-[10]">
                         <span className="h-full block w-1/5 bg-white origin-bottom"/>
                         <span className="h-full block w-1/5 bg-white origin-center"/>
                         <span className="h-full block w-1/5 bg-white origin-top"/>
@@ -100,12 +97,12 @@ const Hero = () => {
                         playsInline
                         loading="lazy"
                         className="w-full h-full aspect-video object-cover"
-                        src="/assets/showreel.mov"
                         >
+                        <source src="/assets/showreel-small.mp4" type="video/mp4"/>
                     </video>
                 </div>
-                <div className="container h-full flex justify-start items-center relative z-10" data-magnetic-target data-magnetic-strength="200">
-                    <div className="w-[45%]">
+                <div className="container h-full flex justify-start items-center relative" data-magnetic-target data-magnetic-strength="200">
+                    <div className="w-[45%] relative z-[11]">
                         <h1 ref={text} className="text-body font-display text-[2.8vw] leading-[1.2] drop-shadow-lg lineWord">
                             We are Yellow. A full-service branding and communication agency in Dubai.
                         </h1>
@@ -114,12 +111,15 @@ const Hero = () => {
                         <PrimaryButton onClick={handleOpen} text="Play Reel" className="magnetic-inner"/>
                     </div>
                 </div>
+                <div className="absolute bottom-[5%] cursor-pointer left-1/2 -translate-x-1/2 z-[11]">
+                    <ScrollButton />
+                </div>
                 {isModalOpen && (
                     <VideoModal
                         poster="/assets/images/homepage/poster.webp"
                         isOpen={isModalOpen}
                         onClose={handleClose}
-                        videoSrc="/assets/showreel.mov"
+                        videoSrc="/assets/showreel.mp4"
                     />
                 )}
             </div>

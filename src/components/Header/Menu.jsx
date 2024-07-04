@@ -4,71 +4,34 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import CustomEase from "gsap/dist/CustomEase";
 import { usePathname } from "next/navigation";
-import { SplitInChar } from "../utils";
 
 gsap.registerPlugin(CustomEase, useGSAP);
 
-// Hover on the link
-function onMouseEnter(e) {
-  const letters = e.target.querySelectorAll(".links .char");
-  gsap.to(letters, {
-    yPercent: -98,
-    duration: 0.5,
-    ease: "primary-ease",
-    stagger: { each: 0.05, from: "random" },
-  });
-}
-
-function onMouseLeave(e) {
-  const letters = e.target.querySelectorAll(".links .char");
-  gsap.to(letters, {
-    yPercent: 0,
-    duration: 0.5,
-    ease: "primary-ease",
-    stagger: { each: 0.05, from: "random" },
-  });
+const MenuLink = ({href, text, className=""}) => {
+  return (
+    <Link href={href} className={`block w-fit ${className}`}>
+      <span className="link-line w-fit">{text}</span>
+    </Link>
+  )
 }
 
 export default function Menu({ menuOpen }) {
   const menuRef = useRef(null);
   const navRef = useRef(null);
-  const pathRef = useRef(null);
-  const linksRef = useRef(null);
   const path = usePathname();
   const [serviceOpen, setServiceOpen] = useState(false);
 
   CustomEase.create("primary-ease", "0.62, 0.05, 0.01, 0.99");
 
   useGSAP(() => {
-    const initialPath = `M100 0 L200 0 L200 ${window.innerHeight} L100 ${window.innerHeight} Q-100 ${window.innerHeight / 2} 100 0`
-    const targetPath = `M100 0 L200 0 L200 ${window.innerHeight} L100 ${window.innerHeight} Q100 ${window.innerHeight / 2} 100 0`
-
-    if (navRef.current) {
-      const links = navRef.current.querySelectorAll('.links');
-      links.forEach(link => SplitInChar(link));
-    }
-
     const links = document.querySelectorAll(".link-anim");
     const socialLinks = document.querySelectorAll(".social-link");
 
     if (menuOpen) {
       gsap.timeline()
-        .to(".menuLayer", {
-          opacity: 1,
-          duration: 0.5,
-        })
         .to(navRef.current, {
           left: 0,
           x: 0,
-          delay: -0.5,
-          duration: 0.5,
-          ease: "power3.out",
-        })
-        .fromTo(pathRef.current, {
-          attr: { d: initialPath },
-        }, {
-          attr: { d: targetPath },
-          delay: -0.3,
           duration: 0.5,
           ease: "power3.out",
         })
@@ -89,27 +52,14 @@ export default function Menu({ menuOpen }) {
         })
     } else {
       gsap.timeline()
-        .to(".menuLayer", {
-          opacity: 0,
-          duration: 0.5,
-          onComplete: () => {
-            setServiceOpen(false);
-          }
-        })
         .to(navRef.current, {
           left: "99px",
           x: '100%',
-          delay: -0.5,
           duration: 0.5,
           ease: "power3.out",
-        })
-        .fromTo(pathRef.current, {
-          attr: { d: targetPath },
-        }, {
-          attr: { d: initialPath },
-          duration: 0.5,
-          delay: -0.4,
-          ease: "power3.out",
+          onComplete: () => {
+            setServiceOpen(false);
+          }
         });
     }
   }, [menuOpen]); 
@@ -117,21 +67,19 @@ export default function Menu({ menuOpen }) {
   useGSAP(() => {
     const serviceLinks = document.querySelectorAll(".service-links li");
     if (serviceOpen) {
-      gsap.timeline()
-      .to(serviceLinks, {
+      gsap.to(serviceLinks, {
         opacity: 1,
         x: 0,
         duration: 0.5,
-        stagger: 0.07,
+        stagger: 0.05,
       })
     } else {
-      gsap.timeline()
-      .to(serviceLinks, {
+      gsap.to(serviceLinks, {
         opacity: 0,
         x: 50,
         duration: 0.5,
         stagger: {
-          each: 0.07, from: "end"
+          each: 0.02, from: "end"
         }
       })
     }
@@ -139,128 +87,126 @@ export default function Menu({ menuOpen }) {
 
   return (
     <div ref={menuRef} className="fixed top-0 z-[199] left-0 right-0 bottom-0 flex items-start justify-end pointer-events-none">
-      <span className="absolute bg-black/50 top-0 left-0 right-0 bottom-0 z-[-1] menuLayer" />
-      <nav ref={navRef} className={`relative w-[50%] pointer-events-auto translate-x-[100%] left-[99px] h-screen bg-white`}>
-        <svg className="absolute top-0 left-[-99px] w-[100px] h-full fill-white stroke-none">
-          <path className="" ref={pathRef}></path>
-        </svg>
-        <div className="w-full h-full px-[5vw] pt-[5.5vw] pb-[4.5vw]">
-          <ul className="text-[4.45vw] font-display text-black leading-[1.15]">
+      <nav ref={navRef} className={`relative w-[50%] pointer-events-auto translate-x-[100%] left-[99px] h-screen bg-black/40 backdrop-blur-[25px]`}>
+        <div className="w-full h-full px-[5vw] pt-[5.5vw] pb-[4.5vw] relative">
+          <ul className="text-[4.45vw] font-display text-white leading-[1.15]">
             <li className="overflow-hidden">
-              <Link 
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
-                ref={linksRef} 
-                className="links block w-fit link-anim" 
-                href="/">
-                  Home
-              </Link>
+              <MenuLink 
+                className="link-anim"
+                href="/"
+                text="Home"
+              />
             </li>
             <li className="overflow-hidden">
-              <Link 
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-              ref={linksRef} className="links block w-fit link-anim" href="/about">
-                About
-              </Link>
+                <MenuLink 
+                  className="link-anim"
+                  href="/about-us"
+                  text="About"
+                />
             </li>
             <li className="relative">
               <div className="overflow-hidden">
                 <button 
                   onClick={()=> {setServiceOpen(true)}}
                   className="block w-fit relative link-anim">
-                  <span onMouseEnter={onMouseEnter}
-                  onMouseLeave={onMouseLeave} className="links">
+                  <span
+                   className="links link-line">
                       Expertise
                   </span>
-                  <div className="rounded-full border-body border text-body text-[25%] w-[2vw] h-[2vw] flex items-center justify-center absolute top-0 left-full">5</div>
+                  <div className="rounded-full border-white border text-white text-[25%] w-[2vw] h-[2vw] flex items-center justify-center absolute top-0 left-full">5</div>
                  </button>
               </div>
-              <ul className={`service-links text-[1.3vw] font-display absolute left-[65%] pointer-events-none top-0 pt-[1vw] leading-[1.5] transition-all duration-1000 ease-anim-primary ${serviceOpen ? "pointer-events-auto" : ""}`}>
-                <div onClick={()=> {setServiceOpen(false)}} className={`absolute border rounded-full border-current h-[2vw] p-[0.5vw] w-[2vw] flex items-center leading-[2] justify-center bottom-[90%] opacity-0 left-full cursor-pointer ease-out duration-500 ${serviceOpen ? "opacity-100" : ""} `} >
+              <ul className={`service-links text-[1.3vw] font-display absolute left-[65%] pointer-events-none top-[1.5vw] pt-[1vw] leading-[1.5] transition-all duration-1000 ease-anim-primary ${serviceOpen ? "pointer-events-auto" : ""}`}>
+                <li onClick={()=> {setServiceOpen(false)}} className={`absolute border rounded-full border-current h-[1.8vw] p-[0.5vw] w-[1.8vw] flex items-center leading-[2] justify-center bottom-[90%] opacity-0 left-full cursor-pointer ease-out duration-500 ${serviceOpen ? "opacity-100" : ""} `} >
                   <svg className="w-full h-full" viewBox="0 0 46 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="3" y="1" width="60" height="4" rx="2" transform="rotate(45 3 1)" fill="currentColor"/>
                     <rect y="43" width="60" height="4" rx="2" transform="rotate(-45 0 43)" fill="currentColor"/>
                   </svg>
-                </div>
-                <li className="translate-x-[50px] opacity-0">
-                  <Link className="link-line" href="/brand-strategy">
-                    Brand Strategy
-                  </Link>
                 </li>
                 <li className="translate-x-[50px] opacity-0">
-                  <Link className="link-line"  href="/brand-identity">
-                    Brand Identity
-                  </Link>
+                  <MenuLink 
+                    href="/what-we-do/brand-strategy"
+                    text="Brand Strategy"
+                  />
                 </li>
                 <li className="translate-x-[50px] opacity-0">
-                  <Link className="link-line"  href="/brand-naming">
-                    Brand Naming
-                  </Link>
+                  <MenuLink 
+                    href="/what-we-do/brand-identity"
+                    text="Brand Identity"
+                  />
                 </li>
                 <li className="translate-x-[50px] opacity-0">
-                  <Link className="link-line"  href="/advertising">
-                    Advertising
-                  </Link>
+                  <MenuLink 
+                    href="/what-we-do/naming"
+                    text="Naming"
+                  />
                 </li>
                 <li className="translate-x-[50px] opacity-0">
-                  <Link className="link-line"  href="/digital">
-                    Digital
-                  </Link>
+                  <MenuLink 
+                    href="/what-we-do/communication"
+                    text="Communication"
+                  />
                 </li>
                 <li className="translate-x-[50px] opacity-0">
-                  <Link className="link-line"  href="/services">
-                    View All
-                  </Link>
+                  <MenuLink 
+                    href="/what-we-do/digital"
+                    text="Digital"
+                  />
+                </li>
+                <li className="translate-x-[50px] opacity-0">
+                  <MenuLink 
+                    href="/what-we-do/what-we-do"
+                    text="View All"
+                  />
                 </li>
               </ul>
             </li>
             <li className="overflow-hidden">
-              <Link
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-               className="links block w-fit link-anim" href="/works">
-                Works
-              </Link>
+              <MenuLink 
+                className="link-anim"
+                href="/our-work"
+                text="Work"
+              />
             </li>
             <li className="overflow-hidden">
-              <Link 
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave} 
-                className="links block w-fit link-anim" href="/career">
-                Career
-              </Link>
+              <MenuLink 
+                className="link-anim"
+                href="/careers"
+                text="Careers"
+              />
             </li>
             <li className="overflow-hidden">
-              <Link 
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
-                className="links block w-fit link-anim" href="/blogs">
-                Blogs
-              </Link>
+              <MenuLink 
+                className="link-anim"
+                href="/blog"
+                text="Blog"
+              />
             </li>
             <li className="overflow-hidden">
-              <Link 
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave} 
-                className="links block w-fit link-anim" href="/contact">
-                Contact
-              </Link>
+              <MenuLink 
+                className="link-anim"
+                href="/contact-us"
+                text="Contact"
+              />
             </li>
           </ul>
-          <div className="text-[1.15vw] font-medium flex flex-col space-y-[0.5vw] mt-[3vw]">
-            <Link className="w-fit" href="mailto:hello@welcometoyellow.com">
-              <span className="link-line">
-                Hello@WelcomeToYellow.Com
-              </span>
-            </Link>
-            <Link className="w-fit" href="tel:+971545178971">
-              <span className="link-line">
-                +971 54 517 8971
-              </span>
-            </Link>
+          <div className="text-[1.15vw] font-medium text-white flex flex-col space-y-[0.5vw] mt-[3vw]">
+            <div className="w-fit overflow-hidden">
+              <MenuLink 
+                className="link-anim"
+                href="mailto:hello@welcometoyellow.com"
+                text="hello@welcometoyellow.com"
+              />
+            </div>
+            <div className="w-fit overflow-hidden">
+              <MenuLink 
+                className="link-anim"
+                href="tel:+971545178971"
+                text="+971 54 517 8971"
+              />
+            </div>
           </div>
-          <ul className="flex justify-between items-center text-[1vw] font-medium uppercase mt-[2vw] w-[90%]">
+          <ul className="flex justify-between items-center text-[1vw] text-white font-medium uppercase mt-[2vw] w-[90%]">
             <li className="overflow-hidden">
               <Link 
                 className="social-link flex items-center gap-[3px] group" href="#">
