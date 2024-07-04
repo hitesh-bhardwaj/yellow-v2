@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
-const MenuDynamic = dynamic(() => import("./Menu"), { ssr: false });
+const MenuDynamic = dynamic(() => import("./Menu"), { ssr: true });
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);

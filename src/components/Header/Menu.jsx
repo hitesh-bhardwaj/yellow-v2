@@ -117,12 +117,12 @@ export default function Menu({ menuOpen }) {
                  </button>
               </div>
               <ul className={`service-links text-[1.3vw] font-display absolute left-[65%] pointer-events-none top-[1.5vw] pt-[1vw] leading-[1.5] transition-all duration-1000 ease-anim-primary ${serviceOpen ? "pointer-events-auto" : ""}`}>
-                <div onClick={()=> {setServiceOpen(false)}} className={`absolute border rounded-full border-current h-[1.8vw] p-[0.5vw] w-[1.8vw] flex items-center leading-[2] justify-center bottom-[90%] opacity-0 left-full cursor-pointer ease-out duration-500 ${serviceOpen ? "opacity-100" : ""} `} >
+                <li onClick={()=> {setServiceOpen(false)}} className={`absolute border rounded-full border-current h-[1.8vw] p-[0.5vw] w-[1.8vw] flex items-center leading-[2] justify-center bottom-[90%] opacity-0 left-full cursor-pointer ease-out duration-500 ${serviceOpen ? "opacity-100" : ""} `} >
                   <svg className="w-full h-full" viewBox="0 0 46 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="3" y="1" width="60" height="4" rx="2" transform="rotate(45 3 1)" fill="currentColor"/>
                     <rect y="43" width="60" height="4" rx="2" transform="rotate(-45 0 43)" fill="currentColor"/>
                   </svg>
-                </div>
+                </li>
                 <li className="translate-x-[50px] opacity-0">
                   <MenuLink 
                     href="/what-we-do/brand-strategy"
