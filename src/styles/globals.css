@@ -106,3 +106,15 @@ body{
   transform-origin: left;
   transform: scaleX(1) rotate(0.001deg);
 }
+
+.form input{
+  width: 50vw;
+  height: 3vw;
+  margin: 0 2vw;
+}
+.form-detail input{
+  width: 20vw;
+}
+.details input{
+  width: 80vw;
+}
