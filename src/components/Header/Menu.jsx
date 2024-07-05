@@ -38,7 +38,7 @@ export default function Menu({ menuOpen }) {
         .from(links, {
           yPercent: 100,
           duration: 1.30,
-          delay: -0.9,
+          delay: -0.6,
           ease: "primary-ease",
           stagger: 0.07
         })
@@ -88,8 +88,8 @@ export default function Menu({ menuOpen }) {
   return (
     <div ref={menuRef} className="fixed top-0 z-[199] left-0 right-0 bottom-0 flex items-start justify-end pointer-events-none">
       <nav ref={navRef} className={`relative w-[50%] pointer-events-auto translate-x-[100%] left-[99px] h-screen bg-black/40 backdrop-blur-[25px]`}>
-        <div className="w-full h-full px-[5vw] pt-[5.5vw] pb-[4.5vw] relative">
-          <ul className="text-[4.45vw] font-display text-white leading-[1.15]">
+        <div className="w-full h-full px-[5vw] pt-[5.5vw] pb-[4.5vw] relative flex flex-col justify-between items-start">
+          <ul className="text-[7.8vh] font-display text-white leading-[1.15]">
             <li className="overflow-hidden">
               <MenuLink 
                 className="link-anim"
@@ -104,19 +104,16 @@ export default function Menu({ menuOpen }) {
                   text="About"
                 />
             </li>
-            <li className="relative">
+            <li className="relative w-full">
               <div className="overflow-hidden">
                 <button 
                   onClick={()=> {setServiceOpen(true)}}
-                  className="block w-fit relative link-anim">
-                  <span
-                   className="links link-line">
-                      Expertise
-                  </span>
-                  <div className="rounded-full border-white border text-white text-[25%] w-[2vw] h-[2vw] flex items-center justify-center absolute top-0 left-full">5</div>
+                  className="relative link-anim flex">
+                  <span className="links link-line">Expertise</span>
+                  <div className="rounded-full border-white border text-white text-[25%] w-[2vw] h-[2vw] flex items-center justify-center mt-2">5</div>
                  </button>
               </div>
-              <ul className={`service-links text-[1.3vw] font-display absolute left-[65%] pointer-events-none top-[1.5vw] pt-[1vw] leading-[1.5] transition-all duration-1000 ease-anim-primary ${serviceOpen ? "pointer-events-auto" : ""}`}>
+              <ul className={`service-links text-[1.3vw] font-display absolute right-[-75%] pointer-events-none top-[1.5vw] pt-[1vw] leading-[1.5] transition-all duration-1000 ease-anim-primary ${serviceOpen ? "pointer-events-auto" : ""}`}>
                 <li onClick={()=> {setServiceOpen(false)}} className={`absolute border rounded-full border-current h-[1.8vw] p-[0.5vw] w-[1.8vw] flex items-center leading-[2] justify-center bottom-[90%] opacity-0 left-full cursor-pointer ease-out duration-500 ${serviceOpen ? "opacity-100" : ""} `} >
                   <svg className="w-full h-full" viewBox="0 0 46 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="3" y="1" width="60" height="4" rx="2" transform="rotate(45 3 1)" fill="currentColor"/>
@@ -190,7 +187,7 @@ export default function Menu({ menuOpen }) {
               />
             </li>
           </ul>
-          <div className="text-[1.15vw] font-medium text-white flex flex-col space-y-[0.5vw] mt-[3vw]">
+          <div className="text-[1.1vw] font-medium text-white flex flex-col space-y-[0.5vw]">
             <div className="w-fit overflow-hidden">
               <MenuLink 
                 className="link-anim"
@@ -206,7 +203,7 @@ export default function Menu({ menuOpen }) {
               />
             </div>
           </div>
-          <ul className="flex justify-between items-center text-[1vw] text-white font-medium uppercase mt-[2vw] w-[90%]">
+          <ul className="flex justify-between items-center text-[1vw] text-white font-medium uppercase w-[90%]">
             <li className="overflow-hidden">
               <Link 
                 className="social-link flex items-center gap-[3px] group" href="#">
