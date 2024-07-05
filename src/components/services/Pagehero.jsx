@@ -3,8 +3,8 @@ import React from 'react'
 export default function Pagehero() {
   return (
     <>
-    <section className="w-screen h-[100vh] px-[5vw] bg-white">
-        <div className="w-full h-full flex flex-col justify-center">
+    <section className="w-screen h-[100vh] bg-white" id='hero'>
+        <div className="h-full flex flex-col justify-center container">
           <h1 className="text-[5.7vw] w-fit font-display leading-[1.1] mb-[2vw] uppercase">Services</h1>
           <p className="text-[1.5vw]   w-full font-medium leading-[1.4] flex justify-between">
             <span className="w-[40%] text-[#333333] block">

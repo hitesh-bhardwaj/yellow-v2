@@ -1,10 +1,11 @@
 import React from "react";
 import LinkButton from "../Button/LinkButton";
+import Image from "next/image";
 
 export default function Detail() {
   return (
     <>
-      <section className=" w-full h-full pb-[5%]">
+      <section className=" w-full h-full pb-[5%]" id="detail">
         <div className="grid grid-cols-3 container">
           <div className="col-span-2 flex flex-col w-[80%] gap-[1.5vw]">
             <h2 className="text-[2.5vw] font-display">Brand positioning</h2>
@@ -34,10 +35,11 @@ export default function Detail() {
           </div>
           <div className="col-start-3 flex justify-end">
             <div className="w-[25vw] h-[25vw] rounded-[15px] overflow-hidden relative">
-              <img
+              <Image
                 src="/assets/images/service/service-detail/detail-1.png"
                 alt="detail-1"
                 className="absolute h-full w-full object-cover"
+                fill
               />
             </div>
           </div>
@@ -72,10 +74,11 @@ export default function Detail() {
 
           <div className="col-start-3 flex justify-end">
             <div className="w-[25vw] h-[25vw] rounded-[15px] overflow-hidden relative">
-              <img
+              <Image
                 src="/assets/images/service/service-detail/detail-2.png"
                 alt="detail-2"
                 className="absolute h-full w-full object-cover"
+                fill
               />
             </div>
           </div>
@@ -106,10 +109,11 @@ export default function Detail() {
           </div>
           <div className="col-start-3 flex justify-end">
             <div className="w-[25vw] h-[25vw] rounded-[15px] overflow-hidden relative">
-              <img
+              <Image
                 src="/assets/images/service/service-detail/detail-3.png"
                 alt="detail-3"
                 className="absolute h-full w-full object-cover"
+                fill
               />
             </div>
           </div>

@@ -1,9 +1,10 @@
 import React from "react";
+import Image from "next/image";
 
 export default function Casestudy() {
   return (
     <>
-      <section className="w-screen h-full py-[8%]">
+      <section className="w-screen h-full py-[8%]" id="casestudy">
         <div className="container">
           <div className="grid grid-cols-2 gap-x-[2.5vw] gap-y-[4vw]">
             <div className="">
@@ -57,22 +58,25 @@ export default function Casestudy() {
                 </div>
               </div>
             </div>
-            <div className="col-span-2 mt-[4vw]">
-              <img
+            <div className="col-span-2 mt-[4vw] relative w-[90vw] h-[45vw]">
+              <Image
                 src="/assets/images/portfolio/portfolio-detail/Maveroc-1.png"
                 alt="maveroc-1"
+                fill
               />
             </div>
-            <div>
-              <img
+            <div className="relative col-span-1 w-[43vw] h-[45vw]">
+              <Image
                 src="/assets/images/portfolio/portfolio-detail/Maveroc-2.png"
                 alt="maveroc-2"
+                fill
               />
             </div>
-            <div className="mb-[4vw]">
-              <img
+            <div className="mb-[4vw] col-start-2 col-span-1 w-[43vw] h-[45vw] relative">
+              <Image
                 src="/assets/images/portfolio/portfolio-detail/Maveroc-3.png"
                 alt="maveroc-3"
+                fill
               />
             </div>
             <div>
@@ -108,11 +112,12 @@ export default function Casestudy() {
               </p>
             </div>
             <div className="col-span-2 mt-[4vw]">
-              <div className="relative w-full h-full">
-                <img
+              <div className="relative w-[90vw] h-[45vw]">
+                <Image
                   src="/assets/images/portfolio/portfolio-detail/Maveroc-11.png"
                   alt="maveroc-reel-bg"
                   className="w-full h-full"
+                  fill
                 />
                 <video
                   src="/assets/images/portfolio/videos/Maveroc-reel.mp4"
@@ -123,24 +128,27 @@ export default function Casestudy() {
                 ></video>
               </div>
             </div>
-            <div className="col-span-2">
-              <img
+            <div className="col-span-2 relative w-[90vw] h-[45vw]">
+              <Image
                 src="/assets/images/portfolio/portfolio-detail/Maveroc-10.png"
                 alt="maveroc-10"
+                fill
               />
             </div>
-            <div className="w-full col-span-1">
-              <img
+            <div className="relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px]">
+              <Image
                 src="/assets/images/portfolio/portfolio-detail/maveroc-4.png"
                 alt="maveroc-4"
                 className="object-cover h-full w-full"
+                fill
               />
             </div>
-            <div className="col-start-2 w-full">
-              <img
+            <div className="col-start-2 relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px]">
+              <Image
                 src="/assets/images/portfolio/portfolio-detail/maveroc-7.png"
                 alt="maveroc-7"
-                className="object-contain"
+                className="object-cover h-full w-full"
+                fill
               />
             </div>
             <div className="mt-[4vw]">
@@ -165,19 +173,19 @@ export default function Casestudy() {
                 </span>
               </p>
             </div>
-            <div>
-                <img src="/assets/images/portfolio/portfolio-detail/maveroc-5.png"/>
+            <div className="relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px]">
+                <Image src="/assets/images/portfolio/portfolio-detail/maveroc-5.png" alt="maveroc-5" fill/>
 
             </div>
-            <div>
-                <img src="/assets/images/portfolio/portfolio-detail/maveroc-8.png"/>
+            <div className="relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px]">
+                <Image src="/assets/images/portfolio/portfolio-detail/maveroc-8.png" alt="maveroc-8" fill/>
             </div>
-            <div className="col-span-2">
-                <img src="/assets/images/portfolio/portfolio-detail/maveroc-9.png"/>
+            <div className=" col-span-2 relative w-[90vw] h-[45vw]">
+                <Image src="/assets/images/portfolio/portfolio-detail/maveroc-9.png" alt="maveroc-9" fill/>
 
             </div>
-            <div className="col-span-2">
-                <img src="/assets/images/portfolio/portfolio-detail/maveroc-6.png"/>
+            <div className="col-span-2 relative w-[90vw] h-[45vw]">
+                <Image src="/assets/images/portfolio/portfolio-detail/maveroc-6.png" alt="maveroc-6" fill/>
 
             </div>
           </div>

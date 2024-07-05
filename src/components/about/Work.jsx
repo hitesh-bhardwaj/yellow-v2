@@ -1,14 +1,13 @@
 import React from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 
-export default function Works() {
+export default function Work() {
   return (
     <>
-    <section className='w-full h-full py-[8%]' id='works'>
+    <section className='w-full h-full py-[8%]' id='work'>
       <div className='container'>
       <div className='w-full flex justify-between mb-[5vw]'>
-            <h2 className='text-[5.8vw] font-display uppercase'>Related Works</h2>
+            <h2 className='text-[5.8vw] font-display uppercase'>our Work</h2>
             <Link
                 className={`cursor-pointer flex w-fit relative text-[1.4vw] gap-[0.5vw] items-center font-medium group `}
                 href="#"
@@ -37,83 +36,52 @@ export default function Works() {
                 </svg>
               </Link>
         </div>
-        <div className='w-full flex justify-between gap-[2vw]'>
-            <div className='w-full h-full relative'>
+        <div className='w-full flex justify-between gap-[3vw]'>
+            <div className='w-[45vw] h-[45vw] relative bg-[#93A374] rounded-[15px] overflow-hidden'>
                 <Link href={"/"}>
-                <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden'>
-                <Image src='/assets/images/portfolio/portfolio-detail/work1.png' alt='work1' className='object-cover h-full w-full' fill/>
-
-
-                </div>
+                <div className='absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]'><img src='/assets/images/about/work-1.png' alt='work-1'/></div>
                 <div className="absolute bottom-[7%] left-[7%] text-white">
-              <h3 className="text-[2vw] mb-[1vw] font-display">Numu</h3>
-              <p className="w-[70%] text-[1.1vw] leading-[1.4] font-medium">
+              <h3 className="text-[2.5vw] mb-[1vw] font-display">Numu</h3>
+              <p className="w-[90%] text-[1.1vw] leading-[1.4] font-medium">
               Brand identity for a premium early childhood centre
               </p>
             </div>
-            <div className="absolute top-[7%] left-[7%] flex gap-[1.5vw] text-white">
-              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw]">
-              Brand Strategy
+            <div className="absolute top-[5%] left-[7%] flex gap-[1.5vw] text-white">
+              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-lg px-[1.4vw] py-[0.4vw] text-[1.4vw]">
+              Digital Marketing
               </button>
-              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw]">
-                Brand Name
+              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-lg px-[1.4vw] py-[0.4vw] text-[1.4vw]">
+                Branding Name
               </button>
             </div>
 
                 </Link>
             </div>
-            <div className='w-full h-full relative'>
+            <div className='w-[45vw] h-[45vw] relative bg-[#FB8464] rounded-[15px] overflow-hidden'>
                 <Link href={"/"}>
-                <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden'>
-                <Image src='/assets/images/portfolio/portfolio-detail/work2.png' alt='work2' className='object-cover h-full w-full' fill/>
-
-
-                </div>
-                <div className="absolute bottom-[12%] left-[7%] text-black">
-              <h3 className="text-[2vw] mb-[1vw] font-display">Luma</h3>
+                <div className='absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[30vw] h-[7vw]'><img src='/assets/images/about/work-2.png' alt='work-2' className='object-cover h-full w-full'/></div>
+                <div className="absolute bottom-[7%] left-[7%] text-white">
+              <h3 className="text-[2.5vw] mb-[1vw] font-display">Beema</h3>
               <p className="w-full text-[1.1vw] leading-[1.4] font-medium">
-              A brighter way to play
+              A brand refresh for the region’s first pay-per-mile provider
               </p>
             </div>
-            <div className="absolute top-[7%] left-[7%] flex gap-[1.5vw] text-black">
-              <button className="w-fit border-[1px] border-black rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw]">
-              Brand Strategy
+            <div className="absolute top-[5%] left-[7%] flex gap-[1.5vw] text-white">
+              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-lg px-[1.4vw] py-[0.4vw] text-[1.4vw]">
+              Digital Marketing
               </button>
-              <button className="w-fit border-[1px] border-black rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw]">
-                Brand Name
+              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-lg px-[1.4vw] py-[0.4vw] text-[1.4vw]">
+                Branding Name
               </button>
             </div>
 
                 </Link>
             </div>
-            <div className='w-full h-full relative'>
-                <Link href={"/"}>
-                <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden'>
-                <Image src='/assets/images/portfolio/portfolio-detail/work3.png' alt='work3' className='object-cover h-full w-full' fill/>
-
-
-                </div>
-                <div className="absolute bottom-[7%] left-[7%] text-black">
-              <h3 className="text-[2vw] mb-[1vw] font-display">Misk</h3>
-              <p className="w-[90%] text-[1.1vw] font-medium leading-[1.4]">
-              Bespoke jewellery, from the UAE to the world
-              </p>
-            </div>
-            <div className="absolute top-[7%] left-[7%] flex gap-[1.5vw] text-black">
-              <button className="w-fit border-[1px] border-black rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw]">
-              Brand Strategy
-              </button>
-              <button className="w-fit border-[1px] border-black rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw]">
-                Brand Name
-              </button>
-            </div>
-
-                </Link>
-            </div>
+            
         </div>
 
       </div>
-        
+       
 
     </section>
       
@@ -121,4 +89,4 @@ export default function Works() {
   )
 }
 
-
+ 

@@ -34,7 +34,7 @@ export default function ContactForm() {
   });
 
   return (
-    <section className="px-[5vw] py-[8%]">
+    <section className="px-[5vw] py-[5%]">
       <h3 className="text-[4.8vw] leading-[1.2] font-display w-[70%] mb-[7vw]">
       Connect with our team to bring your ideas to life.
       </h3>

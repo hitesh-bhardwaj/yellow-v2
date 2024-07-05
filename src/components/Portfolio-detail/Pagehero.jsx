@@ -3,7 +3,8 @@ import React from 'react'
 export default function Pagehero() {
   return (
     <>
-    <section className='w-screen h-screen relative flex items-center '>
+    <section className='w-screen h-screen relative flex items-center ' id='hero'>
+      
        
             <video src='/assets/images/portfolio/videos/Maveroc-bg.mp4' autoPlay={true} loop muted className='w-screen h-[100vh] absolute top-0 left-0 object-cover z-[-1]'></video>
             <h1 className='text-[5.4vw] text-white ps-[5%] uppercase font-display'>

@@ -1,13 +1,17 @@
 import React from 'react'
+import Image from 'next/image'
 
 export default function About() {
   return (
     <>
-     <section className="pb-[5%] px-[5vw]">
-        <div className="w-full h-full rounded-[15px] overflow-hidden">
-          <img
+     <section className="pb-[5%]" id='about'>
+      <div className='container'>
+      <div className="w-[90vw] h-[45vw] rounded-[15px] overflow-hidden relative">
+          <Image
             src="/assets/images/service/service-detail/service-detail-hero.png"
             alt="service-detail-hero"
+            className='object-cover w-full h-full'
+            fill
           />
         </div>
         <div className="w-full flex justify-between mt-[5vw] mb-[12vw]">
@@ -69,6 +73,9 @@ export default function About() {
           </div>
           <div className="h-[2px] col-span-3 bg-black mt-[4vw]"></div>
         </div>
+
+      </div>
+        
       </section>
       
     </>

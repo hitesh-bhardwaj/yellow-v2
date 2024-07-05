@@ -1,14 +1,16 @@
 import React from "react";
 import BlackButton from "../Button/BlackButton";
+import Image from "next/image";
 
 export default function ServiceList() {
   return (
     <>
-      <section className="w-full h-full py-[5%] px-[5vw]">
-        <div className="grid grid-cols-7 h-full gap-x-[3vw] gap-y-[7vw] container">
+      <section className="w-full h-full py-[5%]" id="list">
+        <div className="container">
+        <div className="grid grid-cols-7 h-full gap-x-[3vw] gap-y-[7vw]">
           <div className="col-span-4 w-full h-full ">
-            <div className="w-full h-full rounded-xl drop-shadow-2xl shadow-xl overflow-hidden">
-            <img src="/assets/images/service/service-1.png" alt="service-1" className="object-cover w-full h-full" />
+            <div className="w-[50vw] h-[33vw] rounded-xl drop-shadow-2xl shadow-xl overflow-hidden relative">
+            <Image src="/assets/images/service/service-1.png" alt="service-1" className="object-cover w-full h-full" fill />
 
             </div>
             
@@ -31,8 +33,8 @@ export default function ServiceList() {
             <BlackButton btnLink={"/"} btnText={"View More"} />
           </div>
           <div className=" col-span-4 w-full h-full">
-            <div className="w-full h-full rounded-xl drop-shadow-2xl shadow-xl overflow-hidden">
-            <img src="/assets/images/service/service-2.png" alt="service-2" className="object-cover w-full h-full" />
+            <div className="w-[50vw] h-[33vw] relative rounded-xl drop-shadow-2xl shadow-xl overflow-hidden">
+            <Image src="/assets/images/service/service-2.png" alt="service-2" className="object-cover w-full h-full" fill />
 
             </div>
             
@@ -47,8 +49,8 @@ export default function ServiceList() {
             <BlackButton btnLink={"/"} btnText={"View More"} />
           </div>
           <div className="col-span-4 w-full h-full">
-            <div className="w-full h-full rounded-xl drop-shadow-2xl shadow-xl overflow-hidden">
-            <img src="/assets/images/service/service-3.png" alt="service-3" className="object-cover w-full h-full" />
+            <div className="w-[50vw] h-[33vw] relative rounded-xl drop-shadow-2xl shadow-xl overflow-hidden">
+            <Image src="/assets/images/service/service-3.png" alt="service-3" className="object-cover w-full h-full" fill />
 
             </div>
             
@@ -63,8 +65,8 @@ export default function ServiceList() {
             <BlackButton btnLink={"/"} btnText={"View More"} />
           </div>
           <div className="col-span-4 w-full h-full">
-            <div className="w-full h-full rounded-xl drop-shadow-2xl shadow-xl overflow-hidden">
-            <img src="/assets/images/service/service-4.png" alt="service-4" className="object-cover w-full h-full" />
+            <div className="w-[50vw] h-[33vw] relative rounded-xl drop-shadow-2xl shadow-xl overflow-hidden">
+            <Image src="/assets/images/service/service-4.png" alt="service-4" className="object-cover w-full h-full" fill/>
 
             </div>
             
@@ -82,8 +84,8 @@ export default function ServiceList() {
             <BlackButton btnLink={"/"} btnText={"View More"} />
           </div>
           <div className="col-span-4 w-full h-full">
-            <div className="w-full h-full rounded-xl drop-shadow-2xl shadow-xl overflow-hidden">
-            <img src="/assets/images/service/service-5.png" alt="service-5" className="object-cover w-full h-full" />
+            <div className="w-[50vw] h-[33vw] relative rounded-xl drop-shadow-2xl shadow-xl overflow-hidden">
+            <Image src="/assets/images/service/service-5.png" alt="service-5" className="object-cover w-full h-full" fill />
 
             </div>
             
@@ -98,6 +100,9 @@ export default function ServiceList() {
             <BlackButton btnLink={"/"} btnText={"View More"} />
           </div>
         </div>
+
+        </div>
+       
       </section>
     </>
   );

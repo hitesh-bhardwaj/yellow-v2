@@ -1,9 +1,11 @@
 import React from "react";
+import Image from "next/image";
 
 export default function Pagehero() {
   return (
     <>
-      <section className="px-[5vw] w-screen h-full">
+      <section className=" w-screen h-full" id="hero">
+        <div className="container">
         <div className="w-full h-[60vh] flex items-center">
           <h1 className="text-[5.7vw] font-display uppercase">Who We Are</h1>
         </div>
@@ -38,10 +40,13 @@ export default function Pagehero() {
               </p>
             </div>
           </div>
-          <div className="drop-shadow-2xl shadow-2xl">
-            <img src="/assets/images/about/about-hero.png" alt="about-hero"/>
+          <div className="drop-shadow-2xl shadow-2xl h-[40vw] w-[40vw] relative">
+            <Image src="/assets/images/about/about-hero.png" alt="about-hero" fill className="object-cover h-full w-full"/>
           </div>
         </div>
+
+        </div>
+       
       </section>
     </>
   );
