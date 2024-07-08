@@ -4,8 +4,8 @@ import Image from "next/image";
 export default function Pagehero() {
   return (
     <>
-      <section className="w-full h-[140vh] px-[5vw] flex items-center">
-        <div className="flex justify-between w-full">
+      <section className="w-full h-[140vh] flex items-center" id="hero">
+        <div className="flex justify-between container">
           <div className="w-full">
             <h1 className="text-[5.8vw] font-display uppercase w-[70%] leading-[1.1] mb-[3vw]">Hey There ! Good to See you !</h1>
             <p className="w-[70%] font-medium text-[1.4vw]">

@@ -4,48 +4,64 @@ const teamMembers = [
   {
     name: "Wael Bittar",
     role: "Communication Director",
-    image: "/assets/images/about/meet-1.png",
+    image: "/assets/images/about/1.png",
+    imagebw: "/assets/images/about/1bw.png",
   },
   {
     name: "mamta varekar",
     role: "General Manager",
-    image: "/assets/images/about/meet-2.png",
+    image: "/assets/images/about/2.png",
+    imagebw: "/assets/images/about/2bw.png",
   },
   {
     name: "Stuart Harris",
     role: "Creative Director",
-    image: "/assets/images/about/meet-3.png",
+    image: "/assets/images/about/3.png",
+    imagebw: "/assets/images/about/3bw.png",
   },
   {
-    name: "Wael Bittar",
-    role: "Communication Director",
-    image: "/assets/images/about/meet-1.png",
+    name: "Sarah Azmi",
+    role: "Co-Founder & Head of Strategy",
+    image: "/assets/images/about/4.png",
+    imagebw: "/assets/images/about/4bw.png",
   },
   {
-    name: "mamta varekar",
-    role: "General Manager",
-    image: "/assets/images/about/meet-2.png",
+    name: "Aishwarya Carriappa",
+    role: "Designer",
+    image: "/assets/images/about/5.png",
+    imagebw: "/assets/images/about/5bw.png",
   },
   {
-    name: "Stuart Harris",
-    role: "Creative Director",
-    image: "/assets/images/about/meet-3.png",
+    name: "Danielle Haddad",
+    role: "Senior Account Manager",
+    image: "/assets/images/about/6.png",
+    imagebw: "/assets/images/about/6bw.png",
   },
   {
-    name: "Wael Bittar",
-    role: "Communication Director",
-    image: "/assets/images/about/meet-1.png",
+    name: "Gunjan Mathur",
+    role: "Designer",
+    image: "/assets/images/about/7.png",
+    imagebw: "/assets/images/about/7bw.png",
   },
   {
-    name: "mamta varekar",
-    role: "General Manager",
-    image: "/assets/images/about/meet-2.png",
+    name: "Youmna Kanaan",
+    role: "Designer",
+    image: "/assets/images/about/8.png",
+    imagebw: "/assets/images/about/8bw.png",
   },
   {
-    name: "Stuart Harris",
-    role: "Creative Director",
-    image: "/assets/images/about/meet-3.png",
+    name: "Maritony Flores",
+    role: "Admin",
+    image: "/assets/images/about/9.png",
+    imagebw: "/assets/images/about/9bw.png",
   },
+  {
+    name: "sweatha",
+    role: "Account manager",
+    image: "/assets/images/about/10.png",
+    imagebw: "/assets/images/about/10bw.png",
+  },
+  
   
 ];
 
@@ -54,35 +70,38 @@ export default function Meet() {
     <>
       <section className="w-full h-full py-[5%]" id="meet">
         <div className="container">
-        <h2 className="text-[5.7vw] font-display uppercase mb-[3vw]">
+        <h2 className="text-[5.7vw] font-display uppercase mb-[3vw] heading-anim">
           Meet the people
         </h2>
-        <p className="text-[2vw] w-[30%] font-medium leading-[1.2]">
+        <p className="text-[2vw] w-[30%] font-medium leading-[1.2] para-anim">
           We grow amazing companies through exceptional branding and
           communications.
         </p>
-        <div className="flex flex-wrap gap-[1vw] mt-[10vw] justify-between gap-y-[3vw]">
+        <div className="flex flex-wrap mt-[10vw] justify-between gap-y-[3vw]">
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className={`w-[28vw] h-[32vw] relative group cursor-pointer ${index%3==1?"bg-[#D9D9D9]":""}`}
+              className={`w-[32%] h-[36vw] group cursor-pointer relative overflow-hidden`}
             >
               <img
                 src={member.image}
                 alt={`meet-${index + 1}`}
-                className="object-contain h-full w-full"
+                className="object-cover h-full w-full group-hover:opacity-0 transition-all ease"
               />
-              <div className="absolute px-[2vw] py-[1.5vw] z-[2] bottom-0">
+              <img
+                src={member.imagebw}
+                alt={`meet-bw-${index + 1}`}
+                className="absolute object-cover h-full w-full group-hover:opacity-100 opacity-0 transition-all ease top-0 left-0"
+              />
+              <div className="absolute w-full px-[2vw] py-[1.5vw] z-[2] bottom-0 backdrop-blur-lg">
                 <div className="text-white flex w-full justify-between h-full">
                   <div className="flex flex-col">
-                    <h4 className="text-[2vw] font-display leading-[1.2] uppercase">
+                    <h4 className="text-[1.8vw] font-display leading-[1.2] uppercase heading-anim">
                       {member.name}
                     </h4>
-                    <p className="">{member.role}</p>
+                    <p className="para-anim">{member.role}</p>
                   </div>
-                </div>
-              </div>
-              <div className="absolute right-[10%] bottom-[8%]">
+                  <div className="">
                 <svg
                   className="relative -rotate-[135deg] w-[2.3vw] h-[2.3vw] overflow-hidden"
                   width="19"
@@ -103,6 +122,9 @@ export default function Meet() {
                   />
                 </svg>
               </div>
+                </div>
+              </div>
+              
             </div>
           ))}
         </div>

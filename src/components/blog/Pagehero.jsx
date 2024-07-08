@@ -9,7 +9,7 @@ export default function Pagehero() {
         <div className="container">
           <div className=" flex items-center h-[100vh]">
             <div>
-              <h1 className="text-[5.7vw] font-display leading-[1.2] mb-[4vw]">
+              <h1 className="text-[5.7vw] font-display leading-[1.2] mb-[4vw] para-anim">
                 Color Psychology in Branding: Understanding the Emotional Impact
                 of Colors
               </h1>
