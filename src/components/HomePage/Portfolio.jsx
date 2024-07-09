@@ -21,27 +21,67 @@ const Portfolio = () => {
   useGSAP(() => {
     const container = containerRef.current;
     const scroll = scrollRef.current;
-    const tl = gsap.timeline({
+    // const slide = document.querySelectorAll(".slider")
+    let sections = document.querySelectorAll(".pannel");
+    let imageanim = document.querySelectorAll(".pannel-img");
+    let scrollTween = gsap.to(sections, {
+      xPercent: -100 * (sections.length - 1),
+      ease: "none", // <-- IMPORTANT!
       scrollTrigger: {
         trigger: container,
         pin: true,
-        scrub: 1,
-        start: "top top",
-        end: "=+3000 top",
-      },
-    });
-    tl.fromTo(
-      scroll,
-      {
-        x: "0",
-      },
-      {
-        x: "-200vw",
-        duration: 5,
-        ease: "none",
+        scrub: 0.1,
+        //snap: directionalSnap(1 / (sections.length - 1)),
+        end: "+=3000"
       }
-    );
+    });
+    sections.forEach((sec)=>{
+      imageanim.forEach((img)=>{
+        gsap.to(img, {
+          scale:1,
+          duration: 0.7,
+         ease:"power2.inout",
+          scrollTrigger: {
+            trigger: img,
+            scrub:true,
+            // markers:true,
+            containerAnimation: scrollTween,
+            start: "20% 70%",
+            end:"90% 70%",
+            toggleActions: "play none none reset",
+           
+          }
+        });
+        
+      })
+      
+
+    })
+    
+    // const tl = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: container,
+    //     pin: true,
+    //     scrub: 1,
+    //     start: "top top",
+    //     end: "=+3000 top",
+    //   },
+    // });
+    
+    // tl.fromTo(
+    //   scroll,
+    //   {
+    //     x: "0",
+    //   },
+    //   {
+    //     x: "-200vw",
+    //     duration: 5,
+    //     ease: "none",
+    //   }
+    // );
+   
   });
+ 
 
   useGSAP(() => {
     const headings = document.querySelectorAll(".heading-anim");
@@ -132,12 +172,12 @@ const Portfolio = () => {
           ref={scrollRef}
           className="flex h-full w-[300vw] whitespace-nowrap"
         >
-          <div className="h-full w-[90vw] relative p-[5vw]">
+          <div className="h-full w-[90vw] relative p-[5vw] pannel ">
             <video
               autoPlay
               loop
               muted
-              className="w-screen h-full absolute top-0 left-0 object-cover z-[-1]"
+              className="w-screen h-full absolute top-0 left-0 object-cover z-[-1] pannel-img"
               loading="lazy"
               poster="/assets/images/portfolio/videos/mavroc-bg-poster.webp"
             >
@@ -171,9 +211,9 @@ const Portfolio = () => {
               </div>
             </div>
           </div>
-          <div className="h-full w-[90vw] relative p-[5vw]">
+          <div className="h-full w-[90vw] relative p-[5vw] pannel overflow-hidden">
             <Image
-              className="object-cover h-full w-full"
+              className="object-cover h-full w-full pannel-img scale-[1.2]"
               src="/assets/images/homepage/sufra.webp"
               alt="Portfolio Image"
               fill
@@ -205,9 +245,9 @@ const Portfolio = () => {
               </div>
             </div>
           </div>
-          <div className="h-full w-[90vw] relative p-[5vw]">
+          <div className="h-full w-[90vw] relative p-[5vw] pannel overflow-hidden">
             <Image
-              className="object-cover h-full w-full"
+              className="object-cover h-full w-full pannel-img scale-[1.2]"
               src="/assets/images/homepage/fineArts.webp"
               alt="Portfolio Image"
               fill

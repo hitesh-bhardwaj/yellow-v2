@@ -93,7 +93,7 @@ export default function Meet() {
                 alt={`meet-bw-${index + 1}`}
                 className="absolute object-cover h-full w-full group-hover:opacity-100 opacity-0 transition-all ease top-0 left-0"
               />
-              <div className="absolute w-full px-[2vw] py-[1.5vw] z-[2] bottom-0 backdrop-blur-lg">
+              <div className="absolute w-full px-[2vw] py-[1.5vw] z-[2] bottom-0 backdrop-blur-lg bg-black bg-opacity-40">
                 <div className="text-white flex w-full justify-between h-full">
                   <div className="flex flex-col">
                     <h4 className="text-[1.8vw] font-display leading-[1.2] uppercase heading-anim">

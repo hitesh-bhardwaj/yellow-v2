@@ -6,7 +6,6 @@ import CustomEase from "gsap/dist/CustomEase";
 import Link from "next/link";
 import { useRef } from "react";
 import { SplitInChar } from "../utils";
-import { useState, useEffect } from 'react';
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, useGSAP, CustomEase);
 
@@ -22,23 +21,6 @@ const handleScroll = () => {
 
 const Footer = () => {
     const footerContainer = useRef(null);
-    const [time, setTime] = useState(new Date());
-
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setTime(new Date());
-      }, 1000);
-      return () => clearInterval(interval);
-    }, []);
-  
-    const formatTime = (date) => {
-        return new Intl.DateTimeFormat('en-GB', {
-          hour: '2-digit',
-          minute: '2-digit',
-          hour12: false,
-          timeZone: 'Asia/Dubai',
-        }).format(date);
-      };
   
     useGSAP(() => {
         if (footerContainer.current) {
@@ -141,7 +123,7 @@ const Footer = () => {
                                 </h6>
                                 <div className="flex justify-between items-start">
                                     <div className="w-2/5 ">
-                                        <h6 className="text-[1.9vw] font-display leading-[1.2] mb-[1vw]">Dubai {formatTime(time)}</h6>
+                                        <h6 className="text-[1.9vw] font-display leading-[1.2] mb-[1vw]">Address</h6>
                                         <Link href="#" className="text-[1.15vw] font-medium under-multi-parent">
                                             <span className="under-multi">Loft offices 2, Office 107, Dubai Media City, Dubai UAE</span>
                                         </Link>

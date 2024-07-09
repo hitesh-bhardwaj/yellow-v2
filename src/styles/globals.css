@@ -115,3 +115,19 @@ body{
 .hide-first .hide-first-child:first-of-type .hide{
   display: none;
 }
+
+.imageanim {
+  --beforeHeight: 100%;
+}
+.imageanim::before{
+  content:"";
+  position: absolute;
+  width: var(--beforeHeight);
+  height: 100%;
+  top: 0;
+  right: 0;
+  display: block;
+  background-color: #ffffff;
+  z-index: 2;
+  /* transition: width .8s cubic-bezier(.54,.54,.14,.99); */
+}

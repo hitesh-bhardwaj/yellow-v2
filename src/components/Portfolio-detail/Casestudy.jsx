@@ -8,7 +8,7 @@ export default function Casestudy() {
         <div className="container">
           <div className="grid grid-cols-2 gap-x-[2.5vw] gap-y-[4vw]">
             <div className="">
-              <h2 className="text-[4.8vw] mb-[3vw] leading-[1.1] font-display w-[50%]">
+              <h2 className="text-[4.8vw] mb-[3vw] leading-[1.1] font-display w-[50%] heading-anim">
                 The Art of Rebellion
               </h2>
               <div className="text-[1.2vw] font-medium flex flex-wrap gap-[0.5vw] w-[70%]">
@@ -36,7 +36,7 @@ export default function Casestudy() {
               </div>
             </div>
             <div className="col-start-2 text-[1.4vw] font-medium pt-[1vw]">
-              <p className="mb-[4vw] leading-[1.3]">
+              <p className="mb-[4vw] leading-[1.3] para-anim">
                 Meet Rita & Ibrahim, an incredibly talented couple that left
                 their established careers to pursue their dreams of creating a
                 bold new fine jewelry brand. Rebellion was a major theme
@@ -80,10 +80,10 @@ export default function Casestudy() {
               />
             </div>
             <div>
-              <h3 className="font-display text-[3vw]">Why Maveroc</h3>
+              <h3 className="font-display text-[3vw] heading-anim">Why Maveroc</h3>
             </div>
             <div className="col-start-2">
-              <p className="text-[1.4vw] font-medium">
+              <p className="text-[1.4vw] font-medium para-anim">
                 <span className="mb-[2vw]">
                   Naming is always one of the most challenging aspects of
                   creating a brand. It’s incredibly personal, subjective and
@@ -152,12 +152,12 @@ export default function Casestudy() {
               />
             </div>
             <div className="mt-[4vw]">
-              <h3 className="font-display text-[3vw]">
+              <h3 className="font-display text-[3vw] heading-anim">
                 Passionate Cheerleaders
               </h3>
             </div>
             <div className="col-start-2 mt-[5vw]">
-              <p className="text-[1.4vw] font-medium">
+              <p className="text-[1.4vw] font-medium para-anim">
                 <span className="mb-[2vw]">
                   The team: Yellow works collaboratively with our in-house team
                   which was made up of Sarah, Mamta, Dan, Stuart along with a

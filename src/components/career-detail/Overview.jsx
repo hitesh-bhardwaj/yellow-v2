@@ -5,11 +5,11 @@ export default function Overview() {
     <>
     <section id='overview'>
         <div className='container py-[7%] flex justify-between'>
-            <h2 className='text-[5.7vw] font-display w-[50%]'>
+            <h2 className='text-[5.7vw] font-display w-[50%] heading-anim'>
                 Overview
 
             </h2>
-            <p className='w-[45%] text-[1.2vw] font-medium'>
+            <p className='w-[45%] text-[1.2vw] font-medium para-anim'>
             <span>Are you someone with big dreams, endless curiosity, and a passion for making things happen?</span>
             <br/>    
             <br/>    

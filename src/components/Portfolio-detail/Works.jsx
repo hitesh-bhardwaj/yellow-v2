@@ -8,7 +8,7 @@ export default function Works() {
     <section className='w-full h-full py-[8%]' id='works'>
       <div className='container'>
       <div className='w-full flex justify-between mb-[5vw]'>
-            <h2 className='text-[5.8vw] font-display uppercase'>Related Works</h2>
+            <h2 className='text-[5.8vw] font-display uppercase heading-anim'>Related Works</h2>
             <Link
                 className={`cursor-pointer flex w-fit relative text-[1.4vw] gap-[0.5vw] items-center font-medium group `}
                 href="#"
@@ -46,8 +46,8 @@ export default function Works() {
 
                 </div>
                 <div className="absolute bottom-[7%] left-[7%] text-white">
-              <h3 className="text-[2vw] mb-[1vw] font-display">Numu</h3>
-              <p className="w-[70%] text-[1.1vw] leading-[1.4] font-medium">
+              <h3 className="text-[2vw] mb-[1vw] font-display heading-anim">Numu</h3>
+              <p className="w-[90%] text-[1.1vw] leading-[1.4] font-medium para-anim">
               Brand identity for a premium early childhood centre
               </p>
             </div>
@@ -69,9 +69,9 @@ export default function Works() {
 
 
                 </div>
-                <div className="absolute bottom-[12%] left-[7%] text-black">
-              <h3 className="text-[2vw] mb-[1vw] font-display">Luma</h3>
-              <p className="w-full text-[1.1vw] leading-[1.4] font-medium">
+                <div className="absolute bottom-[8%] left-[7%] text-black">
+              <h3 className="text-[2vw] mb-[1vw] font-display heading-anim">Luma</h3>
+              <p className="w-full text-[1.1vw] leading-[1.4] font-medium para-anim">
               A brighter way to play
               </p>
             </div>
@@ -94,8 +94,8 @@ export default function Works() {
 
                 </div>
                 <div className="absolute bottom-[7%] left-[7%] text-black">
-              <h3 className="text-[2vw] mb-[1vw] font-display">Misk</h3>
-              <p className="w-[90%] text-[1.1vw] font-medium leading-[1.4]">
+              <h3 className="text-[2vw] mb-[1vw] font-display heading-anim">Misk</h3>
+              <p className="w-full text-[1.1vw] font-medium leading-[1.4] para-anim">
               Bespoke jewellery, from the UAE to the world
               </p>
             </div>

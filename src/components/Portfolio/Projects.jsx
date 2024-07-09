@@ -1,6 +1,10 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+gsap.registerPlugin(ScrollTrigger);
 
 // Define project data
 const projectsData = [
@@ -136,6 +140,24 @@ export default function ProjectsCopy() {
   const handleCategoryClick = (category) => {
     setActiveCategory(category);
   };
+  useGSAP(() => {
+    const images = document.querySelectorAll(".imageanim");
+
+    images.forEach((img) => {
+      gsap.to(img, {
+        scrollTrigger: {
+          trigger: img,
+          start: "top 80%",
+          
+          // markers:true
+        },
+        '--beforeHeight': '0%',
+        duration: 1.5,
+        stagger: 0.05,
+        ease: "power3.inOut",
+      });
+    });
+  });
 
   return (
     <>
@@ -165,19 +187,20 @@ export default function ProjectsCopy() {
             {filteredProjects.map((project, index) => (
               <div key={index} className={`col-span-${index % 3 === 0 ? "2" : "1"} relative`}>
                 <Link href={"/"}>
-                <div className={`relative overflow-hidden rounded-[10px] ${index % 3 === 0 ? "w-[90vw] h-[45vw]" : "w-[44vw] h-[45vw]"}`}>
+                <div className={`relative overflow-hidden rounded-[10px] ${index % 3 === 0 ? "w-[90vw] h-[45vw]" : "w-[44vw] h-[45vw]"} imageanim`}>
                 <Image
                     src={project.image}
                     alt={`${project.name}-img`}
                     className="object-cover"
                     fill
                   />
+                 
 
                 </div>
                   
                   <div className={`absolute bottom-[10%] left-[3%] text-white ${index % 3 === 0 ? "bottom-[10%] left-[3%]" : "bottom-[10%] left-[7%]"}`}>
-                    <h3 className="text-[2.5vw] mb-[1.5vw]">{project.name}</h3>
-                    <p className={` text-[1.1vw] leading-[1.4] ${index % 3 === 0 ? "w-[55%]" : "w-[90%]"}`}>{project.description}</p>
+                    <h3 className="text-[2.5vw] mb-[1.5vw] heading-anim">{project.name}</h3>
+                    <p className={` text-[1.1vw] leading-[1.4] w-[100%] para-anim`}>{project.description}</p>
                   </div>
                   <div className={`absolute  flex gap-[1.5vw] text-white ${index % 3 === 0 ? "bottom-[10%] right-[3%]" : "top-[7%] left-[7%]"}`}>
                     {project.tags.map((tag, tagIndex) => (

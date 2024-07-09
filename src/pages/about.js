@@ -54,23 +54,22 @@ export default function about() {
   });
 
   useGSAP(() => {
-    const lineDraws = document.querySelectorAll(".lineDraw");
-    lineDraws.forEach((lineDraw) => {
-      gsap.from(lineDraw, {
-        scrollTrigger: {
-          trigger: lineDraw,
-          start: "top 85%",
-          toggleActions: "play none none reverse",
-        },
-        scaleX: 0,
-        transformOrigin: "left",
-        duration: 1.47,
-        yPercent: 100,
-        stagger: 0.07,
-        ease: "primary-ease",
-      });
+    const fadeUps = document.querySelectorAll(".fadeUp");
+    fadeUps.forEach((fadeUp) => {
+        gsap.from(fadeUp, {
+            scrollTrigger: {
+                trigger: fadeUp,
+                start: "top 90%",
+                toggleActions: "play none none reverse",
+            },
+            opacity: 0,
+            rotationZ: 5,
+            y: 70,
+            duration: 0.6,
+            ease: "power3.out",
+        });
     });
-  });
+});
   return (
     <>
     <Layout>

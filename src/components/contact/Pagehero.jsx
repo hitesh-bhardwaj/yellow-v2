@@ -7,8 +7,8 @@ export default function Pagehero() {
       <section className="w-full h-[140vh] flex items-center" id="hero">
         <div className="flex justify-between container">
           <div className="w-full">
-            <h1 className="text-[5.8vw] font-display uppercase w-[70%] leading-[1.1] mb-[3vw]">Hey There ! Good to See you !</h1>
-            <p className="w-[70%] font-medium text-[1.4vw]">
+            <h1 className="text-[5.8vw] font-display uppercase w-[70%] leading-[1.1] mb-[3vw] heading-anim">Hey There ! Good to See you !</h1>
+            <p className="w-[70%] font-medium text-[1.4vw] para-anim">
               As a digital branding agency, we help businesses connect with
               their customers by using a variety of tools and services. This
               includes creating logos for our clients, website design and
