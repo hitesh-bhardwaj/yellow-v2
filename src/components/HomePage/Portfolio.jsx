@@ -25,15 +25,15 @@ const Portfolio = () => {
     let sections = document.querySelectorAll(".pannel");
     let imageanim = document.querySelectorAll(".pannel-img");
     let scrollTween = gsap.to(sections, {
-      xPercent: -100 * (sections.length - 1),
+      xPercent: -120 * (sections.length - 1),
       ease: "none", // <-- IMPORTANT!
       scrollTrigger: {
-        trigger: container,
-        pin: true,
-        scrub: 0.1,
-        //snap: directionalSnap(1 / (sections.length - 1)),
-        end: "+=3000"
-      }
+            trigger: container,
+            pin: true,
+            scrub: 1,
+            start: "top top",
+            end: "=+3500 top",
+          },
     });
     sections.forEach((sec)=>{
       imageanim.forEach((img)=>{
@@ -172,7 +172,7 @@ const Portfolio = () => {
           ref={scrollRef}
           className="flex h-full w-[300vw] whitespace-nowrap"
         >
-          <div className="h-full w-[90vw] relative p-[5vw] pannel ">
+          <div className="h-full w-[90vw] relative pannel ">
             <video
               autoPlay
               loop
@@ -279,9 +279,10 @@ const Portfolio = () => {
               </div>
             </div>
           </div>
-          <div className="h-full w-[30vw] relative flex items-center justify-center flex-col">
+          <div className="h-full w-[30vw] relative flex items-center justify-center flex-col pannel">
             <p className="font-display text-[4vw]">Want More?</p>
             <LinkButton btnText="View Showcase" btnLink="#" />
+            
           </div>
         </div>
       </div>

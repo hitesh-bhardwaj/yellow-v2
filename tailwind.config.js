@@ -14,7 +14,7 @@ module.exports = {
       'mobile': {'max': '639px'},
     },
     fontFamily: {
-      'display': ['Aeonik', 'Arial', 'sans-serif'],
+      'display': ['Outfit', 'Arial', 'sans-serif'],
       'body': ['Satoshi', 'Arial', 'sans-seri'],
     },
     extend: {

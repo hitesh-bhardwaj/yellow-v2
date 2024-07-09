@@ -45,7 +45,7 @@ const Clients = () => {
 
     return (
         <Section className="py-[5%]" id="clients">
-            <div ref={containerRef} className="bg-[#B48BEF] pt-[5%] pb-[10%] text-white relative min-h-screen">
+            <div ref={containerRef} className="bg-[#111111] pt-[5%] pb-[10%] text-white relative min-h-screen">
                 <div className="container mb-[8vw]">
                     <div className="space-y-[1.5vw]">
                         <p className="text-[1.2vw] font-medium fadeIn">Clients</p>

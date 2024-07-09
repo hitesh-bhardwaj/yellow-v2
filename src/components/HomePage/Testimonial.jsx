@@ -48,7 +48,7 @@ const Testimonial = () => {
 
     const Card = ({img, company, name, content}) => {
         return (
-            <div className="relative h-full backdrop-blur-md overflow-hidden rounded-[1.2vw] bg-gradient-to-br from-[#35333380] to-[#24242420] to-45%">
+            <div className="relative border-[1px] border-white h-full backdrop-blur-md overflow-hidden rounded-[1.2vw] bg-gradient-to-br from-[#35333380] to-[#24242420] to-45%">
                 <Image 
                     width={100}
                     height={100}

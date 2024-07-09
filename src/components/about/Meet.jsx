@@ -81,7 +81,7 @@ export default function Meet() {
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className={`w-[32%] h-[36vw] group cursor-pointer relative overflow-hidden`}
+              className={`w-[32%] h-[36vw] group cursor-pointer relative overflow-hidden border-[1px] border-black border-opacity-40`}
             >
               <img
                 src={member.image}
