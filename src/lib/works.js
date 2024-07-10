@@ -13,6 +13,7 @@ import {
   QUERY_WORKS_BY_WORKCATEGORY_ID,
   QUERY_WORK_SEO_BY_SLUG,
   QUERY_WORK_PER_PAGE,
+  GET_HOME_PAGE_WORKS,
 } from '../data/works';
 
 /**
@@ -374,4 +375,16 @@ export async function getPaginatedWorks({ currentPage = 1, ...options } = {}) {
       pagesCount,
     },
   };
+}
+
+// Works for HomePage
+export async function getHomePageWorks() {
+
+  const apolloClient = getApolloClient();
+
+  const { data } = await apolloClient.query({
+    query: GET_HOME_PAGE_WORKS,
+  });
+
+  return data.works.nodes;
 }

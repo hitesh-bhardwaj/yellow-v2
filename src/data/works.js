@@ -234,3 +234,29 @@ export const QUERY_WORK_PER_PAGE = gql`
     }
   }
 `;
+
+export const GET_HOME_PAGE_WORKS = gql`
+  query worksforHomePage {
+    works(first: 3) {
+      nodes {
+        id
+        slug
+        title
+        date
+        excerpt
+        workFields {
+          featuredImagevideo {
+            node {
+              mediaItemUrl
+            }
+          }
+        }
+        workcategories {
+          nodes {
+            name
+          }
+        }
+      }
+    }
+  }
+`;
