@@ -32,9 +32,9 @@ export default function App({ Component, pageProps }) {
           },
           {
             rel: 'preload',
-            href: '/assets/fonts/Aeonik-Regular.woff2',
+            href: '/assets/fonts/Outfit-Regular.woff2',
             as: 'font',
-            type: 'font/woff',
+            type: 'font/woff2',
             crossOrigin: 'anonymous'
           },
         ]}

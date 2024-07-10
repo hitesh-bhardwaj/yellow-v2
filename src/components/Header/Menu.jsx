@@ -10,7 +10,7 @@ gsap.registerPlugin(CustomEase, useGSAP);
 const MenuLink = ({href, text, className=""}) => {
   return (
     <Link href={href} className={`block w-fit ${className}`}>
-      <span className="link-line w-fit">{text}</span>
+      <span className="link-line block w-fit">{text}</span>
     </Link>
   )
 }
@@ -152,7 +152,7 @@ export default function Menu({ menuOpen }) {
                 </li>
                 <li className="translate-x-[50px] opacity-0">
                   <MenuLink 
-                    href="/what-we-do/what-we-do"
+                    href="/what-we-do"
                     text="View All"
                   />
                 </li>

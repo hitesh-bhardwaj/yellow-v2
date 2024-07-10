@@ -5,7 +5,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import CustomEase from "gsap/dist/CustomEase";
 import Link from "next/link";
 import { useRef } from "react";
-import { SplitInChar } from "../utils";
+import { SplitInChar } from "../splitTextUtils";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, useGSAP, CustomEase);
 

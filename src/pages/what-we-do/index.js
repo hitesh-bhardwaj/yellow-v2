@@ -5,7 +5,7 @@ import ServiceList from '@/components/services/ServiceList'
 import React from 'react'
 import gsap from 'gsap'
 import { useGSAP  } from '@gsap/react'
-import { SplitInLine, SplitInLineWordChar } from ".././components/utils";
+import { SplitInLine, SplitInLineWordChar } from "../../components/splitTextUtils";
 
 export default function services() {
   useGSAP(() => {

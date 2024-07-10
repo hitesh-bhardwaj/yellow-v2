@@ -1,14 +1,16 @@
+import Layout from '@/components/Layout'
+import Pagehero from '@/components/services-detail/Pagehero'
+import About from '@/components/services-detail/About'
+import Detail from '@/components/services-detail/Detail'
 import React from 'react'
-import Layout from "@/components/Layout";
-import Pagehero from '@/components/contact/Pagehero';
-import ContactForm from '@/components/contact/ContactForm';
-import Address from '@/components/contact/Address';
-import gsap from 'gsap'
+import gsap from 'gsap';
 import { useGSAP  } from '@gsap/react'
-import { SplitInLine, SplitInLineWordChar } from ".././components/utils";
+import { SplitInLine, SplitInLineWordChar } from "../../components/splitTextUtils";
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
-export default function contact() {
+export default function servicesdetail() {
   useGSAP(() => {
+   
     const headings = document.querySelectorAll(".heading-anim");
     headings.forEach((heading) => {
       SplitInLineWordChar(heading);
@@ -69,9 +71,9 @@ export default function contact() {
     <>
     <Layout>
         <Pagehero/>
-        <ContactForm/>
-        <Address/>
-
+        <About/>
+        <Detail/>
+        
     </Layout>
       
     </>

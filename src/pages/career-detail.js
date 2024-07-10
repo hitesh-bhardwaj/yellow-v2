@@ -4,7 +4,7 @@ import Layout from '@/components/Layout'
 import React from 'react'
 import gsap from 'gsap'
 import { useGSAP  } from '@gsap/react'
-import { SplitInLine, SplitInLineWordChar } from ".././components/utils";
+import { SplitInLine, SplitInLineWordChar } from "../components/splitTextUtils";
 
 export default function careerdetail() {
   useGSAP(() => {

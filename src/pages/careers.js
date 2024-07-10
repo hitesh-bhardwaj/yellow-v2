@@ -1,14 +1,13 @@
+import Essentials from '@/components/career/Essentials'
+import Listing from '@/components/career/Listing'
+import Pagehero from '@/components/career/Pagehero'
 import Layout from '@/components/Layout'
-import Pagehero from '@/components/services-detail/Pagehero'
-import About from '@/components/services-detail/About'
-import Detail from '@/components/services-detail/Detail'
 import React from 'react'
-import Works from '@/components/Portfolio-detail/Works'
 import gsap from 'gsap'
 import { useGSAP  } from '@gsap/react'
-import { SplitInLine, SplitInLineWordChar } from ".././components/utils";
+import { SplitInLine, SplitInLineWordChar } from "../components/splitTextUtils";
 
-export default function servicesdetail() {
+export default function Career() {
   useGSAP(() => {
     const headings = document.querySelectorAll(".heading-anim");
     headings.forEach((heading) => {
@@ -70,11 +69,9 @@ export default function servicesdetail() {
     <>
     <Layout>
         <Pagehero/>
-        <About/>
-        <Detail/>
-        
+        <Listing/>
+        <Essentials/>
     </Layout>
-      
     </>
   )
 }

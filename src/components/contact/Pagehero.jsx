@@ -3,6 +3,7 @@ import Image from "next/image";
 
 export default function Pagehero() {
   return (
+
     <>
       <section className="w-full h-[140vh] flex items-center" id="hero">
         <div className="flex justify-between container">

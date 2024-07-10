@@ -6,7 +6,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import LinkButton from "../Button/LinkButton";
-import { SplitInLine, SplitInLineWordChar } from "../utils";
+import { SplitInLine, SplitInLineWordChar } from "../splitTextUtils";
 import CustomEase from "gsap/dist/CustomEase";
 import Image from "next/image";
 
