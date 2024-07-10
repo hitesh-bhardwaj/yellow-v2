@@ -6,8 +6,17 @@ import Services from "@/components/HomePage/Services";
 import Clients from "@/components/HomePage/Clients";
 import Blogs from "@/components/HomePage/Blogs";
 import { getHomePagePosts } from "@/lib/posts";
+import { titleAnim , paraAnim , lineAnim, imageAnim , imgAnim , fadeIn} from '@/components/gsapAnimations';
+
 
 export default function Home({recentPosts}) {
+  titleAnim();
+  paraAnim();
+  lineAnim();
+  imageAnim();
+  imgAnim();
+  fadeIn();
+
   return (
     <Layout className="">
       <Hero />

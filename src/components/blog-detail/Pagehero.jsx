@@ -5,12 +5,12 @@ export default function Pagehero() {
   return (
     <>
     <section id='hero' className='py-[12%]'>
-        <div className='container h-[120vh] flex items-center'>
+        <div className='container h-[120vh] flex items-center mt-[5vw]'>
         <div className=''>
             <div className='w-[90vw] h-[45vw] relative rounded-[10px] overflow-hidden mb-[3vw]'>
                 <Image src="/assets/images/blog/blogdetail/blog-detail-hero.png" alt='blog-detail-hero' className='object-cover h-full w-full' fill/>
             </div>
-            <h1 className='text-[4.8vw] font-display leading-[1.2] w-[90%] mb-[4vw] heading-anim'>
+            <h1 data-para-anim className='text-[4.8vw] font-display leading-[1.2] w-[90%] mb-[4vw] '>
             Logo Design: The Art of Creating A Memorable Brand Symbol
 
             </h1>

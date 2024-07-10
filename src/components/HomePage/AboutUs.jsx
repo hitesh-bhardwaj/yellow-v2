@@ -74,7 +74,7 @@ const AboutUs = () => {
         <Section className="py-[10%]" id="second-section">
             <div ref={containerRef} className="container">
                 <div className="flex justify-between items-start">
-                    <div className="w-[40%] h-[45vw] overflow-hidden rounded-xl fadeIn relative">
+                    <div className="w-[40%] h-[45vw] overflow-hidden rounded-xl fadeIn relative imageanim">
                         <Image
                             src="/assets/images/homepage/about.png"
                             alt="About Image"

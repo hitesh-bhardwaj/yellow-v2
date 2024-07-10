@@ -7,7 +7,7 @@ export default function Pagehero() {
       
        
             <video src='/assets/images/portfolio/videos/Maveroc-bg.mp4' autoPlay={true} loop muted className='w-screen h-[100vh] absolute top-0 left-0 object-cover z-[-1]'></video>
-            <h1 className='text-[5.4vw] text-white ps-[5%] uppercase font-display heading-anim'>
+            <h1 data-title-anim className='text-[5.4vw] text-white ps-[5%] uppercase font-display '>
                 Maveroc
 
             </h1>

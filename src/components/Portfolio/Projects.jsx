@@ -199,8 +199,8 @@ export default function ProjectsCopy() {
                 </div>
                   
                   <div className={`absolute bottom-[10%] left-[3%] text-white ${index % 3 === 0 ? "bottom-[10%] left-[3%]" : "bottom-[10%] left-[7%]"}`}>
-                    <h3 className="text-[2.5vw] mb-[1.5vw] heading-anim">{project.name}</h3>
-                    <p className={` text-[1.1vw] leading-[1.4] w-[100%] para-anim`}>{project.description}</p>
+                    <h3 data-title-anim className="text-[2.5vw] mb-[1.5vw] ">{project.name}</h3>
+                    <p data-para-anim className={` text-[1.1vw] leading-[1.4] ${index % 3 === 0 ? "w-[70%]" : "w-[90%]"} `}>{project.description}</p>
                   </div>
                   <div className={`absolute  flex gap-[1.5vw] text-white ${index % 3 === 0 ? "bottom-[10%] right-[3%]" : "top-[7%] left-[7%]"}`}>
                     {project.tags.map((tag, tagIndex) => (

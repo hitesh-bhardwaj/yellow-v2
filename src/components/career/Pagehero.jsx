@@ -8,12 +8,12 @@ export default function Pagehero() {
         <div className="container">
           <div className=" flex justify-between">
             <div className="w-[50%]">
-              <h1 className="text-[5.7vw] uppercase font-display mb-[1vw]">Work With Us</h1>
-              <p className="w-[70%] text-[1.6vw] font-medium">
+              <h1 data-title-anim className="text-[5.7vw] uppercase font-display mb-[1vw] ">Work With Us</h1>
+              <p data-para-anim className="w-[70%] text-[1.6vw] font-medium ">
               As a digital branding agency, we help businesses connect with their customers by using a variety of tools and services.As a digital branding agency, we help businesses connect with their customers by using a variety of tools and services.
               </p>
             </div>
-            <div className="w-[30vw] h-[40vw] relative drop-shadow-2xl shadow-xl">
+            <div className="w-[30vw] h-[40vw] relative drop-shadow-2xl shadow-xl imageanim">
                 <Image src="/assets/images/career/career-hero.png" alt="career-hero" fill/>
 
             </div>

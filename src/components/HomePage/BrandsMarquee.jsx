@@ -74,7 +74,7 @@ const BrandsMarquee = () => {
       };
     
     return (
-        <div ref={slider} className="relative whitespace-nowrap mobile:w-[185%] tablet:w-[150%]">
+        <div ref={slider} className="relative whitespace-nowrap mobile:w-[185%] tablet:w-[150%] fadein">
 
           <div ref={firstText} className="w-full grid h-[18vw] grid-cols-5 items-center gap-[1.5vw] pr-[1.5vw] mobile:h-[35vw] mobile:gap-[2.5vw] mobile:pr-[2.5vw] tablet:h-[27vw] tablet:gap-[2.5vw] tablet:pr-[2.5vw]">
             {Clients.map((client, index) => (

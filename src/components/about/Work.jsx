@@ -7,12 +7,12 @@ export default function Work() {
     <section className='w-full h-full py-[8%]' id='work'>
       <div className='container'>
       <div className='w-full flex justify-between mb-[5vw]'>
-            <h2 className='text-[5.8vw] font-display uppercase heading-anim'>our Work</h2>
+            <h2 data-title-anim className='text-[5.8vw] font-display uppercase '>our Work</h2>
             <Link
                 className={`cursor-pointer flex w-fit relative text-[1.4vw] gap-[0.5vw] items-center font-medium group `}
                 href="#"
               >
-                <span className="relative after:absolute leading-[1.3] after:block after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-body after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0 para-anim">
+                <span className="relative after:absolute leading-[1.3] after:block after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-body after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0 ">
                 See more to our work
                 </span>
                 <svg
@@ -41,8 +41,8 @@ export default function Work() {
                 <Link href={"/"}>
                 <div className='absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]'><img src='/assets/images/about/work-1.png' alt='work-1'/></div>
                 <div className="absolute bottom-[7%] left-[7%] text-white">
-              <h3 className="text-[2.5vw] mb-[1vw] font-display heading-anim">Numu</h3>
-              <p className="w-full text-[1.1vw] leading-[1.4] font-medium para-anim">
+              <h3 data-title-anim className="text-[2.5vw] mb-[1vw] font-display ">Numu</h3>
+              <p data-para-anim className="w-full text-[1.1vw] leading-[1.4] font-medium ">
               Brand identity for a premium early childhood centre
               </p>
             </div>
@@ -61,8 +61,8 @@ export default function Work() {
                 <Link href={"/"}>
                 <div className='absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[30vw] h-[7vw]'><img src='/assets/images/about/work-2.png' alt='work-2' className='object-cover h-full w-full'/></div>
                 <div className="absolute bottom-[7%] left-[7%] text-white">
-              <h3 className="text-[2.5vw] mb-[1vw] font-display heading-anim">Beema</h3>
-              <p className="w-full text-[1.1vw] leading-[1.4] font-medium para-anim">
+              <h3 data-title-anim className="text-[2.5vw] mb-[1vw] font-display ">Beema</h3>
+              <p data-para-anim className="w-full text-[1.1vw] leading-[1.4] font-medium ">
               A brand refresh for the region’s first pay-per-mile provider
               </p>
             </div>

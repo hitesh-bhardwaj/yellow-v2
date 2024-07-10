@@ -7,16 +7,16 @@ export default function Pagehero() {
       <section className=" w-screen h-full" id="hero">
         <div className="container">
         <div className="w-full h-[60vh] flex items-center">
-          <h1 className="text-[5.7vw] font-display uppercase heading-anim">Who We Are</h1>
+          <h1 data-title-anim className="text-[5.7vw] font-display uppercase heading-anim">Who We Are</h1>
         </div>
 
         <div className="flex gap-[5vw] w-full">
           <div className="flex flex-col gap-[3vw] w-[70%]">
             <div className="flex gap-[3vw]">
-              <h3 className="text-[1.6vw] w-[20%] font-display uppercase heading-anim">
+              <h3 data-title-anim className="text-[1.6vw] w-[20%] font-display uppercase heading-anim">
                 We Are
               </h3>
-              <p className="text-[1.4vw] w-full font-medium para-anim">
+              <p data-para-anim className="text-[1.4vw] w-full font-medium para-anim">
                 A branding and communications agency in Dubai, Yellow stands for
                 all that’s bright in business – collaboration, ambition,
                 opportunity and transformation. Dubai-born and Dubai-bred, we
@@ -26,10 +26,10 @@ export default function Pagehero() {
               </p>
             </div>
             <div className="flex gap-[3vw]">
-              <h3 className="text-[1.6vw] w-[20%] font-display uppercase heading-anim">
+              <h3 data-title-anim className="text-[1.6vw] w-[20%] font-display uppercase heading-anim">
                 We Aren’t
               </h3>
-              <p className="text-[1.4vw] w-full font-medium para-anim">
+              <p data-para-anim className="text-[1.4vw] w-full font-medium para-anim">
                 It’s incredibly rare in business to offer something totally
                 unique. So differenatiation relies on your brand – it’s what you
                 stand for that will resonate in people’s minds and separate you
@@ -40,7 +40,7 @@ export default function Pagehero() {
               </p>
             </div>
           </div>
-          <div className="drop-shadow-2xl shadow-2xl h-[40vw] w-[40vw] relative">
+          <div className=" h-[40vw] w-[40vw] relative imageanim">
             <Image src="/assets/images/about/about-hero.png" alt="about-hero" fill className="object-cover h-full w-full"/>
           </div>
         </div>

@@ -45,10 +45,10 @@ export default function Essentials() {
     <section id="essentials">
       <div className="container py-[8%]">
         <div className="w-[50%] flex flex-col gap-[2vw] mb-[12vw]">
-          <h4 className="text-[2vw] font-display">
+          <h4 data-para-anim className="text-[2vw] font-display ">
             Don’t see any job opening that might fit you?
           </h4>
-          <p className="w-[90%] text-[1.4vw] font-medium leading-[1.2] mb-[2vw]">
+          <p data-para-anim className="w-[90%] text-[1.4vw] font-medium leading-[1.2] mb-[2vw] ">
             We are always looking for exceptional talent. Send us your work or a
             note on why you think you would be a good fit for the company.
           </p>
@@ -59,8 +59,8 @@ export default function Essentials() {
           />
         </div>
         <div className="w-[40%] flex flex-col gap-[2vw] mb-[5vw]">
-          <h2 className="text-[4.8vw] font-display">Essentials</h2>
-          <p className="w-[80%] font-medium text-[1.4vw]">
+          <h2 data-title-anim className="text-[4.8vw] font-display ">Essentials</h2>
+          <p data-para-anim className="w-[80%] font-medium text-[1.4vw] ">
             As a digital branding agency, we help businesses connect with their
             customers by using a variety of tools and services.
           </p>
@@ -72,11 +72,11 @@ export default function Essentials() {
               className={`col-start-${(index % 3) + 1} ${index % 3 === 1 ? "flex justify-center" : ""} ${index % 3 === 2 ? "flex justify-end" : ""}`}
             >
               <div>
-                <span className="text-[6.5vw] font-bold font-display mb-[1.5vw]">{`0${item.id}.`}</span>
-                <h4 className="text-[2vw] font-display mb-[1.5vw]">
+                <span data-title-anim className="text-[6.5vw] font-bold font-display mb-[1.5vw] ">{`0${item.id}.`}</span>
+                <h4 data-para-anim className="text-[2vw] font-display mb-[1.5vw] ">
                   {item.title}
                 </h4>
-                <p className="text-[1.2vw] leading-[1.2] font-medium">
+                <p data-para-anim className="text-[1.2vw] leading-[1.2] font-medium ">
                   {item.content}
                 </p>
               </div>

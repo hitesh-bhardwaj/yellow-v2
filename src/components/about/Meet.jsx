@@ -70,10 +70,10 @@ export default function Meet() {
     <>
       <section className="w-full h-full py-[5%]" id="meet">
         <div className="container">
-        <h2 className="text-[5.7vw] font-display uppercase mb-[3vw] heading-anim">
+        <h2 data-title-anim className="text-[5.7vw] font-display uppercase mb-[3vw] ">
           Meet the people
         </h2>
-        <p className="text-[2vw] w-[30%] font-medium leading-[1.2] para-anim">
+        <p data-para-anim className="text-[2vw] w-[30%] font-medium leading-[1.2] ">
           We grow amazing companies through exceptional branding and
           communications.
         </p>
@@ -81,7 +81,7 @@ export default function Meet() {
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className={`w-[32%] h-[36vw] group cursor-pointer relative overflow-hidden border-[1px] border-black border-opacity-40`}
+              className={`w-[32%] h-[36vw] group cursor-pointer relative overflow-hidden border-[1px] border-black border-opacity-40 fadein`}
             >
               <img
                 src={member.image}
@@ -96,10 +96,10 @@ export default function Meet() {
               <div className="absolute w-full px-[2vw] py-[1.5vw] z-[2] bottom-0 backdrop-blur-lg bg-black bg-opacity-40">
                 <div className="text-white flex w-full justify-between h-full">
                   <div className="flex flex-col">
-                    <h4 className="text-[1.8vw] font-display leading-[1.2] uppercase heading-anim">
+                    <h4 data-title-anim className="text-[1.8vw] font-display leading-[1.2] uppercase ">
                       {member.name}
                     </h4>
-                    <p className="para-anim">{member.role}</p>
+                    <p data-para-anim className="">{member.role}</p>
                   </div>
                   <div className="">
                 <svg

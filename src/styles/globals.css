@@ -30,13 +30,13 @@ body{
     transition: transform 0.2s ease-out;
   }
 
-  .heading-anim,
-  .para-anim,
+  [data-title-anim],
+  [data-para-anim],
   .lineWord {
     font-kerning: none;
   }
-  .heading-anim .line,
-  .para-anim .line,
+  [data-title-anim] .line,
+  [data-para-anim] .line,
   .lineWord .line {
     overflow: hidden;
   }
@@ -130,4 +130,78 @@ body{
   background-color: #ffffff;
   z-index: 2;
   /* transition: width .8s cubic-bezier(.54,.54,.14,.99); */
+}
+.imganim {
+  --beforeHeight: 100%;
+}
+.imganim::before{
+  content:"";
+  position: absolute;
+  height: var(--beforeHeight);
+  width: 100%;
+  bottom: 0;
+  
+  display: block;
+  background-color: #ffffff;
+  z-index: 2;
+  /* transition: width .8s cubic-bezier(.54,.54,.14,.99); */
+}
+
+
+/* our work number animation */
+.counter {
+  
+  left: 150px;
+  bottom: 150px;
+  display: flex;
+  
+  height: 100px;
+  font-size: 100px;
+  line-height: 102px;
+  clip-path: polygon(0 0, 100% 0, 100% 100px, 0 100px);
+  font-weight: 400;
+	color: #000;
+	
+	overflow: hidden;
+}
+
+.counter-1,
+.counter-2,
+.counter-3,
+.counter-4{
+  position: relative;
+  top: -15px;
+	
+}
+.count {
+  
+  left: 150px;
+  bottom: 150px;
+  display: flex;
+  
+  height: 100px;
+  font-size: 100px;
+  line-height: 102px;
+  clip-path: polygon(0 0, 100% 0, 100% 100px, 0 100px);
+  font-weight: 400;
+	color: #000;
+	
+	overflow: hidden;
+}
+
+
+.count-2,
+.count-3,
+.count-4{
+  position: relative;
+  top: -15px;
+	
+}
+
+/* cards anmation */
+.cardback{
+   transform: rotateY(180deg);
+}
+.cardfront{
+  transform: rotateY(0deg);
 }

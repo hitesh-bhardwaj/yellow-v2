@@ -48,7 +48,7 @@ const Testimonial = () => {
 
     const Card = ({img, company, name, content}) => {
         return (
-            <div className="relative w-1/5 h-auto backdrop-blur-md overflow-hidden rounded-[1.2vw] bg-gradient-to-br from-[#35333380] to-[#24242420] to-45% border border-white/25">
+            <div className="relative w-1/5 h-auto backdrop-blur-md overflow-hidden rounded-[1.2vw] bg-gradient-to-br from-[#35333380] to-[#24242420] to-45% border border-white/25 fadein">
                 <Image 
                     priority={false}
                     width={100}

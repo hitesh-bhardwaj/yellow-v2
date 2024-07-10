@@ -9,19 +9,19 @@ const BlogCard = ({title, src, date, link}) => {
             <div className="w-full flex justify-between items-start mt-[2vw] mb-[4vw]">
                 <div className="flex items-start gap-[2vw]">
                     <Link href="#">
-                        <div className="h-[16.5vw] w-[26.5vw] fadeIn relative rounded-[1.5vw] overflow-hidden">
+                        <div className="h-[16.5vw] w-[26.5vw] relative rounded-[1.5vw] overflow-hidden imganim">
                             <Image
                                 src={src}
                                 alt="blog image" 
                                 priority={false}
                                 fill
-                                className="object-cover h-full w-full"
+                                className="object-cover h-full w-full "
                             />
                         </div>
                     </Link>
                     <div className="flex flex-col h-[16vw] justify-between items-start">
                         <Link href={link} className="">
-                            <h4 className="text-[2.5vw] font-medium w-[43vw] leading-[1.3] para-anim">
+                            <h4 data-para-anim className="text-[2.5vw] font-medium w-[43vw] leading-[1.3] ">
                                 {title}
                             </h4>
                         </Link>

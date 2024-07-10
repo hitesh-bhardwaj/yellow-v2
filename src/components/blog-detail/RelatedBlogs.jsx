@@ -1,13 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import LinkButton from "../Button/LinkButton";
+
 export default function RelatedBlogs() {
   return (
     <>
       <section id="relatedBlog">
         <div className="container py-[7%]">
           <div className="w-full flex justify-between mb-[4vw]">
-            <h2 className="text-[5.7vw] font-display uppercase heading-anim">
+            <h2 data-title-anim className="text-[5.7vw] font-display uppercase ">
               Related Blogs
             </h2>
             <LinkButton
@@ -35,8 +36,8 @@ export default function RelatedBlogs() {
                 </div>
               </div>
               <div className="w-full h-full px-[1.5vw] py-[1.5vw] flex flex-col gap-[2vw]">
-                <h3 className="text-[1.5vw] font-display leading-[1.2] para-anim">
-                  Packaging Design: Elevating Your Product&apos;s Visual Appeal and
+                <h3 data-para-anim className="text-[1.5vw] font-display leading-[1.2] ">
+                  Packaging Design: Elevating Your Product’s Visual Appeal and
                   Brand Identity
                 </h3>
 
@@ -67,8 +68,8 @@ export default function RelatedBlogs() {
                 </div>
               </div>
               <div className="w-full h-full px-[1.5vw] py-[1.5vw] flex flex-col gap-[2vw]">
-                <h3 className="text-[1.5vw] font-display leading-[1.2] para-anim">
-                  Packaging Design: Elevating Your Product&apos;s Visual Appeal and
+                <h3 data-para-anim className="text-[1.5vw] font-display leading-[1.2] ">
+                  Packaging Design: Elevating Your Product’s Visual Appeal and
                   Brand Identity
                 </h3>
 
@@ -98,8 +99,8 @@ export default function RelatedBlogs() {
                 </div>
               </div>
               <div className="w-full h-full px-[1.5vw] py-[1.5vw] flex flex-col gap-[2vw]">
-                <h3 className="text-[1.5vw] font-display leading-[1.2] para-anim">
-                  Packaging Design: Elevating Your Product&apos;s Visual Appeal and
+                <h3 data-para-anim className="text-[1.5vw] font-display leading-[1.2] ">
+                  Packaging Design: Elevating Your Product’s Visual Appeal and
                   Brand Identity
                 </h3>
 

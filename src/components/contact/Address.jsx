@@ -16,37 +16,37 @@ export default function Address() {
           </div>
 
           <div className="w-[60%]">
-            <h3 className="text-[2.8vw] font-display leading-[1.4] font-medium mb-[7vw] para-anim">
+            <h3 data-para-anim className="text-[2.8vw] font-display leading-[1.4] font-medium mb-[7vw] ">
               As a digital branding agency, we help businesses connect with
               their customers by using a variety of tools and services.
             </h3>
             <div className="flex w-full gap-[8vw] mb-[8vw]">
               <span>
-                <p className="text-[2.5vw] font-display mb-[0.5vw] para-anim">
+                <p data-para-anim className="text-[2.5vw] font-display mb-[0.5vw] ">
                   New Business
                 </p>
                 <Link className="w-fit text-[1.2vw] font-medium" href="mailto:hello@welcometoyellow.com">
-                  <span className="link-line">hello@welcometoyellow.com</span>
+                  <span data-para-anim className="link-line">hello@welcometoyellow.com</span>
                 </Link>
               </span>
               <span>
-                <p className="text-[2.5vw] font-display mb-[0.5vw] para-anim">General</p>
+                <p data-para-anim className="text-[2.5vw] font-display mb-[0.5vw] ">General</p>
                 <Link className="w-fit text-[1.2vw] font-medium" href="mailto:hi@welcometoyellow.com">
-                  <span className="link-line">hi@welcometoyellow.com</span>
+                  <span data-para-anim className="link-line">hi@welcometoyellow.com</span>
                 </Link>
               </span>
             </div>
             <div className="flex w-full gap-[8vw]">
               <span>
-                <p className="text-[2.5vw] font-display mb-[0.5vw] para-anim">Press</p>
+                <p data-para-anim className="text-[2.5vw] font-display mb-[0.5vw] ">Press</p>
                 <Link className="w-fit text-[1.2vw] font-medium" href="mailto:press@welcometoyellow.com">
-                  <span className="link-line">press@welcometoyellow.com</span>
+                  <span data-para-anim className="link-line">press@welcometoyellow.com</span>
                 </Link>
               </span>
               <span>
-                <p className="text-[2.5vw] font-display mb-[0.5vw] para-anim">General</p>
+                <p data-para-anim className="text-[2.5vw] font-display mb-[0.5vw] ">General</p>
                 <Link className="w-fit text-[1.2vw] font-medium" href="mailto:career@welcometoyellow.com">
-                  <span className="link-line">career@welcometoyellow.com</span>
+                  <span data-para-anim className="link-line">career@welcometoyellow.com</span>
                 </Link>
               </span>
             </div>
