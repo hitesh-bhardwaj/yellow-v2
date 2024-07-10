@@ -1,8 +1,8 @@
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import CustomEase from "gsap/dist/CustomEase";
+import { gsap } from "gsap/dist/gsap";
+import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { CustomEase } from "gsap/dist/CustomEase";
 import Link from "next/link";
 import { useRef } from "react";
 import { SplitInChar } from "../splitTextUtils";

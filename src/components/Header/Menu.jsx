@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import CustomEase from "gsap/dist/CustomEase";
+import { gsap } from "gsap/dist/gsap";
+import { CustomEase } from "gsap/dist/CustomEase";
 
 gsap.registerPlugin(CustomEase, useGSAP);
 

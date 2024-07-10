@@ -5,15 +5,15 @@ import PrimaryButton from "@/components/Button/PrimaryButton";
 import dynamic from "next/dynamic";
 import ScrollButton from "@/components/Button/ScrollButton";
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+import { gsap } from "gsap/dist/gsap";
 import { initMagneticButton, SplitInLine } from "../splitTextUtils";
-import CustomEase from "gsap/dist/CustomEase";
+import { CustomEase } from "gsap/dist/CustomEase";
 
 gsap.registerPlugin(useGSAP, CustomEase);
 
 const VideoModal = dynamic(() => import('@/components/VideoPlayer'), {
     ssr: false,
-  });
+});
 
 const Hero = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);

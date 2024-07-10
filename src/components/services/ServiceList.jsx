@@ -60,7 +60,7 @@ export default function ServiceList() {
             Brand Naming
             </h3>
             <p data-para-anim className="font-medium text-[1.2vw] mb-[2vw] ">
-            At Yellow, we provide comprehensive support for precise branding needs. Whether you’re naming a new venture, rejuvenating an existing brand, exploring new markets, or evaluating your current brand name, our brand naming consultancy ensures you get a compelling and enduring brand name that boosts sales.
+            At Yellow, we provide comprehensive support for precise branding needs. Whether you&apos;re naming a new venture, rejuvenating an existing brand, exploring new markets, or evaluating your current brand name, our brand naming consultancy ensures you get a compelling and enduring brand name that boosts sales.
             </p>
             <BlackButton btnLink={"/"} btnText={"View More"} />
           </div>
@@ -79,7 +79,7 @@ export default function ServiceList() {
             Advertising and communication is about bonding: building meaningful relationships with customers, suppliers and employees. This is what makes a business more desirable to work with and buy from.
             </p>
             <p data-para-anim className="font-medium text-[1.2vw] mb-[2vw] ">
-            We deliver advertising and communication strategies that set your brand apart from the competitors.
+            We deliver advertising and communication strategies that set your brand apart from the competitors.
             </p>
             <BlackButton btnLink={"/"} btnText={"View More"} />
           </div>
@@ -95,7 +95,7 @@ export default function ServiceList() {
             Corporate Stationery & Report Design Services
             </h3>
             <p data-para-anim className="font-medium text-[1.2vw] mb-[2vw] ">
-            Business cards, brochures, annual reports and book design. We write, design, and oversee the production of publications that audiences engage with.
+              Business cards, brochures, annual reports and book design. We write, design, and oversee the production of publications that audiences engage with.
             </p>
             <BlackButton btnLink={"/"} btnText={"View More"} />
           </div>
