@@ -1,13 +1,14 @@
-import Listing from '@/components/blog/Listing'
-import Pagehero from '@/components/blog/Pagehero'
+
 import Layout from '@/components/Layout'
-// import { Layout } from 'lucide-react'
+import PageHero from '@/components/Portfolio/PageHero'
+import Projects from '@/components/Portfolio/Projects'
+
 import React from 'react'
 import gsap from 'gsap'
 import { useGSAP  } from '@gsap/react'
-import { SplitInLine, SplitInLineWordChar } from ".././components/utils";
+import { SplitInLine, SplitInLineWordChar } from "../components/utils";
 
-export default function blog() {
+export default function Portfolio() {
   useGSAP(() => {
     const headings = document.querySelectorAll(".heading-anim");
     headings.forEach((heading) => {
@@ -16,7 +17,7 @@ export default function blog() {
       gsap.from(headingWord, {
         scrollTrigger: {
           trigger: heading,
-          start: "top 85%",
+          start: "top 55%",
           toggleActions: "play none none reverse",
         },
         rotate: "5deg",
@@ -32,7 +33,7 @@ export default function blog() {
     const paraAnimations = document.querySelectorAll(".para-anim");
     paraAnimations.forEach((paraAnimation) => {
       SplitInLine(paraAnimation);
-      let paraLine = paraAnimation.querySelectorAll(" .line-internal");
+      let paraLine = paraAnimation.querySelectorAll(" .line");
       gsap.from(paraLine, {
         scrollTrigger: {
           trigger: paraAnimation,
@@ -67,11 +68,10 @@ export default function blog() {
   });
   return (
     <>
-    <Layout>
-        <Pagehero/>
-        <Listing/>
-    </Layout>
-      
+        <Layout>
+            <PageHero/>
+            <Projects/>
+        </Layout>
     </>
   )
 }

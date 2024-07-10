@@ -46,9 +46,9 @@ export default function App({ Component, pageProps }) {
           url: "https://welcometoyellow.com/",
           images: [
             {
-              url: "https://yellow-v2.verce.app/assets/images/seo/home.png",
+              url: "https://yellow-v2.vercel.app/assets/images/seo/home.png",
               width: 1920,
-              height: 1120,
+              height: 1016,
               alt: "Yellow Brand Image",
               type: "image/png",
             },

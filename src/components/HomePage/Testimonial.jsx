@@ -48,8 +48,9 @@ const Testimonial = () => {
 
     const Card = ({img, company, name, content}) => {
         return (
-            <div className="relative border-[1px] border-white h-full backdrop-blur-md overflow-hidden rounded-[1.2vw] bg-gradient-to-br from-[#35333380] to-[#24242420] to-45%">
+            <div className="relative h-full backdrop-blur-md overflow-hidden rounded-[1.2vw] bg-gradient-to-br from-[#35333380] to-[#24242420] to-45% border border-white/25">
                 <Image 
+                    priority={false}
                     width={100}
                     height={100}
                     className="h-full w-full object-cover absolute pointer-events-none"
@@ -139,25 +140,6 @@ const Testimonial = () => {
                 <Card />
                 <Card />
             </div>
-
-            {/* <div ref={firstText} className="w-full grid grid-cols-5 items-center gap-[1.5vw] pr-[1.5vw] h-[18vw] mobile:h-[35vw] mobile:gap-[2.5vw] mobile:pr-[2.5vw] tablet:h-[27vw] tablet:gap-[2.5vw] tablet:pr-[2.5vw]">
-                {Clients.map((client, index) => (
-                    <Card2 key={index} src={client}/>
-                ))}
-            </div>
-
-            <div ref={secondText} className="w-full top-0 left-full absolute grid grid-cols-5 items-center gap-[1.5vw] pr-[1.5vw] h-[18vw] mobile:h-[35vw] mobile:gap-[2.5vw] mobile:pr-[2.5vw] tablet:h-[27vw] tablet:gap-[2.5vw] tablet:pr-[2.5vw]">
-                {Clients.map((client, index) => (
-                    <Card2 key={index} src={client}/>
-                ))}
-            </div>
-
-            <div ref={thirdText} className="w-full top-0 left-[-100%] absolute grid grid-cols-5 items-center gap-[1.5vw] pr-[1.5vw] h-[18vw] mobile:h-[35vw] mobile:gap-[2.5vw] mobile:pr-[2.5vw] tablet:h-[27vw] tablet:gap-[2.5vw] tablet:pr-[2.5vw]">
-                {Clients.map((client, index) => (
-                    <Card2 key={index} src={client}/>
-                ))}
-            </div> */}
-
       </div>
     )
 }

@@ -5,8 +5,9 @@ import Portfolio from "@/components/HomePage/Portfolio";
 import Services from "@/components/HomePage/Services";
 import Clients from "@/components/HomePage/Clients";
 import Blogs from "@/components/HomePage/Blogs";
+import { getHomePagePosts } from "@/lib/posts";
 
-export default function Home() {
+export default function Home({recentPosts}) {
   return (
     <Layout className="">
       <Hero />
@@ -14,7 +15,19 @@ export default function Home() {
       <Portfolio />
       <Services />
       <Clients />
-      <Blogs />
+      <Blogs posts={recentPosts} />
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+
+  const recentPosts = await getHomePagePosts();
+
+  return {
+    props: {
+      recentPosts,
+    },
+    revalidate: 500,
+  };
 }

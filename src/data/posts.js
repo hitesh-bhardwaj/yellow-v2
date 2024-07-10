@@ -324,3 +324,21 @@ export const QUERY_POST_PER_PAGE = gql`
     }
   }
 `;
+
+export const GET_HOME_PAGE_POSTS = gql`
+  query postsforHomePage {
+    posts(first: 4) {
+      nodes {
+        featuredImage {
+          node {
+            sourceUrl
+          }
+        }
+        id
+        slug
+        title
+        date
+      }
+    }
+  }
+`;

@@ -1,8 +1,8 @@
-import { getApolloClient } from 'lib/apollo-client';
+import { getApolloClient } from './apollo-client';
 
-import { decodeHtmlEntities, removeExtraSpaces } from 'lib/util';
+import { decodeHtmlEntities, removeExtraSpaces } from './util';
 
-import { QUERY_SITE_DATA, QUERY_SEO_DATA } from 'data/site';
+import { QUERY_SITE_DATA, QUERY_SEO_DATA } from '../data/site';
 
 /**
  * getSiteMetadata

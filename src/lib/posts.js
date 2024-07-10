@@ -1,7 +1,7 @@
-import { getApolloClient } from 'lib/apollo-client';
+import { getApolloClient } from './apollo-client';
 
-import { updateUserAvatar } from 'lib/users';
-import { sortObjectsByDate } from 'lib/datetime';
+import { updateUserAvatar } from './users';
+import { sortObjectsByDate } from './datetime';
 
 import {
   QUERY_ALL_POSTS_INDEX,
@@ -16,14 +16,15 @@ import {
   QUERY_POSTS_BY_CATEGORY_ID,
   QUERY_POST_SEO_BY_SLUG,
   QUERY_POST_PER_PAGE,
-} from 'data/posts';
+  GET_HOME_PAGE_POSTS,
+} from '../data/posts';
 
 /**
  * postPathBySlug
  */
 
 export function postPathBySlug(slug) {
-  return `/posts/${slug}`;
+  return `/${slug}`;
 }
 
 /**
@@ -222,11 +223,11 @@ export async function getPostsByCategoryId({ categoryId, ...options }) {
  * getRecentPosts
  */
 
-export async function getRecentPosts({ count, ...options }) {
-  const { posts } = await getAllPosts(options);
+export async function getRecentPosts() {
+  const { posts } = await getAllPosts();
   const sorted = sortObjectsByDate(posts);
   return {
-    posts: sorted.slice(0, count),
+    posts: sorted.slice(0, 4),
   };
 }
 
@@ -306,7 +307,7 @@ export function mapPostData(post = {}) {
  * getRelatedPosts
  */
 
-export async function getRelatedPosts(categories, postId, count = 5) {
+export async function getRelatedPosts(categories, postId, count = 3) {
   if (!Array.isArray(categories) || categories.length === 0) return;
 
   let related = {
@@ -413,4 +414,17 @@ export async function getPaginatedPosts({ currentPage = 1, ...options } = {}) {
       pagesCount,
     },
   };
+}
+
+
+// Posts for HomePage
+export async function getHomePagePosts() {
+
+  const apolloClient = getApolloClient();
+
+  const { data } = await apolloClient.query({
+    query: GET_HOME_PAGE_POSTS,
+  });
+
+  return data.posts.nodes;
 }

@@ -18,7 +18,7 @@ const Header = () => {
         const darkSectionInView = entries.some((entry) => entry.isIntersecting);
         setIsInverted(darkSectionInView);
       },
-      { threshold: 0.1 } // Adjust threshold as needed
+      { threshold: [0.1] } // Adjust threshold as needed
     );
 
     // Observe sections with the id "dark"
