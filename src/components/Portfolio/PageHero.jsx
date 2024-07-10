@@ -9,7 +9,7 @@ function PageHero() {
           <p className="text-[1.5vw] text-black  w-full font-medium leading-[1.4] flex justify-between">
             <span className="w-[40%] block para-anim">
             As a digital branding agency, we help businesses connect with their
-            customers by using a variety of tools and services. We have worked
+            customers by using a variety of tools and services. We have worked
             with a range of clients, from budding entrepreneurs, to some of the
             biggest brands in the UAE.
 

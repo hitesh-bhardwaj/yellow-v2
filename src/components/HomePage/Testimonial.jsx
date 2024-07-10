@@ -13,42 +13,42 @@ const Testimonial = () => {
             id: "01",
             name: "John Doe",
             company: "XYZ Industries",
-            img: "/assets/images/client/testi-1.png",
+            img: "/assets/images/clients/testi-1.png",
             content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." 
         },
         {
             id: "02",
             name: "John Doe",
             company: "XYZ Industries",
-            img: "/assets/images/client/testi-2.png",
+            img: "/assets/images/clients/testi-2.png",
             content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500." 
         },
         {
             id: "03",
             name: "John Doe",
             company: "XYZ Industries",
-            img: "/assets/images/client/testi-2.png",
+            img: "/assets/images/clients/testi-1.png",
             content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the i."
         },
         {
             id: "04",
             name: "John Doe",
             company: "XYZ Industries",
-            img: "/assets/images/client/testi-2.png",
+            img: "/assets/images/clients/testi-2.png",
             content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500." 
         },
         {
             id: "05",
             name: "John Doe",
             company: "XYZ Industries",
-            img: "/assets/images/client/testi-1.png",
+            img: "/assets/images/clients/testi-1.png",
             content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." 
         }
     ]
 
     const Card = ({img, company, name, content}) => {
         return (
-            <div className="relative h-full backdrop-blur-md overflow-hidden rounded-[1.2vw] bg-gradient-to-br from-[#35333380] to-[#24242420] to-45% border border-white/25">
+            <div className="relative w-1/5 h-auto backdrop-blur-md overflow-hidden rounded-[1.2vw] bg-gradient-to-br from-[#35333380] to-[#24242420] to-45% border border-white/25">
                 <Image 
                     priority={false}
                     width={100}
@@ -57,24 +57,24 @@ const Testimonial = () => {
                     alt="Image Texture"
                     src="/assets/images/clients/texture-2.png"                
                 />
-                <div className="w-full h-full p-[4vw] space-y-[3vw]">
+                <div className="w-full h-full py-[3vw] px-[3.5vw] space-y-[2vw]">
                     <div className="flex items-center gap-[1vw]">
                         <Image
                             className="w-[5vw] h-[5vw]"
                             alt="brand img" 
                             priority={false}
-                            src="/assets/images/clients/testi-1.png" 
+                            src={img} 
                             quality={100}
                             width={100}
                             height={100}
                         />
                         <div className="flex flex-col items-start">
-                            <p className="text-[1.35vw] font-medium">John Doe</p>
-                            <p className="text-[1.1vw] font-medium">XYZ Industries</p>
+                            <p className="text-[1.35vw] font-medium">{name}</p>
+                            <p className="text-[1.1vw] font-medium">{company}</p>
                         </div>
                     </div>
-                    <p className="text-[1.45vw] font-medium whitespace-normal">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    <p className="text-[1.45vw] whitespace-normal">
+                        {content}
                     </p>
                 </div>
             </div>
@@ -117,28 +117,22 @@ const Testimonial = () => {
   
     return (
         <div ref={slider} className="relative w-[full]">
-            <div ref={firstText} className="w-[200%] flex gap-x-[2vw] whitespace-nowrap">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+            <div ref={firstText} className="w-[200%] flex gap-x-[2vw] whitespace-nowrap ">
+                {Reviews.map((review, index) => (
+                    <Card key={index} img={review.img} company={review.company} name={review.name} content={review.content} />
+                ))}
             </div>
 
             <div ref={secondText} className="w-[200%] absolute top-0 left-[200%] pl-[2vw] flex gap-x-[2vw] whitespace-nowrap">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                {Reviews.map((review, index) => (
+                    <Card key={index} img={review.img} company={review.company} name={review.name} content={review.content} />
+                ))}
             </div>
 
             <div ref={thirdText} className="w-[200%] absolute top-0 -left-[200%] pr-[2vw] flex gap-x-[2vw] whitespace-nowrap">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                {Reviews.map((review, index) => (
+                    <Card key={index} img={review.img} company={review.company} name={review.name} content={review.content} />
+                ))}
             </div>
       </div>
     )

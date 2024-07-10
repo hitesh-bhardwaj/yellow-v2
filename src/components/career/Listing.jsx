@@ -1,7 +1,6 @@
 
 import React from 'react';
 import BlackButton from '../Button/BlackButton';
-import Link from 'next/link';
 
 export default function Listing() {
   // Array of job listings data

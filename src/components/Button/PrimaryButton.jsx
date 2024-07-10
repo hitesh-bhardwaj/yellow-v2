@@ -1,7 +1,5 @@
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
+import { useEffect } from "react";
 import $ from 'jquery';
-import { Power2 } from "gsap";
 
 const PrimaryButton = ({className = "", onClick, text }) => {
 

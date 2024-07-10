@@ -20,14 +20,14 @@ export default function ServiceList() {
               Corporate Branding Strategy
             </h3>
             <p className="font-medium text-[1.2vw] mb-[2vw] para-anim">
-              We bring simplicity to complexity – distilling goals and values
+              We bring simplicity to complexity - distilling goals and values
               into brands that are relevant and inspiring, for customers and
               staff
             </p>
             <p className="font-medium text-[1.2vw] mb-[2vw] para-anim">
               Through a brand workshop, a series of interactive sessions,
               research and a thorough understanding of your business, we work
-              with you to define your business strategy – developing a set of
+              with you to define your business strategy - developing a set of
               tools, brand values, brand purpose and personality.
             </p>
             <BlackButton btnLink={"/"} btnText={"View More"} />
@@ -79,7 +79,7 @@ export default function ServiceList() {
             Advertising and communication is about bonding: building meaningful relationships with customers, suppliers and employees. This is what makes a business more desirable to work with and buy from.
             </p>
             <p className="font-medium text-[1.2vw] mb-[2vw] para-anim">
-            We deliver advertising and communication strategies that set your brand apart from the competitors.
+            We deliver advertising and communication strategies that set your brand apart from the competitors.
             </p>
             <BlackButton btnLink={"/"} btnText={"View More"} />
           </div>
@@ -95,7 +95,7 @@ export default function ServiceList() {
             Corporate Stationery & Report Design Services
             </h3>
             <p className="font-medium text-[1.2vw] mb-[2vw] para-anim">
-            Business cards, brochures, annual reports and book design. We write, design, and oversee the production of publications that audiences engage with.
+            Business cards, brochures, annual reports and book design. We write, design, and oversee the production of publications that audiences engage with.
             </p>
             <BlackButton btnLink={"/"} btnText={"View More"} />
           </div>

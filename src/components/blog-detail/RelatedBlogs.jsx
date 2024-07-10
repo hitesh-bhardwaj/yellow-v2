@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import LinkButton from "../Button/LinkButton";
-import Link from "next/link";
 export default function RelatedBlogs() {
   return (
     <>
@@ -37,7 +36,7 @@ export default function RelatedBlogs() {
               </div>
               <div className="w-full h-full px-[1.5vw] py-[1.5vw] flex flex-col gap-[2vw]">
                 <h3 className="text-[1.5vw] font-display leading-[1.2] para-anim">
-                  Packaging Design: Elevating Your Product’s Visual Appeal and
+                  Packaging Design: Elevating Your Product&apos;s Visual Appeal and
                   Brand Identity
                 </h3>
 
@@ -69,7 +68,7 @@ export default function RelatedBlogs() {
               </div>
               <div className="w-full h-full px-[1.5vw] py-[1.5vw] flex flex-col gap-[2vw]">
                 <h3 className="text-[1.5vw] font-display leading-[1.2] para-anim">
-                  Packaging Design: Elevating Your Product’s Visual Appeal and
+                  Packaging Design: Elevating Your Product&apos;s Visual Appeal and
                   Brand Identity
                 </h3>
 
@@ -100,7 +99,7 @@ export default function RelatedBlogs() {
               </div>
               <div className="w-full h-full px-[1.5vw] py-[1.5vw] flex flex-col gap-[2vw]">
                 <h3 className="text-[1.5vw] font-display leading-[1.2] para-anim">
-                  Packaging Design: Elevating Your Product’s Visual Appeal and
+                  Packaging Design: Elevating Your Product&apos;s Visual Appeal and
                   Brand Identity
                 </h3>
 

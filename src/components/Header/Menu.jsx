@@ -3,7 +3,6 @@ import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import CustomEase from "gsap/dist/CustomEase";
-import { usePathname } from "next/navigation";
 
 gsap.registerPlugin(CustomEase, useGSAP);
 
@@ -18,7 +17,6 @@ const MenuLink = ({href, text, className=""}) => {
 export default function Menu({ menuOpen }) {
   const menuRef = useRef(null);
   const navRef = useRef(null);
-  const path = usePathname();
   const [serviceOpen, setServiceOpen] = useState(false);
 
   CustomEase.create("primary-ease", "0.62, 0.05, 0.01, 0.99");

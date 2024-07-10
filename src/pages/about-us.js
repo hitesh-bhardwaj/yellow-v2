@@ -5,7 +5,7 @@ import Pagehero from '@/components/about/Pagehero'
 import Values from '@/components/about/Values'
 import Work from '@/components/about/Work'
 import React from 'react'
-import gsap from 'gsap'
+import {gsap} from 'gsap'
 import { useGSAP  } from '@gsap/react'
 import { SplitInLine, SplitInLineWordChar } from "../components/splitTextUtils";
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'

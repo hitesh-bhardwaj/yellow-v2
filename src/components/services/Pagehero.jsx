@@ -8,7 +8,7 @@ export default function Pagehero() {
           <h1 className="text-[5.7vw] w-fit font-display leading-[1.1] mb-[2vw] uppercase heading-anim">Services</h1>
           <p className="text-[1.5vw]   w-full font-medium leading-[1.4] flex justify-between">
             <span className="w-[40%] text-[#333333] block para-anim">
-            We grow amazing companies through exceptional branding and communications. As a brand and digital agency, we often blur the line between business advisor, brand guardian, sounding board, marketing consultant.
+            We grow amazing companies through exceptional branding and communications. As a brand and digital agency, we often blur the line between business advisor, brand guardian, sounding board, marketing consultant.
 
             </span>
             <span className="w-[30%] text-[#111111] block para-anim">

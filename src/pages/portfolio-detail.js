@@ -3,7 +3,7 @@ import Casestudy from '@/components/Portfolio-detail/Casestudy'
 import Pagehero from '@/components/Portfolio-detail/Pagehero'
 import Works from '@/components/Portfolio-detail/Works'
 import React from 'react'
-import gsap from 'gsap'
+import {gsap} from 'gsap'
 import { useGSAP  } from '@gsap/react'
 import { SplitInLine, SplitInLineWordChar } from "../components/splitTextUtils";
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';

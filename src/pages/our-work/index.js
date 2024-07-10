@@ -6,7 +6,7 @@ import Projects from '@/components/Portfolio/Projects'
 import React from 'react'
 import gsap from 'gsap'
 import { useGSAP  } from '@gsap/react'
-import { SplitInLine, SplitInLineWordChar } from "../components/utils";
+import { SplitInLine, SplitInLineWordChar } from "@/components/splitTextUtils";
 
 export default function Portfolio() {
   useGSAP(() => {

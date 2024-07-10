@@ -40,10 +40,10 @@ export default function Casestudy() {
                 Meet Rita & Ibrahim, an incredibly talented couple that left
                 their established careers to pursue their dreams of creating a
                 bold new fine jewelry brand. Rebellion was a major theme
-                throughout everything – from the playful, unexpectedness of the
+                throughout everything - from the playful, unexpectedness of the
                 pieces created to it being a purely DTC brand to the personality
                 of the founders. This segued into the essence of the brand being
-                centered on the idea of “The Art of Rebellion” – a narrative
+                centered on the idea of “The Art of Rebellion” - a narrative
                 that was all about celebrating self-expression, confidence,
                 colour, creativity, boldness and femininity.
               </p>
@@ -86,10 +86,10 @@ export default function Casestudy() {
               <p className="text-[1.4vw] font-medium para-anim">
                 <span className="mb-[2vw]">
                   Naming is always one of the most challenging aspects of
-                  creating a brand. It’s incredibly personal, subjective and
+                  creating a brand. It&apos;s incredibly personal, subjective and
                   often all the great ideas you come up with are taken. We
                   explored many themes and ideas, focusing predominantly on
-                  evocative and associative names – names that communicated the
+                  evocative and associative names - names that communicated the
                   brand idea without being too descriptive (our favourite kind
                   of names)! And thus Maveroc was born.
                 </span>
@@ -99,13 +99,13 @@ export default function Casestudy() {
                   With a strategic foundation in place, a name we all fell in
                   love with and the essence of rebellion at the heart of the
                   brand, we developed the brand identity that consisted of a
-                  vibrant colour palette made up of our favourite colours – pink
+                  vibrant colour palette made up of our favourite colours - pink
                   and yellow! The colours of passion, optimism and creativity.
                   We selected contemporary, bold typefaces, and created a visual
                   language that allowed the hero of our story to shine: the
                   jewelry. This was followed by developing all the supporting
-                  touchpoints where the brand really comes to life – from
-                  creating the packaging and image style to working closely with
+                  touchpoints where the brand really comes to life - from
+                  creating the packaging and image style to working closely with
                   the founders and various partners to design, direct and launch
                   the website, social media and photoshoots.
                 </span>
@@ -166,27 +166,24 @@ export default function Casestudy() {
                 <br />
                 <br />
                 <span>
-                  We’ve worked on some of the most successful homegrown brands
+                  We&apos;ve worked on some of the most successful homegrown brands
                   in the region like OliOli, Cafu, Luma, Goat amongst many
-                  others. If you’ve been daydreaming of starting your own
-                  business, this is the sign you’ve been waiting for!
+                  others. If you&apos;ve been daydreaming of starting your own
+                  business, this is the sign you&apos;ve been waiting for!
                 </span>
               </p>
             </div>
             <div className="relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px]">
                 <Image src="/assets/images/portfolio/portfolio-detail/maveroc-5.png" alt="maveroc-5" fill/>
-
             </div>
             <div className="relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px]">
                 <Image src="/assets/images/portfolio/portfolio-detail/maveroc-8.png" alt="maveroc-8" fill/>
             </div>
             <div className=" col-span-2 relative w-[90vw] h-[45vw]">
                 <Image src="/assets/images/portfolio/portfolio-detail/maveroc-9.png" alt="maveroc-9" fill/>
-
             </div>
             <div className="col-span-2 relative w-[90vw] h-[45vw]">
                 <Image src="/assets/images/portfolio/portfolio-detail/maveroc-6.png" alt="maveroc-6" fill/>
-
             </div>
           </div>
         </div>

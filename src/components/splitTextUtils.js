@@ -1,3 +1,4 @@
+/* eslint-disable no-inner-declarations */
 // src/utils/splitText.js
 import gsap from 'gsap';
 import { Expo } from 'gsap';
@@ -9,7 +10,7 @@ export function SplitInLineOnly(element) {
   return new SplitType(element, {
     types: 'lines',
   });
-};
+}
 
 export function SplitInLine(element) {
    if (!element) return null;

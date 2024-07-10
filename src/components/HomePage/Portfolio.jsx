@@ -6,7 +6,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import LinkButton from "../Button/LinkButton";
-import { SplitInLine, SplitInLineWordChar } from "../splitTextUtils";
+import { SplitInLine, SplitInLineWordChar } from "@/components/splitTextUtils";
 import CustomEase from "gsap/dist/CustomEase";
 import Image from "next/image";
 
@@ -21,64 +21,28 @@ const Portfolio = () => {
   useGSAP(() => {
     const container = containerRef.current;
     const scroll = scrollRef.current;
-    // const slide = document.querySelectorAll(".slider")
-    let sections = document.querySelectorAll(".pannel");
-    let imageanim = document.querySelectorAll(".pannel-img");
-    let scrollTween = gsap.to(sections, {
-      xPercent: -120 * (sections.length - 1),
-      ease: "none", // <-- IMPORTANT!
+    
+    const tl = gsap.timeline({
       scrollTrigger: {
-            trigger: container,
-            pin: true,
-            scrub: 1,
-            start: "top top",
-            end: "=+3500 top",
-          },
+        trigger: container,
+        pin: true,
+        scrub: 1,
+        start: "top top",
+        end: "=+3000 top",
+      },
     });
-    sections.forEach((sec)=>{
-      imageanim.forEach((img)=>{
-        gsap.to(img, {
-          scale:1,
-          duration: 0.7,
-         ease:"power2.inout",
-          scrollTrigger: {
-            trigger: img,
-            scrub:true,
-            // markers:true,
-            containerAnimation: scrollTween,
-            start: "20% 70%",
-            end:"90% 70%",
-            toggleActions: "play none none reset",
-           
-          }
-        });
-        
-      })
-      
-
-    })
     
-    // const tl = gsap.timeline({
-    //   scrollTrigger: {
-    //     trigger: container,
-    //     pin: true,
-    //     scrub: 1,
-    //     start: "top top",
-    //     end: "=+3000 top",
-    //   },
-    // });
-    
-    // tl.fromTo(
-    //   scroll,
-    //   {
-    //     x: "0",
-    //   },
-    //   {
-    //     x: "-200vw",
-    //     duration: 5,
-    //     ease: "none",
-    //   }
-    // );
+    tl.fromTo(
+      scroll,
+      {
+        x: "0",
+      },
+      {
+        x: "-200vw",
+        duration: 5,
+        ease: "none",
+      }
+    );
    
   });
  
