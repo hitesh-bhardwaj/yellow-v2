@@ -17,7 +17,7 @@ export default function Pagehero() {
               others.
             </p>
           </div>
-          <div className="w-[50vw] h-[45vw] relative drop-shadow-2xl shadow-xl imageanim">
+          <div className="w-[50vw] h-[45vw] relative imageanim">
             <Image src="/assets/images/contact/contact-head.png" alt="contac-head-img" className="object-cover h-full w-full " fill/>
           </div>
         </div>

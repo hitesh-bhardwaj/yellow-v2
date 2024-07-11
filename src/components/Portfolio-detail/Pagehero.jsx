@@ -12,13 +12,13 @@ export default function Pagehero() {
 
             </h1>
             <div className="absolute bottom-[7%] right-[7%] flex gap-[1.5vw] text-white">
-              <p className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[1.7vw] py-[0.5vw] text-[1.2vw]">
+              <p className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[1.7vw] py-[0.5vw] text-[1.2vw] fadeup">
                 Digital Marketing
               </p>
-              <p className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[2.5vw] py-[0.5vw] text-[1.2vw]">
+              <p className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[2.5vw] py-[0.5vw] text-[1.2vw] fadeup">
                 Branding
               </p>
-              <p className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[2.5vw] py-[0.5vw] text-[1.2vw]">
+              <p className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[2.5vw] py-[0.5vw] text-[1.2vw] fadeup">
                 2024
               </p>
               

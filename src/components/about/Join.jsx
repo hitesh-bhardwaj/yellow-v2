@@ -1,8 +1,27 @@
 import React from 'react'
 import LinkButton from '../Button/LinkButton'
 import Image from 'next/image'
+import {gsap} from 'gsap/dist/gsap'
+import { useGSAP } from '@gsap/react'
+import {ScrollTrigger} from 'gsap/dist/ScrollTrigger'
+gsap.registerPlugin(useGSAP, ScrollTrigger)
+
 
 export default function Join() {
+  useGSAP(()=>{
+    gsap.to(".join-img",{
+      yPercent:50,
+      duration:2,
+      scrollTrigger:{
+        trigger:".join-img",
+        scrub:true,
+        
+        start:"+=200 60%",
+        end:"bottom -=200"
+      }
+    })
+
+  })
   return (
     <>
     <section className='w-full py-[8%] bg-[#111111] ' id='join'>
@@ -19,8 +38,8 @@ export default function Join() {
               className={"text-[1.5vw] font-medium join "}
             />
           </div>
-          <div className='w-[42vw] h-[52vw] relative drop-shadow-2xl shadow-2xl imageanim'>
-            <Image src="/assets/images/about/join.png" alt='join-img' fill/>
+          <div className='w-[42vw] h-[52vw] relative drop-shadow-2xl shadow-2xl overflow-hidden fadein'>
+            <Image src="/assets/images/about/join.png" alt='join-img' fill className='scale-[1.5] translate-y-[-30%] join-img'/>
 
           </div>
         

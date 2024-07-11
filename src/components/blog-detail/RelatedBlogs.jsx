@@ -11,15 +11,19 @@ export default function RelatedBlogs() {
             <h2 data-title-anim className="text-[5.7vw] font-display uppercase ">
               Related Blogs
             </h2>
+            <div className="fadeup flex items-end">
             <LinkButton
               btnLink={"/"}
               btnText={"All Blogs"}
-              className="text-[1.4vw] font-medium"
+              className="text-[1.8vw] font-medium"
             />
+
+            </div>
+            
           </div>
           <div className="flex justify-between">
             
-            <div className="w-[28vw] h-[30vw] border-[1px] border-black border-opacity-40 rounded-[10px] overflow-hidden group">
+            <div className="w-[28vw] h-[30vw] border-[1px] border-black border-opacity-40 rounded-[10px] overflow-hidden group fadeup">
               <div className="w-[28vw] h-[15vw] relative">
                 <Image
                   src="/assets/images/blog/bloglist-2.png"
@@ -51,7 +55,7 @@ export default function RelatedBlogs() {
             
 
            
-           <div className="w-[28vw] h-[30vw] border-[1px] border-black border-opacity-40 rounded-[10px] overflow-hidden group">
+           <div className="w-[28vw] h-[30vw] border-[1px] border-black border-opacity-40 rounded-[10px] overflow-hidden group fadeup">
               <div className="w-[28vw] h-[15vw] relative">
                 <Image
                   src="/assets/images/blog/bloglist-2.png"
@@ -82,7 +86,7 @@ export default function RelatedBlogs() {
             </div>
           
           
-            <div className="w-[28vw] h-[30vw] border-[1px] border-black border-opacity-40 rounded-[10px] overflow-hidden group">
+            <div className="w-[28vw] h-[30vw] border-[1px] border-black border-opacity-40 rounded-[10px] overflow-hidden group fadeup">
               <div className="w-[28vw] h-[15vw] relative">
                 <Image
                   src="/assets/images/blog/bloglist-2.png"
@@ -103,12 +107,15 @@ export default function RelatedBlogs() {
                   Packaging Design: Elevating Your Product’s Visual Appeal and
                   Brand Identity
                 </h3>
-
-                <LinkButton
+              
+               <LinkButton
                   btnLink={"/"}
                   btnText={"Read Article"}
-                  className="text-[1.5vw]"
+                  className={"text-[1.4vw]"}
                 />
+
+               
+                
               </div>
             </div>
           

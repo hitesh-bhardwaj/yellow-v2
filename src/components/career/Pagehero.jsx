@@ -13,7 +13,7 @@ export default function Pagehero() {
               As a digital branding agency, we help businesses connect with their customers by using a variety of tools and services.As a digital branding agency, we help businesses connect with their customers by using a variety of tools and services.
               </p>
             </div>
-            <div className="w-[30vw] h-[40vw] relative drop-shadow-2xl shadow-xl imageanim">
+            <div className="w-[30vw] h-[40vw] relative imageanim">
                 <Image src="/assets/images/career/career-hero.png" alt="career-hero" fill/>
 
             </div>

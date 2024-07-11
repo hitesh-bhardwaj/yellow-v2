@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import SectionTitle from '../SectionTitle'
 
 export default function Work() {
   return (
@@ -7,13 +8,20 @@ export default function Work() {
     <section className='w-full h-full py-[8%]' id='work'>
       <div className='container'>
       <div className='w-full flex justify-between mb-[5vw]'>
-            <h2 data-title-anim className='text-[5.8vw] font-display uppercase '>our Work</h2>
+        <div>
+        <SectionTitle text={"Our work"} className={"mb-[3vw]"}/>
+        <p data-para-anim className="text-[1.9vw] w-[60%] font-medium leading-[1.2] ">
+        We grow amazing companies through exceptional branding and communications.
+        </p>
+
+        </div>
+        
             <Link
                 className={`cursor-pointer flex w-fit relative text-[1.4vw] gap-[0.5vw] items-center font-medium group `}
                 href="#"
               >
                 <span className="relative after:absolute leading-[1.3] after:block after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-body after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0 ">
-                See more to our work
+                See All work
                 </span>
                 <svg
                   className="relative -rotate-[135deg] w-[2vw] h-[2vw] overflow-hidden"
@@ -37,7 +45,7 @@ export default function Work() {
               </Link>
         </div>
         <div className='w-full flex justify-between gap-[3vw]'>
-            <div className='w-[45vw] h-[45vw] relative bg-[#93A374] rounded-[15px] overflow-hidden'>
+            <div className='w-[45vw] h-[45vw] relative bg-[#93A374] rounded-[15px] overflow-hidden fadein'>
                 <Link href={"/"}>
                 <div className='absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]'><img src='/assets/images/about/work-1.png' alt='work-1'/></div>
                 <div className="absolute bottom-[7%] left-[7%] text-white">
@@ -57,7 +65,7 @@ export default function Work() {
 
                 </Link>
             </div>
-            <div className='w-[45vw] h-[45vw] relative bg-[#FB8464] rounded-[15px] overflow-hidden'>
+            <div className='w-[45vw] h-[45vw] relative bg-[#FB8464] rounded-[15px] overflow-hidden fadein'>
                 <Link href={"/"}>
                 <div className='absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[30vw] h-[7vw]'><img src='/assets/images/about/work-2.png' alt='work-2' className='object-cover h-full w-full'/></div>
                 <div className="absolute bottom-[7%] left-[7%] text-white">

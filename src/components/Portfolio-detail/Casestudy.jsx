@@ -8,29 +8,29 @@ export default function Casestudy() {
         <div className="container">
           <div className="grid grid-cols-2 gap-x-[2.5vw] gap-y-[4vw]">
             <div className="">
-              <h2 data-title-anim className="text-[4.8vw] mb-[3vw] leading-[1.1] font-display w-[50%] ">
+              <h2 data-title-anim className="text-[4.8vw] mb-[3vw] leading-[1.1] font-display w-[70%] ">
                 The Art of Rebellion
               </h2>
               <div className="text-[1.2vw] font-medium flex flex-wrap gap-[0.5vw] w-[70%]">
-                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70">
+                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup">
                   Brand Strategy
                 </p>
-                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70">
+                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup">
                   Logo Development
                 </p>
-                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70">
+                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup">
                   Photography Style
                 </p>
-                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70">
+                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup">
                   Brand Name
                 </p>
-                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70">
+                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup">
                   Packaging
                 </p>
-                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70">
+                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup">
                   Website
                 </p>
-                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70">
+                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup">
                   Social Media
                 </p>
               </div>

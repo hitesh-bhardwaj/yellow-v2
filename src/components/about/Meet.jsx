@@ -1,4 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
+import SectionTitle from "../SectionTitle";
+import {gsap} from "gsap/dist/gsap";
+import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 const teamMembers = [
   {
@@ -66,22 +71,40 @@ const teamMembers = [
 ];
 
 export default function Meet() {
+  const cardContainer = useRef(null);
+  useGSAP(() => {
+    const cards = cardContainer.current.querySelectorAll(".cardfade");
+    
+      gsap.from(cards, {
+        scrollTrigger: {
+          trigger: cardContainer.current,
+          start: "top 90%",
+          end:"bottom 60%",
+        },
+        opacity:0,
+        yPercent:20,
+        ease:"power4.Out",
+        duration:1,
+        stagger:0.3
+      });
+    });
+  
   return (
     <>
-      <section className="w-full h-full py-[5%]" id="meet">
+      <section className="w-full h-full py-[5%] pb-[10%]" id="meet">
         <div className="container">
-        <h2 data-title-anim className="text-[5.7vw] font-display uppercase mb-[3vw] ">
-          Meet the people
-        </h2>
-        <p data-para-anim className="text-[2vw] w-[30%] font-medium leading-[1.2] ">
+        <SectionTitle text={"Meet the people"} className={"mb-[3vw]"}/>
+          
+        
+        <p data-para-anim className="text-[1.9vw] w-[30%] font-medium leading-[1.2] ">
           We grow amazing companies through exceptional branding and
           communications.
         </p>
-        <div className="flex flex-wrap mt-[10vw] justify-between gap-y-[3vw]">
+        <div ref={cardContainer} className="flex flex-wrap mt-[8vw] justify-between gap-y-[3vw]">
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className={`w-[32%] h-[36vw] group cursor-pointer relative overflow-hidden border-[1px] border-black border-opacity-40 fadein`}
+              className={`w-[32%] h-[36vw] group cursor-pointer relative overflow-hidden border-[1px] border-black border-opacity-40 cardfade`}
             >
               <img
                 src={member.image}

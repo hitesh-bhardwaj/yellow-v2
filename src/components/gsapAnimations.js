@@ -74,7 +74,7 @@ export function imageAnim(){
       gsap.to(img, {
         scrollTrigger: {
           trigger: img,
-          start: "top 80%",
+          start: "top 90%",
         },
         '--beforeHeight': '0%',
         duration: 1.5,
@@ -92,7 +92,7 @@ export function imgAnim(){
       gsap.to(img, {
         scrollTrigger: {
           trigger: img,
-          start: "top 80%",
+          start: "top 90%",
         },
         '--beforeHeight': '0%',
         duration: 1.5,
@@ -110,12 +110,32 @@ export function fadeIn(){
       gsap.from(content, {
         scrollTrigger: {
           trigger: content,
-          start: "top 80%",
+          start: "top 90%",
           end:"bottom 60%",
         },
         opacity:0,
         ease:"power4.Out",
         duration:1,
+        stagger:0.5
+      });
+    });
+  });
+
+}
+export function fadeUp(){
+  useGSAP(() => {
+    const content = document.querySelectorAll(".fadeup");
+    content.forEach((content) => {
+      gsap.from(content, {
+        scrollTrigger: {
+          trigger: content,
+          start: "top 90%",
+          end:"bottom 60%",
+        },
+        opacity:0,
+        yPercent:40,
+        ease:"power4.Out",
+        duration:0.7,
         stagger:0.5
       });
     });

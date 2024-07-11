@@ -6,7 +6,7 @@ export default function About() {
     <>
      <section className="pb-[5%]" id='about'>
       <div className='container'>
-      <div className="w-[90vw] h-[45vw] rounded-[15px] overflow-hidden relative">
+      <div className="w-[90vw] h-[45vw] rounded-[15px] overflow-hidden relative fadeup">
           <Image
             src="/assets/images/service/service-detail/service-detail-hero.png"
             alt="service-detail-hero"

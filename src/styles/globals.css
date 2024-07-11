@@ -200,8 +200,11 @@ body{
 
 /* cards anmation */
 .cardback{
-   transform: rotateY(180deg);
+  backface-visibility: hidden;
+   transform: perspective(900px) rotateY(180deg);
 }
 .cardfront{
-  transform: rotateY(0deg);
+  backface-visibility: hidden;
+
+  transform: perspective(1200px) rotateY(0deg);
 }

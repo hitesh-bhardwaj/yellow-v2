@@ -23,11 +23,12 @@ export default function Listing() {
           </p>
           <div className='w-full h-full flex flex-col gap-y-[2vw]'>
             {jobListings.map((job, index) => (
-              <div key={index}>
+              <div key={index} className='fadeup'>
                 <div className='w-full grid grid-cols-3 h-[10vw] bg-transparent border-[1px] border-white text-white rounded-[15px] py-[2vw] px-[3vw] justify-between items-center text-[1.8vw] hover:bg-white hover:text-black hover:drop-shadow-2xl hover:shadow-xl transition-all ease duration-700'>
                   <p data-para-anim className='col-start-1  '>{job.title}</p>
                   <p data-para-anim className='col-start-2 text-center '>{job.location}</p>
                   <div className='col-start-3 flex justify-end'>
+                    
                   <BlackButton btnLink={job.link} btnText={"Apply Now"} className='border-white bg-white' />
 
 

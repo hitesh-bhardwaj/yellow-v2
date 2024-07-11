@@ -3,7 +3,7 @@ import Layout from '@/components/Layout'
 import Works from '@/components/Portfolio-detail/Works'
 import Pagehero from '@/components/services/Pagehero'
 import ServiceList from '@/components/services/ServiceList'
-import { titleAnim , paraAnim , lineAnim, imageAnim, imgAnim } from '@/components/gsapAnimations';
+import { titleAnim , paraAnim , lineAnim, imageAnim, imgAnim , fadeUp} from '@/components/gsapAnimations';
 
 
 export default function services() {
@@ -12,6 +12,7 @@ export default function services() {
   lineAnim();
   imageAnim();
   imgAnim();
+  fadeUp();
 
   return (
     <>

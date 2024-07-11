@@ -27,11 +27,14 @@ export default function Detail() {
             <p data-para-anim className="text-[1.2vw] font-medium mb-[2vw] ">
               Schedule a brand workshop here.
             </p>
+            <div className="fadeup">
             <LinkButton
               btnLink={"/"}
               btnText={"Connect With Yellow"}
               className={"text-[1.5vw] font-medium "}
             />
+
+            </div>
           </div>
           <div className="col-start-3 flex justify-end">
             <div className="w-[25vw] h-[25vw] rounded-[15px] overflow-hidden relative imganim">
@@ -65,11 +68,15 @@ export default function Detail() {
               Define brand perception and brand reputation with a smartly
               designed brand architecture.
             </p>
+            <div className="fadeup">
             <LinkButton
               btnLink={"/"}
               btnText={"Connect With Yellow"}
               className={"text-[1.5vw] font-medium "}
             />
+
+            </div>
+            
           </div>
 
           <div className="col-start-3 flex justify-end">
@@ -101,11 +108,14 @@ export default function Detail() {
             <p  data-para-anim className="text-[1.2vw] font-medium mb-[2vw] ">
               Engage your brand’s very own champions.
             </p>
+            <div className="fadeup">
             <LinkButton
               btnLink={"/"}
               btnText={"Connect With Yellow"}
               className={"text-[1.5vw] font-medium "}
             />
+
+            </div>
           </div>
           <div className="col-start-3 flex justify-end">
             <div className="w-[25vw] h-[25vw] rounded-[15px] overflow-hidden relative imganim">

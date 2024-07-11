@@ -9,12 +9,13 @@ export default function Works() {
       <div className='container'>
       <div className='w-full flex justify-between mb-[5vw]'>
             <h2 data-title-anim className='text-[5.8vw] font-display uppercase '>Related Works</h2>
+            <div className='fadeup flex items-end'>
             <Link
                 className={`cursor-pointer flex w-fit relative text-[1.4vw] gap-[0.5vw] items-center font-medium group `}
                 href="#"
               >
                 <span className="relative after:absolute leading-[1.3] after:block after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-body after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0">
-                See more to our work
+                See All work
                 </span>
                 <svg
                   className="relative -rotate-[135deg] w-[2vw] h-[2vw] overflow-hidden"
@@ -36,9 +37,12 @@ export default function Works() {
                   />
                 </svg>
               </Link>
+
+            </div>
+            
         </div>
         <div className='w-full flex justify-between gap-[2vw]'>
-            <div className='w-full h-full relative'>
+            <div className='w-full h-full relative fadeup'>
                 <Link href={"/"}>
                 <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden'>
                 <Image src='/assets/images/portfolio/portfolio-detail/work1.png' alt='work1' className='object-cover h-full w-full' fill/>
@@ -62,9 +66,9 @@ export default function Works() {
 
                 </Link>
             </div>
-            <div className='w-full h-full relative'>
+            <div className='w-full h-full relative fadeup'>
                 <Link href={"/"}>
-                <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden'>
+                <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden '>
                 <Image src='/assets/images/portfolio/portfolio-detail/work2.png' alt='work2' className='object-cover h-full w-full' fill/>
 
 
@@ -86,9 +90,9 @@ export default function Works() {
 
                 </Link>
             </div>
-            <div className='w-full h-full relative'>
+            <div className='w-full h-full relative fadeup'>
                 <Link href={"/"}>
-                <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden'>
+                <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden '>
                 <Image src='/assets/images/portfolio/portfolio-detail/work3.png' alt='work3' className='object-cover h-full w-full' fill/>
 
 

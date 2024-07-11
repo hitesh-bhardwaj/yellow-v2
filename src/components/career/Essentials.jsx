@@ -52,11 +52,15 @@ export default function Essentials() {
             We are always looking for exceptional talent. Send us your work or a
             note on why you think you would be a good fit for the company.
           </p>
+          <div className="fadeup">
           <LinkButton
             btnLink={"/"}
             btnText={"Send Your CV"}
             className="text-[1.6vw]"
           />
+
+          </div>
+          
         </div>
         <div className="w-[40%] flex flex-col gap-[2vw] mb-[5vw]">
           <h2 data-title-anim className="text-[4.8vw] font-display ">Essentials</h2>

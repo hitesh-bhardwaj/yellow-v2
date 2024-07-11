@@ -3,8 +3,9 @@ import Join from '@/components/about/Join'
 import Meet from '@/components/about/Meet'
 import Pagehero from '@/components/about/Pagehero'
 import Work from '@/components/about/Work'
+import Values from '@/components/about/Values'
 import React from 'react'
-import { titleAnim , paraAnim , lineAnim, imageAnim, fadeIn } from '@/components/gsapAnimations';
+import { titleAnim , paraAnim , lineAnim, imageAnim, fadeIn , fadeUp } from '@/components/gsapAnimations';
 
 export default function About() {
   titleAnim();
@@ -12,13 +13,15 @@ export default function About() {
   lineAnim();
   imageAnim();
   fadeIn();
+  fadeUp();
   return (
     <>
     <Layout>
         <Pagehero/>
-        {/* <Values/> */}
+        <Values/>
         <Meet/>
         <Join/>
+        
         <Work/>
         
     </Layout>

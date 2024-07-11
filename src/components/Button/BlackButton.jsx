@@ -2,7 +2,7 @@ import Link from "next/link"
 
 const BlackButton = ({btnLink, btnText, className=""}) => {
     return (
-        <Link href={btnLink} className={`fadeUp cursor-pointer relative block text-[1.2vw] w-fit h-fit text-body border border-body hover:text-white transition-all duration-700 ease-link py-[0.8vw] px-[1.2vw] rounded-full font-medium group overflow-hidden ${className}`}>
+        <Link href={btnLink} className={` cursor-pointer relative block text-[1.2vw] w-fit h-fit text-body border border-body hover:text-white transition-all duration-700 ease-link py-[0.8vw] px-[1.2vw] rounded-full font-medium group overflow-hidden ${className}`}>
             <span className="absolute block w-full h-full scale-y-0 bg-body group-hover:scale-y-100 left-0 top-0 origin-bottom transition-all duration-700 ease-link"/>
             <div className="overflow-hidden flex items-center gap-[0.5vw] w-full relative">
                 <span data-text={btnText} className="relative inline-block after:content-[attr(data-text)] after:absolute after:top-[105%] after:left-0 group-hover:translate-y-[-105%] transition-transform duration-700 ease-link after:block">{btnText}</span>

@@ -1,7 +1,7 @@
 import Listing from '@/components/blog/Listing'
 import Pagehero from '@/components/blog/Pagehero'
 import Layout from '@/components/Layout'
-import { titleAnim , paraAnim , lineAnim, imageAnim } from '@/components/gsapAnimations';
+import { titleAnim , paraAnim , lineAnim, imageAnim , fadeUp} from '@/components/gsapAnimations';
 
 
 export default function Blog() {
@@ -9,6 +9,7 @@ export default function Blog() {
   paraAnim();
   lineAnim();
   imageAnim();
+  fadeUp();
  
   return (
     <>

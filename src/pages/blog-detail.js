@@ -2,7 +2,7 @@ import Detail from '@/components/blog-detail/Detail'
 import Pagehero from '@/components/blog-detail/Pagehero'
 import RelatedBlogs from '@/components/blog-detail/RelatedBlogs'
 import Layout from '@/components/Layout'
-import { titleAnim , paraAnim , lineAnim, imageAnim , fadeIn } from '@/components/gsapAnimations';
+import { titleAnim , paraAnim , lineAnim, imageAnim , fadeIn ,fadeUp } from '@/components/gsapAnimations';
 
 export default function blogdetail() {
   titleAnim();
@@ -10,6 +10,7 @@ export default function blogdetail() {
   lineAnim();
   imageAnim();
   fadeIn();
+  fadeUp();
  
   return (
     <>

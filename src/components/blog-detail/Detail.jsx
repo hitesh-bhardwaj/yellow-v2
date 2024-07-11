@@ -21,7 +21,7 @@ export default function Detail() {
                 </h3>
                 <div className="flex gap-[0.7vw]">
                     <Link href={"/"}>
-                    <div className="w-[3vw] h-[3vw] relative">
+                    <div className="w-[3vw] h-[3vw] relative fadeup">
                     <Image
                       src="/assets/images/blog/blogdetail/fb.svg"
                       alt="fb-logo"
@@ -30,7 +30,7 @@ export default function Detail() {
                   </div></Link>
 
                   <Link href={"/"}>
-                  <div className="w-[3vw] h-[3vw] relative">
+                  <div className="w-[3vw] h-[3vw] relative fadeup">
                     <Image
                       src="/assets/images/blog/blogdetail/linkedin.svg"
                       alt="linkedin-logo"
@@ -39,7 +39,7 @@ export default function Detail() {
                   </div>
                   </Link>
                   <Link href={"/"}>
-                  <div className="w-[3vw] h-[3vw] relative">
+                  <div className="w-[3vw] h-[3vw] relative fadeup">
                     <Image
                       src="/assets/images/blog/blogdetail/x.svg"
                       alt="x-logo"
@@ -71,7 +71,7 @@ export default function Detail() {
               <div className="w-[full] ml-[-3vw] h-[1px] bg-black mb-[3vw] lineDraw"></div>
             </div>
             <div className="col-start-2 col-span-2">
-              <h2 data-title-anim className="text-[2.5vw] font-display mb-[2vw] ">
+              <h2 data-para-anim className="text-[2.5vw] font-display mb-[2vw] ">
                 The Art of Simplicity
               </h2>
               <p data-para-anim className="text-[1.2vw] font-medium mb-[2vw] ">
@@ -91,7 +91,7 @@ export default function Detail() {
               <div className="w-[full] ml-[-3vw] h-[1px] bg-black mb-[3vw] lineDraw"></div>
             </div>
             <div className="col-start-2 col-span-2">
-              <h2 data-title-anim className="text-[2.5vw] font-display mb-[2vw] ">
+              <h2 data-para-anim className="text-[2.5vw] font-display mb-[2vw] ">
                 Psychology Behind Color Choices
               </h2>
               <p data-para-anim className="text-[1.2vw] font-medium mb-[2vw] ">
@@ -103,7 +103,7 @@ export default function Detail() {
               <div className="w-[full] ml-[-3vw] h-[1px] bg-black mb-[3vw] lineDraw"></div>
             </div>
             <div className="col-start-2 col-span-2">
-              <h2 data-title-anim className="text-[2.5vw] font-display mb-[2vw] ">
+              <h2 data-para-anim className="text-[2.5vw] font-display mb-[2vw] ">
               Using Symbols To Tell Your Brand’s Story
               </h2>
               <p data-para-anim className="text-[1.2vw] font-medium mb-[2vw] ">
@@ -115,7 +115,7 @@ export default function Detail() {
               <div className="w-[full] ml-[-3vw] h-[1px] bg-black mb-[3vw] lineDraw"></div>
             </div>
             <div className="col-start-2 col-span-2">
-              <h2 data-title-anim className="text-[2.5vw] font-display mb-[2vw] ">
+              <h2 data-para-anim className="text-[2.5vw] font-display mb-[2vw] ">
               The Psychological Power of Typography
               </h2>
               <p data-para-anim className="text-[1.2vw] font-medium mb-[2vw] ">
@@ -127,7 +127,7 @@ export default function Detail() {
               <div className="w-[full] ml-[-3vw] h-[1px] bg-black mb-[3vw] lineDraw"></div>
             </div>
             <div className="col-start-2 col-span-2">
-              <h2 data-title-anim className="text-[2.5vw] font-display mb-[2vw] ">
+              <h2 data-para-anim className="text-[2.5vw] font-display mb-[2vw] ">
               Logos That Stand the Test of Time:
               </h2>
               <p data-para-anim className="text-[1.2vw] font-medium mb-[2vw] ">
@@ -139,7 +139,7 @@ export default function Detail() {
               <div className="w-[full] ml-[-3vw] h-[1px] bg-black mb-[3vw] lineDraw"></div>
             </div>
             <div className="col-start-2 col-span-2">
-              <h2 data-title-anim className="text-[2.5vw] font-display mb-[2vw] ">
+              <h2 data-para-anim className="text-[2.5vw] font-display mb-[2vw] ">
               Conclusion
               </h2>
               <p data-para-anim className="text-[1.2vw] font-medium mb-[2vw] ">

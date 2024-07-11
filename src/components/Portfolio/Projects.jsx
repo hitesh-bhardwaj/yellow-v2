@@ -171,7 +171,7 @@ export default function ProjectsCopy() {
             {filters.map((category, index) => (
               <button
                 key={index}
-                className={`cat-button text-black hover:text-white overflow-hidden border-[2px] hover:animate-scale-up border-black border-opacity-70 px-[1.5vw] py-[0.6vw] min-w-[7vw] rounded-full transition-all duration-500 ease-out relative group ${
+                className={`cat-button text-black hover:text-white overflow-hidden border-[2px] hover:animate-scale-up border-black border-opacity-70 px-[1.5vw] py-[0.6vw] min-w-[7vw] rounded-full transition-all duration-500 ease-out relative group fadeup ${
                   activeCategory === category ? "active" : ""
                 }`}
                 onClick={() => handleCategoryClick(category)}
