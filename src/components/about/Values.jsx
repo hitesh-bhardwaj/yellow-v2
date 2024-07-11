@@ -1,9 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from "react";
 import Image from "next/image";
-import {gsap} from 'gsap';
+import { gsap } from 'gsap/dist/gsap';
 import { useGSAP } from "@gsap/react";
-import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function values() {

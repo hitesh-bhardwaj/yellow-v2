@@ -1,8 +1,8 @@
 import Section from "@/components/Section";
 import Image from "next/image";
 import LinkButton from "../Button/LinkButton";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { SplitInLineOnly } from "../splitTextUtils";
@@ -50,24 +50,6 @@ const AboutUs = () => {
             stagger: 1,
             ease: "power2.inOut"
         })
-    });
-
-    useGSAP(() => {
-        const fadeUps = document.querySelectorAll(".fadeUp");
-        fadeUps.forEach((fadeUp) => {
-            gsap.from(fadeUp, {
-                scrollTrigger: {
-                    trigger: fadeUp,
-                    start: "top 90%",
-                    toggleActions: "play none none reverse",
-                },
-                opacity: 0,
-                rotationZ: 5,
-                y: 70,
-                duration: 0.6,
-                ease: "power3.out",
-            });
-        });
     });
 
     return (

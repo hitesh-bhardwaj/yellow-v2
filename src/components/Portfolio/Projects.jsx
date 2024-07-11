@@ -1,10 +1,10 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import gsap from "gsap";
+import { gsap } from "gsap/dist/gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 // Define project data
 const projectsData = [

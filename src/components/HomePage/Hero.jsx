@@ -11,6 +11,8 @@ import { CustomEase } from "gsap/dist/CustomEase";
 
 gsap.registerPlugin(useGSAP, CustomEase);
 
+const primaryEase = CustomEase.create("primary-ease", "0.62, 0.05, 0.01, 0.99");
+
 const VideoModal = dynamic(() => import('@/components/VideoPlayer'), {
     ssr: false,
 });
@@ -35,14 +37,12 @@ const Hero = () => {
         initMagneticButton();
      }, []);
 
-    CustomEase.create("primary-ease", "0.62, 0.05, 0.01, 0.99");
-
     useGSAP(()=> {
         SplitInLine(text.current);
 
         const tl = gsap.timeline({
             defaults: {
-                ease: "primary-ease",
+                ease: primaryEase,
             }
         });
         tl.from(".lineWord .line .line-internal",{
@@ -74,7 +74,6 @@ const Hero = () => {
             duration: 1,
             delay: -0.8,
         })
-
     })
 
     return (

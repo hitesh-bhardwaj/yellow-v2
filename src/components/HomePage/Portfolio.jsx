@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import gsap from "gsap";
+import { gsap } from "gsap/dist/gsap";
 import Section from "../Section";
 import SectionTitle from "../SectionTitle";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import LinkButton from "../Button/LinkButton";
@@ -47,10 +47,6 @@ const Portfolio = ({ works }) => {
     );
   };
 
-  // useEffect(() => {
-  //   initMagneticButton();
-  // })
-
   useGSAP(() => {
     const container = containerRef.current;
     const scroll = scrollRef.current;
@@ -82,8 +78,7 @@ const Portfolio = ({ works }) => {
       scrollTrigger: {
         trigger: ".counter",
         // markers:true,
-        start: "top 80%",
-        end: "bottom 80%",
+        start: "top 90%",
       },
     });
     tl.to(".counter-3", {

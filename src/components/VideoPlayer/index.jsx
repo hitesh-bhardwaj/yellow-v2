@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useRef, useState, useEffect } from "react";
-import { gsap } from "gsap";
+import { gsap } from "gsap/dist/gsap";
 
 const VideoPlayer = ({ isOpen, onClose, videoSrc, poster }) => {
   const modalRef = useRef(null);

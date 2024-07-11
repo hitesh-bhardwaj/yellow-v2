@@ -1,11 +1,13 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useGSAP } from '@gsap/react';
-import {gsap} from 'gsap';
+import { gsap } from 'gsap/dist/gsap';
 import {ScrollTrigger} from 'gsap/dist/ScrollTrigger';
+import { CustomEase } from 'gsap/dist/CustomEase';
 import { SplitInLineWordChar , SplitInLine } from './splitTextUtils';
 
+gsap.registerPlugin(ScrollTrigger, CustomEase, useGSAP);
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+const primaryEase = CustomEase.create("cus-1", "0.62, 0.05, 0.01, 0.99");
 
 export function titleAnim(){
     useGSAP(() => {
@@ -17,13 +19,12 @@ export function titleAnim(){
             scrollTrigger: {
               trigger: heading,
               start: "top 85%",
-              // toggleActions: "play none none reverse",
             },
             rotate: "5deg",
             duration: 0.8,
             yPercent: 100,
             stagger: 0.05,
-            ease: "primary-ease",
+            ease: primaryEase,
           });
         });
     }); 
@@ -38,12 +39,11 @@ export function paraAnim(){
           scrollTrigger: {
             trigger: paraAnimation,
             start: "top 85%",
-            // toggleActions: "play none none reverse",
           },
           duration: 1.47,
           yPercent: 100,
           stagger: 0.07,
-          ease: "primary-ease",
+          ease: primaryEase,
         });
       });
   }); 
@@ -56,14 +56,13 @@ export function lineAnim(){
         scrollTrigger: {
           trigger: lineDraw,
           start: "top 85%",
-          // toggleActions: "play none none reverse",
         },
         scaleX: 0,
         transformOrigin: "left",
         duration: 1.47,
         yPercent: 100,
         stagger: 0.07,
-        ease: "primary-ease",
+        ease: primaryEase,
       });
     });
   }); 
@@ -71,14 +70,11 @@ export function lineAnim(){
 export function imageAnim(){
   useGSAP(() => {
     const images = document.querySelectorAll(".imageanim");
-
     images.forEach((img) => {
       gsap.to(img, {
         scrollTrigger: {
           trigger: img,
           start: "top 80%",
-          
-          // markers:true
         },
         '--beforeHeight': '0%',
         duration: 1.5,
@@ -92,16 +88,12 @@ export function imageAnim(){
 export function imgAnim(){
   useGSAP(() => {
     const images = document.querySelectorAll(".imganim");
-
     images.forEach((img) => {
       gsap.to(img, {
         scrollTrigger: {
           trigger: img,
           start: "top 80%",
-          
-          // markers:true
         },
-        
         '--beforeHeight': '0%',
         duration: 1.5,
         stagger: 0.05,
@@ -114,25 +106,17 @@ export function imgAnim(){
 export function fadeIn(){
   useGSAP(() => {
     const content = document.querySelectorAll(".fadein");
-
     content.forEach((content) => {
       gsap.from(content, {
         scrollTrigger: {
           trigger: content,
           start: "top 80%",
           end:"bottom 60%",
-
-          
-          // markers:true
         },
         opacity:0,
-        // scale:0.9,
         ease:"power4.Out",
         duration:1,
         stagger:0.5
-      
-        
-       
       });
     });
   });

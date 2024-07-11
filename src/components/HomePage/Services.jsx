@@ -1,13 +1,8 @@
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import BlackButton from "../Button/BlackButton";
 import Section from "../Section";
 import SectionTitle from "../SectionTitle";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const SingleAccordion = ({ id, title, content1, content2, btnLink, btnText }) => {
     return (

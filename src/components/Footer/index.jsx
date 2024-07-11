@@ -2,14 +2,11 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { CustomEase } from "gsap/dist/CustomEase";
 import Link from "next/link";
 import { useRef } from "react";
 import { SplitInChar } from "../splitTextUtils";
 
-gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, useGSAP, CustomEase);
-
-CustomEase.create("primary-ease", "0.62, 0.05, 0.01, 0.99");
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, useGSAP);
 
 const handleScroll = () => {
     gsap.to(window, {
@@ -186,7 +183,6 @@ const Footer = () => {
 
                             <button aria-label="Scroll Down Button" onClick={handleScroll} className="absolute cursor-pointer scroll-btn w-fit left-1/2 -translate-x-1/2 text-[1.1vw] gap-[0.5vw] font-[400] group flex items-center justify-center">
                                 <span className="relative leading-[1.5] after:absolute after:block after:bottom-0 after:left-0 after:h-[1px] after:w-full after:bg-current after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0">Send me back up.</span>
-                                <span className="text-[1.3vw]">👆</span>
                             </button>
 
                             <div className="text-[1.15vw] font-medium">
