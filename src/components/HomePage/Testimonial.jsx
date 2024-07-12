@@ -48,7 +48,7 @@ const Testimonial = () => {
 
     const Card = ({img, company, name, content}) => {
         return (
-            <div className="relative w-1/5 h-auto backdrop-blur-md overflow-hidden rounded-[1.2vw] bg-gradient-to-br from-[#35333380] to-[#24242420] to-45% border border-white/25 fadein">
+            <div className="relative w-1/5 h-auto backdrop-blur-md overflow-hidden rounded-[1.2vw] bg-gradient-to-br from-[#35333380] to-[#24242420] to-45% border border-white/25 fadein mobile:w-1/2">
                 <Image 
                     priority={false}
                     width={100}
@@ -60,7 +60,7 @@ const Testimonial = () => {
                 <div className="w-full h-full py-[3vw] px-[3.5vw] space-y-[2vw]">
                     <div className="flex items-center gap-[1vw]">
                         <Image
-                            className="w-[5vw] h-[5vw]"
+                            className="w-[5vw] h-[5vw] mobile:w-[8vw] mobile:h-[8vw]"
                             alt="brand img" 
                             priority={false}
                             src={img} 
@@ -69,8 +69,8 @@ const Testimonial = () => {
                             height={100}
                         />
                         <div className="flex flex-col items-start">
-                            <p className="text-[1.35vw] font-medium">{name}</p>
-                            <p className="text-[1.1vw] font-medium">{company}</p>
+                            <p className="text-[1.35vw] font-medium mobile:text-[4vw]">{name}</p>
+                            <p className="text-[1.1vw] font-medium mobile:text-[3vw]">{company}</p>
                         </div>
                     </div>
                     <p className="text-[1.45vw] whitespace-normal">

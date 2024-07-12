@@ -5,6 +5,7 @@ import ContactForm from '@/components/contact/ContactForm';
 import Address from '@/components/contact/Address';
 import { titleAnim , paraAnim , lineAnim, imageAnim, fadeIn } from '@/components/gsapAnimations';
 
+
 export default function Contact() {
   
     titleAnim();
@@ -22,7 +23,6 @@ export default function Contact() {
         <Pagehero/>
         <ContactForm/>
         <Address/>
-
     </Layout>
       
     </>

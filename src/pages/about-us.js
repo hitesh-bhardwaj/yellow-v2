@@ -21,11 +21,8 @@ export default function About() {
         <Values/>
         <Meet/>
         <Join/>
-        
         <Work/>
-        
     </Layout>
-      
     </>
   )
 }

@@ -5,7 +5,6 @@ import Pagehero from '@/components/services/Pagehero'
 import ServiceList from '@/components/services/ServiceList'
 import { titleAnim , paraAnim , lineAnim, imageAnim, imgAnim , fadeUp} from '@/components/gsapAnimations';
 
-
 export default function services() {
   titleAnim();
   paraAnim();
@@ -21,7 +20,6 @@ export default function services() {
         <ServiceList/>
         <Works/>
     </Layout>
-      
     </>
   )
 }

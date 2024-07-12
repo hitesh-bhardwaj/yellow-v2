@@ -14,14 +14,14 @@ const AccordionTrigger = React.forwardRef(({ className, children, ...props }, re
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "flex flex-1 items-center justify-between py-4 font-medium transition-all [&[data-state=open]>.icon]:rotate-[90deg] [&[data-state=open]>.icon>.minus]:rotate-90 [&[data-state=open]>.icon]:bg-body [&[data-state=open]>.icon]:text-white",
+        "flex flex-1 items-center mobile:items-start justify-between py-4 font-medium transition-all [&[data-state=open]>.icon]:rotate-[90deg] [&[data-state=open]>.icon>.minus]:rotate-90 [&[data-state=open]>.icon]:bg-body [&[data-state=open]>.icon]:text-white",
         className
       )}
       {...props}>
       {children}
-      <span className="icon h-[4vw] w-[4vw] border border-body rounded-full relative flex items-center justify-center text-body duration-500 ease-out">
-        <span className="minus w-[1.5vw] bg-current h-[2px] absolute duration-500 ease-out"/>
-        <span className="w-[1.5vw] bg-current h-[2px] absolute rotate-90"/>
+      <span className="icon h-[4vw] w-[4vw] border border-body rounded-full relative flex items-center justify-center text-body duration-500 ease-out mobile:w-[15vw] mobile:h-[15vw]">
+        <span className="minus w-[1.5vw] bg-current h-[2px] absolute duration-500 ease-out mobile:w-[5vw]"/>
+        <span className="w-[1.5vw] bg-current h-[2px] absolute rotate-90 mobile:w-[5vw]"/>
       </span>
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>

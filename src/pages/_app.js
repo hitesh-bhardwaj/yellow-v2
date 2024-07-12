@@ -1,30 +1,30 @@
 import "@/styles/globals.css";
-import { ReactLenis } from 'lenis/react'
+import { ReactLenis } from 'lenis/react';
 import { DefaultSeo } from "next-seo";
+import { AnimatePresence } from "framer-motion";
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps, router }) {
   return (
-  <>
-
+    <>
       <DefaultSeo
-        title='Branding & Communication Agency in Dubai - Yellow Agency'
-        description='Welcome to Yellow: your trusted branding, marketing, & design agency in Dubai. We specialize in crafting brand stories & innovative marketing strategies. Let your brand shine with expert services. Contact today!'
+        title="Branding & Communication Agency in Dubai - Yellow Agency"
+        description="Welcome to Yellow: your trusted branding, marketing, & design agency in Dubai. We specialize in crafting brand stories & innovative marketing strategies. Let your brand shine with expert services. Contact today!"
         additionalMetaTags={[
           {
             name: 'viewport',
-            content: 'width=device-width, initial-scale=1.0, maximum-scale=5.0'
+            content: 'width=device-width, initial-scale=1.0, maximum-scale=5.0',
           },
         ]}
         additionalLinkTags={[
           {
             rel: 'icon',
             href: '/favicon-150x150.jpg',
-            sizes: '32x32'
+            sizes: '32x32',
           },
           {
             rel: 'icon',
             href: '/favicon-300x300.jpg',
-            sizes: '192x192'
+            sizes: '192x192',
           },
           {
             rel: 'apple-touch-icon',
@@ -35,7 +35,7 @@ export default function App({ Component, pageProps }) {
             href: '/assets/fonts/Outfit-Regular.woff2',
             as: 'font',
             type: 'font/woff2',
-            crossOrigin: 'anonymous'
+            crossOrigin: 'anonymous',
           },
         ]}
         openGraph={{
@@ -61,9 +61,11 @@ export default function App({ Component, pageProps }) {
         }}
       />
 
-    <ReactLenis root>
-      <Component {...pageProps} />
-    </ReactLenis>
-  </>
-  )
+      <ReactLenis root>
+        <AnimatePresence mode="wait">
+          <Component {...pageProps} key={router.route} />
+        </AnimatePresence>
+      </ReactLenis>
+    </>
+  );
 }

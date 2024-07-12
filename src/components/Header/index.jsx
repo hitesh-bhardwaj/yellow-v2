@@ -44,7 +44,7 @@ const Header = () => {
           <div className="w-fit overflow-hidden">
             <Link href="/" className="pointer-events-auto">
               <Image
-                className={`w-[8vw] transition-all duration-500 ease-out ${isInverted ? "invert" : ""}`}
+                className={`w-[8vw] mobile:w-[20vw] transition-all duration-500 ease-out ${isInverted ? "invert" : ""}`}
                 id="header-logo"
                 src="/logo-black.png"
                 alt="Yellow Brand Logo"

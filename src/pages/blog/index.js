@@ -3,7 +3,6 @@ import Pagehero from '@/components/blog/Pagehero'
 import Layout from '@/components/Layout'
 import { titleAnim , paraAnim , lineAnim, imageAnim , fadeUp} from '@/components/gsapAnimations';
 
-
 export default function Blog() {
   titleAnim();
   paraAnim();

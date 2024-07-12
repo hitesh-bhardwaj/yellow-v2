@@ -16,7 +16,6 @@ export default function careerdetail() {
         <Pagehero/>
         <Overview/>
     </Layout>
-      
     </>
   )
 }

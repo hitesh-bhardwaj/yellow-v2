@@ -10,8 +10,8 @@ module.exports = {
   prefix: "",
   theme: {
     screens: {
-      'tablet': {'max': '1023px'},
-      'mobile': {'max': '639px'},
+      'mobile':{'max':'540px'},
+      'tablet':{'min':'541px','max':'1023px'}
     },
     fontFamily: {
       'display': ['Outfit', 'Arial', 'sans-serif'],

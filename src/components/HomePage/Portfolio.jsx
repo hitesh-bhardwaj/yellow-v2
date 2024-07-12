@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+/* eslint-disable react-hooks/rules-of-hooks */
 import { gsap } from "gsap/dist/gsap";
 import Section from "../Section";
 import SectionTitle from "../SectionTitle";
@@ -46,106 +47,109 @@ const Portfolio = ({ works }) => {
       </div>
     );
   };
-
-  useGSAP(() => {
-    const container = containerRef.current;
-    const scroll = scrollRef.current;
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: container,
-        pin: true,
-        scrub: 1,
-        start: "top top",
-        end: "=+3000 top",
-      },
+  if(globalThis.innerWidth>541){
+    useGSAP(() => {
+      const container = containerRef.current;
+      const scroll = scrollRef.current;
+  
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container,
+          pin: true,
+          scrub: 1,
+          start: "top top",
+          end: "=+3000 top",
+        },
+      });
+  
+      tl.fromTo(
+        scroll,
+        {
+          x: "0",
+        },
+        {
+          x: "-200vw",
+          duration: 5,
+          ease: "none",
+        }
+      );
+    });
+    useGSAP(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".counter",
+          // markers:true,
+          start: "top 90%",
+        },
+      });
+      tl.to(".counter-3", {
+        top: "-1030px",
+        stagger: {
+          amount: 0.25,
+        },
+        delay: 0.1,
+        duration: 1.5,
+        ease: "power4.inOut",
+      });
+      tl.to(".counter-2", {
+        top: "-1030px",
+        stagger: {
+          amount: 0.25,
+        },
+        delay: -1.3,
+        duration: 1.5,
+        ease: "power4.inOut",
+      });
+  
+      tl.to(".counter-1", {
+        top: "-215px",
+        stagger: {
+          amount: 0.25,
+        },
+        delay: -1.3,
+        duration: 1.5,
+        ease: "power4.inOut",
+      });
+    });
+    useGSAP(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".count",
+          // markers:true,
+          start: "top 80%",
+          end: "bottom 80%",
+        },
+      });
+      tl.to(".count-3", {
+        top: "-1030px",
+        stagger: {
+          amount: 0.25,
+        },
+        delay: 0.1,
+        duration: 1.5,
+        ease: "power4.inOut",
+      });
+      tl.to(".count-2", {
+        top: "-420px",
+        stagger: {
+          amount: 0.25,
+        },
+        delay: -1.3,
+        duration: 1.5,
+        ease: "power4.inOut",
+      });
     });
 
-    tl.fromTo(
-      scroll,
-      {
-        x: "0",
-      },
-      {
-        x: "-200vw",
-        duration: 5,
-        ease: "none",
-      }
-    );
-  });
-  useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".counter",
-        // markers:true,
-        start: "top 90%",
-      },
-    });
-    tl.to(".counter-3", {
-      top: "-1030px",
-      stagger: {
-        amount: 0.25,
-      },
-      delay: 0.1,
-      duration: 1.5,
-      ease: "power4.inOut",
-    });
-    tl.to(".counter-2", {
-      top: "-1030px",
-      stagger: {
-        amount: 0.25,
-      },
-      delay: -1.3,
-      duration: 1.5,
-      ease: "power4.inOut",
-    });
-
-    tl.to(".counter-1", {
-      top: "-215px",
-      stagger: {
-        amount: 0.25,
-      },
-      delay: -1.3,
-      duration: 1.5,
-      ease: "power4.inOut",
-    });
-  });
-  useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".count",
-        // markers:true,
-        start: "top 80%",
-        end: "bottom 80%",
-      },
-    });
-    tl.to(".count-3", {
-      top: "-1030px",
-      stagger: {
-        amount: 0.25,
-      },
-      delay: 0.1,
-      duration: 1.5,
-      ease: "power4.inOut",
-    });
-    tl.to(".count-2", {
-      top: "-420px",
-      stagger: {
-        amount: 0.25,
-      },
-      delay: -1.3,
-      duration: 1.5,
-      ease: "power4.inOut",
-    });
-  });
+  }
+ 
 
   return (
-    <Section className="py-[5%]" id="portfolio">
+    <Section className="py-[5%] mobile:py-[15%]" id="portfolio">
       <div className="container">
         <SectionTitle text="Our Work" />
-        <div className="flex justify-between items-end mt-[4vw]">
+        <div className="flex justify-between items-end mt-[4vw] mobile:flex-col mobile:items-start mobile:gap-[10vw] mobile:mt-[10vw]">
           <div className="flex items-center justify-start gap-[5vw]">
-            <div className="flex items-end gap-[8px]">
+            <div className="flex items-end gap-[8px] mobile:flex-col mobile:items-start">
               <div className="font-display">
                 <div className="counter">
                   <div className="counter-1 digit">
@@ -184,11 +188,11 @@ const Portfolio = ({ works }) => {
                   </div>
                 </div>
               </div>
-              <p data-para-anim className="font-medium text-[1.2vw] mb-[10px]">
+              <p data-para-anim className="font-medium text-[1.2vw] mb-[10px] mobile:text-[5vw]">
                 Projects
               </p>
             </div>
-            <div className="flex items-end gap-[8px]">
+            <div className="flex items-end gap-[8px] mobile:flex-col mobile:items-start ">
               <div className="count font-display">
                 <div className="count-2 digit">
                   <div className="num">0</div>
@@ -214,33 +218,38 @@ const Portfolio = ({ works }) => {
                   <div className="num">+</div>
                 </div>
               </div>
-              <p data-para-anim className="font-medium text-[1.2vw] mb-[10px]">
+              <p data-para-anim className="font-medium text-[1.2vw] mb-[10px] mobile:text-[5vw]">
                 Industries
               </p>
             </div>
           </div>
-          <div className="w-[35%]">
+          <div className="w-[35%] mobile:w-full">
             <p
               data-para-anim
-              className="text-[1.9vw] font-medium leading-[1.4]"
+              className="text-[1.9vw] font-medium leading-[1.4] mobile:text-[5vw]"
             >
               Here are many variations of passages of Lorem Ipsum available, but
               the majority have suffered
             </p>
           </div>
+          <div className="hidden mobile:block">
+            <LinkButton btnLink={"/"} btnText={"See All Work"}/>
+
+          </div>
         </div>
+
       </div>
       <div
         ref={containerRef}
-        className="horizontal-scroll w-screen h-screen overflow-hidden mt-[5vw]"
+        className="horizontal-scroll w-screen h-screen overflow-hidden mt-[5vw] mobile:mt-[12vw]"
       >
         <div
           ref={scrollRef}
-          className="flex h-full w-[300vw] whitespace-nowrap"
+          className="flex h-full w-[300vw] whitespace-nowrap mobile:flex-col mobile:w-full mobile:gap-[7vw]"
         >
 
           {works.map((work, index)=>(
-            <div key={index} className="h-full w-[90vw] relative pannel overflow-hidden p-[5vw]" data-magnetic-target data-magnetic-strength="200">
+            <div key={index} className="h-full w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:w-full " data-magnetic-target data-magnetic-strength="200">
               <Link href="#">
                 <MediaRenderer 
                   url={work.workFields.featuredImagevideo.node.mediaItemUrl}
@@ -276,7 +285,7 @@ const Portfolio = ({ works }) => {
               </Link>
             </div>
           ))}
-          <div className="h-full w-[30vw] relative flex items-center justify-center flex-col pannel">
+          <div className="h-full w-[30vw] relative flex items-center justify-center flex-col pannel mobile:hidden">
             <p className="font-display text-[4vw]">Want More?</p>
             <LinkButton btnText="View Showcase" btnLink="#" />
           </div>

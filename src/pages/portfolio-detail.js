@@ -4,7 +4,6 @@ import Pagehero from '@/components/Portfolio-detail/Pagehero'
 import Works from '@/components/Portfolio-detail/Works'
 import { titleAnim , paraAnim , lineAnim, imageAnim , fadeIn , fadeUp } from '@/components/gsapAnimations';
 
-
 export default function Portfoliodetail() {
   titleAnim();
   paraAnim();

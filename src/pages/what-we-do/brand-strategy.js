@@ -5,8 +5,6 @@ import About from '@/components/services-detail/About'
 import Detail from '@/components/services-detail/Detail'
 import { titleAnim , paraAnim , lineAnim, imageAnim , imgAnim , fadeUp} from '@/components/gsapAnimations';
 
-
-
 export default function servicesdetail() {
   titleAnim();
   paraAnim();
@@ -21,7 +19,6 @@ export default function servicesdetail() {
         <Pagehero/>
         <About/>
         <Detail/>
-        
     </Layout>
       
     </>

@@ -100,17 +100,17 @@ const Hero = () => {
                         <source src="/assets/showreel-small.mp4" type="video/mp4"/>
                     </video>
                 </div>
-                <div className="container h-full flex justify-start items-center relative" data-magnetic-target data-magnetic-strength="200">
-                    <div className="w-[45%] relative z-[11]">
-                        <h1 ref={text} className="text-body font-display text-[2.8vw] leading-[1.2] drop-shadow-lg lineWord">
+                <div className="container h-full flex justify-start items-center relative mobile:flex-col mobile:pt-[35%] mobile:gap-[7vw]" data-magnetic-target data-magnetic-strength="200">
+                    <div className="w-[45%] relative z-[11] mobile:flex mobile:items-center mobile:justify-center mobile:w-[90%]">
+                        <h1 ref={text} className="text-body font-display text-[2.8vw] leading-[1.2] drop-shadow-lg lineWord mobile:text-[11vw] mobile:text-center">
                             We are Yellow. A full-service branding and communication agency in Dubai.
                         </h1>
                     </div>
-                    <div className="absolute left-1/2 -translate-x-1/2">
+                    <div className="absolute left-1/2 -translate-x-1/2 mobile:static mobile:translate-x-0">
                         <PrimaryButton onClick={handleOpen} text="Play Reel" className="magnetic-inner"/>
                     </div>
                 </div>
-                <div className="absolute bottom-[5%] cursor-pointer left-1/2 -translate-x-1/2 z-[11]">
+                <div className="absolute bottom-[5%] cursor-pointer left-1/2 -translate-x-1/2 z-[11] mobile:bottom-[10%]">
                     <ScrollButton />
                 </div>
                 {isModalOpen && (
