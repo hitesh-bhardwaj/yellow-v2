@@ -48,7 +48,7 @@ const Testimonial = () => {
 
     const Card = ({img, company, name, content}) => {
         return (
-            <div className="relative w-1/5 h-auto backdrop-blur-md overflow-hidden rounded-[1.2vw] bg-gradient-to-br from-[#35333380] to-[#24242420] to-45% border border-white/25 fadein mobile:w-1/2">
+            <div className="relative w-1/5 h-auto backdrop-blur-md overflow-hidden rounded-[1.2vw] bg-gradient-to-br from-[#35333380] to-[#24242420] to-45% border border-white/25 fadein mobile:w-[40vw] mobile:h-[20vh]">
                 <Image 
                     priority={false}
                     width={100}
@@ -73,7 +73,7 @@ const Testimonial = () => {
                             <p className="text-[1.1vw] font-medium mobile:text-[3vw]">{company}</p>
                         </div>
                     </div>
-                    <p className="text-[1.45vw] whitespace-normal">
+                    <p className="text-[1.45vw] whitespace-normal mobile:text-[3vw]">
                         {content}
                     </p>
                 </div>
@@ -117,19 +117,19 @@ const Testimonial = () => {
   
     return (
         <div ref={slider} className="relative w-[full]">
-            <div ref={firstText} className="w-[200%] flex gap-x-[2vw] whitespace-nowrap ">
+            <div ref={firstText} className="w-[200%] flex gap-x-[2vw] whitespace-nowrap mobile:h-[30vh] ">
                 {Reviews.map((review, index) => (
                     <Card key={index} img={review.img} company={review.company} name={review.name} content={review.content} />
                 ))}
             </div>
 
-            <div ref={secondText} className="w-[200%] absolute top-0 left-[200%] pl-[2vw] flex gap-x-[2vw] whitespace-nowrap">
+            <div ref={secondText} className="w-[200%] absolute top-0 left-[200%] pl-[2vw] flex gap-x-[2vw] whitespace-nowrap mobile:h-[30vh]">
                 {Reviews.map((review, index) => (
                     <Card key={index} img={review.img} company={review.company} name={review.name} content={review.content} />
                 ))}
             </div>
 
-            <div ref={thirdText} className="w-[200%] absolute top-0 -left-[200%] pr-[2vw] flex gap-x-[2vw] whitespace-nowrap">
+            <div ref={thirdText} className="w-[200%] absolute top-0 -left-[200%] pr-[2vw] flex gap-x-[2vw] whitespace-nowrap mobile:h-[30vh]">
                 {Reviews.map((review, index) => (
                     <Card key={index} img={review.img} company={review.company} name={review.name} content={review.content} />
                 ))}

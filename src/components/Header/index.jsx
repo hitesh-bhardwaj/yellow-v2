@@ -40,7 +40,7 @@ const Header = () => {
   return (
     <>
       <header className="fixed top-0 bottom-0 right-0 left-0 w-full z-[200] pointer-events-none">
-        <div className="container py-[1%] flex justify-between items-center">
+        <div className="container py-[1%] flex justify-between items-center mobile:py-[7%]">
           <div className="w-fit overflow-hidden">
             <Link href="/" className="pointer-events-auto">
               <Image

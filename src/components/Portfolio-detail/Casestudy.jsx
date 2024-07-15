@@ -1,42 +1,43 @@
 import React from "react";
 import Image from "next/image";
+import SectionTitle from "../SectionTitle";
 
 export default function Casestudy() {
   return (
     <>
-      <section className="w-screen h-full py-[8%]" id="casestudy">
+      <section className="w-screen h-full py-[8%] mobile:pt-[15%]" id="casestudy">
         <div className="container">
-          <div className="grid grid-cols-2 gap-x-[2.5vw] gap-y-[4vw]">
+          <div className="grid grid-cols-2 gap-x-[2.5vw] gap-y-[4vw] mobile:flex mobile:flex-col mobile:gap-y-[7vw]">
             <div className="">
-              <h2 data-title-anim className="text-[4.8vw] mb-[3vw] leading-[1.1] font-display w-[70%] ">
-                The Art of Rebellion
-              </h2>
-              <div className="text-[1.2vw] font-medium flex flex-wrap gap-[0.5vw] w-[70%]">
-                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup">
+              <SectionTitle data-title-anim className="text-[4.8vw] mb-[3vw] leading-[1.1] font-display w-[70%] mobile:w-full mobile:normal-case mobile:order-1 mobile:mb-[7vw]" text={"The Art of Rebellion"}/>
+                
+              
+              <div className="text-[1.2vw] font-medium flex flex-wrap gap-[0.5vw] w-[70%] mobile:order-4 mobile:text-[4vw] mobile:w-full mobile:gap-[2vw]">
+                <p className="border-[1px] border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup mobile:px-[3vw] mobile:py-[1.5vw]">
                   Brand Strategy
                 </p>
-                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup">
+                <p className="border-[1px] border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup mobile:px-[3vw] mobile:py-[1.5vw]">
                   Logo Development
                 </p>
-                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup">
+                <p className="border-[1px] border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup mobile:px-[3vw] mobile:py-[1.5vw]">
                   Photography Style
                 </p>
-                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup">
+                <p className="border-[1px] border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup mobile:px-[3vw] mobile:py-[1.5vw]">
                   Brand Name
                 </p>
-                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup">
+                <p className="border-[1px] border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup mobile:px-[3vw] mobile:py-[1.5vw]">
                   Packaging
                 </p>
-                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup">
+                <p className="border-[1px] border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup mobile:px-[3vw] mobile:py-[1.5vw]">
                   Website
                 </p>
-                <p className="border-2 border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup">
+                <p className="border-[1px] border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup mobile:px-[3vw] mobile:py-[1.5vw]">
                   Social Media
                 </p>
               </div>
             </div>
-            <div className="col-start-2 text-[1.4vw] font-medium pt-[1vw]">
-              <p data-para-anim className="mb-[4vw] leading-[1.3] ">
+            <div className="col-start-2 text-[1.4vw] font-medium pt-[1vw] mobile:text-[4.5vw] mobile:font-normal mobile:pt-[5vw]">
+              <p data-para-anim className="mb-[4vw] leading-[1.3] mobile:mb-[10vw] ">
                 Meet Rita & Ibrahim, an incredibly talented couple that left
                 their established careers to pursue their dreams of creating a
                 bold new fine jewelry brand. Rebellion was a major theme
@@ -49,30 +50,31 @@ export default function Casestudy() {
               </p>
               <div className="flex gap-[5vw] text-[1.4vw]">
                 <div>
-                  <p data-para-anim className="text-[1vw] mb-[0.5vw]">Client</p>
-                  <p data-para-anim >Maveroc</p>
+                  <p data-para-anim className="text-[1vw] mb-[0.5vw] mobile:text-[5vw]">Client</p>
+                  <p data-para-anim className="mobile:text-[5vw] mobile:font-medium" >Maveroc</p>
                 </div>
                 <div>
-                  <p data-para-anim className="text-[1vw] mb-[0.5vw]">Industry</p>
-                  <p data-para-anim>Website Development</p>
+                  <p data-para-anim className="text-[1vw] mb-[0.5vw] mobile:text-[5vw]">Industry</p>
+                  <p data-para-anim className="mobile:text-[5vw] mobile:font-medium">Website Development</p>
                 </div>
               </div>
             </div>
-            <div className="col-span-2 mt-[4vw] relative w-[90vw] h-[45vw] imageanim">
+            <div className="col-span-2 mt-[4vw] relative w-[90vw] h-[45vw] mobile:h-[140vw] mobile:w-[85vw] imageanim bg-[#EDA0C4] mobile:rounded-[10px]">
               <Image
                 src="/assets/images/portfolio/portfolio-detail/Maveroc-1.png"
                 alt="maveroc-1"
                 fill
+                className="mobile:object-contain"
               />
             </div>
-            <div className="relative col-span-1 w-[43vw] h-[45vw] imageanim">
+            <div className="relative col-span-1 w-[43vw] h-[45vw] imageanim mobile:w-[85vw] mobile:h-[100vw]">
               <Image
                 src="/assets/images/portfolio/portfolio-detail/Maveroc-2.png"
                 alt="maveroc-2"
                 fill
               />
             </div>
-            <div className="mb-[4vw] col-start-2 col-span-1 w-[43vw] h-[45vw] relative imageanim">
+            <div className="mb-[4vw] col-start-2 col-span-1 w-[43vw] h-[45vw] relative imageanim mobile:w-[85vw] mobile:h-[100vw]">
               <Image
                 src="/assets/images/portfolio/portfolio-detail/Maveroc-3.png"
                 alt="maveroc-3"
@@ -80,10 +82,10 @@ export default function Casestudy() {
               />
             </div>
             <div>
-              <h3 data-title-anim className="font-display text-[3vw] ">Why Maveroc</h3>
+              <h3 data-title-anim className="font-display text-[3vw] mobile:text-[10vw] ">Why Maveroc</h3>
             </div>
             <div className="col-start-2">
-              <p className="text-[1.4vw] font-medium ">
+              <p className="text-[1.4vw] font-medium mobile:text-[4.5vw] mobile:font-normal ">
                 <span data-para-anim className="mb-[2vw]">
                   Naming is always one of the most challenging aspects of
                   creating a brand. It&apos;s incredibly personal, subjective and
@@ -94,7 +96,7 @@ export default function Casestudy() {
                   of names)! And thus Maveroc was born.
                 </span>
                 <br />
-                <br />
+                
                 <span data-para-anim>
                   With a strategic foundation in place, a name we all fell in
                   love with and the essence of rebellion at the heart of the
@@ -112,7 +114,7 @@ export default function Casestudy() {
               </p>
             </div>
             <div className="col-span-2 mt-[4vw]">
-              <div className="relative w-[90vw] h-[45vw] imageanim">
+              <div className="relative w-[90vw] h-[45vw] imageanim mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-[15px] mobile:overflow-hidden ">
                 <Image
                   src="/assets/images/portfolio/portfolio-detail/Maveroc-11.png"
                   alt="maveroc-reel-bg"
@@ -124,26 +126,27 @@ export default function Casestudy() {
                   autoPlay={true}
                   loop
                   muted
-                  className="w-[80%] h-[80%] object-contain absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] "
+                  className="w-[80%] h-[80%] object-contain absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] mobile:w-[90%] mobile:h-[90%]"
                 ></video>
               </div>
             </div>
-            <div className="col-span-2 relative w-[90vw] h-[45vw] imageanim">
+            <div className="col-span-2 relative w-[90vw] h-[45vw] imageanim mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-[15px] mobile:overflow-hidden mobile:bg-[#DDDEE6]  ">
               <Image
                 src="/assets/images/portfolio/portfolio-detail/Maveroc-10.png"
                 alt="maveroc-10"
                 fill
+                className="mobile:object-contain mobile:scale-150"
               />
             </div>
-            <div className="relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px] imageanim">
+            <div className="relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px] imageanim mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-[15px] mobile:overflow-hidden mobile:bg-[#FAFAFA]">
               <Image
                 src="/assets/images/portfolio/portfolio-detail/maveroc-4.png"
                 alt="maveroc-4"
-                className="object-cover h-full w-full"
+                className="object-cover h-full w-full mobile:object-contain"
                 fill
               />
             </div>
-            <div className="col-start-2 relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px] imageanim">
+            <div className="col-start-2 relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px] imageanim mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-[15px] mobile:overflow-hidden mobile:bg-[#FAFAFA]">
               <Image
                 src="/assets/images/portfolio/portfolio-detail/maveroc-7.png"
                 alt="maveroc-7"
@@ -151,20 +154,20 @@ export default function Casestudy() {
                 fill
               />
             </div>
-            <div className="mt-[4vw]">
-              <h3 data-title-anim className="font-display text-[3vw] ">
+            <div className="mt-[4vw] mobile:mt-[10vw]">
+              <h3 data-title-anim className="font-display text-[3vw] mobile:text-[10vw] mobile:leading-[1.2] ">
                 Passionate Cheerleaders
               </h3>
             </div>
-            <div className="col-start-2 mt-[5vw]">
-              <p className="text-[1.4vw] font-medium ">
+            <div className="col-start-2 mt-[5vw] mobile:mt-0 mobile:mb-[7vw]">
+              <p className="text-[1.4vw] font-medium mobile:text-[4vw] mobile:font-normal ">
                 <span data-para-anim className="mb-[2vw]">
                   The team: Yellow works collaboratively with our in-house team
                   which was made up of Sarah, Mamta, Dan, Stuart along with a
                   special shout out to our partners and collaborators.
                 </span>
                 <br />
-                <br />
+                
                 <span data-para-anim>
                   We’ve worked on some of the most successful homegrown brands
                   in the region like OliOli, Cafu, Luma, Goat amongst many
@@ -173,17 +176,17 @@ export default function Casestudy() {
                 </span>
               </p>
             </div>
-            <div className="relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px] imageanim">
+            <div className="relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px] imageanim mobile:w-[85vw] mobile:h-[85vw] mobile:rounded-[15px] mobile:overflow-hidden">
                 <Image src="/assets/images/portfolio/portfolio-detail/maveroc-5.png" alt="maveroc-5" fill/>
             </div>
-            <div className="relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px] imageanim">
+            <div className="relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px] imageanim mobile:w-[85vw] mobile:h-[85vw] mobile:rounded-[15px] mobile:overflow-hidden">
                 <Image src="/assets/images/portfolio/portfolio-detail/maveroc-8.png" alt="maveroc-8" fill/>
             </div>
-            <div className=" col-span-2 relative w-[90vw] h-[45vw] imageanim">
-                <Image src="/assets/images/portfolio/portfolio-detail/maveroc-9.png" alt="maveroc-9" fill/>
+            <div className=" col-span-2 relative w-[90vw] h-[45vw] imageanim mobile:h-[85vw] mobile:w-[85vw] bg-[#887CB7] mobile:rounded-[15px] mobile:overflow-hidden">
+                <Image src="/assets/images/portfolio/portfolio-detail/maveroc-9.png" alt="maveroc-9" fill className="object-contain"/>
             </div>
-            <div className="col-span-2 relative w-[90vw] h-[45vw] imageanim">
-                <Image src="/assets/images/portfolio/portfolio-detail/maveroc-6.png" alt="maveroc-6" fill/>
+            <div className="col-span-2 relative w-[90vw] h-[45vw] imageanim mobile:h-[85vw] mobile:w-[85vw] bg-[#EDA0C4] mobile:rounded-[15px] mobile:overflow-hidden">
+                <Image src="/assets/images/portfolio/portfolio-detail/maveroc-6.png" alt="maveroc-6" fill className="object-contain"/>
             </div>
           </div>
         </div>

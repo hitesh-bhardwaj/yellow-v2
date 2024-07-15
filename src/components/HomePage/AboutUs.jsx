@@ -52,7 +52,38 @@ const AboutUs = () => {
             })
         
         }
-       
+       else{
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: container,
+                start: "top bottom",
+                end: "2500 top",
+                scrub: 1,
+            },
+        });
+
+        tl.from(text, {
+        
+            duration: 2,
+            delay: -2,
+            ease: 'power2.out'
+        })
+
+        const textbreakLine = texth2.querySelectorAll(".line");
+        gsap.to(textbreakLine, {
+            scrollTrigger: {
+                trigger: container,
+                start: "top 80%",
+                end: "bottom 40%",
+                scrub: true,
+            },
+            backgroundPositionX: 0,
+            duration: 1,
+            stagger: 1,
+            ease: "power2.inOut"
+        })
+
+       }
         
     });
 

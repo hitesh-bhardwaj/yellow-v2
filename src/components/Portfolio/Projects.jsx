@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -140,24 +142,27 @@ export default function ProjectsCopy() {
   const handleCategoryClick = (category) => {
     setActiveCategory(category);
   };
-  useGSAP(() => {
-    const images = document.querySelectorAll(".imageanim");
-
-    images.forEach((img) => {
-      gsap.to(img, {
-        scrollTrigger: {
-          trigger: img,
-          start: "top 80%",
-          
-          // markers:true
-        },
-        '--beforeHeight': '0%',
-        duration: 1.5,
-        stagger: 0.05,
-        ease: "power3.inOut",
+  if(globalThis.innerWidth>541){
+    useGSAP(() => {
+      const images = document.querySelectorAll(".imageanim");
+  
+      images.forEach((img) => {
+        gsap.to(img, {
+          scrollTrigger: {
+            trigger: img,
+            start: "top 80%",
+            
+            // markers:true
+          },
+          '--beforeHeight': '0%',
+          duration: 1.5,
+          stagger: 0.05,
+          ease: "power3.inOut",
+        });
       });
     });
-  });
+  }
+ 
 
   return (
     <>
@@ -166,7 +171,7 @@ export default function ProjectsCopy() {
           {/* Filter buttons */}
           <div
             ref={btnContainer}
-            className="flex justify-start items-start gap-[1vw] mb-[5vw] mobile:flex-wrap mobile:mb-[10vw]"
+            className="flex justify-start items-start gap-[1vw] mb-[5vw] mobile:flex-wrap mobile:mb-[10vw] mobile:hidden"
           >
             {filters.map((category, index) => (
               <button
@@ -183,11 +188,11 @@ export default function ProjectsCopy() {
           </div>
 
           {/* Project cards */}
-          <div className="grid grid-cols-2 w-full h-full gap-x-[3vw] gap-y-[3vw]">
+          <div className="grid grid-cols-2 w-full h-full gap-x-[3vw] gap-y-[3vw] mobile:flex mobile:flex-col mobile:gap-y-[7vw] ">
             {filteredProjects.map((project, index) => (
               <div key={index} className={`col-span-${index % 3 === 0 ? "2" : "1"} relative`}>
                 <Link href={"/"}>
-                <div className={`relative overflow-hidden rounded-[10px] ${index % 3 === 0 ? "w-[90vw] h-[45vw]" : "w-[44vw] h-[45vw]"} imageanim`}>
+                <div className={`relative overflow-hidden rounded-[10px] ${index % 3 === 0 ? "w-[90vw] h-[45vw] mobile:w-[85vw] mobile:h-[150vw]" : "w-[44vw] h-[45vw] mobile:w-[85vw] mobile:h-[85vw]"} imageanim`}>
                 <Image
                     src={project.image}
                     alt={`${project.name}-img`}
@@ -198,15 +203,15 @@ export default function ProjectsCopy() {
 
                 </div>
                   
-                  <div className={`absolute bottom-[10%] left-[3%] text-white ${index % 3 === 0 ? "bottom-[10%] left-[3%]" : "bottom-[10%] left-[7%]"}`}>
-                    <h3 data-title-anim className="text-[2.5vw] mb-[1.5vw] ">{project.name}</h3>
-                    <p data-para-anim className={` text-[1.1vw] leading-[1.4] ${index % 3 === 0 ? "w-[70%]" : "w-[90%]"} `}>{project.description}</p>
+                  <div className={`absolute text-white ${index % 3 === 0 ? "bottom-[10%] left-[3%] mobile:pr-[5vw] mobile:bottom-[7%] mobile:left-[7%]" : "bottom-[10%] left-[7%]"}`}>
+                    <h3 data-title-anim className="text-[2.5vw] mb-[1.5vw] mobile:text-[5vw] ">{project.name}</h3>
+                    <p data-para-anim className={` text-[1.1vw] leading-[1.4] mobile:text-[4vw] ${index % 3 === 0 ? "w-[70%] mobile:w-full" : "w-[90%] mobile:w-full"} `}>{project.description}</p>
                   </div>
-                  <div className={`absolute  flex gap-[1.5vw] text-white ${index % 3 === 0 ? "bottom-[10%] right-[3%]" : "top-[7%] left-[7%]"}`}>
+                  <div className={`absolute  flex gap-[1.5vw] text-white mobile:gap-[3vw] ${index % 3 === 0 ? "bottom-[10%] right-[3%] mobile:top-[5%] mobile:left-[5%] mobile:bottom-auto" : "top-[7%] left-[7%]"}`}>
                     {project.tags.map((tag, tagIndex) => (
                       <button
                         key={tagIndex}
-                        className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[1.5vw] py-[0.6vw] text-[1.2vw]"
+                        className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[1.5vw] py-[0.6vw] text-[1.2vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1vw]"
                       >
                         {tag}
                       </button>
@@ -218,7 +223,7 @@ export default function ProjectsCopy() {
           </div>
 
           {/* View More link */}
-          <div className="text-black text-[1.5vw] w-full flex justify-center my-[5vw]">
+          <div className="text-black text-[1.5vw] w-full flex justify-center my-[5vw] mobile:text-[6vw]  mobile:leading-[1.2]">
             <Link href={"/"}>
               <span className="relative after:absolute after:bg-current after:w-full after:h-[2px] after:block after:scale-x-100 cursor-pointer hover:after:scale-x-0 after:duration-300 after:ease-out">View More+</span>
             </Link>

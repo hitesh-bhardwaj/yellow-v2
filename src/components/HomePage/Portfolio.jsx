@@ -70,10 +70,75 @@ const Portfolio = ({ works }) => {
         {
           x: "-200vw",
           duration: 5,
-          ease: "none",
         }
       );
     });
+    useGSAP(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".counter",
+          start: "top 90%",
+        },
+      });
+      tl.to(".counter-3", {
+        top: "-1030px",
+        stagger: {
+          amount: 0.25,
+        },
+        delay: 0.1,
+        duration: 1.5,
+        ease: "power4.inOut",
+      });
+      tl.to(".counter-2", {
+        top: "-1030px",
+        stagger: {
+          amount: 0.25,
+        },
+        delay: -1.3,
+        duration: 1.5,
+        ease: "power4.inOut",
+      });
+  
+      tl.to(".counter-1", {
+        top: "-215px",
+        stagger: {
+          amount: 0.25,
+        },
+        delay: -1.3,
+        duration: 1.5,
+        ease: "power4.inOut",
+      });
+    });
+    useGSAP(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".count",
+          start: "top 80%",
+          end: "bottom 80%",
+        },
+      });
+      tl.to(".count-3", {
+        top: "-1030px",
+        stagger: {
+          amount: 0.25,
+        },
+        delay: 0.1,
+        duration: 1.5,
+        ease: "power4.inOut",
+      });
+      tl.to(".count-2", {
+        top: "-420px",
+        stagger: {
+          amount: 0.25,
+        },
+        delay: -1.3,
+        duration: 1.5,
+        ease: "power4.inOut",
+      });
+    });
+
+  }
+  else{
     useGSAP(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -241,41 +306,41 @@ const Portfolio = ({ works }) => {
       </div>
       <div
         ref={containerRef}
-        className="horizontal-scroll w-screen h-screen overflow-hidden mt-[5vw] mobile:mt-[12vw]"
+        className="horizontal-scroll w-screen h-screen overflow-hidden mt-[5vw] mobile:mt-[12vw] mobile:h-[250vh]"
       >
         <div
           ref={scrollRef}
-          className="flex h-full w-[300vw] whitespace-nowrap mobile:flex-col mobile:w-full mobile:gap-[7vw]"
+          className="flex h-full w-[300vw] whitespace-nowrap mobile:flex-col mobile:w-full mobile:gap-[10vw]"
         >
 
           {works.map((work, index)=>(
-            <div key={index} className="h-full w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:w-full " data-magnetic-target data-magnetic-strength="200">
+            <div key={index} className="h-full w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:w-full mobile:h-[100vh] " data-magnetic-target data-magnetic-strength="200">
               <Link href="#">
                 <MediaRenderer 
                   url={work.workFields.featuredImagevideo.node.mediaItemUrl}
                 />
-                <p className="font-display absolute text-[1.4vw] text-white mix-blend-difference top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 magnetic-inner">View More</p>
+                <p className="font-display absolute text-[1.4vw] text-white mix-blend-difference top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 magnetic-inner mobile:text-[4vw]">View More</p>
                 <div className="relative w-full flex text-white h-full items-end">
-                  <div className="flex justify-between">
-                    <div className="whitespace-normal flex gap-[2.5vw] flex-col">
-                      <h3 className="text-[2.8vw] font-display leading-[1]">
+                  <div className="flex justify-between mobile:flex-col mobile:h-full">
+                    <div className="whitespace-normal flex gap-[2.5vw] flex-col mobile:order-2">
+                      <h3 className="text-[2.8vw] font-display leading-[1] mobile:text-[8vw]">
                         {work.title}
                       </h3>
                       <div dangerouslySetInnerHTML={{
                         __html: work.excerpt
                       }}
-                      className="text-[1.05vw] font-medium w-[55%]"
+                      className="text-[1.05vw] font-medium w-[55%] mobile:text-[4vw] mobile:leading-[1.3] mobile:w-[90%] mobile:pb-[4vw]"
                       />
                     </div>
-                    <div className="flex flex-col justify-between items-end text-[1.2vw]">
-                      <p className="py-[0.5vw] px-[2vw] border border-white rounded-full bg-white/25 backdrop-blur-lg">
+                    <div className="flex flex-col justify-between items-end text-[1.2vw] mobile:items-start mobile:text-[4vw]">
+                      <p className="py-[0.5vw] px-[2vw] border border-white rounded-full bg-white/25 backdrop-blur-lg mobile:hidden">
                         {formatDateYear(work.date)}
                       </p>
-                      <div className="flex items-center gap-[2vw]">
-                        <p className="py-[0.5vw] px-[2vw] border border-white rounded-full bg-white/10 backdrop-blur-lg">
+                      <div className="flex items-center gap-[2vw] mobile:gap-[4vw] mobile:mt-[4vw]">
+                        <p className="py-[0.5vw] px-[2vw] border border-white rounded-full bg-white/10 backdrop-blur-lg mobile:py-[1.5vw] mobile:px-[4vw]">
                           Digital Marketing
                         </p>
-                        <p className="py-[0.5vw] px-[2vw] border border-white rounded-full bg-white/10 backdrop-blur-lg">
+                        <p className="py-[0.5vw] px-[2vw] border border-white rounded-full bg-white/10 backdrop-blur-lg mobile:py-[1.5vw] mobile:px-[4vw]">
                           Branding
                         </p>
                       </div>

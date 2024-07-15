@@ -7,17 +7,17 @@ const Blogs = ({posts}) => {
 
     return (
         <Section id="Blogs" className="bg-black">
-            <div className="container bg-white py-[5%]" id="footer-up">
-                <div className="flex justify-between w-full items-end">
-                    <div className="w-1/2">
+            <div className="container bg-white py-[5%] mobile:py-[10%]" id="footer-up">
+                <div className="flex justify-between w-full items-end mobile:flex-col mobile:items-start mobile:gap-[4vw]">
+                    <div className="w-1/2 mobile:w-full">
                         <SectionTitle text="Featured Blogs" className="uppercase"/>
                     </div>
                     <div className="fadein">
-                        <LinkButton btnLink="#" btnText="All Blogs" className="uppercase"/>
+                        <LinkButton btnLink="#" btnText="All Blogs" className="uppercase mobile:normal-case"/>
                     </div>
                 </div>
 
-                <div className="mt-[5vw] hide-first">
+                <div className="mt-[5vw] hide-first mobile:mt-[12vw]">
                     {posts.map((post) => (
                         <BlogCard
                             key={post.slug}

@@ -6,9 +6,9 @@ export default function Detail() {
   return (
     <>
       <section className=" w-full h-full pb-[5%]" id="detail">
-        <div className="grid grid-cols-3 container">
-          <div className="col-span-2 flex flex-col w-[80%] gap-[1.5vw]">
-            <h2 data-title-anim className="text-[2.5vw] font-display ">Brand positioning</h2>
+        <div className="grid grid-cols-3 container mobile:flex mobile:flex-col">
+          <div className="col-span-2 flex flex-col w-[80%] gap-[1.5vw] mobile:order-2">
+            <h2 data-title-anim className="text-[2.5vw] font-display mobile:text-[7vw] ">Brand positioning</h2>
             <p data-para-anim className="text-[1.2vw] font-medium ">
               Knowing where your brand stands right now is key to making more
               empowered choices that will serve your goals in the future.
@@ -36,8 +36,8 @@ export default function Detail() {
 
             </div>
           </div>
-          <div className="col-start-3 flex justify-end">
-            <div className="w-[25vw] h-[25vw] rounded-[15px] overflow-hidden relative imganim">
+          <div className="col-start-3 flex justify-end mobile:order-1">
+            <div className="w-[25vw] h-[25vw] rounded-[15px] overflow-hidden relative imganim mobile:w-[85vw] mobile:h-[85vw]">
               <Image
                 src="/assets/images/service/service-detail/detail-1.png"
                 alt="detail-1"
@@ -46,8 +46,8 @@ export default function Detail() {
               />
             </div>
           </div>
-          <div className="h-[2px] col-span-3 bg-black my-[4vw] lineDraw"></div>
-          <div className="col-span-2 flex flex-col w-[80%] gap-[1.5vw]">
+          <div className="h-[2px] col-span-3 bg-black my-[4vw] lineDraw mobile:order-3"></div>
+          <div className="col-span-2 flex flex-col w-[80%] gap-[1.5vw] mobile:order-4">
             <h2 data-title-anim className="text-[2.5vw] font-display ">Brand architecture</h2>
             <p data-para-anim className="text-[1.2vw] font-medium ">
               From holding companies spanning multiple sectors to product ranges
@@ -79,7 +79,7 @@ export default function Detail() {
             
           </div>
 
-          <div className="col-start-3 flex justify-end">
+          <div className="col-start-3 flex justify-end mobile:order-3">
             <div className="w-[25vw] h-[25vw] rounded-[15px] overflow-hidden relative imganim">
               <Image
                 src="/assets/images/service/service-detail/detail-2.png"
@@ -89,8 +89,8 @@ export default function Detail() {
               />
             </div>
           </div>
-          <div className="h-[2px] col-span-3 bg-black my-[4vw] lineDraw"></div>
-          <div className="col-span-2 flex flex-col w-[80%] gap-[1.5vw]">
+          <div className="h-[2px] col-span-3 bg-black my-[4vw] lineDraw mobile:order-5"></div>
+          <div className="col-span-2 flex flex-col w-[80%] gap-[1.5vw] mobile:order-6">
             <h2 data-title-anim className="text-[2.5vw] font-display ">Staff engagement</h2>
             <p data-para-anim className="text-[1.2vw] font-medium ">
               When your team fully understands and embraces your brand, they
@@ -117,7 +117,7 @@ export default function Detail() {
 
             </div>
           </div>
-          <div className="col-start-3 flex justify-end">
+          <div className="col-start-3 flex justify-end mobile:order-5">
             <div className="w-[25vw] h-[25vw] rounded-[15px] overflow-hidden relative imganim">
               <Image
                 src="/assets/images/service/service-detail/detail-3.png"
@@ -127,8 +127,8 @@ export default function Detail() {
               />
             </div>
           </div>
-          <div className="h-[2px] col-span-3 bg-black my-[4vw] lineDraw"></div>
-          <div className="flex flex-col gap-[1.5vw]">
+          <div className="h-[2px] col-span-3 bg-black my-[4vw] lineDraw mobile:order-7"></div>
+          <div className="flex flex-col gap-[1.5vw] mobile:order-8">
             <h3  data-title-anim className="text-[2vw] font-display ">
             Brand Strategy
 

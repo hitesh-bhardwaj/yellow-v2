@@ -1,24 +1,28 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import SectionTitle from '../SectionTitle'
 
 export default function Works() {
   return (
     <>
-    <section className='w-full h-full py-[8%]' id='works'>
+    <section className='w-full h-full py-[8%] mobile:py-[15%]' id='works'>
       <div className='container'>
-      <div className='w-full flex justify-between mb-[5vw]'>
-            <h2 data-title-anim className='text-[5.8vw] font-display uppercase '>Related Works</h2>
+      <div className='w-full flex justify-between mb-[5vw] mobile:flex-col mobile:gap-[5vw] mobile:mb-[10vw]'>
+            <SectionTitle data-title-anim className='text-[5.8vw] font-display uppercase ' text={"Related Works"}/>
+            <p className='text-[2vw] font-medium mobile:text-[5vw] w-[70%] mobile:w-[90%] hidden mobile:block'>
+            We grow amazing companies through exceptional branding and communications.
+            </p>
             <div className='fadeup flex items-end'>
             <Link
-                className={`cursor-pointer flex w-fit relative text-[1.4vw] gap-[0.5vw] items-center font-medium group `}
+                className={`cursor-pointer flex w-fit relative text-[1.4vw] gap-[0.5vw] items-center font-medium group mobile:text-[5vw] `}
                 href="#"
               >
                 <span className="relative after:absolute leading-[1.3] after:block after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-body after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0">
                 See All work
                 </span>
                 <svg
-                  className="relative -rotate-[135deg] w-[2vw] h-[2vw] overflow-hidden"
+                  className="relative -rotate-[135deg] w-[2vw] h-[2vw] overflow-hidden mobile:w-[5vw] mobile:h-[5vw]"
                   width="19"
                   height="23"
                   viewBox="0 0 19 23"
@@ -41,25 +45,25 @@ export default function Works() {
             </div>
             
         </div>
-        <div className='w-full flex justify-between gap-[2vw]'>
+        <div className='w-full flex justify-between gap-[2vw] mobile:flex-col mobile:gap-[7vw]'>
             <div className='w-full h-full relative fadeup'>
                 <Link href={"/"}>
-                <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden'>
+                <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-none'>
                 <Image src='/assets/images/portfolio/portfolio-detail/work1.png' alt='work1' className='object-cover h-full w-full' fill/>
 
 
                 </div>
                 <div className="absolute bottom-[7%] left-[7%] text-white">
-              <h3 data-title-anim className="text-[2vw] mb-[1vw] font-display ">Numu</h3>
-              <p  data-para-anim className="w-[90%] text-[1.1vw] leading-[1.4] font-medium ">
+              <h3 data-title-anim className="text-[2vw] mb-[1vw] font-display mobile:text-[7vw]">Numu</h3>
+              <p  data-para-anim className="w-[90%] text-[1.1vw] leading-[1.4] font-medium mobile:text-[4vw] mobile:w-full ">
               Brand identity for a premium early childhood centre
               </p>
             </div>
             <div className="absolute top-[7%] left-[7%] flex gap-[1.5vw] text-white">
-              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw]">
+              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-white bg-opacity-15">
               Brand Strategy
               </button>
-              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw]">
+              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-white bg-opacity-15">
                 Brand Name
               </button>
             </div>
@@ -68,22 +72,22 @@ export default function Works() {
             </div>
             <div className='w-full h-full relative fadeup'>
                 <Link href={"/"}>
-                <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden '>
+                <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden  mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-none'>
                 <Image src='/assets/images/portfolio/portfolio-detail/work2.png' alt='work2' className='object-cover h-full w-full' fill/>
 
 
                 </div>
                 <div className="absolute bottom-[8%] left-[7%] text-black">
-              <h3 data-title-anim className="text-[2vw] mb-[1vw] font-display ">Luma</h3>
-              <p data-para-anim className="w-full text-[1.1vw] leading-[1.4] font-medium ">
+              <h3 data-title-anim className="text-[2vw] mb-[1vw] font-display mobile:text-[7vw] ">Luma</h3>
+              <p data-para-anim className="w-full text-[1.1vw] leading-[1.4] font-medium mobile:text-[4vw] mobile:w-full ">
               A brighter way to play
               </p>
             </div>
             <div className="absolute top-[7%] left-[7%] flex gap-[1.5vw] text-black">
-              <button className="w-fit border-[1px] border-black rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw]">
+              <button className="w-fit border-[1px] border-black rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-white bg-opacity-15">
               Brand Strategy
               </button>
-              <button className="w-fit border-[1px] border-black rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw]">
+              <button className="w-fit border-[1px] border-black rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-white bg-opacity-15">
                 Brand Name
               </button>
             </div>
@@ -92,22 +96,22 @@ export default function Works() {
             </div>
             <div className='w-full h-full relative fadeup'>
                 <Link href={"/"}>
-                <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden '>
+                <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-none '>
                 <Image src='/assets/images/portfolio/portfolio-detail/work3.png' alt='work3' className='object-cover h-full w-full' fill/>
 
 
                 </div>
                 <div className="absolute bottom-[7%] left-[7%] text-black">
-              <h3 data-title-anim className="text-[2vw] mb-[1vw] font-display ">Misk</h3>
-              <p data-para-anim className="w-full text-[1.1vw] font-medium leading-[1.4] ">
+              <h3 data-title-anim className="text-[2vw] mb-[1vw] font-display mobile:text-[7vw] ">Misk</h3>
+              <p data-para-anim className="w-full text-[1.1vw] font-medium leading-[1.4] mobile:text-[4vw] mobile:w-full ">
               Bespoke jewellery, from the UAE to the world
               </p>
             </div>
             <div className="absolute top-[7%] left-[7%] flex gap-[1.5vw] text-black">
-              <button className="w-fit border-[1px] border-black rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw]">
+              <button className="w-fit border-[1px] border-black rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-white bg-opacity-15">
               Brand Strategy
               </button>
-              <button className="w-fit border-[1px] border-black rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw]">
+              <button className="w-fit border-[1px] border-black rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-white bg-opacity-15">
                 Brand Name
               </button>
             </div>

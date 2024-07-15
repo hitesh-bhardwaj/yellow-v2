@@ -141,6 +141,7 @@ const VideoPlayer = ({ isOpen, onClose, videoSrc, poster }) => {
             </button>
           </div>
         </div>
+        
         <div
           ref={cursorRef}
           className="w-[7vw] h-[7vw] flex items-center justify-center absolute top-0 left-0 overflow-hidden pointer-events-none"

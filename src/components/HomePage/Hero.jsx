@@ -60,7 +60,7 @@ const Hero = () => {
             },
         })
         .to(text.current, {
-            color: "#fff",
+            color: "#ffffff",
             duration: 1,
             delay: -1.2,
         })
@@ -110,7 +110,7 @@ const Hero = () => {
                         <PrimaryButton onClick={handleOpen} text="Play Reel" className="magnetic-inner"/>
                     </div>
                 </div>
-                <div className="absolute bottom-[5%] cursor-pointer left-1/2 -translate-x-1/2 z-[11] mobile:bottom-[10%]">
+                <div className="absolute bottom-[5%] cursor-pointer left-1/2 -translate-x-1/2 z-[9] mobile:bottom-[10%]">
                     <ScrollButton />
                 </div>
                 {isModalOpen && (

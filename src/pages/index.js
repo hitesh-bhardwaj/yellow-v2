@@ -7,7 +7,7 @@ import Clients from "@/components/HomePage/Clients";
 import Blogs from "@/components/HomePage/Blogs";
 import { getHomePagePosts } from "@/lib/posts";
 import { getHomePageWorks } from "@/lib/works";
-import { titleAnim , paraAnim , lineAnim, imageAnim , imgAnim , fadeIn} from '@/components/gsapAnimations';
+import { titleAnim , paraAnim , lineAnim, imageAnim , imgAnim , fadeIn ,fadeUp} from '@/components/gsapAnimations';
 import { gsap } from 'gsap/dist/gsap';
 
 export default function Home({recentPosts, recentWorks}) {
@@ -20,6 +20,7 @@ export default function Home({recentPosts, recentWorks}) {
   imageAnim();
   imgAnim();
   fadeIn();
+  fadeUp();
 
   return (
     <>

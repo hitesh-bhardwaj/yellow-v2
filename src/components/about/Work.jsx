@@ -5,26 +5,26 @@ import SectionTitle from '../SectionTitle'
 export default function Work() {
   return (
     <>
-    <section className='w-full h-full py-[8%]' id='work'>
+    <section className='w-full h-full py-[8%] mobile:py-[15%]' id='work'>
       <div className='container'>
-      <div className='w-full flex justify-between mb-[5vw]'>
+      <div className='w-full flex justify-between mb-[5vw] mobile:flex-col mobile:mb-[10vw]'>
         <div>
         <SectionTitle text={"Our work"} className={"mb-[3vw]"}/>
-        <p data-para-anim className="text-[1.9vw] w-[60%] font-medium leading-[1.2] ">
+        <p data-para-anim className="text-[1.9vw] w-[60%] font-medium leading-[1.2] mobile:w-[90%] mobile:text-[5vw] mobile:mb-[7vw]">
         We grow amazing companies through exceptional branding and communications.
         </p>
 
         </div>
         
             <Link
-                className={`cursor-pointer flex w-fit relative text-[1.4vw] gap-[0.5vw] items-center font-medium group `}
+                className={`cursor-pointer flex w-fit relative text-[1.4vw] gap-[0.5vw] items-center font-medium group mobile:text-[5vw] mobile:gap-[2vw] `}
                 href="#"
               >
                 <span className="relative after:absolute leading-[1.3] after:block after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-body after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0 ">
                 See All work
                 </span>
                 <svg
-                  className="relative -rotate-[135deg] w-[2vw] h-[2vw] overflow-hidden"
+                  className="relative -rotate-[135deg] w-[2vw] h-[2vw] overflow-hidden mobile:w-[5vw] mobile:h-[5vw]"
                   width="19"
                   height="23"
                   viewBox="0 0 19 23"
@@ -44,42 +44,42 @@ export default function Work() {
                 </svg>
               </Link>
         </div>
-        <div className='w-full flex justify-between gap-[3vw]'>
-            <div className='w-[45vw] h-[45vw] relative bg-[#93A374] rounded-[15px] overflow-hidden fadein'>
+        <div className='w-full flex justify-between gap-[3vw] mobile:flex-col mobile:gap-[7vw]'>
+            <div className='w-[45vw] h-[45vw] relative bg-[#93A374] rounded-[15px] overflow-hidden fadein mobile:w-[85vw] mobile:h-[90vw] mobile:rounded-none'>
                 <Link href={"/"}>
                 <div className='absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]'><img src='/assets/images/about/work-1.png' alt='work-1'/></div>
                 <div className="absolute bottom-[7%] left-[7%] text-white">
-              <h3 data-title-anim className="text-[2.5vw] mb-[1vw] font-display ">Numu</h3>
-              <p data-para-anim className="w-full text-[1.1vw] leading-[1.4] font-medium ">
+              <h3 data-title-anim className="text-[2.5vw] mb-[1vw] font-display mobile:text-[7vw] ">Numu</h3>
+              <p data-para-anim className="w-full text-[1.1vw] leading-[1.4] font-medium  mobile:text-[4vw]">
               Brand identity for a premium early childhood centre
               </p>
             </div>
-            <div className="absolute top-[5%] left-[7%] flex gap-[1.5vw] text-white">
-              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-lg px-[1.4vw] py-[0.4vw] text-[1.4vw]">
+            <div className="absolute top-[5%] left-[7%] flex gap-[1.5vw] text-white mobile:gap-[3vw]">
+              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-lg px-[1.4vw] py-[0.4vw] text-[1.4vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1vw]">
               Digital Marketing
               </button>
-              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-lg px-[1.4vw] py-[0.4vw] text-[1.4vw]">
-                Branding Name
+              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-lg px-[1.4vw] py-[0.4vw] text-[1.4vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1vw]">
+                Brand Name
               </button>
             </div>
 
                 </Link>
             </div>
-            <div className='w-[45vw] h-[45vw] relative bg-[#FB8464] rounded-[15px] overflow-hidden fadein'>
+            <div className='w-[45vw] h-[45vw] relative bg-[#FB8464] rounded-[15px] overflow-hidden fadein mobile:w-[85vw] mobile:h-[90vw] mobile:rounded-none'>
                 <Link href={"/"}>
                 <div className='absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[30vw] h-[7vw]'><img src='/assets/images/about/work-2.png' alt='work-2' className='object-cover h-full w-full'/></div>
                 <div className="absolute bottom-[7%] left-[7%] text-white">
-              <h3 data-title-anim className="text-[2.5vw] mb-[1vw] font-display ">Beema</h3>
-              <p data-para-anim className="w-full text-[1.1vw] leading-[1.4] font-medium ">
+              <h3 data-title-anim className="text-[2.5vw] mb-[1vw] font-display mobile:text-[7vw] ">Beema</h3>
+              <p data-para-anim className="w-full text-[1.1vw] leading-[1.4] font-medium mobile:text-[4vw] ">
               A brand refresh for the region’s first pay-per-mile provider
               </p>
             </div>
             <div className="absolute top-[5%] left-[7%] flex gap-[1.5vw] text-white">
-              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-lg px-[1.4vw] py-[0.4vw] text-[1.4vw]">
+              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-lg px-[1.4vw] py-[0.4vw] text-[1.4vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1vw]">
               Digital Marketing
               </button>
-              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-lg px-[1.4vw] py-[0.4vw] text-[1.4vw]">
-                Branding Name
+              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-lg px-[1.4vw] py-[0.4vw] text-[1.4vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1vw]">
+                Brand Name
               </button>
             </div>
 
