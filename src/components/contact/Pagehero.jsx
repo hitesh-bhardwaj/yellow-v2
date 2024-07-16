@@ -5,11 +5,11 @@ export default function Pagehero() {
   return (
 
     <>
-      <section className="w-full h-[140vh] flex items-center" id="hero">
-        <div className="flex justify-between container">
+      <section className="w-full h-[140vh] flex items-center mobile:h-full" id="hero">
+        <div className="flex justify-between container mobile:flex-col mobile:mt-[30%] mobile:gap-[15vw]">
           <div className="w-full">
-            <h1 data-title-anim className="text-[5.8vw] font-display uppercase w-[70%] leading-[1.1] mb-[3vw]">Hey There ! Good to See you !</h1>
-            <p data-para-anim className="w-[70%] font-medium text-[1.4vw]">
+            <h1 data-title-anim className="text-[5.8vw] font-display uppercase w-[70%] leading-[1.1] mb-[3vw] mobile:text-[12vw] mobile:w-full mobile:mb-[7vw]">Hey There ! Good to See you !</h1>
+            <p data-para-anim className="w-[70%] font-medium text-[1.4vw] mobile:text-[5vw] mobile:w-full">
               As a digital branding agency, we help businesses connect with
               their customers by using a variety of tools and services. This
               includes creating logos for our clients, website design and
@@ -17,7 +17,7 @@ export default function Pagehero() {
               others.
             </p>
           </div>
-          <div className="w-[50vw] h-[45vw] relative imageanim">
+          <div className="w-[50vw] h-[45vw] relative imageanim mobile:w-[85vw] mobile:h-[120vw]">
             <Image src="/assets/images/contact/contact-head.png" alt="contac-head-img" className="object-cover h-full w-full " fill/>
           </div>
         </div>

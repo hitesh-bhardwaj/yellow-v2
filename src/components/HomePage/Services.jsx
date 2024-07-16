@@ -8,17 +8,17 @@ const SingleAccordion = ({ id, title, content1, content2, btnLink, btnText }) =>
     return (
         <AccordionItem value={id}>
             <span className="h-[1px] bg-body w-full block lineDraw" />
-            <AccordionTrigger data-para-anim className="text-[2.2vw] mobile:text-[6vw] mobile:text-left mobile:flex mobile:w-full text-body font-display font-normal py-[3%] mobile:py-[10%]  accordion [&[data-state=open]>.line>.line-internal>.icon-container>.icon]:rotate-[90deg] [&[data-state=open]>.line>.line-internal>.icon-container>.icon>.minus]:rotate-90 [&[data-state=open]>.line>.line-internal>.icon-container>.icon]:bg-body [&[data-state=open]>.line>.line-internal>.icon-container>.icon]:text-white">
+            <AccordionTrigger data-para-anim className="text-[2.2vw] mobile:text-[6vw] mobile:text-left mobile:flex mobile:w-full tablet:text-[4vw] tablet:text-left text-body font-display font-normal py-[3%] mobile:py-[10%]  accordion [&[data-state=open]>.line>.line-internal>.icon-container>.icon]:rotate-[90deg] [&[data-state=open]>.line>.line-internal>.icon-container>.icon>.minus]:rotate-90 [&[data-state=open]>.line>.line-internal>.icon-container>.icon]:bg-body [&[data-state=open]>.line>.line-internal>.icon-container>.icon]:text-white">
                 {title}
             </AccordionTrigger>
-            <AccordionContent className="text-[1.2vw] text-body tracking-[0.5px] leading-[1.3] space-y-[1.5vw] w-[70%] mb-[20px] mobile:w-full mobile:text-[4vw] mobile:space-y-[4vw]">
+            <AccordionContent className="text-[1.2vw] text-body tracking-[0.5px] leading-[1.3] space-y-[1.5vw] w-[70%] mb-[20px] mobile:w-full mobile:text-[4vw] mobile:space-y-[4vw] tablet:text-[3vw] tablet:w-full">
                 <p data-para-anim className="fadeIn">
                     {content1}
                 </p>
                 <p data-para-anim className="fadeIn">
                     {content2}
                 </p>
-                <BlackButton btnLink={btnLink} btnText={btnText}/>
+                <BlackButton btnLink={btnLink} btnText={btnText} className="text-[1.05vw] tablet:text-[2.5vw]"/>
             </AccordionContent>
             <span className="h-[1px] mb-[-1px] bg-body w-full block lineDraw" />
         </AccordionItem>
@@ -29,16 +29,16 @@ const Services = () => {
     const containerRef = useRef(null);
 
     return (
-        <Section className="py-[5%]" id="services">
+        <Section className="py-[5%] mobile:pb-[15%]" id="services">
             <div ref={containerRef} className="container">
                 <div className="space-y-[2.5vw] mt-[5vw] mobile:space-y-[7vw]">
                     <SectionTitle data-title-anim text="OUR EXPERTISE" />
-                    <p data-para-anim className="text-[1.9vw] font-medium w-[35%] mobile:text-[4vw] mobile:w-[90%] ">
+                    <p data-para-anim className="text-[1.9vw] font-medium w-[35%] mobile:text-[4vw] mobile:w-[90%] tablet:text-[3vw] tablet:w-[60%] ">
                         We grow amazing companies through exceptional branding and communications.
                     </p>
                 </div>
 
-                <div className="w-3/5 ml-auto mt-[12vw] mobile:w-full">
+                <div className="w-3/5 ml-auto mt-[12vw] mobile:w-full tablet:w-full">
                     <Accordion type="single" collapsible defaultValue="item-1" className="w-full">
                         <SingleAccordion
                             id="item-1"

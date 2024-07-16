@@ -52,9 +52,9 @@ const services = [
 export default function ServiceList() {
   return (
     <>
-      <section className="w-full h-full py-[5%]" id="list">
+      <section className="w-full h-full py-[5%] mobile:pb-[10%]" id="list">
         <div className="container">
-          <div className="grid grid-cols-7 h-full gap-x-[3vw] gap-y-[7vw] mobile:flex mobile:flex-col">
+          <div className="grid grid-cols-7 h-full gap-x-[3vw] gap-y-[7vw] mobile:flex mobile:flex-col ">
             {services.map((service, index) => (
               <React.Fragment key={service.id}>
                 <div className="col-span-4 w-full h-full ">
@@ -67,7 +67,7 @@ export default function ServiceList() {
                     />
                   </div>
                 </div>
-                <div className="col-start-5 col-span-3 w-full">
+                <div className="col-start-5 col-span-3 w-full mobile:mb-[7vw]">
                   <h3
                     data-title-anim
                     className="text-[2.5vw] font-display mb-[1.5vw] mobile:text-[9vw] mobile:mb-[5vw] "
@@ -82,8 +82,8 @@ export default function ServiceList() {
                       {service.description2}
                     </p>
                   )}
-                  <div className="fadeup">
-                    <BlackButton btnLink={"/"} btnText={"View More"} />
+                  <div className="fadeup mobile:mt-[7vw]">
+                    <BlackButton btnLink={"/"} btnText={"View More"} className="text-[4.5vw]" />
                   </div>
                 </div>
               </React.Fragment>

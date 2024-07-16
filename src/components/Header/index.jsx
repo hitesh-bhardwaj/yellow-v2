@@ -44,7 +44,7 @@ const Header = () => {
           <div className="w-fit overflow-hidden">
             <Link href="/" className="pointer-events-auto">
               <Image
-                className={`w-[8vw] mobile:w-[20vw] transition-all duration-500 ease-out ${isInverted ? "invert" : ""}`}
+                className={`w-[8vw] mobile:w-[25vw] tablet:w-[15vw] transition-all duration-500 ease-out ${isInverted ? "invert" : ""}`}
                 id="header-logo"
                 src="/logo-black.png"
                 alt="Yellow Brand Logo"
@@ -53,7 +53,7 @@ const Header = () => {
               />
             </Link>
           </div>
-          <div className="w-[3.5vw] mr-[-0.5%] h-[3.5vw] mobile:w-[12vw] mobile:h-[12vw] relative tablet:w-[8vw] tablet:h-[10vw] ">
+          <div className="w-[3.5vw] mr-[-0.5%] h-[3.5vw] mobile:w-[15vw] mobile:h-[15vw] relative tablet:w-[8vw] tablet:h-[10vw] ">
             <button
               id="header-hamburger"
               disabled={buttonDisabled}

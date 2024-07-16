@@ -38,7 +38,7 @@ export function paraAnim(){
         gsap.from(paraLine, {
           scrollTrigger: {
             trigger: paraAnimation,
-            start: "top 85%",
+            start: "top 90%",
           },
           duration: 1.47,
           yPercent: 100,

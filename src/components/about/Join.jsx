@@ -34,8 +34,8 @@ export default function Join() {
     <section className='w-full py-[8%] bg-[#111111] mobile:py-[15%] ' id='join'>
       <div className='container flex justify-between mobile:flex-col'>
       <div className="w-[40%] flex flex-col gap-[1.5vw] text-white mobile:order-2 mobile:gap-[7vw] mobile:mt-[10vw] mobile:w-full">
-            <SectionTitle data-title-anim className="text-[5.8vw] leading-[1] font-display mb-[1vw] w-full mobile:normal-case" text={"Join Yellow and Make a Difference."}/>
-            <p data-para-anim className="text-[1.6vw] w-[80%] mb-[2vw] mobile:text-[4vw] mobile:w-[90%] mobile:mb-[7vw]">
+            <SectionTitle data-title-anim className="text-[5.8vw] leading-[1] font-display mb-[1vw] w-full mobile:normal-case tablet:text-[5vw]" text={"Join Yellow and Make a Difference."}/>
+            <p data-para-anim className="text-[1.6vw] w-[80%] mb-[2vw] mobile:text-[4vw] mobile:w-[90%] mobile:mb-[7vw] tablet:text-[2vw] tablet:w-full">
             Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero&apos;s De Finibus Bonorum et Malorum for use in a type specimen book.
             </p>
             

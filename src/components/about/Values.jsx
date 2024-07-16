@@ -9,7 +9,7 @@ import SectionTitle from "../SectionTitle";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function values() {
-  if(globalThis.innerWidth>541){
+  if(globalThis.innerWidth>1023){
     useGSAP(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -18,6 +18,70 @@ export default function values() {
           scrub: 1,
           start: "top top",
           end: "=+3000 top",
+          
+        },
+      });
+      tl.from(".card1", {
+        yPercent: 120,
+        duration: 2,
+      })
+        .from(".card2", {
+          yPercent: 120,
+          duration: 2,
+          delay: -1,
+        })
+        .from(".card3", {
+          yPercent: 120,
+          duration: 2,
+          delay: -1,
+        })
+        .to(".cardfront", {
+          rotateY: -180,
+          duration: 5,
+          stagger: {
+            from: "edges",
+            each: 0.5,
+          },
+        })
+        .to(".cardback", {
+          rotateY: 0,
+          duration: 5,
+          delay: -6,
+          stagger: {
+            from: "edges",
+            each: 0.5,
+          },
+        })
+        .to(".card1", {
+          rotateZ: -20,
+          xPercent: 50,
+          duration: 2,
+        })
+        .to(".card2", {
+          rotateZ: -5,
+          yPercent: -20,
+          duration: 2,
+          delay: -2,
+        })
+        .to(".card3", {
+          rotateZ: 20,
+          xPercent: -50,
+          duration: 2,
+          delay: -2,
+        });
+    });
+
+  }
+  if(globalThis.innerWidth>541){
+    useGSAP(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".card-section",
+          pin: true,
+          scrub: 1,
+          start: "top top",
+          end: "bottom top",
+        
           
         },
       });
@@ -105,7 +169,7 @@ export default function values() {
     
   return (
     <>
-      <section className=" h-full w-full py-[5%] mobile:py-[15%]" id="values">
+      <section className=" h-full w-full py-[5%] mobile:py-[15%] tablet:py-[10%]" id="values">
         <div className="container card-section ">
           <SectionTitle
             data-title-anim
@@ -116,7 +180,7 @@ export default function values() {
           
           <p
             data-para-anim
-            className="text-[2vw] w-[30%] font-medium leading-[1.2] mobile:w-[90%] mobile:text-[5vw] "
+            className="text-[2vw] w-[30%] font-medium leading-[1.2] mobile:w-[90%] mobile:text-[5vw] tablet:w-[50%] "
           >
             We grow amazing companies through exceptional branding and
             communications.

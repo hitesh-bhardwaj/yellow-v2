@@ -87,4 +87,34 @@
 }
   
 }
+/* screen size for tablet */
+@media  screen and (min-width:540px) and (max-width:1023px) {
+  .btn_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 20vw;
+    width: 20vw;
+}
+.btn-white {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18vw;
+  height: 18vw;
+  font-family: Satoshi, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 3vw;
+  line-height: 1.2;
+  color: white;
+  text-transform: capitalize;
+  border: 1px solid white;
+  border-radius: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.5s ease-out;
+}
+  
+}
 /*-----------------Buttons CSS End--------------------------*/

@@ -96,11 +96,11 @@ export default function Meet() {
         <SectionTitle text={"Meet the people"} className={"mb-[3vw]"}/>
           
         
-        <p data-para-anim className="text-[1.9vw] w-[30%] font-medium leading-[1.2] mobile:w-[90%] mobile:text-[5vw] ">
+        <p data-para-anim className="text-[1.9vw] w-[30%] font-medium leading-[1.2] mobile:w-[90%] mobile:text-[5vw] tablet:w-[60%] tablet:text-[2.5vw] ">
           We grow amazing companies through exceptional branding and
           communications.
         </p>
-        <div className="w-full overflow-scroll mobile:mt-[5vw]">
+        <div className="w-full mobile:overflow-scroll mobile:mt-[5vw]">
         <div ref={cardContainer} className="flex flex-wrap mt-[8vw] justify-between gap-y-[3vw] mobile:flex-nowrap mobile:w-fit mobile:overflow-scroll mobile:gap-[5vw] mobile:h-fit">
           {teamMembers.map((member, index) => (
             <div

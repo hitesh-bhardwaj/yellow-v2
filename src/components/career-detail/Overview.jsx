@@ -4,12 +4,12 @@ export default function Overview() {
   return (
     <>
     <section id='overview'>
-        <div className='container py-[7%] flex justify-between'>
-            <h2 data-title-anim className='text-[5.7vw] font-display w-[50%] '>
+        <div className='container py-[7%] flex justify-between mobile:flex-col mobile:gap-[5vw] mobile:py-[12%]'>
+            <h2 data-title-anim className='text-[5.7vw] font-display w-[50%] mobile:text-[10vw] '>
                 Overview
 
             </h2>
-            <p className='w-[45%] text-[1.2vw] font-medium '>
+            <p className='w-[45%] text-[1.2vw] font-medium mobile:w-full mobile:text-[4.5vw] '>
             <span data-para-anim>Are you someone with big dreams, endless curiosity, and a passion for making things happen?</span>
             <br/>    
                

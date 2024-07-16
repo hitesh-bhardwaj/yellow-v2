@@ -77,7 +77,7 @@ export default function Listing() {
         <div className='container'>
           <div
             ref={btnContainer}
-            className="flex justify-start items-start gap-[1vw] mb-[3vw] mobile:flex-wrap mobile:mb-[10vw]"
+            className="flex justify-start items-start gap-[1vw] mb-[3vw] mobile:flex-wrap mobile:mb-[10vw] mobile:hidden"
           >
             {filters.map((category, index) => (
               <button
@@ -90,19 +90,19 @@ export default function Listing() {
               </button>
             ))}
           </div>
-          <div className='w-[100vw] ml-[-5vw] h-[1px] bg-black mb-[3vw]'></div>
-          <div className='w-full h-full flex flex-wrap gap-[2vw] mb-[3vw]'>
+          <div className='w-[100vw] ml-[-5vw] h-[1px] bg-black mb-[3vw] mobile:my-[12vw] mobile:ml-[-7vw]'></div>
+          <div className='w-full h-full flex flex-wrap gap-[2vw] mb-[3vw] mobile:flex-col mobile:gap-[12vw]'>
             {filteredProjects.map((project) => (
-              <div key={project.id} className='w-[28vw] h-[35vw] border-[1px] border-black border-opacity-40 rounded-[10px] overflow-hidden'>
-                <div className='w-[28vw] h-[15vw] relative'>
+              <div key={project.id} className={`w-[28vw] h-[35vw] border-[1px] border-black border-opacity-40 rounded-[10px] overflow-hidden mobile:w-[85vw] mobile:h-full mobile:pb-[4vw] ${project.id>5?"hidden":"block"}`}>
+                <div className='w-[28vw] h-[15vw] relative mobile:w-[85vw] mobile:h-[55vw]'>
                   <Image src={project.imageSrc} alt='blog-listing' fill />
                 </div>
-                <div className='w-full h-full px-[1.5vw] py-[1.5vw] flex flex-col gap-[2vw]'>
-                  <h3 className='text-[1.5vw] font-display leading-[1.2]'>{project.title}</h3>
-                  <p className='text-[1vw] font-medium'>{project.date}</p>
-                  <div className='text-[1vw] flex gap-[0.5vw]'>
+                <div className='w-full h-full px-[1.5vw] py-[1.5vw] flex flex-col gap-[2vw] mobile:gap-[4vw] mobile:px-[3vw]'>
+                  <h3 className='text-[1.5vw] font-display leading-[1.2] mobile:text-[6.5vw]'>{project.title}</h3>
+                  <p className='text-[1vw] font-medium mobile:text-[3vw]'>{project.date}</p>
+                  <div className='text-[1vw] flex gap-[0.5vw] mobile:text-[4vw] mobile:gap-[2vw]'>
                     {project.tags.map((tag, index) => (
-                      <span key={index} className='px-[0.7vw] border-[1px] border-black border-opacity-60 rounded-[50px]'>{tag}</span>
+                      <span key={index} className='px-[0.7vw] border-[1px] border-black border-opacity-60 rounded-[50px] mobile:px-[3vw] mobile:py-[0.5vw]'>{tag}</span>
                     ))}
                   </div>
                   <LinkButton btnLink={"/"} btnText={"Read Article"} className='text-[1.5vw]' />
@@ -110,8 +110,8 @@ export default function Listing() {
               </div>
             ))}
           </div>
-          <div className='w-full flex justify-center'>
-            <LinkButton btnLink={"/"} btnText={"View More"} className='text-[1.4vw] font-medium'/>
+          <div className='w-full flex justify-center mobile:my-[10vw]'>
+            <LinkButton btnLink={"/"} btnText={"Load More"} className='text-[1.4vw] font-medium'/>
 
           </div>
         </div>

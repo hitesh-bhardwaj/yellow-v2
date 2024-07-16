@@ -253,7 +253,7 @@ const Portfolio = ({ works }) => {
                   </div>
                 </div>
               </div>
-              <p data-para-anim className="font-medium text-[1.2vw] mb-[10px] mobile:text-[5vw]">
+              <p data-para-anim className="font-medium text-[1.2vw] mb-[10px] mobile:text-[5vw] tablet:text-[2vw]">
                 Projects
               </p>
             </div>
@@ -283,12 +283,12 @@ const Portfolio = ({ works }) => {
                   <div className="num">+</div>
                 </div>
               </div>
-              <p data-para-anim className="font-medium text-[1.2vw] mb-[10px] mobile:text-[5vw]">
+              <p data-para-anim className="font-medium text-[1.2vw] mb-[10px] mobile:text-[5vw] tablet:text-[2vw]">
                 Industries
               </p>
             </div>
           </div>
-          <div className="w-[35%] mobile:w-full">
+          <div className="w-[35%] mobile:w-full tablet:w-[35%]">
             <p
               data-para-anim
               className="text-[1.9vw] font-medium leading-[1.4] mobile:text-[5vw]"
@@ -323,13 +323,13 @@ const Portfolio = ({ works }) => {
                 <div className="relative w-full flex text-white h-full items-end">
                   <div className="flex justify-between mobile:flex-col mobile:h-full">
                     <div className="whitespace-normal flex gap-[2.5vw] flex-col mobile:order-2">
-                      <h3 className="text-[2.8vw] font-display leading-[1] mobile:text-[8vw]">
+                      <h3 className="text-[2.8vw] font-display leading-[1] mobile:text-[8vw] tablet:text-[5vw]">
                         {work.title}
                       </h3>
                       <div dangerouslySetInnerHTML={{
                         __html: work.excerpt
                       }}
-                      className="text-[1.05vw] font-medium w-[55%] mobile:text-[4vw] mobile:leading-[1.3] mobile:w-[90%] mobile:pb-[4vw]"
+                      className="text-[1.05vw] font-medium w-[55%] mobile:text-[4vw] mobile:leading-[1.3] mobile:w-[90%] mobile:pb-[4vw] tablet:text-[2vw]"
                       />
                     </div>
                     <div className="flex flex-col justify-between items-end text-[1.2vw] mobile:items-start mobile:text-[4vw]">
