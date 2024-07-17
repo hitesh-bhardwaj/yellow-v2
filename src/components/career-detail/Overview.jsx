@@ -9,7 +9,7 @@ export default function Overview() {
                 Overview
 
             </h2>
-            <p className='w-[45%] text-[1.2vw] font-medium mobile:w-full mobile:text-[4.5vw] '>
+            <p className='w-[45%] text-[1.2vw] font-medium mobile:w-full mobile:text-[4.5vw] tablet:text-[2vw] tablet:w-[60%] '>
             <span data-para-anim>Are you someone with big dreams, endless curiosity, and a passion for making things happen?</span>
             <br/>    
                

@@ -16,7 +16,7 @@ export default function Pagehero() {
               <LinkButton btnLink={"/"} btnText={"Read Article"} className="text-[1.4vw]" />
             </div>
           </div>
-          <div className="relative h-[45vw] w-[90vw] rounded-[10px] overflow-hidden fadeup mobile:w-[85vw] mobile:h-[120vw]">
+          <div className="relative h-[45vw] w-[90vw] rounded-[10px] overflow-hidden fadeup mobile:w-[85vw] mobile:h-[120vw] tablet:w-[85vw]">
             <Image src="/assets/images/blog/blog-hero.png" alt="blog-hero" fill className="object-cover"/>
           </div>
         </div>

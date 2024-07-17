@@ -5,14 +5,14 @@ import SectionTitle from "../SectionTitle";
 export default function Casestudy() {
   return (
     <>
-      <section className="w-screen h-full py-[8%] mobile:pt-[15%]" id="casestudy">
+      <section className="w-screen h-full py-[8%] mobile:pt-[15%] tablet:w-full" id="casestudy">
         <div className="container">
           <div className="grid grid-cols-2 gap-x-[2.5vw] gap-y-[4vw] mobile:flex mobile:flex-col mobile:gap-y-[7vw]">
             <div className="">
-              <SectionTitle data-title-anim className="text-[4.8vw] mb-[3vw] leading-[1.1] font-display w-[70%] mobile:w-full mobile:normal-case mobile:order-1 mobile:mb-[7vw]" text={"The Art of Rebellion"}/>
+              <SectionTitle data-title-anim className="text-[4.8vw] mb-[3vw] leading-[1.1] font-display w-[70%] mobile:w-full mobile:normal-case mobile:order-1 mobile:mb-[7vw] " text={"The Art of Rebellion"}/>
                 
               
-              <div className="text-[1.2vw] font-medium flex flex-wrap gap-[0.5vw] w-[70%] mobile:order-4 mobile:text-[4vw] mobile:w-full mobile:gap-[2vw]">
+              <div className="text-[1.2vw] font-medium flex flex-wrap gap-[0.5vw] w-[70%] mobile:order-4 mobile:text-[4vw] mobile:w-full mobile:gap-[2vw] tablet:text-[2vw] tablet:gap-[0.8vw]">
                 <p className="border-[1px] border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup mobile:px-[3vw] mobile:py-[1.5vw]">
                   Brand Strategy
                 </p>
@@ -36,7 +36,7 @@ export default function Casestudy() {
                 </p>
               </div>
             </div>
-            <div className="col-start-2 text-[1.4vw] font-medium pt-[1vw] mobile:text-[4.5vw] mobile:font-normal mobile:pt-[5vw]">
+            <div className="col-start-2 text-[1.4vw] font-medium pt-[1vw] mobile:text-[4.5vw] mobile:font-normal mobile:pt-[5vw] tablet:text-[2.2vw]">
               <p data-para-anim className="mb-[4vw] leading-[1.3] mobile:mb-[10vw] ">
                 Meet Rita & Ibrahim, an incredibly talented couple that left
                 their established careers to pursue their dreams of creating a
@@ -48,18 +48,18 @@ export default function Casestudy() {
                 that was all about celebrating self-expression, confidence,
                 colour, creativity, boldness and femininity.
               </p>
-              <div className="flex gap-[5vw] text-[1.4vw]">
+              <div className="flex gap-[5vw] text-[1.4vw] tablet:text-[2vw]">
                 <div>
-                  <p data-para-anim className="text-[1vw] mb-[0.5vw] mobile:text-[5vw]">Client</p>
+                  <p data-para-anim className="text-[1vw] mb-[0.5vw] mobile:text-[5vw] tablet:text-[2vw]">Client</p>
                   <p data-para-anim className="mobile:text-[5vw] mobile:font-medium" >Maveroc</p>
                 </div>
                 <div>
-                  <p data-para-anim className="text-[1vw] mb-[0.5vw] mobile:text-[5vw]">Industry</p>
+                  <p data-para-anim className="text-[1vw] mb-[0.5vw] mobile:text-[5vw] tablet:text-[2vw]">Industry</p>
                   <p data-para-anim className="mobile:text-[5vw] mobile:font-medium">Website Development</p>
                 </div>
               </div>
             </div>
-            <div className="col-span-2 mt-[4vw] relative w-[90vw] h-[45vw] mobile:h-[140vw] mobile:w-[85vw] imageanim bg-[#EDA0C4] mobile:rounded-[10px]">
+            <div className="col-span-2 mt-[4vw] relative w-[90vw] h-[45vw] rounded-[15px] mobile:h-[140vw] mobile:w-[85vw] imageanim bg-[#EDA0C4] mobile:rounded-[10px] tablet:w-[85vw]">
               <Image
                 src="/assets/images/portfolio/portfolio-detail/Maveroc-1.png"
                 alt="maveroc-1"
@@ -67,14 +67,14 @@ export default function Casestudy() {
                 className="mobile:object-contain"
               />
             </div>
-            <div className="relative col-span-1 w-[43vw] h-[45vw] imageanim mobile:w-[85vw] mobile:h-[100vw]">
+            <div className="relative col-span-1 w-[43vw] h-[45vw] imageanim mobile:w-[85vw] mobile:h-[100vw] tablet:w-[41.5vw]">
               <Image
                 src="/assets/images/portfolio/portfolio-detail/Maveroc-2.png"
                 alt="maveroc-2"
                 fill
               />
             </div>
-            <div className="mb-[4vw] col-start-2 col-span-1 w-[43vw] h-[45vw] relative imageanim mobile:w-[85vw] mobile:h-[100vw]">
+            <div className="mb-[4vw] col-start-2 col-span-1 w-[43vw] h-[45vw] relative imageanim mobile:w-[85vw] mobile:h-[100vw] tablet:w-[41.5vw]">
               <Image
                 src="/assets/images/portfolio/portfolio-detail/Maveroc-3.png"
                 alt="maveroc-3"
@@ -82,10 +82,10 @@ export default function Casestudy() {
               />
             </div>
             <div>
-              <h3 data-title-anim className="font-display text-[3vw] mobile:text-[10vw] ">Why Maveroc</h3>
+              <h3 data-title-anim className="font-display text-[3vw] mobile:text-[10vw] tablet:text-[5vw] ">Why Maveroc</h3>
             </div>
             <div className="col-start-2">
-              <p className="text-[1.4vw] font-medium mobile:text-[4.5vw] mobile:font-normal ">
+              <p className="text-[1.4vw] font-medium mobile:text-[4.5vw] mobile:font-normal tablet:text-[2vw] ">
                 <span data-para-anim className="mb-[2vw]">
                   Naming is always one of the most challenging aspects of
                   creating a brand. It&apos;s incredibly personal, subjective and
@@ -114,7 +114,7 @@ export default function Casestudy() {
               </p>
             </div>
             <div className="col-span-2 mt-[4vw]">
-              <div className="relative w-[90vw] h-[45vw] imageanim mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-[15px] mobile:overflow-hidden ">
+              <div className="relative w-[90vw] h-[45vw] imageanim mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-[15px] mobile:overflow-hidden tablet:w-[85vw]">
                 <Image
                   src="/assets/images/portfolio/portfolio-detail/Maveroc-11.png"
                   alt="maveroc-reel-bg"
@@ -130,7 +130,7 @@ export default function Casestudy() {
                 ></video>
               </div>
             </div>
-            <div className="col-span-2 relative w-[90vw] h-[45vw] imageanim mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-[15px] mobile:overflow-hidden mobile:bg-[#DDDEE6]  ">
+            <div className="col-span-2 relative w-[90vw] h-[45vw] imageanim mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-[15px] mobile:overflow-hidden mobile:bg-[#DDDEE6] tablet:w-[85vw] ">
               <Image
                 src="/assets/images/portfolio/portfolio-detail/Maveroc-10.png"
                 alt="maveroc-10"
@@ -138,7 +138,7 @@ export default function Casestudy() {
                 className="mobile:object-contain mobile:scale-150"
               />
             </div>
-            <div className="relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px] imageanim mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-[15px] mobile:overflow-hidden mobile:bg-[#FAFAFA]">
+            <div className="relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px] imageanim mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-[15px] mobile:overflow-hidden mobile:bg-[#FAFAFA] tablet:w-[41.5vw]">
               <Image
                 src="/assets/images/portfolio/portfolio-detail/maveroc-4.png"
                 alt="maveroc-4"
@@ -146,7 +146,7 @@ export default function Casestudy() {
                 fill
               />
             </div>
-            <div className="col-start-2 relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px] imageanim mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-[15px] mobile:overflow-hidden mobile:bg-[#FAFAFA]">
+            <div className="col-start-2 relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px] imageanim mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-[15px] mobile:overflow-hidden mobile:bg-[#FAFAFA] tablet:w-[41.5vw]">
               <Image
                 src="/assets/images/portfolio/portfolio-detail/maveroc-7.png"
                 alt="maveroc-7"
@@ -155,12 +155,12 @@ export default function Casestudy() {
               />
             </div>
             <div className="mt-[4vw] mobile:mt-[10vw]">
-              <h3 data-title-anim className="font-display text-[3vw] mobile:text-[10vw] mobile:leading-[1.2] ">
+              <h3 data-title-anim className="font-display text-[3vw] mobile:text-[10vw] mobile:leading-[1.2] tablet:text-[5vw] ">
                 Passionate Cheerleaders
               </h3>
             </div>
             <div className="col-start-2 mt-[5vw] mobile:mt-0 mobile:mb-[7vw]">
-              <p className="text-[1.4vw] font-medium mobile:text-[4vw] mobile:font-normal ">
+              <p className="text-[1.4vw] font-medium mobile:text-[4vw] mobile:font-normal tablet:text-[2vw] ">
                 <span data-para-anim className="mb-[2vw]">
                   The team: Yellow works collaboratively with our in-house team
                   which was made up of Sarah, Mamta, Dan, Stuart along with a
@@ -176,17 +176,26 @@ export default function Casestudy() {
                 </span>
               </p>
             </div>
-            <div className="relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px] imageanim mobile:w-[85vw] mobile:h-[85vw] mobile:rounded-[15px] mobile:overflow-hidden">
+            <div className="relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px] imageanim mobile:w-[85vw] mobile:h-[85vw] mobile:rounded-[15px] mobile:overflow-hidden tablet:w-[41.5vw]">
                 <Image src="/assets/images/portfolio/portfolio-detail/maveroc-5.png" alt="maveroc-5" fill/>
             </div>
-            <div className="relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px] imageanim mobile:w-[85vw] mobile:h-[85vw] mobile:rounded-[15px] mobile:overflow-hidden">
+            <div className="relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px] imageanim mobile:w-[85vw] mobile:h-[85vw] mobile:rounded-[15px] mobile:overflow-hidden tablet:w-[41.5vw]">
                 <Image src="/assets/images/portfolio/portfolio-detail/maveroc-8.png" alt="maveroc-8" fill/>
             </div>
-            <div className=" col-span-2 relative w-[90vw] h-[45vw] imageanim mobile:h-[85vw] mobile:w-[85vw] bg-[#887CB7] mobile:rounded-[15px] mobile:overflow-hidden">
-                <Image src="/assets/images/portfolio/portfolio-detail/maveroc-9.png" alt="maveroc-9" fill className="object-contain"/>
+            <div className=" col-span-2 relative w-[90vw] h-[45vw] px-[7vw] py-[5vw] imageanim rounded-[10px] mobile:h-[85vw] mobile:w-[85vw] bg-[#887CB7] mobile:rounded-[15px] mobile:overflow-hidden tablet:w-[85vw] flex justify-center items-center">
+              <div className="relative h-full w-full">
+              <Image src="/assets/images/portfolio/portfolio-detail/maveroc-9.png" alt="maveroc-9" fill className="object-contain"/>
+
+
+              </div>
             </div>
-            <div className="col-span-2 relative w-[90vw] h-[45vw] imageanim mobile:h-[85vw] mobile:w-[85vw] bg-[#EDA0C4] mobile:rounded-[15px] mobile:overflow-hidden">
-                <Image src="/assets/images/portfolio/portfolio-detail/maveroc-6.png" alt="maveroc-6" fill className="object-contain"/>
+            <div className="col-span-2 relative w-[90vw] h-[45vw] px-[7vw] py-[5vw] imageanim rounded-[10px] mobile:h-[85vw] mobile:w-[85vw] bg-[#EDA0C4] mobile:rounded-[15px] mobile:overflow-hidden tablet:w-[85vw] flex justify-center items-center">
+            <div className="relative h-full w-full">
+            <Image src="/assets/images/portfolio/portfolio-detail/maveroc-6.png" alt="maveroc-6" fill className="object-contain"/>
+
+
+
+              </div>
             </div>
           </div>
         </div>

@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useRef } from "react";
 import SectionTitle from "../SectionTitle";
 import {gsap} from "gsap/dist/gsap";
@@ -72,22 +74,26 @@ const teamMembers = [
 
 export default function Meet() {
   const cardContainer = useRef(null);
-  useGSAP(() => {
-    const cards = cardContainer.current.querySelectorAll(".cardfade");
-    
-      gsap.from(cards, {
-        scrollTrigger: {
-          trigger: cardContainer.current,
-          start: "top 90%",
-          end:"bottom 60%",
-        },
-        opacity:0,
-        yPercent:20,
-        ease:"power4.Out",
-        duration:1,
-        stagger:0.3
+  if(globalThis.innerWidth>1023){
+    useGSAP(() => {
+      const cards = cardContainer.current.querySelectorAll(".cardfade");
+      
+        gsap.from(cards, {
+          scrollTrigger: {
+            trigger: cardContainer.current,
+            start: "top 90%",
+            end:"bottom 60%",
+          },
+          opacity:0,
+          yPercent:20,
+          ease:"power4.Out",
+          duration:1,
+          stagger:0.3
+        });
       });
-    });
+
+  }
+  
   
   return (
     <>

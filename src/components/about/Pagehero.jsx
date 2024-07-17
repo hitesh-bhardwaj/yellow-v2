@@ -16,7 +16,7 @@ export default function Pagehero() {
               <h3 data-title-anim className="text-[1.6vw] w-[30%] font-display uppercase heading-anim mobile:text-[7vw] mobile:w-full tablet:text-[3vw] tablet:w-[40%]">
                 We Are
               </h3>
-              <p data-para-anim className="text-[1.3vw] w-full para-anim mobile:text-[4vw] tablet:text-[2vw]">
+              <p data-para-anim className="text-[1.3vw] w-full para-anim mobile:text-[4vw] tablet:text-[2.5vw]">
                 A branding and communications agency in Dubai, Yellow stands for
                 all that’s bright in business – collaboration, ambition,
                 opportunity and transformation. Dubai-born and Dubai-bred, we
@@ -29,7 +29,7 @@ export default function Pagehero() {
               <h3 data-title-anim className="text-[1.6vw] w-[30%] font-display uppercase heading-anim mobile:text-[7vw] mobile:w-full tablet:text-[3vw] tablet:w-[40%]">
                 We Aren’t
               </h3>
-              <p data-para-anim className="text-[1.3vw] w-full para-anim mobile:text-[4vw] tablet:text-[2vw] ">
+              <p data-para-anim className="text-[1.3vw] w-full para-anim mobile:text-[4vw] tablet:text-[2.5vw] ">
                 It’s incredibly rare in business to offer something totally
                 unique. So differenatiation relies on your brand – it’s what you
                 stand for that will resonate in people’s minds and separate you

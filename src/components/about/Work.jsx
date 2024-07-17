@@ -10,21 +10,21 @@ export default function Work() {
       <div className='w-full flex justify-between mb-[5vw] mobile:flex-col mobile:mb-[10vw]'>
         <div>
         <SectionTitle text={"Our work"} className={"mb-[3vw]"}/>
-        <p data-para-anim className="text-[1.9vw] w-[60%] font-medium leading-[1.2] mobile:w-[90%] mobile:text-[5vw] mobile:mb-[7vw]">
+        <p data-para-anim className="text-[1.9vw] w-[60%] font-medium leading-[1.2] mobile:w-[90%] mobile:text-[5vw] mobile:mb-[7vw] tablet:w-[80%] tablet:text-[2.5vw]">
         We grow amazing companies through exceptional branding and communications.
         </p>
 
         </div>
         
             <Link
-                className={`cursor-pointer flex w-fit relative text-[1.4vw] gap-[0.5vw] items-center font-medium group mobile:text-[5vw] mobile:gap-[2vw] `}
+                className={`cursor-pointer flex w-fit relative text-[1.4vw] gap-[0.5vw] items-center font-medium group mobile:text-[5vw] mobile:gap-[2vw] tablet:text-[2.5vw] `}
                 href="#"
               >
                 <span className="relative after:absolute leading-[1.3] after:block after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-body after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0 ">
                 See All work
                 </span>
                 <svg
-                  className="relative -rotate-[135deg] w-[2vw] h-[2vw] overflow-hidden mobile:w-[5vw] mobile:h-[5vw]"
+                  className="relative -rotate-[135deg] w-[2vw] h-[2vw] overflow-hidden mobile:w-[5vw] mobile:h-[5vw] tablet:w-[3vw] tablet:h-[3vw]"
                   width="19"
                   height="23"
                   viewBox="0 0 19 23"
@@ -49,16 +49,16 @@ export default function Work() {
                 <Link href={"/"}>
                 <div className='absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]'><img src='/assets/images/about/work-1.png' alt='work-1'/></div>
                 <div className="absolute bottom-[7%] left-[7%] text-white">
-              <h3 data-title-anim className="text-[2.5vw] mb-[1vw] font-display mobile:text-[7vw] ">Numu</h3>
-              <p data-para-anim className="w-full text-[1.1vw] leading-[1.4] font-medium  mobile:text-[4vw]">
+              <h3 data-title-anim className="text-[2.5vw] mb-[1vw] font-display mobile:text-[7vw] tablet:text-[3.5vw] ">Numu</h3>
+              <p data-para-anim className="w-full text-[1.1vw] leading-[1.4] font-medium  mobile:text-[4vw] tablet:text-[2vw]">
               Brand identity for a premium early childhood centre
               </p>
             </div>
             <div className="absolute top-[5%] left-[7%] flex gap-[1.5vw] text-white mobile:gap-[3vw]">
-              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-lg px-[1.4vw] py-[0.4vw] text-[1.4vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1vw]">
+              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-lg px-[1.4vw] py-[0.4vw] text-[1.4vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1vw] tablet:text-[2vw]">
               Digital Marketing
               </button>
-              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-lg px-[1.4vw] py-[0.4vw] text-[1.4vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1vw]">
+              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-lg px-[1.4vw] py-[0.4vw] text-[1.4vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1vw] tablet:text-[2vw]">
                 Brand Name
               </button>
             </div>
@@ -69,16 +69,16 @@ export default function Work() {
                 <Link href={"/"}>
                 <div className='absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[30vw] h-[7vw]'><img src='/assets/images/about/work-2.png' alt='work-2' className='object-cover h-full w-full'/></div>
                 <div className="absolute bottom-[7%] left-[7%] text-white">
-              <h3 data-title-anim className="text-[2.5vw] mb-[1vw] font-display mobile:text-[7vw] ">Beema</h3>
-              <p data-para-anim className="w-full text-[1.1vw] leading-[1.4] font-medium mobile:text-[4vw] ">
+              <h3 data-title-anim className="text-[2.5vw] mb-[1vw] font-display mobile:text-[7vw] tablet:text-[3.5vw] ">Beema</h3>
+              <p data-para-anim className="w-full text-[1.1vw] leading-[1.4] font-medium mobile:text-[4vw] tablet:text-[2vw] ">
               A brand refresh for the region’s first pay-per-mile provider
               </p>
             </div>
             <div className="absolute top-[5%] left-[7%] flex gap-[1.5vw] text-white">
-              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-lg px-[1.4vw] py-[0.4vw] text-[1.4vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1vw]">
+              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-lg px-[1.4vw] py-[0.4vw] text-[1.4vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1vw] tablet:text-[2vw]">
               Digital Marketing
               </button>
-              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-lg px-[1.4vw] py-[0.4vw] text-[1.4vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1vw]">
+              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-lg px-[1.4vw] py-[0.4vw] text-[1.4vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1vw] tablet:text-[2vw]">
                 Brand Name
               </button>
             </div>

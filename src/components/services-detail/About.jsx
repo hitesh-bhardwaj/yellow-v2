@@ -6,7 +6,7 @@ export default function About() {
     <>
      <section className="pb-[5%]" id='about'>
       <div className='container'>
-      <div className="w-[90vw] h-[45vw] rounded-[15px] overflow-hidden relative fadeup mobile:w-[85vw] mobile:h-[140vw]">
+      <div className="w-[90vw] h-[45vw] rounded-[15px] overflow-hidden relative fadeup mobile:w-[85vw] mobile:h-[140vw] tablet:w-[85vw]">
           <Image
             src="/assets/images/service/service-detail/service-detail-hero.png"
             alt="service-detail-hero"
@@ -15,24 +15,24 @@ export default function About() {
           />
         </div>
         <div className="w-full flex justify-between mt-[5vw] mb-[12vw] mobile:flex-col mobile:mt-[7vw]">
-          <p data-para-anim className="text-[2vw] font-medium text-[#333333] w-[45%] leading-[1.4] mobile:text-[5vw]  mobile:w-full mobile:mb-[7vw]">
+          <p data-para-anim className="text-[1.75vw] font-medium text-[#333333] w-[45%] leading-[1.4] mobile:text-[5vw]  mobile:w-full mobile:mb-[7vw] tablet:text-[2.5vw] tablet:w-[50%]">
             Our approach to branding and design transcends simple aesthetics to
             forge meaningful brands. We believe that a successful brand identity
             requires alignment with core beliefs and an impactful purpose.
           </p>
-          <p data-para-anim className="text-[1.4vw] font-medium text-[#111111] w-[35%] mobile:font-normal mobile:text-[4vw]  mobile:w-full">
+          <p data-para-anim className="text-[1.3vw] font-medium text-[#111111] w-[40%] mobile:font-normal mobile:text-[4vw]  mobile:w-full tablet:text-[2vw] tablet:w-[40%]">
             Our approach to branding and design transcends simple aesthetics to
             forge meaningful brands. We believe that a successful brand identity
             requires alignment with core beliefs and an impactful purpose.
           </p>
         </div>
-        <div className="w-full grid grid-cols-3 gap-x-[5vw] gap-y-[2vw] mobile:flex mobile:flex-col mobile:gap-[10vw]">
+        <div className="w-full grid grid-cols-3 gap-x-[5vw] gap-y-[2vw] mobile:flex mobile:flex-col mobile:gap-[10vw] tablet:flex tablet:flex-col tablet:gap-[5vw]">
           <div className="col-span-1">
-            <h3 data-para-anim className="uppercase text-[2vw] font-display mobile:text-[8vw] ">
+            <h3 data-para-anim className="uppercase text-[2vw] font-display mobile:text-[8vw] tablet:font-medium tablet:text-[4vw]">
               Brand workshop, audit and research
             </h3>
-            <div className="h-[2px] w-full bg-black mobile:block hidden lineDraw my-[6vw]"></div>
-            <p data-para-anim className='hidden mobile:block text-[4.5vw]'>
+            <div className="h-[2px] w-full bg-black mobile:block hidden lineDraw my-[6vw] tablet:block tablet:my-[3vw]"></div>
+            <p data-para-anim className='hidden mobile:block text-[4.5vw] tablet:block tablet:text-[2.5vw]'>
             Relevance. Differentiation. Connections. Conversions. Stay true to
               your brand promise and make a meaningful impact with a clear
               mission and plan of action when you work with our brand strategy
@@ -41,11 +41,11 @@ export default function About() {
             </p>
           </div>
           <div className="col-span-1 col-start-2 mobile:flex mobile:flex-col ">
-            <h3 data-para-anim className="uppercase text-[2vw] font-display mobile:text-[8vw]">
+            <h3 data-para-anim className="uppercase text-[2vw] font-display mobile:text-[8vw] tablet:font-medium tablet:text-[4vw]">
               why work with us
             </h3>
-            <div className="h-[2px] w-full bg-black mobile:block hidden lineDraw my-[6vw]"></div>
-            <p  data-para-anim className='hidden mobile:block text-[4.5vw]'>
+            <div className="h-[2px] w-full bg-black mobile:block hidden lineDraw my-[6vw] tablet:block tablet:my-[3vw]"></div>
+            <p  data-para-anim className='hidden mobile:block text-[4.5vw] tablet:block tablet:text-[2.5vw]'>
             Brand strategy development is inevitably complex and complicated.
               The beauty of working with Yellow is you get to move forward with
               brand building without disrupting your operations. More than
@@ -54,12 +54,12 @@ export default function About() {
 
             </p>
           </div>
-          <div className="col-span-1 col-start-3 flex justify-center mobile:flex-col">
-            <h3  data-para-anim className="uppercase text-[2vw] font-display mobile:text-[8vw] ">
+          <div className="col-span-1 col-start-3 flex justify-center mobile:flex-col tablet:flex-col">
+            <h3  data-para-anim className="uppercase text-[2vw] font-display mobile:text-[8vw] tablet:font-medium tablet:text-[4vw] ">
               What to expect: Brand strategy consulting
             </h3>
-            <div className="h-[2px] w-full bg-black mobile:block hidden lineDraw my-[6vw]"></div>
-            <p data-para-anim className='hidden mobile:block text-[4.5vw]'>
+            <div className="h-[2px] w-full bg-black mobile:block hidden lineDraw my-[6vw] tablet:block tablet:my-[3vw]"></div>
+            <p data-para-anim className='hidden mobile:block text-[4.5vw] tablet:block tablet:text-[2.5vw]'>
             Before we begin defining your brand strategy, it is important for
               us to understand as much about your business, your sector and your
               customers as we can. During our client-agency brand workshop,
@@ -70,8 +70,8 @@ export default function About() {
 
             </p>
           </div>
-          <div className="h-[2px] col-span-3 bg-black lineDraw mobile:hidden my-[6vw]"></div>
-          <div className="col-span-1 mobile:hidden">
+          <div className="h-[2px] col-span-3 bg-black lineDraw mobile:hidden my-[1,8vw] tablet:my-[3vw] tablet:hidden"></div>
+          <div className="col-span-1 mobile:hidden tablet:hidden">
             <p data-para-anim className="text-[1.2vw] font-medium ">
               Relevance. Differentiation. Connections. Conversions. Stay true to
               your brand promise and make a meaningful impact with a clear
@@ -79,7 +79,7 @@ export default function About() {
               agency in Dubai.
             </p>
           </div>
-          <div className="col-span-1 col-start-2 mobile:hidden">
+          <div className="col-span-1 col-start-2 mobile:hidden tablet:hidden">
             <p data-para-anim className="text-[1.2vw] font-medium ">
               Brand strategy development is inevitably complex and complicated.
               The beauty of working with Yellow is you get to move forward with
@@ -88,7 +88,7 @@ export default function About() {
               plan to make it happen.
             </p>
           </div>
-          <div className="col-span-1 col-start-3 mobile:hidden">
+          <div className="col-span-1 col-start-3 mobile:hidden tablet:hidden">
             <p data-para-anim className="text-[1.2vw] font-medium ">
               Before we begin defining your brand strategy, it is important for
               us to understand as much about your business, your sector and your

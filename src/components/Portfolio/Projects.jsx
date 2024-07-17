@@ -167,7 +167,7 @@ export default function ProjectsCopy() {
   return (
     <>
       <section className="w-full h-full" id="projects">
-        <div className="container bg-white pb-[15%]">
+        <div className="container bg-white pb-[15%] pt-[5%]">
           {/* Filter buttons */}
           <div
             ref={btnContainer}
@@ -176,12 +176,12 @@ export default function ProjectsCopy() {
             {filters.map((category, index) => (
               <button
                 key={index}
-                className={`cat-button text-black hover:text-white overflow-hidden border-[2px] hover:animate-scale-up border-black border-opacity-70 px-[1.5vw] py-[0.6vw] min-w-[7vw] rounded-full transition-all duration-500 ease-out relative group fadeup ${
+                className={`cat-button text-black hover:text-white overflow-hidden border-[2px] hover:animate-scale-up border-black border-opacity-70 px-[1.5vw] py-[0.6vw] min-w-[7vw] rounded-full transition-all duration-500 ease-out relative group fadeup tablet:min-w-fit tablet:border-[1px] ${
                   activeCategory === category ? "active" : ""
                 }`}
                 onClick={() => handleCategoryClick(category)}
               >
-                <span className="text-[1.2vw] space-grotesk relative z-[1]">{category}</span>
+                <span className="text-[1.2vw] space-grotesk relative z-[1] tablet:text-[1.8vw]">{category}</span>
                 <span className="w-full h-full absolute bottom-0 left-0 block group-hover:scale-y-[1] origin-bottom transition-all duration-300 ease-out bg-black scale-y-0"></span>
               </button>
             ))}
@@ -192,7 +192,7 @@ export default function ProjectsCopy() {
             {filteredProjects.map((project, index) => (
               <div key={index} className={`col-span-${index % 3 === 0 ? "2" : "1"} relative`}>
                 <Link href={"/"}>
-                <div className={`relative overflow-hidden rounded-[10px] ${index % 3 === 0 ? "w-[90vw] h-[45vw] mobile:w-[85vw] mobile:h-[150vw]" : "w-[44vw] h-[45vw] mobile:w-[85vw] mobile:h-[85vw]"} imageanim`}>
+                <div className={`relative overflow-hidden rounded-[10px] ${index % 3 === 0 ? "w-[90vw] h-[45vw] mobile:w-[85vw] mobile:h-[150vw] tablet:w-[85vw]" : "w-[44vw] h-[45vw] mobile:w-[85vw] mobile:h-[85vw] tablet:w-[41.5vw]"} imageanim`}>
                 <Image
                     src={project.image}
                     alt={`${project.name}-img`}
@@ -204,14 +204,14 @@ export default function ProjectsCopy() {
                 </div>
                   
                   <div className={`absolute text-white ${index % 3 === 0 ? "bottom-[10%] left-[3%] mobile:pr-[5vw] mobile:bottom-[7%] mobile:left-[7%]" : "bottom-[10%] left-[7%]"}`}>
-                    <h3 data-title-anim className="text-[2.5vw] mb-[1.5vw] mobile:text-[5vw] ">{project.name}</h3>
-                    <p data-para-anim className={` text-[1.1vw] leading-[1.4] mobile:text-[4vw] ${index % 3 === 0 ? "w-[70%] mobile:w-full" : "w-[90%] mobile:w-full"} `}>{project.description}</p>
+                    <h3 data-title-anim className="text-[2.5vw] mb-[1.5vw] mobile:text-[5vw] tablet:text-[3.5vw] ">{project.name}</h3>
+                    <p data-para-anim className={` text-[1.1vw] leading-[1.4] mobile:text-[4vw] tablet:text-[2vw] ${index % 3 === 0 ? "w-[70%] mobile:w-full " : "w-[90%] mobile:w-full"} `}>{project.description}</p>
                   </div>
                   <div className={`absolute  flex gap-[1.5vw] text-white mobile:gap-[3vw] ${index % 3 === 0 ? "bottom-[10%] right-[3%] mobile:top-[5%] mobile:left-[5%] mobile:bottom-auto" : "top-[7%] left-[7%]"}`}>
                     {project.tags.map((tag, tagIndex) => (
                       <button
                         key={tagIndex}
-                        className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[1.5vw] py-[0.6vw] text-[1.2vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1vw]"
+                        className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[1.5vw] py-[0.6vw] text-[1.2vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1vw] tablet:text-[2vw]"
                       >
                         {tag}
                       </button>
@@ -223,7 +223,7 @@ export default function ProjectsCopy() {
           </div>
 
           {/* View More link */}
-          <div className="text-black text-[1.5vw] w-full flex justify-center my-[5vw] mobile:text-[6vw]  mobile:leading-[1.2]">
+          <div className="text-black text-[1.5vw] w-full flex justify-center my-[5vw] mobile:text-[6vw] tablet:text-[3vw]  mobile:leading-[1.2]">
             <Link href={"/"}>
               <span className="relative after:absolute after:bg-current after:w-full after:h-[2px] after:block after:scale-x-100 cursor-pointer hover:after:scale-x-0 after:duration-300 after:ease-out">View More+</span>
             </Link>

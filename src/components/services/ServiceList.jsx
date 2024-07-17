@@ -52,13 +52,13 @@ const services = [
 export default function ServiceList() {
   return (
     <>
-      <section className="w-full h-full py-[5%] mobile:pb-[10%]" id="list">
+      <section className="w-full h-full py-[7%] mobile:pb-[10%] tablet:py-0" id="list">
         <div className="container">
-          <div className="grid grid-cols-7 h-full gap-x-[3vw] gap-y-[7vw] mobile:flex mobile:flex-col ">
+          <div className="grid grid-cols-7 h-full gap-x-[3vw] gap-y-[7vw] mobile:flex mobile:flex-col tablet:flex-col tablet:flex tablet:gap-y-[3vw] ">
             {services.map((service, index) => (
               <React.Fragment key={service.id}>
                 <div className="col-span-4 w-full h-full ">
-                  <div className={`w-[50vw] h-[33vw] rounded-xl overflow-hidden relative imageanim mobile:w-[85vw] mobile:h-[140vw] ${index % 2 === 0 ? '' : 'mobile:mt-[5vw]'}`}>
+                  <div className={`w-[50vw] h-[33vw] rounded-xl overflow-hidden relative imageanim mobile:w-[85vw] mobile:h-[140vw] tablet:w-[85vw] tablet:h-[45vw] tablet:mt-[5vw] ${index % 2 === 0 ? '' : 'mobile:mt-[5vw]'}`}>
                     <Image
                       src={service.imageSrc}
                       alt={service.alt}
@@ -70,20 +70,20 @@ export default function ServiceList() {
                 <div className="col-start-5 col-span-3 w-full mobile:mb-[7vw]">
                   <h3
                     data-title-anim
-                    className="text-[2.5vw] font-display mb-[1.5vw] mobile:text-[9vw] mobile:mb-[5vw] "
+                    className="text-[2.5vw] font-display mb-[1.5vw] mobile:text-[9vw] mobile:mb-[5vw] tablet:text-[5vw] "
                   >
                     {service.title}
                   </h3>
-                  <p data-para-anim className="font-medium text-[1.2vw] mb-[2vw] mobile:text-[4.5vw] ">
+                  <p data-para-anim className="font-medium text-[1.2vw] mb-[2vw] mobile:text-[4.5vw] tablet:text-[2.5vw] ">
                     {service.description1}
                   </p>
                   {service.description2 && (
-                    <p data-para-anim className="font-medium text-[1.2vw] mb-[2vw] mobile:text-[4.5vw] mobile:mb-[7vw]">
+                    <p data-para-anim className="font-medium text-[1.2vw] mb-[2vw] mobile:text-[4.5vw] mobile:mb-[7vw] tablet:text-[2.5vw]">
                       {service.description2}
                     </p>
                   )}
                   <div className="fadeup mobile:mt-[7vw]">
-                    <BlackButton btnLink={"/"} btnText={"View More"} className="text-[4.5vw]" />
+                    <BlackButton btnLink={"/"} btnText={"View More"} className="text-[1.05vw] tablet:text-[2.5vw]" />
                   </div>
                 </div>
               </React.Fragment>

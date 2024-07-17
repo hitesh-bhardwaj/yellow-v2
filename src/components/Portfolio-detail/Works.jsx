@@ -15,7 +15,7 @@ export default function Works() {
             </p>
             <div className='fadeup flex items-end'>
             <Link
-                className={`cursor-pointer flex w-fit relative text-[1.4vw] gap-[0.5vw] items-center font-medium group mobile:text-[5vw] `}
+                className={`cursor-pointer flex w-fit relative text-[1.4vw] gap-[0.5vw] items-center font-medium group mobile:text-[5vw] tablet:text-[2vw] `}
                 href="#"
               >
                 <span className="relative after:absolute leading-[1.3] after:block after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-body after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0">
@@ -48,22 +48,22 @@ export default function Works() {
         <div className='w-full flex justify-between gap-[2vw] mobile:flex-col mobile:gap-[7vw]'>
             <div className='w-full h-full relative fadeup'>
                 <Link href={"/"}>
-                <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-none'>
+                <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-none tablet:w-[41.5vw] tablet:h-[45vw]'>
                 <Image src='/assets/images/portfolio/portfolio-detail/work1.png' alt='work1' className='object-cover h-full w-full' fill/>
 
 
                 </div>
                 <div className="absolute bottom-[7%] left-[7%] text-white">
-              <h3 data-title-anim className="text-[2vw] mb-[1vw] font-display mobile:text-[7vw]">Numu</h3>
-              <p  data-para-anim className="w-[90%] text-[1.1vw] leading-[1.4] font-medium mobile:text-[4vw] mobile:w-full ">
+              <h3 data-title-anim className="text-[2vw] mb-[1vw] font-display mobile:text-[7vw] tablet:text-[4.5vw]">Numu</h3>
+              <p  data-para-anim className="w-[90%] text-[1.1vw] leading-[1.4] font-medium mobile:text-[4vw] mobile:w-full tablet:text-[2vw] ">
               Brand identity for a premium early childhood centre
               </p>
             </div>
             <div className="absolute top-[7%] left-[7%] flex gap-[1.5vw] text-white">
-              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-white bg-opacity-15">
+              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-white bg-opacity-15 tablet:text-[2vw]">
               Brand Strategy
               </button>
-              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-white bg-opacity-15">
+              <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-white bg-opacity-15 tablet:text-[2vw]">
                 Brand Name
               </button>
             </div>
@@ -72,29 +72,29 @@ export default function Works() {
             </div>
             <div className='w-full h-full relative fadeup'>
                 <Link href={"/"}>
-                <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden  mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-none'>
+                <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden  mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-none tablet:w-[41.5vw] tablet:h-[45vw]'>
                 <Image src='/assets/images/portfolio/portfolio-detail/work2.png' alt='work2' className='object-cover h-full w-full' fill/>
 
 
                 </div>
                 <div className="absolute bottom-[8%] left-[7%] text-black">
-              <h3 data-title-anim className="text-[2vw] mb-[1vw] font-display mobile:text-[7vw] ">Luma</h3>
-              <p data-para-anim className="w-full text-[1.1vw] leading-[1.4] font-medium mobile:text-[4vw] mobile:w-full ">
+              <h3 data-title-anim className="text-[2vw] mb-[1vw] font-display mobile:text-[7vw] tablet:text-[4.5vw] ">Luma</h3>
+              <p data-para-anim className="w-full text-[1.1vw] leading-[1.4] font-medium mobile:text-[4vw] mobile:w-full tablet:text-[2vw]">
               A brighter way to play
               </p>
             </div>
             <div className="absolute top-[7%] left-[7%] flex gap-[1.5vw] text-black">
-              <button className="w-fit border-[1px] border-black rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-white bg-opacity-15">
+              <button className="w-fit border-[1px] border-black rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-white bg-opacity-15 tablet:text-[2vw]">
               Brand Strategy
               </button>
-              <button className="w-fit border-[1px] border-black rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-white bg-opacity-15">
+              <button className="w-fit border-[1px] border-black rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-white bg-opacity-15 tablet:text-[2vw]">
                 Brand Name
               </button>
             </div>
 
                 </Link>
             </div>
-            <div className='w-full h-full relative fadeup'>
+            <div className='w-full h-full relative fadeup tablet:hidden'>
                 <Link href={"/"}>
                 <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-none '>
                 <Image src='/assets/images/portfolio/portfolio-detail/work3.png' alt='work3' className='object-cover h-full w-full' fill/>
