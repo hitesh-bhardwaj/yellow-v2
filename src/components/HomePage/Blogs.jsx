@@ -13,7 +13,7 @@ const Blogs = ({posts}) => {
                         <SectionTitle text="Featured Blogs" className="uppercase"/>
                     </div>
                     <div className="fadein">
-                        <LinkButton btnLink="#" btnText="All Blogs" className="uppercase mobile:normal-case"/>
+                        <LinkButton btnLink="#" btnText="All Blogs" className="uppercase mobile:normal-case mobile:text-[6vw]"/>
                     </div>
                 </div>
 

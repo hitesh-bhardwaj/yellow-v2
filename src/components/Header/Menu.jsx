@@ -85,24 +85,24 @@ export default function Menu({ menuOpen }) {
 
   return (
     <div ref={menuRef} className="fixed top-0 z-[199] left-0 right-0 bottom-0 flex items-start justify-end pointer-events-none">
-      <nav ref={navRef} className={`relative w-[50%] pointer-events-auto translate-x-[100%] left-[99px] h-screen bg-black/40 backdrop-blur-[25px] mobile:w-full tablet:w-[70%]`}>
-        <div data-lenis-prevent className="w-full h-full px-[5vw] pt-[5.5vw] pb-[4.5vw] relative flex flex-col justify-between items-start tablet:justify-start tablet:space-y-[10vw] mobile:pt-[25vw] mobile:pb-[10vw]">
-          <ul className="text-[7.8vh] font-display text-white leading-[1.15] mobile:text-[12vw] tablet:text-[9vw]">
-            <li className="overflow-hidden">
+      <nav ref={navRef} className={`relative w-[50%] pointer-events-auto translate-x-[100%] left-[99px] h-full bg-black/40 backdrop-blur-[25px] mobile:w-full tablet:w-[70%]`}>
+        <div data-lenis-prevent className="w-full h-full px-[5vw] pt-[5.5vw] pb-[3.5vw] relative flex flex-col justify-between items-start tablet:justify-between tablet:py-[15vw] mobile:pt-[25vw] mobile:pb-[10vw]">
+          <ul className="text-[7.8vh] font-display text-white leading-[1.15] mobile:text-[12vw] tablet:text-[6.5vw]">
+            <li className="overflow-hidden tablet:mb-[2vw]">
               <MenuLink 
                 className="link-anim"
                 href="/"
                 text="Home"
               />
             </li>
-            <li className="overflow-hidden">
+            <li className="overflow-hidden tablet:mb-[2vw]">
                 <MenuLink 
                   className="link-anim"
                   href="/about-us"
                   text="About"
                 />
             </li>
-            <li className="relative w-full">
+            <li className="relative w-full tablet:mb-[2vw]">
               <div className="overflow-hidden">
                 <button 
                   onClick={()=> {setServiceOpen(true)}}
@@ -111,8 +111,8 @@ export default function Menu({ menuOpen }) {
                   <div className="rounded-full border-white border text-white text-[25%] w-[2vw] h-[2vw] flex items-center justify-center mt-2 mobile:w-[7vw] mobile:h-[7vw] mobile:mt-0 tablet:w-[4vw] tablet:h-[4vw]">5</div>
                  </button>
               </div>
-              <ul className={`service-links text-[1.3vw] font-display absolute right-[-75%] pointer-events-none top-[1.5vw] pt-[1vw] leading-[1.5] transition-all duration-1000 ease-anim-primary mobile:text-[6vw] mobile:static mobile:right-auto mobile:mb-[5vw] mobile:mt-[2vw] tablet:right-[-40%] tablet:top-[50%] tablet:text-[2.5vw] ${serviceOpen ? "pointer-events-auto mobile:block" : "mobile:hidden"}`}>
-                <li onClick={()=> {setServiceOpen(false)}} className={`absolute border rounded-full border-current h-[1.8vw] p-[0.5vw] w-[1.8vw] flex items-center leading-[2] justify-center bottom-[90%] opacity-0 left-full cursor-pointer ease-out duration-500 mobile:h-0 mobile:w-0 mobile:p-0 mobile:hidden mobile:static tablet:hidden tablet:static' ${serviceOpen ? "opacity-100" : ""} `} >
+              <ul className={`service-links text-[1.3vw] font-display absolute right-[-75%] pointer-events-none top-[1.5vw] pt-[1vw] leading-[1.5] transition-all duration-1000 ease-anim-primary mobile:text-[6vw] mobile:static mobile:right-auto mobile:mb-[5vw] mobile:mt-[2vw] tablet:right-[-65%] tablet:top-[50%] tablet:text-[2.5vw] ${serviceOpen ? "pointer-events-auto mobile:block" : "mobile:hidden"}`}>
+                <li onClick={()=> {setServiceOpen(false)}} className={`absolute border rounded-full border-current p-[0.5vw] w-[1.8vw] flex items-center leading-[2] justify-center bottom-[90%] opacity-0 left-full cursor-pointer ease-out duration-500 mobile:static mobile:w-[7vw] mobile:flex  tablet:w-[4vw] tablet:h-[4vw]' ${serviceOpen ? "opacity-100" : ""} `} >
                   <svg className="w-full h-full " viewBox="0 0 46 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="3" y="1" width="60" height="4" rx="2" transform="rotate(45 3 1)" fill="currentColor"/>
                     <rect y="43" width="60" height="4" rx="2" transform="rotate(-45 0 43)" fill="currentColor"/>
@@ -202,7 +202,7 @@ export default function Menu({ menuOpen }) {
               />
             </div>
           </div>
-          <ul className="flex justify-between items-center text-[1vw] text-white font-medium uppercase w-[90%] mobile:flex-col mobile:items-start mobile:text-[5vw] mobile:gap-[2vw] tablet:text-[3vw] tablet:flex-col tablet:items-start tablet:gap-[1vw]">
+          <ul className="flex justify-between items-center text-[1vw] text-white font-medium uppercase w-[90%] mobile:flex-col mobile:items-start mobile:text-[5vw] mobile:gap-[2vw] tablet:text-[3vw] tablet:flex-wrap tablet:items-start tablet:gap-[2vw]">
             <li className="overflow-hidden">
               <Link 
                 className="social-link flex items-center gap-[3px] mobile:gap-[2.5vw] group" href="#">

@@ -16,7 +16,7 @@ export default function RelatedBlogs() {
             <LinkButton
               btnLink={"/"}
               btnText={"All Blogs"}
-              className="text-[1.8vw] font-medium"
+              className="text-[1.8vw] font-medium mobile:text-[5vw] tablet:text-[2.5vw]"
             />
 
             </div>
@@ -40,7 +40,7 @@ export default function RelatedBlogs() {
                   </button>
                 </div>
               </div>
-              <div className="w-full h-full px-[1.5vw] py-[1.5vw] flex flex-col gap-[2vw] mobile:px-[4vw] mobile:py-[7vw] mobile:gap-[5vw]">
+              <div className="w-full h-full px-[1.5vw] py-[1.5vw] flex flex-col gap-[2vw] mobile:px-[4vw] mobile:py-[7vw] mobile:gap-[5vw] tablet:pb-[2vw]">
                 <h3 data-para-anim className="text-[1.5vw] font-display leading-[1.2] mobile:text-[6.5vw] tablet:text-[3vw] ">
                   Packaging Design: Elevating Your Product’s Visual Appeal and
                   Brand Identity
@@ -49,7 +49,7 @@ export default function RelatedBlogs() {
                 <LinkButton
                   btnLink={"/"}
                   btnText={"Read Article"}
-                  className="text-[1.5vw]"
+                  className="text-[1.5vw] mobile:text-[5vw] tablet:text-[2vw]"
                 />
               </div>
             </div>
@@ -72,7 +72,7 @@ export default function RelatedBlogs() {
                   </button>
                 </div>
               </div>
-              <div className="w-full h-full px-[1.5vw] py-[1.5vw] flex flex-col gap-[2vw] mobile:px-[4vw] mobile:py-[7vw] mobile:gap-[5vw]">
+              <div className="w-full h-full px-[1.5vw] py-[1.5vw] flex flex-col gap-[2vw] mobile:px-[4vw] mobile:py-[7vw] mobile:gap-[5vw] tablet:pb-[2vw]">
                 <h3 data-para-anim className="text-[1.5vw] font-display leading-[1.2] mobile:text-[6.5vw] tablet:text-[3vw] ">
                   Packaging Design: Elevating Your Product’s Visual Appeal and
                   Brand Identity
@@ -81,7 +81,7 @@ export default function RelatedBlogs() {
                 <LinkButton
                   btnLink={"/"}
                   btnText={"Read Article"}
-                  className="text-[1.5vw]"
+                  className="text-[1.5vw] mobile:text-[5vw] tablet:text-[2vw]"
                 />
               </div>
             </div>
@@ -112,7 +112,7 @@ export default function RelatedBlogs() {
                <LinkButton
                   btnLink={"/"}
                   btnText={"Read Article"}
-                  className={"text-[1.4vw]"}
+                  className={"text-[1.4vw] mobile:text-[5vw] "}
                 />
 
                

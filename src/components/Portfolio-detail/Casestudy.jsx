@@ -130,7 +130,7 @@ export default function Casestudy() {
                 ></video>
               </div>
             </div>
-            <div className="col-span-2 relative w-[90vw] h-[45vw] imageanim mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-[15px] mobile:overflow-hidden mobile:bg-[#DDDEE6] tablet:w-[85vw] ">
+            <div className="col-span-2 relative w-[90vw] h-[45vw] imageanim mobile:w-[85vw] mobile:h-[60vw] mobile:rounded-[15px] mobile:overflow-hidden tablet:w-[85vw] ">
               <Image
                 src="/assets/images/portfolio/portfolio-detail/Maveroc-10.png"
                 alt="maveroc-10"
@@ -138,15 +138,15 @@ export default function Casestudy() {
                 className="mobile:object-contain mobile:scale-150"
               />
             </div>
-            <div className="relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px] imageanim mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-[15px] mobile:overflow-hidden mobile:bg-[#FAFAFA] tablet:w-[41.5vw]">
+            <div className="relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px] imageanim mobile:w-[85vw] mobile:h-[70vw] mobile:rounded-[15px] mobile:overflow-hidden tablet:w-[41.5vw]">
               <Image
                 src="/assets/images/portfolio/portfolio-detail/maveroc-4.png"
                 alt="maveroc-4"
-                className="object-cover h-full w-full mobile:object-contain"
+                className="object-cover h-full w-full mobile:object-cover"
                 fill
               />
             </div>
-            <div className="col-start-2 relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px] imageanim mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-[15px] mobile:overflow-hidden mobile:bg-[#FAFAFA] tablet:w-[41.5vw]">
+            <div className="col-start-2 relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px] imageanim mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-[15px] mobile:overflow-hidden tablet:w-[41.5vw]">
               <Image
                 src="/assets/images/portfolio/portfolio-detail/maveroc-7.png"
                 alt="maveroc-7"
@@ -182,16 +182,16 @@ export default function Casestudy() {
             <div className="relative col-span-1 w-[43vw] h-[45vw] overflow-hidden rounded-[10px] imageanim mobile:w-[85vw] mobile:h-[85vw] mobile:rounded-[15px] mobile:overflow-hidden tablet:w-[41.5vw]">
                 <Image src="/assets/images/portfolio/portfolio-detail/maveroc-8.png" alt="maveroc-8" fill/>
             </div>
-            <div className=" col-span-2 relative w-[90vw] h-[45vw] px-[7vw] py-[5vw] imageanim rounded-[10px] mobile:h-[85vw] mobile:w-[85vw] bg-[#887CB7] mobile:rounded-[15px] mobile:overflow-hidden tablet:w-[85vw] flex justify-center items-center">
+            <div className=" col-span-2 relative w-[90vw] h-[45vw]  imageanim rounded-[10px] overflow-hidden mobile:h-[55vw] mobile:w-[85vw]  mobile:rounded-[15px] mobile:overflow-hidden tablet:w-[85vw] flex justify-center items-center">
               <div className="relative h-full w-full">
-              <Image src="/assets/images/portfolio/portfolio-detail/maveroc-9.png" alt="maveroc-9" fill className="object-contain"/>
+              <Image src="/assets/images/portfolio/portfolio-detail/maveroc-9.png" alt="maveroc-9" fill className="object-cover" />
 
 
               </div>
             </div>
-            <div className="col-span-2 relative w-[90vw] h-[45vw] px-[7vw] py-[5vw] imageanim rounded-[10px] mobile:h-[85vw] mobile:w-[85vw] bg-[#EDA0C4] mobile:rounded-[15px] mobile:overflow-hidden tablet:w-[85vw] flex justify-center items-center">
+            <div className="col-span-2 relative w-[90vw] h-[45vw]  imageanim rounded-[10px] overflow-hidden mobile:h-[55vw] mobile:w-[85vw] mobile:rounded-[10px] mobile:overflow-hidden tablet:w-[85vw] flex justify-center items-center">
             <div className="relative h-full w-full">
-            <Image src="/assets/images/portfolio/portfolio-detail/maveroc-6.png" alt="maveroc-6" fill className="object-contain"/>
+            <Image src="/assets/images/portfolio/portfolio-detail/maveroc-6.png" alt="maveroc-6" fill  className="object-cover"/>
 
 
 

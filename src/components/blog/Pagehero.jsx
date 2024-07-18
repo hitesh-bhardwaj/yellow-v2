@@ -13,7 +13,11 @@ export default function Pagehero() {
                 Color Psychology in Branding: Understanding the Emotional Impact
                 of Colors
               </h1>
-              <LinkButton btnLink={"/"} btnText={"Read Article"} className="text-[1.4vw]" />
+              <div className="fadeup">
+              <LinkButton btnLink={"/"} btnText={"Read Article"} className="text-[1.4vw] mobile:text-[5vw] tablet:text-[2.5vw]" />
+
+
+              </div>
             </div>
           </div>
           <div className="relative h-[45vw] w-[90vw] rounded-[10px] overflow-hidden fadeup mobile:w-[85vw] mobile:h-[120vw] tablet:w-[85vw]">

@@ -141,7 +141,7 @@ export default function values() {
           trigger: ".card-block",
 
           scrub: 1,
-          start: "+=100 30%",
+          start: "top 60%",
           end: "bottom 20%",
           
         },

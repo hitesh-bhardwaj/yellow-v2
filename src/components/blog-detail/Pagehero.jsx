@@ -25,7 +25,7 @@ export default function Pagehero() {
                 Strategy
                 </span>
             </div>
-            <div className='w-[100vw] ml-[-5vw] h-[1px] bg-black mb-[3vw] lineDraw tablet:w-[95vw]'></div>
+            <div className='w-[100vw] ml-[-5vw] h-[1px] bg-black mb-[3vw] lineDraw tablet:w-[95vw] mobile:ml-[-7vw]'></div>
             
 
         </div>

@@ -36,32 +36,12 @@ export default function Detail() {
   return (
     <>
       <section className="w-full h-full pb-[5%]" id="detail">
-        <div className="grid grid-cols-3 container mobile:flex mobile:flex-col">
+        <div className=" container mobile:flex mobile:flex-col tablet:flex-col tablet:flex">
           {services.map((service, index) => (
             <React.Fragment key={index}>
-              <div className="col-span-2 flex flex-col w-[80%] gap-[1.5vw] mobile:order-2 mobile:w-full mobile:my-[12vw] mobile:gap-[5vw]">
-                <h2 data-title-anim className="text-[2.5vw] font-display mobile:text-[8vw] tablet:text-[4vw]">
-                  {service.title}
-                </h2>
-                {service.paragraphs.map((para, paraIndex) => (
-                  <p
-                    key={paraIndex}
-                    data-para-anim
-                    className="text-[1.2vw] font-medium mobile:text-[4.5vw] mobile:font-normal tablet:text-[2vw]"
-                  >
-                    {para}
-                  </p>
-                ))}
-                <div className="fadeup">
-                  <LinkButton
-                    btnLink={"/"}
-                    btnText={"Connect With Yellow"}
-                    className={"text-[1.5vw] font-medium mobile:text-[5vw]"}
-                  />
-                </div>
-              </div>
-              <div className="col-start-3 flex justify-end mobile:order-1">
-                <div className="w-[25vw] h-[25vw] rounded-[15px] overflow-hidden relative imganim mobile:w-[85vw] mobile:h-[85vw] mobile:mt-[10vw] tablet:w-[30vw] tablet:h-[30vw]">
+              <div className="tablet:flex mobile:flex mobile:flex-col tablet:gap-[2vw] flex mobile:gap-0 gap-[15vw]">
+              <div className="col-start-3 flex justify-end tablet:order-1 order-1 mobile:order-none">
+                <div className="w-[22.5vw] h-[22.5vw] rounded-[10px] overflow-hidden relative imganim mobile:w-[85vw] mobile:h-[85vw] mobile:mt-[10vw] tablet:w-[30vw] tablet:h-[30vw]">
                   <Image
                     src={service.image}
                     alt={`detail-${index + 1}`}
@@ -70,11 +50,37 @@ export default function Detail() {
                   />
                 </div>
               </div>
-              <div className="h-[2px] col-span-3 bg-black my-[4vw] lineDraw mobile:order-3"></div>
+              <div className="col-span-2 flex flex-col w-[60%] gap-[1.5vw] mobile:w-full mobile:my-[12vw] mobile:gap-[5vw]">
+                <h2 data-title-anim className="text-[2.5vw] font-display mobile:text-[8vw] tablet:text-[4vw]">
+                  {service.title}
+                </h2>
+                {service.paragraphs.map((para, paraIndex) => (
+                  <p
+                    key={paraIndex}
+                    data-para-anim
+                    className="text-[1.1vw] font-medium mobile:text-[4.5vw] mobile:font-normal tablet:text-[2vw]"
+                  >
+                    {para}
+                  </p>
+                ))}
+                <div className="fadeup mt-[2vw]">
+                  <LinkButton
+                    btnLink={"/"}
+                    btnText={"Connect With Yellow"}
+                    className={"text-[1.5vw] font-medium mobile:text-[5vw] tablet:text-[2.5vw]"}
+                  />
+                </div>
+              </div>
+            
+              
+
+              </div>
+              <div className="h-[2px] col-span-3 bg-black my-[4vw] tablet:my-[6vw] lineDraw "></div>
+                
             </React.Fragment>
           ))}
           <div className="flex flex-col gap-[1.5vw] mobile:order-8 mobile:my-[5vw]">
-            <h3 data-title-anim className="text-[2vw] font-display mobile:text-[7.5vw] tablet:text-[3vw]">Brand Strategy</h3>
+            <h3 data-title-anim className="text-[2.2vw] font-display mobile:text-[7.5vw] tablet:text-[3vw]">Brand Strategy</h3>
             <ul className="list-disc pl-[1.5vw] mobile:pl-[4vw]">
               <li data-para-anim className="text-[1.2vw] font-medium mobile:text-[4vw] mobile:font-normal tablet:text-[2vw]">
                 Brand Guidelines

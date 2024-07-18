@@ -82,7 +82,7 @@ export default function Listing() {
             {filters.map((category, index) => (
               <button
                 key={index}
-                className={`cat-button text-black hover:text-white overflow-hidden border-[2px] hover:animate-scale-up border-black border-opacity-70 px-[1.5vw] py-[0.6vw] min-w-[7vw] rounded-full transition-all duration-500 ease-out relative group ${activeCategory === category ? "active" : ""}`}
+                className={`cat-button text-black hover:text-white overflow-hidden border-[1px] hover:animate-scale-up border-black border-opacity-70 px-[1.5vw] py-[0.6vw] min-w-[7vw] rounded-full transition-all duration-500 ease-out relative group ${activeCategory === category ? "active" : ""}`}
                 onClick={() => handleCategoryClick(category)}
               >
                 <span className="text-[1.2vw] space-grotesk relative z-[1] tablet:text-[2.2vw]">{category}</span>
@@ -90,10 +90,10 @@ export default function Listing() {
               </button>
             ))}
           </div>
-          <div className='w-[100vw] ml-[-5vw] h-[1px] bg-black mb-[3vw] mobile:my-[12vw] mobile:ml-[-7vw]'></div>
+          <div className='w-[100vw] ml-[-5vw] h-[1px] bg-black mb-[3vw] mobile:my-[12vw] mobile:ml-[-7vw] lineDraw'></div>
           <div className='w-full h-full flex flex-wrap gap-[2vw] mb-[3vw] mobile:flex-col mobile:gap-[12vw]'>
             {filteredProjects.map((project) => (
-              <div key={project.id} className={`w-[28vw] h-[35vw] border-[1px] border-black border-opacity-40 rounded-[10px] overflow-hidden mobile:w-[85vw] mobile:h-full mobile:pb-[4vw] tablet:w-[41vw] tablet:h-full ${project.id>5?"mobile:hidden block":"block"}`}>
+              <div key={project.id} className={`w-[28vw] h-[35vw] border-[1px] border-black border-opacity-40 rounded-[10px] overflow-hidden mobile:w-[85vw] mobile:h-full mobile:pb-[4vw] tablet:w-[41vw] tablet:h-full fadeup ${project.id>5?"mobile:hidden block":"block"}`}>
                 <div className='w-[28vw] h-[15vw] relative mobile:w-[85vw] mobile:h-[55vw] tablet:w-[41vw] tablet:h-[25vw]'>
                   <Image src={project.imageSrc} alt='blog-listing' fill />
                 </div>
@@ -105,13 +105,13 @@ export default function Listing() {
                       <span key={index} className='px-[0.7vw] border-[1px] border-black border-opacity-60 rounded-[50px] mobile:px-[3vw] mobile:py-[0.5vw]'>{tag}</span>
                     ))}
                   </div>
-                  <LinkButton btnLink={"/"} btnText={"Read Article"} className='text-[1.5vw]' />
+                  <LinkButton btnLink={"/"} btnText={"Read Article"} className='text-[1.5vw] mobile:text-[4vw] tablet:text-[2vw]' />
                 </div>
               </div>
             ))}
           </div>
           <div className='w-full flex justify-center mobile:my-[10vw]'>
-            <LinkButton btnLink={"/"} btnText={"Load More"} className='text-[1.4vw] font-medium'/>
+            <LinkButton btnLink={"/"} btnText={"Load More"} className='text-[1.4vw] font-medium tablet:text-[3vw]'/>
 
           </div>
         </div>

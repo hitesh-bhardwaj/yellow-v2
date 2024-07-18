@@ -51,15 +51,15 @@ export default function Join() {
     <section className='w-full py-[8%] bg-[#111111] mobile:py-[15%] tablet:py-[10%] ' id='join'>
       <div className='container flex justify-between mobile:flex-col'>
       <div className="w-[40%] flex flex-col gap-[1.5vw] text-white mobile:order-2 mobile:gap-[7vw] mobile:mt-[10vw] mobile:w-full">
-            <h2 data-title-anim className="text-[5.8vw] leading-[1] font-display mb-[1vw] w-full mobile:normal-case tablet:text-[5.5vw] tablet:leading-[1.2] tablet:mb-[3vw]">Join Yellow and Make a Difference.</h2>
-            <p data-para-anim className="text-[1.6vw] w-[80%] mb-[2vw] mobile:text-[4vw] mobile:w-[90%] mobile:mb-[7vw] tablet:text-[2vw] tablet:w-full tablet:mb-[3vw]">
+            <h2 data-title-anim className="text-[5.8vw] leading-[1] font-display mb-[1vw] w-full mobile:text-[12vw] mobile:normal-case tablet:text-[5.5vw] tablet:leading-[1.2] tablet:mb-[3vw]">Join Yellow and Make a Difference.</h2>
+            <p data-para-anim className="text-[1.6vw] w-[80%] mb-[2vw] mobile:text-[4.5vw] mobile:w-[90%] mobile:mb-[7vw] tablet:text-[2vw] tablet:w-full tablet:mb-[3vw]">
             Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero&apos;s De Finibus Bonorum et Malorum for use in a type specimen book.
             </p>
             
             <LinkButton
               btnLink={"/"}
               btnText={"See Open Positions"}
-              className={"text-[1.5vw] font-medium join tablet:text-[2vw] "}
+              className={"text-[1.5vw] font-medium join tablet:text-[2.5vw] mobile:text-[6vw] "}
             />
           </div>
           <div className='w-[42vw] h-[52vw] relative drop-shadow-2xl shadow-2xl overflow-hidden fadein mobile:w-[85vw] mobile:h-[100vw]'>

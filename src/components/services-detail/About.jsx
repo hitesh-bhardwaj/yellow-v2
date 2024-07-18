@@ -1,19 +1,12 @@
 import React from 'react'
-import Image from 'next/image'
+
 
 export default function About() {
   return (
     <>
      <section className="pb-[5%]" id='about'>
       <div className='container'>
-      <div className="w-[90vw] h-[45vw] rounded-[15px] overflow-hidden relative fadeup mobile:w-[85vw] mobile:h-[140vw] tablet:w-[85vw]">
-          <Image
-            src="/assets/images/service/service-detail/service-detail-hero.png"
-            alt="service-detail-hero"
-            className='object-cover w-full h-full'
-            fill
-          />
-        </div>
+      
         <div className="w-full flex justify-between mt-[5vw] mb-[12vw] mobile:flex-col mobile:mt-[7vw]">
           <p data-para-anim className="text-[1.75vw] font-medium text-[#333333] w-[45%] leading-[1.4] mobile:text-[5vw]  mobile:w-full mobile:mb-[7vw] tablet:text-[2.5vw] tablet:w-[50%]">
             Our approach to branding and design transcends simple aesthetics to
@@ -54,7 +47,7 @@ export default function About() {
 
             </p>
           </div>
-          <div className="col-span-1 col-start-3 flex justify-center mobile:flex-col tablet:flex-col">
+          <div className="col-span-1 col-start-3 flex mobile:flex-col tablet:flex-col">
             <h3  data-para-anim className="uppercase text-[2vw] font-display mobile:text-[8vw] tablet:font-medium tablet:text-[4vw] ">
               What to expect: Brand strategy consulting
             </h3>

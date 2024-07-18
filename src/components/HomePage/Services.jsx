@@ -18,7 +18,7 @@ const SingleAccordion = ({ id, title, content1, content2, btnLink, btnText }) =>
                 <p data-para-anim className="fadeIn">
                     {content2}
                 </p>
-                <BlackButton btnLink={btnLink} btnText={btnText} className="text-[1.05vw] tablet:text-[2.5vw]"/>
+                <BlackButton btnLink={btnLink} btnText={btnText} className="text-[1.05vw] tablet:text-[2.5vw] mobile:text-[4vw]"/>
             </AccordionContent>
             <span className="h-[1px] mb-[-1px] bg-body w-full block lineDraw" />
         </AccordionItem>

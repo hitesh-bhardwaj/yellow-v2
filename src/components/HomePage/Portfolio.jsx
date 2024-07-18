@@ -298,7 +298,7 @@ const Portfolio = ({ works }) => {
             </p>
           </div>
           <div className="hidden mobile:block">
-            <LinkButton btnLink={"/"} btnText={"See All Work"}/>
+            <LinkButton btnLink={"/"} btnText={"See All Work"} className="mobile:text-[6vw]"/>
 
           </div>
         </div>

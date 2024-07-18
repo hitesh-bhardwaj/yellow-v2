@@ -83,7 +83,7 @@ export default function Detail() {
               <p data-para-anim className="text-[1.9vw] font-medium mb-[2vw]  mobile:text-[5vw]  mobile:mb-[12vw] tablet:text-[2.5vw] ">
                 In this blog post, we will unravel the secrets behind these iconic symbols!
               </p>
-              <div className="w-full ml-[-3vw] h-[1px] bg-black mb-[3vw] lineDraw"></div>
+              <div className="w-full ml-[-3vw] h-[1px] bg-black my-[3vw] lineDraw"></div>
             </div>
             {articleSections.map((section, index) => (
               <div key={index} className="col-start-2 col-span-2">
@@ -95,7 +95,7 @@ export default function Detail() {
                     {paragraph}
                   </p>
                 ))}
-                <div className="w-full ml-[-3vw] h-[1px] bg-black mb-[3vw] lineDraw"></div>
+                <div className="w-full ml-[-3vw] h-[1px] bg-black mobile:mt-[10vw] tablet:my-[5vw] my-[3vw] lineDraw"></div>
               </div>
             ))}
             <div className="col-start-2 col-span-2">
