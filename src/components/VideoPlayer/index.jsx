@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap/dist/gsap";
+import { initMagneticButton } from "../splitTextUtils";
 
 const VideoPlayer = ({ isOpen, onClose, videoSrc, poster }) => {
   const modalRef = useRef(null);
@@ -45,37 +46,6 @@ const VideoPlayer = ({ isOpen, onClose, videoSrc, poster }) => {
     };
   }, []);
 
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      const cursor = cursorRef.current;
-      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-    };
-
-    const handleMouseEnter = () => {
-      gsap.to(cursorImgRef.current, { scaleX: 1, scaleY: 1, duration: 0.2 });
-    };
-
-    const handleMouseLeave = () => {
-      gsap.to(cursorImgRef.current, { scaleX: 0, scaleY: 0, duration: 0.2 });
-    };
-
-    document.addEventListener("mousemove", handleMouseMove);
-    const videoContainer = modalRef.current;
-
-    if (videoContainer) {
-      videoContainer.addEventListener("mouseenter", handleMouseEnter);
-      videoContainer.addEventListener("mouseleave", handleMouseLeave);
-    }
-
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      if (videoContainer) {
-        videoContainer.removeEventListener("mouseenter", handleMouseEnter);
-        videoContainer.removeEventListener("mouseleave", handleMouseLeave);
-      }
-    };
-  }, []);
-
   const handlePlayPause = () => {
     if (isPlaying) {
       videoRef.current.pause();
@@ -95,6 +65,11 @@ const VideoPlayer = ({ isOpen, onClose, videoSrc, poster }) => {
     onClose();
   };
 
+  useEffect(()=>{
+    initMagneticButton();
+ }, []);
+
+
   const handleProgressClick = (e) => {
     const rect = e.target.getBoundingClientRect();
     const offsetX = e.clientX - rect.left;
@@ -108,7 +83,7 @@ const VideoPlayer = ({ isOpen, onClose, videoSrc, poster }) => {
       className="fixed top-0 cursor-none left-0 w-full h-full flex items-center justify-center opacity-0 -z-10"
       onClick={onClose}
     >
-      <div className="relative w-full h-full bg-black" onClick={handleVideoClick}>
+      <div className="relative w-full h-full bg-black" onClick={handleVideoClick} data-magnetic-target data-magnetic-strength="200">
         <video
           ref={videoRef}
           poster={poster}
@@ -144,10 +119,10 @@ const VideoPlayer = ({ isOpen, onClose, videoSrc, poster }) => {
         
         <div
           ref={cursorRef}
-          className="w-[7vw] h-[7vw] flex items-center justify-center absolute top-0 left-0 overflow-hidden pointer-events-none"
+          className="w-[7vw] h-[7vw] flex items-center justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden pointer-events-none magnetic-inner"
           id="cursor"
         >
-          <img ref={cursorImgRef} className="object-cover scale-0 h-full w-full" src="/assets/icons/close-cursor.svg" alt="close-cursor" />
+          <img ref={cursorImgRef} className="object-cover h-full w-full" src="/assets/icons/close-cursor.svg" alt="close-cursor" />
         </div>
       </div>
     </div>

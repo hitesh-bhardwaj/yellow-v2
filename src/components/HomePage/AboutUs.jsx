@@ -102,11 +102,11 @@ const AboutUs = () => {
                         />
                     </div>
                     <div ref={textRef} className="w-[52%] mobile:w-full">
-                        <div className="text-left pr-[3vw] space-y-[2vw] mobile:space-y-[10vw] mobile:pt-[12vw]">
-                            <p className="text-[1.2vw] font-medium mobile:text-[5vw] tablet:text-[4vw]">About</p>
-                            <h2 ref={texth2Ref} className="font-display text-[2.5vw] textbreak mobile:text-[10vw]">A branding and communications agency in Dubai, Yellow stands for all that’s bright in business – collaboration, ambition, opportunity and transformation. Dubai-born and Dubai-bred, we have its optimisim and drive in our DNA. We’ve helped businesses start, grow and thrive here.</h2>
+                        <div className="text-left pr-[3vw] space-y-[2vw] mobile:space-y-[7vw] mobile:pt-[8vw]">
+                            <p className="text-[1.2vw] font-medium mobile:text-[6vw] tablet:text-[4vw]">About</p>
+                            <h2 ref={texth2Ref} className="font-display text-[2.5vw] textbreak mobile:text-[8vw] mobile:leading-[1.4]">A branding and communications agency in Dubai, Yellow stands for all that’s bright in business – collaboration, ambition, opportunity and transformation. Dubai-born and Dubai-bred, we have its optimisim and drive in our DNA. We’ve helped businesses start, grow and thrive here.</h2>
                             <div className="fadeUp">
-                                <LinkButton btnLink="#" btnText="Get To Know Us" className="mobile:text-[6vw] tablet:text-[3vw]" />
+                                <LinkButton btnLink="#" btnText="Get To Know Us" className="mobile:text-[5vw] tablet:text-[3vw]" />
                             </div>
                         </div>
                     </div>

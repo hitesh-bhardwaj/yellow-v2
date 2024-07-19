@@ -2,12 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import Menu from "./Menu";
+import { useLenis } from "lenis/react";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const [isInverted, setIsInverted] = useState(false);
   const observerRef = useRef(null);
+  const lenis = useLenis();
+  const router = useRouter();
+  
+
 
   useEffect(() => {
     // Create an Intersection Observer instance
@@ -31,20 +37,44 @@ const Header = () => {
 
   const handleMenuButtonClick = () => {
     setButtonDisabled(true);
-    setMenuOpen((prevState) => !prevState);
+    lenis.stop();
+    setMenuOpen((prevState) => {
+      const newState = !prevState;
+
+      if (!newState) {
+        // Menu is being closed, start lenis again
+        lenis.start();
+      }
+
+      return newState;
+    });
+
     setTimeout(() => {
       setButtonDisabled(false);
     }, 700);
   };
 
+  useEffect(() => {
+    const handleRouteChange = () => {
+      lenis.start();
+    };
+
+    router.events.on('routeChangeComplete', handleRouteChange);
+
+    // Cleanup event listener on unmount
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router, lenis]);
+
   return (
     <>
       <header className="fixed top-0 bottom-0 right-0 left-0 w-full z-[200] pointer-events-none">
-        <div className="container py-[1%] flex justify-between items-center mobile:py-[7%]">
+        <div className="container py-[2.5%] flex justify-between items-center mobile:py-[7%]">
           <div className="w-fit overflow-hidden">
-            <Link href="/" className="pointer-events-auto">
+            <Link href="/" className="pointer-events-auto" >
               <Image
-                className={`w-[8vw] mobile:w-[25vw] tablet:w-[15vw] transition-all duration-500 ease-out ${isInverted ? "invert" : ""}`}
+                className={`w-[9vw] mobile:w-[25vw] tablet:w-[15vw] transition-all duration-500 ease-out ${isInverted ? "invert" : ""}`}
                 id="header-logo"
                 src="/logo-black.png"
                 alt="Yellow Brand Logo"
@@ -70,7 +100,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-      <Menu menuOpen={menuOpen}/>
+      <Menu menuOpen={menuOpen} />
     </>
   );
 };

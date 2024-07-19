@@ -15,13 +15,13 @@ const BlogCard = ({title, src, date, link}) => {
                                 alt="blog image" 
                                 priority={false}
                                 fill
-                                className="object-cover h-full w-full "
+                                className="object-cover h-full w-full  scale-[1.1] group-hover:scale-[1] transition-all ease-in-out duration-500"
                             />
                         </div>
                     </Link>
                     <div className="flex flex-col h-[16vw] justify-between items-start mobile:h-full mobile:gap-[3vw] mobile:pl-[2vw]">
                         <Link href={link} className="">
-                            <h4 data-para-anim className="text-[2.5vw] font-medium w-[43vw] leading-[1.3] mobile:text-[5.5vw] mobile:w-full tablet:text-[3vw] ">
+                            <h4 data-para-anim className="text-[2vw] font-medium w-[43vw] leading-[1.3] mobile:text-[5.5vw] mobile:w-full tablet:text-[3vw] ">
                                 {title}
                             </h4>
                         </Link>

@@ -21,7 +21,7 @@ export default function Pagehero() {
             </div>
           </div>
           <div className="relative h-[45vw] w-[90vw] rounded-[10px] overflow-hidden fadeup mobile:w-[85vw] mobile:h-[120vw] tablet:w-[85vw]">
-            <Image src="/assets/images/blog/blog-hero.png" alt="blog-hero" fill className="object-cover"/>
+            <Image src="/assets/images/blog/blog-hero.png" alt="blog-hero" fill className="object-cover" priority={true}/>
           </div>
         </div>
       </section>

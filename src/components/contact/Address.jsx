@@ -4,13 +4,13 @@ import Link from "next/link";
 export default function Address() {
   return (
     <>
-      <section className="w-full h-full py-[8%] px-[5vw] mobile:py-[15%]">
-        <div className="flex justify-between gap-[5vw] mobile:flex-col mobile:gap-[10vw] tablet:flex-col">
+      <section className="w-full h-full bg-black ">
+        <div className="container flex justify-between gap-[5vw] mobile:flex-col mobile:gap-[10vw] tablet:flex-col py-[8%]  mobile:py-[15%] bg-white">
           <div className="h-[100vh] w-[50%] mobile:w-full mobile:h-[80vh] mobile:order-2 mobile:rounded-[10px] mobile:overflow-hidden tablet:w-full tablet:h-[40vh]">
             <iframe
               style={{ pointerEvents: "auto" }}
               className="w-full h-full drop-shadow-2xl shadow-md"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.079754562661!2d77.37042431488638!3d28.627371691065694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce550a3a6d601%3A0x690d8b3ffd0857e1!2sCreative+Curve+Communication+Pvt+Ltd!5e0!3m2!1sen!2sin!4v1516274485667"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.5027996298254!2d55.2954003146571!3d25.186260983901246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f68140975f89d%3A0x69715653ee593704!2sYellow+Branding+Consultancy!5e0!3m2!1sen!2sae!4v1508049373558"
               frameBorder="0"
             />
           </div>

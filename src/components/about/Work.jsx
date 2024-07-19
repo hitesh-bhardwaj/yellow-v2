@@ -1,14 +1,15 @@
 import React from 'react'
 import Link from 'next/link'
 import SectionTitle from '../SectionTitle'
+import Image from 'next/image'
 
 export default function Work() {
   return (
     <>
-    <section className='w-full h-full py-[8%] mobile:py-[15%]' id='work'>
-      <div className='container'>
+    <section className='w-full h-full   bg-black' id='work'>
+      <div className='container bg-white py-[8%] mobile:py-[15%]'>
       <div className='w-full flex justify-between mb-[5vw] mobile:flex-col mobile:mb-[10vw]'>
-        <div>
+        <div className='w-[50%]'>
         <SectionTitle text={"Our work"} className={"mb-[3vw]"}/>
         <p data-para-anim className="text-[1.9vw] w-[60%] font-medium leading-[1.2] mobile:w-[90%] mobile:text-[5vw] mobile:mb-[7vw] tablet:w-[80%] tablet:text-[2.5vw]">
         We grow amazing companies through exceptional branding and communications.
@@ -45,9 +46,9 @@ export default function Work() {
               </Link>
         </div>
         <div className='w-full flex justify-between gap-[3vw] mobile:flex-col mobile:gap-[7vw]'>
-            <div className='w-[45vw] h-[45vw] relative bg-[#93A374] rounded-[15px] overflow-hidden fadein mobile:w-[85vw] mobile:h-[90vw] mobile:rounded-none'>
-                <Link href={"/"}>
-                <div className='absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]'><img src='/assets/images/about/work-1.png' alt='work-1'/></div>
+            <div className='w-[45vw] h-[45vw] relative  rounded-[15px] overflow-hidden fadeup mobile:w-[85vw] mobile:h-[90vw] mobile:rounded-none'>
+                <Link href={"/"} className='w-full h-full block'>
+                <Image src='/assets/images/about/work-1.png' alt='work-1' fill/>
                 <div className="absolute bottom-[7%] left-[7%] text-white">
               <h3 data-title-anim className="text-[2.5vw] mb-[1vw] font-display mobile:text-[7vw] tablet:text-[3.5vw] ">Numu</h3>
               <p data-para-anim className="w-full text-[1.1vw] leading-[1.4] font-medium  mobile:text-[4vw] tablet:text-[2vw]">
@@ -65,9 +66,9 @@ export default function Work() {
 
                 </Link>
             </div>
-            <div className='w-[45vw] h-[45vw] relative bg-[#FB8464] rounded-[15px] overflow-hidden fadein mobile:w-[85vw] mobile:h-[90vw] mobile:rounded-none'>
-                <Link href={"/"}>
-                <div className='absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[30vw] h-[7vw]'><img src='/assets/images/about/work-2.png' alt='work-2' className='object-cover h-full w-full'/></div>
+            <div className='w-[45vw] h-[45vw] relative rounded-[15px] overflow-hidden fadeup mobile:w-[85vw] mobile:h-[90vw] mobile:rounded-none'>
+                <Link href={"/"} className='w-full h-full block'>
+                <Image src='/assets/images/about/work-2.png' alt='work-2' className='object-cover h-full w-full' fill/>
                 <div className="absolute bottom-[7%] left-[7%] text-white">
               <h3 data-title-anim className="text-[2.5vw] mb-[1vw] font-display mobile:text-[7vw] tablet:text-[3.5vw] ">Beema</h3>
               <p data-para-anim className="w-full text-[1.1vw] leading-[1.4] font-medium mobile:text-[4vw] tablet:text-[2vw] ">

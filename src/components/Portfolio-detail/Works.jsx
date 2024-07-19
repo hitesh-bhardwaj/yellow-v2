@@ -6,8 +6,8 @@ import SectionTitle from '../SectionTitle'
 export default function Works() {
   return (
     <>
-    <section className='w-full h-full py-[8%] mobile:py-[15%]' id='works'>
-      <div className='container'>
+    <section className='w-full h-full bg-black' id='works'>
+      <div className='container py-[8%] mobile:py-[15%] bg-white'>
       <div className='w-full flex justify-between mb-[5vw] mobile:flex-col mobile:gap-[5vw] mobile:mb-[10vw]'>
             <SectionTitle data-title-anim className='text-[5.8vw] font-display uppercase ' text={"Related Works"}/>
             <p className='text-[2vw] font-medium mobile:text-[5vw] w-[70%] mobile:w-[90%] hidden mobile:block'>
@@ -53,13 +53,13 @@ export default function Works() {
 
 
                 </div>
-                <div className="absolute bottom-[7%] left-[7%] text-white">
+                <div className="absolute bottom-[7%] left-[7%] text-white w-[90%]">
               <h3 data-title-anim className="text-[2vw] mb-[1vw] font-display mobile:text-[7vw] tablet:text-[4.5vw]">Numu</h3>
-              <p  data-para-anim className="w-[90%] text-[1.1vw] leading-[1.4] font-medium mobile:text-[4vw] mobile:w-full tablet:text-[2vw] ">
+              <p  data-para-anim className="w-full text-[1.1vw] leading-[1.4] font-medium mobile:text-[4vw] mobile:w-full tablet:text-[2vw] ">
               Brand identity for a premium early childhood centre
               </p>
             </div>
-            <div className="absolute top-[7%] left-[7%] flex gap-[1.5vw] text-white">
+            <div className="absolute top-[7%] left-[7%] flex gap-[1vw] text-white">
               <button className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-white bg-opacity-15 tablet:text-[2vw]">
               Brand Strategy
               </button>
@@ -83,7 +83,7 @@ export default function Works() {
               A brighter way to play
               </p>
             </div>
-            <div className="absolute top-[7%] left-[7%] flex gap-[1.5vw] text-black">
+            <div className="absolute top-[7%] left-[7%] flex gap-[1vw] text-black">
               <button className="w-fit border-[1px] border-black rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-white bg-opacity-15 tablet:text-[2vw]">
               Brand Strategy
               </button>
@@ -107,7 +107,7 @@ export default function Works() {
               Bespoke jewellery, from the UAE to the world
               </p>
             </div>
-            <div className="absolute top-[7%] left-[7%] flex gap-[1.5vw] text-black">
+            <div className="absolute top-[7%] left-[7%] flex gap-[1vw] text-black">
               <button className="w-fit border-[1px] border-black rounded-[30px] backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-white bg-opacity-15">
               Brand Strategy
               </button>

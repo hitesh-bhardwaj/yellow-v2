@@ -3,6 +3,10 @@ import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap/dist/gsap";
 import { CustomEase } from "gsap/dist/CustomEase";
+import { usePathname } from 'next/navigation';
+
+
+
 
 gsap.registerPlugin(CustomEase, useGSAP);
 
@@ -18,6 +22,8 @@ export default function Menu({ menuOpen }) {
   const menuRef = useRef(null);
   const navRef = useRef(null);
   const [serviceOpen, setServiceOpen] = useState(false);
+  const pathname = usePathname();
+
 
   CustomEase.create("primary-ease", "0.62, 0.05, 0.01, 0.99");
 
@@ -86,20 +92,22 @@ export default function Menu({ menuOpen }) {
   return (
     <div ref={menuRef} className="fixed top-0 z-[199] left-0 right-0 bottom-0 flex items-start justify-end pointer-events-none">
       <nav ref={navRef} className={`relative w-[50%] pointer-events-auto translate-x-[100%] left-[99px] h-full bg-black/40 backdrop-blur-[25px] mobile:w-full tablet:w-[70%]`}>
-        <div data-lenis-prevent className="w-full h-full px-[5vw] pt-[5.5vw] pb-[3.5vw] relative flex flex-col justify-between items-start tablet:justify-between tablet:py-[15vw] mobile:pt-[25vw] mobile:pb-[10vw]">
+        <div className="w-full h-full px-[5vw] pt-[5.5vw] pb-[3.5vw] relative flex flex-col justify-between items-start tablet:justify-between tablet:py-[15vw] mobile:pt-[25vw] mobile:pb-[10vw]">
           <ul className="text-[7.8vh] font-display text-white leading-[1.15] mobile:text-[12vw] tablet:text-[6.5vw]">
             <li className="overflow-hidden tablet:mb-[2vw]">
               <MenuLink 
-                className="link-anim"
+                className={`link-anim ${pathname=="/"?"text-gray-300 pointer-events-none":""}`}
                 href="/"
                 text="Home"
+                
               />
             </li>
             <li className="overflow-hidden tablet:mb-[2vw]">
                 <MenuLink 
-                  className="link-anim"
+                  className={`link-anim ${pathname=="/about-us"?"text-gray-300 pointer-events-none":""}`}
                   href="/about-us"
                   text="About"
+                 
                 />
             </li>
             <li className="relative w-full tablet:mb-[2vw]">
@@ -122,66 +130,76 @@ export default function Menu({ menuOpen }) {
                   <MenuLink 
                     href="/what-we-do/brand-strategy"
                     text="Brand Strategy"
+                    
                   />
                 </li>
                 <li className="translate-x-[50px] opacity-0">
                   <MenuLink 
                     href="/what-we-do/brand-identity"
                     text="Brand Identity"
+                    
                   />
                 </li>
                 <li className="translate-x-[50px] opacity-0">
                   <MenuLink 
                     href="/what-we-do/naming"
                     text="Naming"
+                    
                   />
                 </li>
                 <li className="translate-x-[50px] opacity-0">
                   <MenuLink 
                     href="/what-we-do/communication"
                     text="Communication"
+                   
                   />
                 </li>
                 <li className="translate-x-[50px] opacity-0">
                   <MenuLink 
                     href="/what-we-do/digital"
                     text="Digital"
+                   
                   />
                 </li>
                 <li className="translate-x-[50px] opacity-0">
                   <MenuLink 
                     href="/what-we-do"
                     text="View All"
+                    
                   />
                 </li>
               </ul>
             </li>
             <li className="overflow-hidden">
               <MenuLink 
-                className="link-anim"
+                className={`link-anim ${pathname=="/our-work"?"text-gray-300 pointer-events-none":""}`}
                 href="/our-work"
                 text="Work"
+                
               />
             </li>
             <li className="overflow-hidden">
               <MenuLink 
-                className="link-anim"
+                className={`link-anim ${pathname=="/careers"?"text-gray-300 pointer-events-none":""}`}
                 href="/careers"
                 text="Careers"
+                
               />
             </li>
             <li className="overflow-hidden">
               <MenuLink 
-                className="link-anim"
+                className={`link-anim ${pathname=="/blog"?"text-gray-300 pointer-events-none":""}`}
                 href="/blog"
                 text="Blog"
+                
               />
             </li>
             <li className="overflow-hidden">
               <MenuLink 
-                className="link-anim"
+                className={`link-anim ${pathname=="/contact-us"?"text-gray-300 pointer-events-none":""}`}
                 href="/contact-us"
                 text="Contact"
+                
               />
             </li>
           </ul>

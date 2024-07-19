@@ -8,7 +8,7 @@ export default function Pagehero() {
         <div className='container h-full flex items-center mt-[5vw] mobile:h-full tablet:h-full'>
         <div className='mobile:w-full mobile:h-full mobile:flex mobile:flex-col mobile:pt-[120%] mobile:gap-[5vw]'>
             <div className='w-[90vw] h-[45vw] relative rounded-[10px] overflow-hidden mb-[3vw] fadeup mobile:absolute mobile:top-0 mobile:left-0 mobile:w-screen mobile:h-[50vh] mobile:rounded-none tablet:w-[85vw]'>
-                <Image src="/assets/images/blog/blogdetail/blog-detail-hero.png" alt='blog-detail-hero' className='object-cover h-full w-full' fill/>
+                <Image src="/assets/images/blog/blogdetail/blog-detail-hero.png" alt='blog-detail-hero' className='object-cover h-full w-full' fill priority={true}/>
             </div>
             <h1 data-para-anim className='text-[4.8vw] font-display leading-[1.2] w-[90%] mb-[4vw] mobile:text-[10vw]  '>
             Logo Design: The Art of Creating A Memorable Brand Symbol

@@ -166,7 +166,7 @@ export default function ProjectsCopy() {
 
   return (
     <>
-      <section className="w-full h-full" id="projects">
+      <section className="w-full h-full bg-black" id="projects">
         <div className="container bg-white pb-[15%] pt-[5%]">
           {/* Filter buttons */}
           <div

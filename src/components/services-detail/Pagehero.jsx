@@ -15,6 +15,7 @@ export default function Pagehero() {
             alt="service-detail-hero"
             className='object-cover w-full h-full'
             fill
+            priority={true}
           />
         </div>
 

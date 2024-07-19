@@ -10,68 +10,7 @@ import { CustomEase } from "gsap/dist/CustomEase";
 gsap.registerPlugin(useGSAP, ScrollTrigger, CustomEase);
 
 export default function values() {
-//   if (globalThis.innerWidth > 541 && globalThis.innerWidth < 1022) {
-//     useGSAP(() => {
-//       const tl = gsap.timeline({
-//         scrollTrigger: {
-//           trigger: ".card-section",
-//           pin: true,
-//           scrub: 1,
-//           start: "top top",
-//           end: "bottom top",
-//         },
-//       });
-//       tl.from(".card1", {
-//         yPercent: 120,
-//         duration: 2,
-//       })
-//         .from(".card2", {
-//           yPercent: 120,
-//           duration: 2,
-//           delay: -1,
-//         })
-//         .from(".card3", {
-//           yPercent: 120,
-//           duration: 2,
-//           delay: -1,
-//         })
-//         .to(".cardfront", {
-//           rotateY: -180,
-//           duration: 5,
-          
-//           stagger: {
-//             from: "edges",
-//             each: 0.5,
-//           },
-//         })
-//         .to(".cardback", {
-//           rotateY: 0,
-//           duration: 5,
-//           delay: -6,
-//           stagger: {
-//             from: "edges",
-//             each: 0.5,
-//           },
-//         })
-//         .to(".card1", {
-//           rotateZ: -20,
-//           xPercent: 50,
-//           duration: 2,
-//         })
-//         .to(".card2", {
-//           rotateZ: -5,
-//           yPercent: -20,
-//           duration: 2,
-//           delay: -2,
-//         })
-//         .to(".card3", {
-//           rotateZ: 20,
-//           xPercent: -50,
-//           duration: 2,
-//           delay: -2,
-//         });
-//     });
-// }
+
   if (globalThis.innerWidth > 1023) {
     useGSAP(() => {
       const tl = gsap.timeline({
@@ -85,16 +24,22 @@ export default function values() {
         },
       });
       tl.from(".card1", {
-        yPercent: 120,
+        yPercent: 100,
+        
         duration: 2,
+        delay:-3,
+        ease:"power1.out"
+        
       })
         .from(".card2", {
-          yPercent: 120,
+          yPercent: 140,
+          
           duration: 2,
           delay: -1,
         })
         .from(".card3", {
-          yPercent: 120,
+          yPercent: 140,
+        
           duration: 2,
           delay: -1,
         })

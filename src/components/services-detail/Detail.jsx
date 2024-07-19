@@ -35,8 +35,8 @@ const services = [
 export default function Detail() {
   return (
     <>
-      <section className="w-full h-full pb-[5%]" id="detail">
-        <div className=" container mobile:flex mobile:flex-col tablet:flex-col tablet:flex">
+      <section className="w-full h-full bg-black " id="detail">
+        <div className=" container mobile:flex mobile:flex-col tablet:flex-col tablet:flex pb-[5%] bg-white">
           {services.map((service, index) => (
             <React.Fragment key={index}>
               <div className="tablet:flex mobile:flex mobile:flex-col tablet:gap-[2vw] flex mobile:gap-0 gap-[15vw]">
@@ -63,7 +63,7 @@ export default function Detail() {
                     {para}
                   </p>
                 ))}
-                <div className="fadeup mt-[2vw]">
+                <div className="fadeup mt-[1vw]">
                   <LinkButton
                     btnLink={"/"}
                     btnText={"Connect With Yellow"}

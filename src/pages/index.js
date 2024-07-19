@@ -25,14 +25,12 @@ export default function Home({recentPosts, recentWorks}) {
   return (
     <>
      <Layout className="">
-      <main>
       <Hero />
       <AboutUs />
       <Portfolio works={recentWorks} />
       <Services />
       <Clients />
       <Blogs posts={recentPosts} />
-      </main>
     </Layout>
     </>
    

@@ -14,7 +14,7 @@ export default function Pagehero() {
               </p>
             </div>
             <div className="w-[30vw] h-[40vw] relative imageanim mobile:w-[85vw] mobile:h-[120vw]">
-                <Image src="/assets/images/career/career-hero.png" alt="career-hero" fill/>
+                <Image src="/assets/images/career/career-hero.png" alt="career-hero" fill priority={true}/>
 
             </div>
           </div>

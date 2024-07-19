@@ -52,8 +52,8 @@ const services = [
 export default function ServiceList() {
   return (
     <>
-      <section className="w-full h-full py-[7%] mobile:py-[10%] tablet:py-0" id="list">
-        <div className="container">
+      <section className="w-full h-full bg-black" id="list">
+        <div className="container py-[7%] mobile:py-[10%] tablet:py-0 bg-white">
           <div className="grid grid-cols-7 h-full gap-x-[3vw] gap-y-[7vw] mobile:flex mobile:flex-col tablet:flex-col tablet:flex tablet:gap-y-[3vw] ">
             {services.map((service, index) => (
               <React.Fragment key={service.id}>

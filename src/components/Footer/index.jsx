@@ -70,14 +70,14 @@ const Footer = () => {
                     <span className="block w-full h-[1px] bg-body lineDraw" />
                     <div className="flex justify-between items-center py-[2%] mobile:flex-col mobile:gap-[4vw] mobile:py-[10%]">
                         <div className="w-1/2 relative mobile:w-full tablet:w-[70%]">
-                            <h5 data-para-anim className="text-[5vw] leading-[1.2] font-display para-anim mobile:text-[10vw] mobile:text-center tablet:text-[6vw]">
+                            <h5 data-para-anim  className="text-[5vw] leading-[1.2] font-display para-anim mobile:text-[10vw] mobile:text-center tablet:text-[6vw]">
                                 Ready to Elevate Your Brand 👉
                             </h5>
                         </div>
                         <div className="fadein">
                             <Link
                                 className={`cursor-pointer flex w-fit relative text-[3.4vw] gap-[0.5vw] items-center font-medium group mobile:text-[7vw] mobile:gap-[2vw] `}
-                                href="#"
+                                href="/contact-us"
                             >
                                 <span className="relative after:absolute leading-[1.3] after:block after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-body after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0 ">
                                     Let&apos;s Talk
@@ -116,25 +116,25 @@ const Footer = () => {
                     <div ref={footerContainer} className="container flex h-full flex-col justify-end text-white footer-bottom mobile:justify-center">
 
                         <div className="flex items-start w-full justify-between mb-[8vw] mobile:flex-col mobile:items-center">
-                            <div className="w-[50%] flex flex-col gap-[2vw] items-start mobile:w-full mobile:items-center mobile:gap-[12vw] tablet:w-full tablet:gap-[4vw] ">
-                                <h6 data-para-anim className="text-[2.5vw] font-display mobile:text-[6vw] tablet:text-[4vw]">
+                            <div className="w-[40%] flex flex-col gap-[2vw] items-start mobile:w-full mobile:items-center mobile:gap-[12vw] tablet:w-full tablet:gap-[4vw] ">
+                                <h6  className="text-[2.5vw] font-display mobile:text-[6vw] tablet:text-[4vw]">
                                     <Link className="leading-[1.3] group" href="mailto:hello@welcometoyellow.com">
-                                        <span data-para-anim className="relative after:absolute after:block after:bottom-[-2px] after:left-0 after:h-[2px] after:lineDraw after:w-full after:bg-current after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0">
+                                        <span  className="relative after:absolute after:block after:bottom-[-2px] after:left-0 after:h-[2px] after:lineDraw after:w-full after:bg-current after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0">
                                             hello@welcometoyellow.com
                                         </span>
                                     </Link>
                                 </h6>
-                                <div className="flex justify-between items-start mobile:flex-col mobile:items-center gap-[2vw] mobile:gap-[7vw] mobile:order-3 tablet:w-full tablet:gap-[3vw]">
+                                <div className="w-full flex justify-between items-start mobile:flex-col mobile:items-center gap-[4vw] mobile:gap-[7vw] mobile:order-3 tablet:w-full tablet:gap-[3vw]">
                                     <div className="w-full mobile:w-full tablet:w-full">
-                                        <h6 data-para-anim className="text-[1.9vw] font-display leading-[1.2] mb-[1vw] mobile:text-[5vw] mobile:text-center mobile:mb-[3vw] tablet:text-[3vw]">Address</h6>
+                                        <h6  className="text-[1.9vw] font-display leading-[1.2] mb-[1vw] mobile:text-[5vw] mobile:text-center mobile:mb-[3vw] tablet:text-[3vw]">Address</h6>
                                         <Link href="#" className="text-[1.15vw] font-medium under-multi-parent mobile:text-[4vw] mobile:flex mobile:justify-center mobile:w-full tablet:text-[2.5vw] tablet:w-[50%] ">
-                                            <span data-para-anim className="under-multi mobile:text-center mobile:w-full tablet:w-[50%]">Loft offices 2, Office 107, Dubai Media City, Dubai UAE</span>
+                                            <span  className="under-multi mobile:text-center mobile:w-full tablet:w-[50%]">Loft offices 2, Office 107, Dubai Media City, Dubai UAE</span>
                                         </Link>
                                     </div>
                                     <div className="w-full mobile:w-full mobile:order-2 tablet:w-full">
-                                        <h6 data-para-anim className="text-[1.9vw] font-display leading-[1.2] mb-[1vw] mobile:text-[5vw] mobile:text-center mobile:mb-[3vw] tablet:text-[3vw]">Phone</h6>
+                                        <h6  className="text-[1.9vw] font-display leading-[1.2] mb-[1vw] mobile:text-[5vw] mobile:text-center mobile:mb-[3vw] tablet:text-[3vw]">Phone</h6>
                                         <Link href="tel:+971545178971" className="text-[1.15vw] font-medium text-shadow mobile:text-[4vw] mobile:flex mobile:justify-center tablet:text-[2.5vw]">
-                                            <span data-para-anim
+                                            <span 
                                                 className="link-line footer-social overflow-hidden block">
                                                 +97 154 517 8971
                                             </span>
@@ -144,35 +144,35 @@ const Footer = () => {
                             </div>
 
                             <div className="pt-[5px] mobile:pt-[7vw]">
-                                <h6 data-para-anim className="text-[1.9vw] font-display leading-[1.2] mb-[1vw] mobile:text-[5vw] tablet:text-[3.5vw] mobile:uppercase mobile:text-center mobile:mb-[3vw]">Social</h6>
+                                <h6  className="text-[1.9vw] font-display leading-[1.2] mb-[1vw] mobile:text-[5vw] tablet:text-[3.5vw] mobile:uppercase mobile:text-center mobile:mb-[3vw]">Social</h6>
                                 <ul className="space-y-[1vw] mobile:space-y-[2vw]">
                                     <li>
-                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.5vw]  mobile:flex mobile:justify-center" href="#">
-                                            <span data-para-anim
+                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.5vw]  mobile:flex mobile:justify-center" href="#" target="_blank">
+                                            <span 
                                                 className="link-line footer-social overflow-hidden block">
                                                 Linkedin
                                             </span>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.5vw]  mobile:flex mobile:justify-center" href="#">
-                                            <span data-para-anim
+                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.5vw]  mobile:flex mobile:justify-center" href="#" target="_blank">
+                                            <span 
                                                 className="link-line footer-social overflow-hidden block">
                                                 Instagram
                                             </span>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.5vw]  mobile:flex mobile:justify-center" href="#">
-                                            <span data-para-anim
+                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.5vw]  mobile:flex mobile:justify-center" href="#" target="_blank">
+                                            <span 
                                                 className="link-line footer-social overflow-hidden block">
                                                 behance
                                             </span>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.5vw]  mobile:flex mobile:justify-center " href="#">
-                                            <span data-para-anim
+                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.5vw]  mobile:flex mobile:justify-center " href="#" target="_blank">
+                                            <span 
                                                 className="link-line footer-social overflow-hidden block">
                                                 Pinterest
                                             </span>
@@ -194,7 +194,7 @@ const Footer = () => {
                             <div className="text-[1.15vw] font-medium mobile:text-[3vw] tablet:text-[2vw]">
                                 <p className="flex items-center gap-[5px]">By:
                                     <Link 
-                                        href="https://weareenigma.com" className="">
+                                        href="https://weareenigma.com" className="" target="_blank">
                                         <span 
                                             className="link-line footer-social overflow-hidden block">
                                             Enigma

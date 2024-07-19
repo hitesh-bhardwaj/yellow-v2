@@ -3,8 +3,8 @@ import React from 'react'
 export default function Overview() {
   return (
     <>
-    <section id='overview'>
-        <div className='container py-[7%] flex justify-between mobile:flex-col mobile:gap-[5vw] mobile:py-[12%]'>
+    <section className='bg-black' id='overview'>
+        <div className='container bg-white py-[7%] flex justify-between mobile:flex-col mobile:gap-[5vw] mobile:py-[12%]'>
             <h2 data-title-anim className='text-[5.7vw] font-display w-[50%] mobile:text-[10vw] '>
                 Overview
 

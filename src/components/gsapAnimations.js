@@ -114,7 +114,7 @@ export function fadeIn(){
           end:"bottom 60%",
         },
         opacity:0,
-        ease:"power4.Out",
+        ease:"power3.Out",
         duration:1,
         stagger:0.5
       });
@@ -131,10 +131,11 @@ export function fadeUp(){
           trigger: content,
           start: "top 90%",
           end:"bottom 60%",
+          
         },
         opacity:0,
-        yPercent:40,
-        ease:"power4.Out",
+        y:50,
+        ease:"power3.Out",
         duration:0.7,
         stagger:0.5
       });

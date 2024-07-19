@@ -48,11 +48,11 @@ export default function Join() {
   
   return (
     <>
-    <section className='w-full py-[8%] bg-[#111111] mobile:py-[15%] tablet:py-[10%] ' id='join'>
+    <section className='w-full py-[8%] bg-[#111111] mobile:py-[15%] tablet:py-[10%] dark ' id='join'>
       <div className='container flex justify-between mobile:flex-col'>
-      <div className="w-[40%] flex flex-col gap-[1.5vw] text-white mobile:order-2 mobile:gap-[7vw] mobile:mt-[10vw] mobile:w-full">
-            <h2 data-title-anim className="text-[5.8vw] leading-[1] font-display mb-[1vw] w-full mobile:text-[12vw] mobile:normal-case tablet:text-[5.5vw] tablet:leading-[1.2] tablet:mb-[3vw]">Join Yellow and Make a Difference.</h2>
-            <p data-para-anim className="text-[1.6vw] w-[80%] mb-[2vw] mobile:text-[4.5vw] mobile:w-[90%] mobile:mb-[7vw] tablet:text-[2vw] tablet:w-full tablet:mb-[3vw]">
+      <div className="w-[45%] flex flex-col gap-[1.5vw] text-white mobile:order-2 mobile:gap-[7vw] mobile:mt-[10vw] mobile:w-full">
+            <h2 data-title-anim className="text-[5.9vw] leading-[1] font-display mb-[1vw] w-full mobile:text-[12vw] mobile:normal-case tablet:text-[5.5vw] tablet:leading-[1.2] tablet:mb-[3vw]">Join Yellow and Make a Difference.</h2>
+            <p data-para-anim className="text-[1.6vw] w-[90%] mb-[2vw] mobile:text-[4.5vw] mobile:w-[90%] mobile:mb-[7vw] tablet:text-[2vw] tablet:w-full tablet:mb-[3vw]">
             Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero&apos;s De Finibus Bonorum et Malorum for use in a type specimen book.
             </p>
             

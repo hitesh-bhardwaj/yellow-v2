@@ -1,7 +1,7 @@
 import LinkButton from "../Button/LinkButton"
 import Section from "../Section"
 import SectionTitle from "../SectionTitle"
-import BlogCard from "./PostCard"
+import BlogCard from "./BlogCard"
 
 const Blogs = ({posts}) => {
 

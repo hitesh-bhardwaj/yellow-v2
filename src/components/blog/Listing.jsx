@@ -73,8 +73,8 @@ export default function Listing() {
 
   return (
     <>
-      <section className='py-[5%]' id='listing'>
-        <div className='container'>
+      <section className=' bg-black' id='listing'>
+        <div className='container py-[5%] bg-white'>
           <div
             ref={btnContainer}
             className="flex justify-start items-start gap-[1vw] mb-[3vw] mobile:flex-wrap mobile:mb-[10vw] mobile:hidden"

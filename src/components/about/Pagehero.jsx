@@ -41,7 +41,7 @@ export default function Pagehero() {
             </div>
           </div>
           <div className=" h-[40vw] w-[40vw] relative imageanim mobile:w-[85vw] mobile:h-[105vw] tablet:w-[85vw] tablet:h-[80vw]">
-            <Image src="/assets/images/about/about-hero.png" alt="about-hero" fill className="object-cover h-full w-full"/>
+            <Image src="/assets/images/about/about-hero.png" alt="about-hero" fill className="object-cover h-full w-full" priority={true}/>
           </div>
         </div>
 

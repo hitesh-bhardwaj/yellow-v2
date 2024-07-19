@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function Pagehero() {
   return (
     <>
-    <section id='hero'>
+    <section id='hero' className='dark'>
         <div className='w-[100vw] h-[80vh] relative tablet:h-[40vh]'>
             <Image src="/assets/images/career/career-detail-hero.png" alt='career-detail-hero' fill className='object-cover h-full w-full mobile:object-cover'/>
             <div className='container absolute top-[50%] translate-y-[-50%] z-[2] mobile:top-[70%] tablet:top-[70%]'>
@@ -32,7 +32,7 @@ export default function Pagehero() {
                   </div>
                   <div className='flex gap-[0.5vw] px-[1.5vw] border-white mobile:gap-[3vw]'>
                     <div className='w-[2.5vw] h-[2.5vw] relative mobile:w-[10vw] mobile:h-[10vw] tablet:w-[4vw] tablet:h-[4vw]'>
-                      <Image src="/assets/images/career/icon1.png" alt='icon-3' fill/>
+                      <Image src="/assets/images/career/icon1.png" alt='icon-3' fill priority={true}/>
 
                     </div>
                     <p data-para-anim className='text-[1.4vw] font-medium leading-[1.8] mobile:text-[5vw] tablet:text-[2vw]'>Benefits</p>

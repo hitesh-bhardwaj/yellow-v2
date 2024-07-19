@@ -42,8 +42,8 @@ const essentialsData = [
 
 export default function Essentials() {
   return (
-    <section id="essentials">
-      <div className="container py-[8%] mobile:py-[15%]">
+    <section  className="bg-black" id="essentials">
+      <div className="container py-[8%] mobile:py-[15%] bg-white">
         <div className="w-[50%] flex flex-col gap-[2vw] mb-[8vw] mobile:w-full mobile:gap-[5vw] tablet:w-[70%] mobile:mb-[20vw]">
           <h4 data-para-anim className="text-[2vw] font-display mobile:text-[7vw] tablet:text-[3vw]  ">
             Don’t see any job opening that might fit you?

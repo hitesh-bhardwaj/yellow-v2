@@ -18,7 +18,7 @@ export default function Pagehero() {
             </p>
           </div>
           <div className="w-[50vw] h-[45vw] relative imageanim mobile:w-[85vw] mobile:h-[120vw]">
-            <Image src="/assets/images/contact/contact-head.png" alt="contac-head-img" className="object-cover h-full w-full " fill/>
+            <Image src="/assets/images/contact/contact-head.png" alt="contac-head-img" className="object-cover h-full w-full " fill priority={true}/>
           </div>
         </div>
       </section>

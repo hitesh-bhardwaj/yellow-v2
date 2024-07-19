@@ -112,7 +112,7 @@ const Testimonial = () => {
         gsap.set(secondText.current, { xPercent: xPercent });
         gsap.set(thirdText.current, { xPercent: xPercent });
         requestAnimationFrame(animate);
-        xPercent += 0.03 * direction;
+        xPercent += 0.06 * direction;
       };
   
     return (
