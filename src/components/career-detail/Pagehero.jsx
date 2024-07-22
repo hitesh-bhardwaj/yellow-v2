@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function Pagehero() {
   return (
     <>
-    <section id='hero' className='dark'>
+    <section id='hero' className='dark bg-white'>
         <div className='w-[100vw] h-[80vh] relative tablet:h-[40vh]'>
             <Image src="/assets/images/career/career-detail-hero.png" alt='career-detail-hero' fill className='object-cover h-full w-full mobile:object-cover'/>
             <div className='container absolute top-[50%] translate-y-[-50%] z-[2] mobile:top-[70%] tablet:top-[70%]'>

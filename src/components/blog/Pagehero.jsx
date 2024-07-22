@@ -5,10 +5,10 @@ import Image from "next/image";
 export default function Pagehero() {
   return (
     <>
-      <section id="hero">
-        <div className="container pt-[10%]">
+      <section id="hero" className="bg-white">
+        <div className="container pt-[10%] mobile:pt-[30%]">
           <div className="w-full h-full">
-            <div className="mb-[5vw] mobile:mt-[25vw] mobile:mb-[15vw]">
+            <div className="mb-[5vw] mobile:mb-[15vw]">
               <h1 data-para-anim className="text-[5.7vw] font-display leading-[1.2] mb-[4vw] mobile:text-[10vw] mobile:mb-[7vw] ">
                 Color Psychology in Branding: Understanding the Emotional Impact
                 of Colors

@@ -1,11 +1,12 @@
 import { formatDate } from "@/lib/datetime";
 import Image from "next/image";
 import Link from "next/link";
+import Line from "../Line";
 
 const BlogCard = ({title, src, date, link}) => {
     return (
         <div className="group hide-first-child">
-            <span className="block w-full h-[1px] bg-body lineDraw hide"/>
+           <Line/>
             <div className="w-full flex justify-between items-start mt-[2vw] mb-[4vw] mobile:flex-col mobile:mt-[12vw]">
                 <div className="flex items-start gap-[2vw] mobile:flex-col">
                     <Link href="#">

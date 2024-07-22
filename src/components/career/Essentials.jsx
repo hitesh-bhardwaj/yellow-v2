@@ -56,7 +56,7 @@ export default function Essentials() {
           <LinkButton
             btnLink={"/"}
             btnText={"Send Your CV"}
-            className="text-[1.6vw] mobile:text-[6vw]"
+            className="text-[1.6vw] mobile:text-[6vw] tablet:text-[3vw]"
           />
 
           </div>
@@ -84,6 +84,7 @@ export default function Essentials() {
                   {item.content}
                 </p>
                 <div className={`w-full bg-black h-[1px] mt-[12vw] lineDraw hidden mobile:block ${index==5?"mobile:hidden":""}`}></div>
+                
               </div>
             </div>
           ))}

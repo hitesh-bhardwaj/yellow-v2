@@ -78,7 +78,7 @@ const Hero = () => {
 
     return (
         <Section className="py-0 dark" id={"hero"}>
-            <div className="w-screen h-screen relative">
+            <div className="w-full h-screen relative">
                 <div className="overflow-hidden w-full h-full absolute">
                     <div ref={cover} className="absolute w-full h-full flex pointer-events-none items-start justify-start bg-transparent cover z-[10]">
                         <span className="h-full block w-1/5 bg-white origin-bottom"/>

@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Pagehero() {
   return (
     <>
-      <section id="hero" className="w-full h-full py-[10%] mobile:h-full flex items-center mobile:py-[20%] tablet:h-full tablet:py-[15%]">
+      <section id="hero" className="w-full h-full py-[10%] mobile:h-full flex items-center mobile:py-[20%] tablet:h-full tablet:py-[15%] bg-white">
         <div className="container">
           <div className=" flex justify-between mobile:flex-col">
             <div className="w-[50%] mobile:w-full mobile:mt-[10%] mobile:mb-[20vw] tablet:w-[60%]">

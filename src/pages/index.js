@@ -31,6 +31,7 @@ export default function Home({recentPosts, recentWorks}) {
       <Services />
       <Clients />
       <Blogs posts={recentPosts} />
+      
     </Layout>
     </>
    

@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Pagehero() {
   return (
     <>
-      <section className=" w-screen h-full" id="hero">
+      <section className=" w-full h-full" id="hero">
         <div className="container">
         <div className="w-full h-full pt-[15%] flex items-center mb-[7vw] mobile:pt-[30%] ">
           <h1 data-title-anim className="text-[5.7vw] font-display uppercase heading-anim mobile:text-[12vw] tablet:text-[7vw]">Who We Are</h1>

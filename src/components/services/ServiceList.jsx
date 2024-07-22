@@ -67,7 +67,7 @@ export default function ServiceList() {
                     />
                   </div>
                 </div>
-                <div className="col-start-5 col-span-3 w-full mobile:mb-[7vw]">
+                <div className="col-start-5 col-span-3 w-full mobile:mb-[7vw] tablet:mb-[3vw]">
                   <h3
                     data-title-anim
                     className="text-[2.5vw] font-display mb-[1.5vw] mobile:text-[9vw] mobile:mb-[5vw] tablet:text-[5vw] "

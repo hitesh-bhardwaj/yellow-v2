@@ -93,7 +93,7 @@ export default function Menu({ menuOpen }) {
     <div ref={menuRef} className="fixed top-0 z-[199] left-0 right-0 bottom-0 flex items-start justify-end pointer-events-none">
       <nav ref={navRef} className={`relative w-[50%] pointer-events-auto translate-x-[100%] left-[99px] h-full bg-black/40 backdrop-blur-[25px] mobile:w-full tablet:w-[70%]`}>
         <div className="w-full h-full px-[5vw] pt-[5.5vw] pb-[3.5vw] relative flex flex-col justify-between items-start tablet:justify-between tablet:py-[15vw] mobile:pt-[25vw] mobile:pb-[10vw]">
-          <ul className="text-[7.8vh] font-display text-white leading-[1.15] mobile:text-[12vw] tablet:text-[6.5vw]">
+          <ul className="text-[7.8vh] font-display text-white leading-[1.15] mobile:text-[11.5vw] tablet:text-[6.5vw]">
             <li className="overflow-hidden tablet:mb-[2vw]">
               <MenuLink 
                 className={`link-anim ${pathname=="/"?"text-gray-300 pointer-events-none":""}`}
@@ -203,7 +203,7 @@ export default function Menu({ menuOpen }) {
               />
             </li>
           </ul>
-          <div className="w-full h-[2px] bg-white py-[0.3vw] my-[6vw] hidden mobile:block"></div>
+          <div className="w-full h-[1px] bg-white py-[0.1vw] my-[6vw] hidden mobile:block"></div>
           <div className="text-[1.1vw] font-medium text-white flex flex-col space-y-[0.5vw] mobile:text-[5vw] mobile:mb-[7vw] tablet:text-[3vw]">
             <div className="w-fit overflow-hidden">
               <MenuLink 

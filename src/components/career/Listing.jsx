@@ -21,7 +21,7 @@ export default function Listing() {
           <p data-para-anim className='text-[1.4vw] font-medium w-[30%] mb-[5vw] mobile:w-full mobile:text-[4.5vw] mobile:mb-[12vw] tablet:text-[2vw] tablet:w-[70%]'>
             As a digital branding agency, we help businesses connect with their customers by using a variety of tools and services.
           </p>
-          <div className='w-full h-full flex flex-col gap-y-[2vw] mobile:gap-y-[4vw] tablet:gap-y-[1.5vw]'>
+          <div className='w-full h-full flex flex-col gap-y-[2vw] mobile:gap-y-[4vw] tablet:gap-y-[3vw]'>
             {jobListings.map((job, index) => (
               <div key={index} className='fadeup'>
                 <div className='w-full grid grid-cols-3 h-[10vw] bg-transparent border-[1px] border-white text-white rounded-[15px] py-[2vw] px-[3vw] justify-between items-center text-[1.8vw] hover:bg-white hover:text-black hover:drop-shadow-2xl hover:shadow-xl transition-all ease duration-700 mobile:h-[20vw] mobile:flex tablet:h-[15vw] '>

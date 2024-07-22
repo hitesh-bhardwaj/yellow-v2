@@ -1,6 +1,7 @@
 import React from "react";
 import LinkButton from "../Button/LinkButton";
 import Image from "next/image";
+import Line from "../Line";
 
 const services = [
   {
@@ -75,7 +76,11 @@ export default function Detail() {
               
 
               </div>
-              <div className="h-[2px] col-span-3 bg-black my-[4vw] tablet:my-[6vw] lineDraw "></div>
+              <div className="h-[1px] col-span-3 bg-black my-[4vw] tablet:my-[6vw] lineDraw hidden tablet:block mobile:block"></div>
+              <div className="my-[3vw] tablet:h-[2px] tablet:my-[6vw] tablet:hidden">
+              <Line/>
+              </div>
+             
                 
             </React.Fragment>
           ))}

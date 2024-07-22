@@ -208,7 +208,7 @@ const Portfolio = ({ works }) => {
       </div>
       <div
         ref={containerRef}
-        className="horizontal-scroll w-screen h-screen overflow-hidden mt-[5vw] mobile:mt-[12vw] mobile:h-[250vh] tablet:h-[130vh]"
+        className="horizontal-scroll w-full h-screen overflow-hidden mt-[5vw] mobile:mt-[12vw] mobile:h-[250vh] tablet:h-[130vh]"
       >
         <div
           ref={scrollRef}
@@ -216,7 +216,7 @@ const Portfolio = ({ works }) => {
         >
 
           {works.map((work, index)=>(
-            <div key={index} className="h-full w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:w-full mobile:h-[100vh] tablet:w-full tablet:h-[150vh] " data-magnetic-target data-magnetic-strength="200">
+            <div key={index} className="h-full w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:w-full mobile:h-[100vh] tablet:w-full tablet:h-[150vh] fadeup" data-magnetic-target data-magnetic-strength="200">
               {/* <Link href="#"> */}
                 <MediaRenderer 
                   url={work.workFields.featuredImagevideo.node.mediaItemUrl}
@@ -224,7 +224,6 @@ const Portfolio = ({ works }) => {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 z-[1] -translate-y-1/2 ">
                   <RoundButton href={workPathBySlug(work.slug)} text="View More" className="magnetic-inner pointer-events-auto tablet:w-[10vw] tablet:h-[10vw] tablet:text-[1.5vw] tablet:px-[2vw]"/>
                 </div>
-                {/* <p className="font-display absolute text-[1.4vw] text-white mix-blend-difference top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 magnetic-inner mobile:text-[4vw]">View More</p> */}
                 <div className="relative w-full flex text-white h-full items-end">
                   <div className="flex justify-between mobile:flex-col mobile:h-full">
                     <div className="whitespace-normal flex gap-[2.5vw] flex-col mobile:order-2">

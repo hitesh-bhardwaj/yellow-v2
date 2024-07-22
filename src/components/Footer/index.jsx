@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
 import { useRef } from "react";
 import { SplitInChar } from "../splitTextUtils";
+import Line from "../Line";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, useGSAP);
 
@@ -20,13 +21,15 @@ const handleScroll = () => {
 
 const Footer = () => {
     const footerContainer = useRef(null);
-    if(globalThis.innerWidth>1023){
+   
+
+    if (globalThis.innerWidth > 1023) {
         useGSAP(() => {
             if (footerContainer.current) {
                 const links = footerContainer.current.querySelectorAll('.footer-social');
                 links.forEach(link => SplitInChar(link));
             }
-    
+
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: ".footer-top",
@@ -36,7 +39,7 @@ const Footer = () => {
                     invalidateOnRefresh: true
                 }
             });
-    
+
             tl.to(".container", {
                 duration: 1,
                 delay: 0,
@@ -56,23 +59,47 @@ const Footer = () => {
                     opacity: 1,
                     duration: 0.8,
                     delay: -0.5,
-                })
+                });
         });
-
     }
-  
+//    if(globalThis.innerWidth>1023){
+//     useEffect(() => {
+//         const handleMouseMove = (e) => {
+//           const box = emojiRef.current.getBoundingClientRect();
+//           const xCenter = box.left + box.width / 2;
+//           const yCenter = box.top + box.height / 2;
+    
+//           const angleDeg = Math.atan2(e.clientY - yCenter, e.clientX - xCenter) * (180 / Math.PI);
+    
+//           gsap.to(emojiRef.current, {
+//             rotation: angleDeg,
+//             duration: 0.3,
+//             ease: 'power3.out',
+//           });
+//         };
+    
+//         window.addEventListener('mousemove', handleMouseMove);
+    
+//         return () => {
+//           window.removeEventListener('mousemove', handleMouseMove);
+//         };
+//       }, []);
+
+//    }
    
 
     return (
         <footer id="footer" className="footer bg-black">
             <div className="bg-white container footer-top">
                 <div className="pb-[10%] pt-[5%] mobile:pb-[20%]">
-                    <span className="block w-full h-[1px] bg-body lineDraw" />
+                    <Line />
+                    <div className="w-full h-[1px] bg-black lineDraw hidden mobile:block"></div>
                     <div className="flex justify-between items-center py-[2%] mobile:flex-col mobile:gap-[4vw] mobile:py-[10%]">
-                        <div className="w-1/2 relative mobile:w-full tablet:w-[70%]">
-                            <h5 data-para-anim  className="text-[5vw] leading-[1.2] font-display para-anim mobile:text-[10vw] mobile:text-center tablet:text-[6vw]">
-                                Ready to Elevate Your Brand 👉
+                        <div className="w-[50%] relative mobile:w-[100%] tablet:w-[70%]">
+                            <h5 data-para-anim className="text-[5vw] leading-[1.2] font-display para-anim mobile:text-[10vw] mobile:text-center tablet:text-[6vw]">
+                                Ready to Elevate Your Brand <span className=' mobile:block tablet:block tablet:opacity-100 mobile:opacity-100'>👉</span>
                             </h5>
+                            {/* <span ref={emojiRef} className=' w-fit text-[5vw] mb-[0.5vw] leading-[1] mobile:hidden tablet:hidden absolute bottom-0 right-[24%]'>👉</span> */}
                         </div>
                         <div className="fadein">
                             <Link
@@ -104,7 +131,8 @@ const Footer = () => {
                             </Link>
                         </div>
                     </div>
-                    <span className="block w-full h-[1px] bg-body lineDraw" />
+                    <Line />
+                    <div className="w-full h-[1px] bg-black lineDraw hidden mobile:block"></div>
                 </div>
             </div>
 
@@ -114,27 +142,26 @@ const Footer = () => {
             >
                 <div className="fixed bottom-0 left-0 right-0 top-0 z-[-1] pb-[2vw] mobile:static tablet:static">
                     <div ref={footerContainer} className="container flex h-full flex-col justify-end text-white footer-bottom mobile:justify-center">
-
-                        <div className="flex items-start w-full justify-between mb-[8vw] mobile:flex-col mobile:items-center">
-                            <div className="w-[40%] flex flex-col gap-[2vw] items-start mobile:w-full mobile:items-center mobile:gap-[12vw] tablet:w-full tablet:gap-[4vw] ">
-                                <h6  className="text-[2.5vw] font-display mobile:text-[6vw] tablet:text-[4vw]">
+                        <div className="flex items-start w-full justify-between mb-[8vw] mobile:flex-col mobile:items-center tablet:mb-[12vw]">
+                            <div className="w-[40%] flex flex-col gap-[2vw] items-start mobile:w-full mobile:items-center mobile:gap-[12vw] tablet:w-full tablet:gap-[6vw] ">
+                                <h6 className="text-[2.5vw] font-display mobile:text-[6vw] tablet:text-[4vw]">
                                     <Link className="leading-[1.3] group" href="mailto:hello@welcometoyellow.com">
-                                        <span  className="relative after:absolute after:block after:bottom-[-2px] after:left-0 after:h-[2px] after:lineDraw after:w-full after:bg-current after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0">
+                                        <span className="relative after:absolute after:block after:bottom-[-2px] after:left-0 after:h-[2px] after:lineDraw after:w-full after:bg-current after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0">
                                             hello@welcometoyellow.com
                                         </span>
                                     </Link>
                                 </h6>
                                 <div className="w-full flex justify-between items-start mobile:flex-col mobile:items-center gap-[4vw] mobile:gap-[7vw] mobile:order-3 tablet:w-full tablet:gap-[3vw]">
                                     <div className="w-full mobile:w-full tablet:w-full">
-                                        <h6  className="text-[1.9vw] font-display leading-[1.2] mb-[1vw] mobile:text-[5vw] mobile:text-center mobile:mb-[3vw] tablet:text-[3vw]">Address</h6>
+                                        <h6 className="text-[1.9vw] font-display leading-[1.2] mb-[1vw] mobile:text-[5vw] mobile:text-center mobile:mb-[3vw] tablet:text-[3vw]">Address</h6>
                                         <Link href="#" className="text-[1.15vw] font-medium under-multi-parent mobile:text-[4vw] mobile:flex mobile:justify-center mobile:w-full tablet:text-[2.5vw] tablet:w-[50%] ">
-                                            <span  className="under-multi mobile:text-center mobile:w-full tablet:w-[50%]">Loft offices 2, Office 107, Dubai Media City, Dubai UAE</span>
+                                            <span className="under-multi mobile:text-center mobile:w-full tablet:w-[50%]">Loft offices 2, Office 107, Dubai Media City, Dubai UAE</span>
                                         </Link>
                                     </div>
                                     <div className="w-full mobile:w-full mobile:order-2 tablet:w-full">
-                                        <h6  className="text-[1.9vw] font-display leading-[1.2] mb-[1vw] mobile:text-[5vw] mobile:text-center mobile:mb-[3vw] tablet:text-[3vw]">Phone</h6>
+                                        <h6 className="text-[1.9vw] font-display leading-[1.2] mb-[1vw] mobile:text-[5vw] mobile:text-center mobile:mb-[3vw] tablet:text-[3vw]">Phone</h6>
                                         <Link href="tel:+971545178971" className="text-[1.15vw] font-medium text-shadow mobile:text-[4vw] mobile:flex mobile:justify-center tablet:text-[2.5vw]">
-                                            <span 
+                                            <span
                                                 className="link-line footer-social overflow-hidden block">
                                                 +97 154 517 8971
                                             </span>
@@ -144,35 +171,35 @@ const Footer = () => {
                             </div>
 
                             <div className="pt-[5px] mobile:pt-[7vw]">
-                                <h6  className="text-[1.9vw] font-display leading-[1.2] mb-[1vw] mobile:text-[5vw] tablet:text-[3.5vw] mobile:uppercase mobile:text-center mobile:mb-[3vw]">Social</h6>
+                                <h6 className="text-[1.9vw] font-display leading-[1.2] mb-[1vw] mobile:text-[5vw] tablet:text-[3.5vw] mobile:uppercase mobile:text-center mobile:mb-[3vw]">Social</h6>
                                 <ul className="space-y-[1vw] mobile:space-y-[2vw]">
                                     <li>
-                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.5vw]  mobile:flex mobile:justify-center" href="#" target="_blank">
-                                            <span 
+                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.5vw] mobile:flex mobile:justify-center" href="#" target="_blank">
+                                            <span
                                                 className="link-line footer-social overflow-hidden block">
                                                 Linkedin
                                             </span>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.5vw]  mobile:flex mobile:justify-center" href="#" target="_blank">
-                                            <span 
+                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.5vw] mobile:flex mobile:justify-center" href="#" target="_blank">
+                                            <span
                                                 className="link-line footer-social overflow-hidden block">
                                                 Instagram
                                             </span>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.5vw]  mobile:flex mobile:justify-center" href="#" target="_blank">
-                                            <span 
+                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.5vw] mobile:flex mobile:justify-center" href="#" target="_blank">
+                                            <span
                                                 className="link-line footer-social overflow-hidden block">
                                                 behance
                                             </span>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.5vw]  mobile:flex mobile:justify-center " href="#" target="_blank">
-                                            <span 
+                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.5vw] mobile:flex mobile:justify-center" href="#" target="_blank">
+                                            <span
                                                 className="link-line footer-social overflow-hidden block">
                                                 Pinterest
                                             </span>
@@ -188,14 +215,14 @@ const Footer = () => {
                             </div>
 
                             <button aria-label="Scroll Down Button" onClick={handleScroll} className="absolute cursor-pointer scroll-btn w-fit left-1/2 -translate-x-1/2 text-[1.1vw] gap-[0.5vw] font-[400] group flex items-center justify-center mobile:hidden tablet:hidden">
-                                <span  className="relative leading-[1.5] after:absolute after:block after:bottom-0 after:left-0 after:h-[1px] after:w-full after:bg-current after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0">Send me back up.</span>
+                                <span className="relative leading-[1.5] after:absolute after:block after:bottom-0 after:left-0 after:h-[1px] after:w-full after:bg-current after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0">Send me back up.</span>
                             </button>
 
                             <div className="text-[1.15vw] font-medium mobile:text-[3vw] tablet:text-[2vw]">
                                 <p className="flex items-center gap-[5px]">By:
-                                    <Link 
+                                    <Link
                                         href="https://weareenigma.com" className="" target="_blank">
-                                        <span 
+                                        <span
                                             className="link-line footer-social overflow-hidden block">
                                             Enigma
                                         </span>

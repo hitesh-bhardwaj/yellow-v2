@@ -167,19 +167,19 @@ export default function ProjectsCopy() {
   return (
     <>
       <section className="w-full h-full bg-black" id="projects">
-        <div className="container bg-white pb-[15%] pt-[5%]">
+        <div className="container bg-white pb-[15%] pt-[5%] mobile:pt-[10%]">
           {/* Filter buttons */}
           <div
             ref={btnContainer}
-            className="flex justify-start items-start gap-[1vw] mb-[3vw] mobile:flex-wrap mobile:mb-[10vw] mobile:hidden"
+            className="flex justify-start items-start gap-[1vw] mb-[3vw] mobile:flex-wrap mobile:mb-[10vw] mobile:hidden tablet:mb-[7vw]"
           >
             {filters.map((category, index) => (
               <button
                 key={index}
-                className={`cat-button text-black hover:text-white overflow-hidden border-[1px] hover:animate-scale-up border-black border-opacity-70 px-[1.5vw] py-[0.6vw] min-w-[7vw] rounded-full transition-all duration-500 ease-out relative group ${activeCategory === category ? "active" : ""}`}
+                className={`cat-button text-black hover:text-white overflow-hidden border-[1px] hover:animate-scale-up border-black border-opacity-70 px-[1.5vw] py-[0.6vw] min-w-[7vw] rounded-full transition-all duration-500 ease-out relative group tablet:w-fit ${activeCategory === category ? "active" : ""}`}
                 onClick={() => handleCategoryClick(category)}
               >
-                <span className="text-[1.2vw] space-grotesk relative z-[1] tablet:text-[2.2vw]">{category}</span>
+                <span className="text-[1.2vw] space-grotesk relative z-[1] tablet:text-[1.8vw]">{category}</span>
                 <span className="w-full h-full absolute bottom-0 left-0 block group-hover:scale-y-[1] origin-bottom transition-all duration-300 ease-out bg-black scale-y-0"></span>
               </button>
             ))}
@@ -201,9 +201,9 @@ export default function ProjectsCopy() {
 
                 </div>
                   
-                  <div className={`absolute text-white w-[90%] ${index % 3 === 0 ? "bottom-[10%]  left-[3%] mobile:pr-[5vw] mobile:bottom-[7%] mobile:left-[7%]" : "bottom-[10%] left-[7%]"}`}>
+                  <div className={`absolute text-white w-[90%]  ${index % 3 === 0 ? "bottom-[10%]  left-[3%] mobile:pr-[5vw] mobile:bottom-[7%] mobile:left-[7%] tablet:w-[70%]" : "bottom-[10%] left-[7%] tablet:w-full"}`}>
                     <h3 data-title-anim className="text-[2.5vw] mb-[1.5vw] mobile:text-[5vw] tablet:text-[3.5vw] ">{project.name}</h3>
-                    <p data-para-anim className={` text-[1.1vw] leading-[1.4] mobile:text-[4vw] tablet:text-[2vw] ${index % 3 === 0 ? "w-[70%] mobile:w-full " : "w-[90%] mobile:w-full"} `}>{project.description}</p>
+                    <p data-para-anim className={` text-[1.1vw] leading-[1.4] mobile:text-[4vw] tablet:text-[1.7vw] ${index % 3 === 0 ? "w-[70%] mobile:w-full " : "w-[90%] mobile:w-[90%]"} `}>{project.description}</p>
                   </div>
                   <div className={`absolute  flex gap-[1.5vw] text-white mobile:gap-[3vw] ${index % 3 === 0 ? "bottom-[10%] right-[3%] mobile:top-[5%] mobile:left-[5%] mobile:bottom-auto" : "top-[7%] left-[7%]"}`}>
                     {project.tags.map((tag, tagIndex) => (

@@ -74,7 +74,7 @@ export default function Listing() {
   return (
     <>
       <section className=' bg-black' id='listing'>
-        <div className='container py-[5%] bg-white'>
+        <div className='container py-[5%] bg-white tablet:py-[10%]'>
           <div
             ref={btnContainer}
             className="flex justify-start items-start gap-[1vw] mb-[3vw] mobile:flex-wrap mobile:mb-[10vw] mobile:hidden"
@@ -90,14 +90,14 @@ export default function Listing() {
               </button>
             ))}
           </div>
-          <div className='w-[100vw] ml-[-5vw] h-[1px] bg-black mb-[3vw] mobile:my-[12vw] mobile:ml-[-7vw] lineDraw'></div>
-          <div className='w-full h-full flex flex-wrap gap-[2vw] mb-[3vw] mobile:flex-col mobile:gap-[12vw]'>
+          <div className='w-[100vw] ml-[-5vw] h-[1px] bg-black mb-[3vw] mobile:my-[12vw] mobile:ml-[-7vw] lineDraw tablet:my-[5vw]'></div>
+          <div className='w-full h-full flex flex-wrap gap-[2vw] mb-[3vw] mobile:flex-col mobile:gap-[8vw]'>
             {filteredProjects.map((project) => (
               <div key={project.id} className={`w-[28vw] h-[35vw] border-[1px] border-black border-opacity-40 rounded-[10px] overflow-hidden mobile:w-[85vw] mobile:h-full mobile:pb-[4vw] tablet:w-[41vw] tablet:h-full fadeup ${project.id>5?"mobile:hidden block":"block"}`}>
                 <div className='w-[28vw] h-[15vw] relative mobile:w-[85vw] mobile:h-[55vw] tablet:w-[41vw] tablet:h-[25vw]'>
                   <Image src={project.imageSrc} alt='blog-listing' fill />
                 </div>
-                <div className='w-full h-full px-[1.5vw] py-[1.5vw] flex flex-col gap-[2vw] mobile:gap-[4vw] mobile:px-[3vw] tablet:pb-[2vw]'>
+                <div className='w-full h-full px-[1.5vw] py-[1.5vw] flex flex-col gap-[2vw] mobile:gap-[4vw] mobile:px-[5vw] tablet:pb-[2vw]'>
                   <h3 className='text-[1.5vw] font-display leading-[1.2] mobile:text-[6.5vw] tablet:text-[3vw]'>{project.title}</h3>
                   <p className='text-[1vw] font-medium mobile:text-[3vw] tablet:text-[2vw]'>{project.date}</p>
                   <div className='text-[1vw] flex gap-[0.5vw] mobile:text-[4vw] mobile:gap-[2vw] tablet:text-[2vw] tablet:gap-[1vw]'>
@@ -111,7 +111,7 @@ export default function Listing() {
             ))}
           </div>
           <div className='w-full flex justify-center mobile:my-[10vw]'>
-            <LinkButton btnLink={"/"} btnText={"Load More"} className='text-[1.4vw] font-medium tablet:text-[3vw]'/>
+            <LinkButton btnLink={"/"} btnText={"Load More"} className='text-[1.4vw] font-medium tablet:text-[3vw] mobile:text-[5vw]'/>
 
           </div>
         </div>

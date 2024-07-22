@@ -15,7 +15,7 @@ export default function Works() {
             </p>
             <div className='fadeup flex items-end'>
             <Link
-                className={`cursor-pointer flex w-fit relative text-[1.4vw] gap-[0.5vw] items-center font-medium group mobile:text-[5vw] tablet:text-[2vw] `}
+                className={`cursor-pointer flex w-fit relative text-[1.4vw] gap-[0.5vw] items-center font-medium group mobile:text-[5vw] tablet:text-[3vw] `}
                 href="#"
               >
                 <span className="relative after:absolute leading-[1.3] after:block after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-body after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0">

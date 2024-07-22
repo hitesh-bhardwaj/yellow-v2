@@ -48,7 +48,7 @@ const Testimonial = () => {
 
     const Card = ({img, company, name, content}) => {
         return (
-            <div className="relative w-1/5 h-auto backdrop-blur-md overflow-hidden rounded-[1.2vw] bg-gradient-to-br from-[#35333380] to-[#24242420] to-45% border border-white/25 fadein mobile:w-[40vw] mobile:h-[20vh]">
+            <div className="relative w-1/5 h-auto backdrop-blur-md overflow-hidden rounded-[1.2vw] bg-gradient-to-br from-[#35333380] to-[#24242420] to-45% border border-white/25 fadein mobile:rounded-[10px]">
                 <Image 
                     priority={false}
                     width={100}
@@ -57,10 +57,10 @@ const Testimonial = () => {
                     alt="Image Texture"
                     src="/assets/images/clients/texture-2.png"                
                 />
-                <div className="w-full h-full py-[3vw] px-[3.5vw] space-y-[2vw]">
-                    <div className="flex items-center gap-[1vw]">
+                <div className="w-full h-full py-[3vw] px-[3.5vw] space-y-[2vw] mobile:py-[5vw] mobile:px-[4vw]">
+                    <div className="flex items-center gap-[1vw] mobile:gap-[3vw] tablet:gap-[2vw]">
                         <Image
-                            className="w-[5vw] h-[5vw] mobile:w-[8vw] mobile:h-[8vw]"
+                            className="w-[5vw] h-[5vw] mobile:w-[12vw] mobile:h-[12vw] tablet:w-[8vw] tablet:h-[8vw]"
                             alt="brand img" 
                             priority={false}
                             src={img} 
@@ -69,11 +69,11 @@ const Testimonial = () => {
                             height={100}
                         />
                         <div className="flex flex-col items-start">
-                            <p className="text-[1.35vw] font-medium mobile:text-[4vw]">{name}</p>
-                            <p className="text-[1.1vw] font-medium mobile:text-[3vw]">{company}</p>
+                            <p className="text-[1.35vw] font-medium mobile:text-[5vw] tablet:text-[3vw]">{name}</p>
+                            <p className="text-[1.1vw] font-medium mobile:text-[3vw] tablet:text-[2vw]">{company}</p>
                         </div>
                     </div>
-                    <p className="text-[1.45vw] whitespace-normal mobile:text-[3vw]">
+                    <p className="text-[1.45vw] whitespace-normal mobile:text-[3.2vw] tablet:text-[2.5vw]">
                         {content}
                     </p>
                 </div>
@@ -116,20 +116,20 @@ const Testimonial = () => {
       };
   
     return (
-        <div ref={slider} className="relative w-[full]">
-            <div ref={firstText} className="w-[200%] flex gap-x-[2vw] whitespace-nowrap mobile:h-[30vh] ">
+        <div ref={slider} className="relative w-[full] ">
+            <div ref={firstText} className="w-[200%] flex gap-x-[2vw] whitespace-nowrap mobile:h-[30vh] mobile:w-[400%] mobile:gap-x-[5vw] tablet:h-[30vh] tablet:w-[350%] tablet:gap-x-[3vw] ">
                 {Reviews.map((review, index) => (
                     <Card key={index} img={review.img} company={review.company} name={review.name} content={review.content} />
                 ))}
             </div>
 
-            <div ref={secondText} className="w-[200%] absolute top-0 left-[200%] pl-[2vw] flex gap-x-[2vw] whitespace-nowrap mobile:h-[30vh]">
+            <div ref={secondText} className="w-[200%] absolute top-0 left-[200%] pl-[2vw] flex gap-x-[2vw] whitespace-nowrap mobile:h-[30vh] mobile:w-[400%] mobile:left-[400%] mobile:gap-x-[5vw] mobile:pl-[5vw] tablet:h-[30vh] tablet:w-[350%] tablet:gap-x-[3vw] tablet:left-[350%] tablet:pl-[3vw]">
                 {Reviews.map((review, index) => (
                     <Card key={index} img={review.img} company={review.company} name={review.name} content={review.content} />
                 ))}
             </div>
 
-            <div ref={thirdText} className="w-[200%] absolute top-0 -left-[200%] pr-[2vw] flex gap-x-[2vw] whitespace-nowrap mobile:h-[30vh]">
+            <div ref={thirdText} className="w-[200%] absolute top-0 -left-[200%] pr-[2vw] flex gap-x-[2vw] whitespace-nowrap mobile:h-[30vh] mobile:w-[400%] mobile:left-[-400%] mobile:gap-x-[5vw] mobile:pr-[5vw] tablet:h-[30vh] tablet:w-[350%] tablet:gap-x-[3vw] tablet:left-[-350%] tablet:pr-[3vw]">
                 {Reviews.map((review, index) => (
                     <Card key={index} img={review.img} company={review.company} name={review.name} content={review.content} />
                 ))}

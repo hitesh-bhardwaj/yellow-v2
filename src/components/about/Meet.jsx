@@ -125,7 +125,7 @@ export default function Meet() {
               />
               <div className="absolute w-full px-[2vw] py-[1.5vw] z-[2] bottom-0 backdrop-blur-lg bg-black bg-opacity-40 mobile:py-[3vw] mobile:px-[3vw]">
                 <div className="text-white flex w-full justify-between h-full">
-                  <div className="flex flex-col">
+                  <div className="flex flex-col tablet:w-[100%]">
                     <h4 data-title-anim className="text-[1.8vw] font-display leading-[1.2] uppercase  mobile:text-[6vw]">
                       {member.name}
                     </h4>
