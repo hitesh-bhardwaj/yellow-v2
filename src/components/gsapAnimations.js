@@ -67,6 +67,7 @@ export function lineAnim(){
     });
   }); 
 }
+
 export function imageAnim(){
   useGSAP(() => {
     const images = document.querySelectorAll(".imageanim");
@@ -83,8 +84,8 @@ export function imageAnim(){
       });
     });
   });
-
 }
+
 export function imgAnim(){
   useGSAP(() => {
     const images = document.querySelectorAll(".imganim");

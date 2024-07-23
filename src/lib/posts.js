@@ -306,12 +306,12 @@ export function mapPostData(post = {}) {
 /**
  * getRelatedPosts
  */
-
 export async function getRelatedPosts(categories, postId, count = 3) {
   if (!Array.isArray(categories) || categories.length === 0) return;
 
   let related = {
     category: categories && categories.shift(),
+    posts: [],
   };
 
   if (related.category) {
@@ -323,7 +323,17 @@ export async function getRelatedPosts(categories, postId, count = 3) {
     const filtered = posts.filter(({ postId: id }) => id !== postId);
     const sorted = sortObjectsByDate(filtered);
 
-    related.posts = sorted.map((post) => ({ title: post.title, slug: post.slug }));
+    related.posts = await Promise.all(
+      sorted.map(async (post) => {
+        const { featuredImage, categories } = await getPostDetails(post.slug);
+        return {
+          title: post.title,
+          slug: post.slug,
+          featuredImage,
+          categories,
+        };
+      })
+    );
   }
 
   if (!Array.isArray(related.posts) || related.posts.length === 0) {
@@ -332,10 +342,19 @@ export async function getRelatedPosts(categories, postId, count = 3) {
   }
 
   if (Array.isArray(related.posts) && related.posts.length > count) {
-    return related.posts.slice(0, count);
+    related.posts = related.posts.slice(0, count);
   }
 
   return related;
+}
+
+// Helper function to get post details
+async function getPostDetails(slug) {
+  const { post } = await getPostBySlug(slug);
+  return {
+    featuredImage: post.featuredImage,
+    categories: post.categories,
+  };
 }
 
 /**

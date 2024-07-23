@@ -13,6 +13,13 @@ export const WORK_FIELDS = gql`
         }
       }
     }
+    workFields {
+      featuredImagevideo {
+        node {
+          mediaItemUrl
+        }
+      }
+    }
     databaseId
     date
     workId
@@ -155,31 +162,28 @@ export const QUERY_WORKS_BY_WORKCATEGORY_ID = gql`
       edges {
         node {
           ...WorkFields
-          author {
-            node {
-              avatar {
-                height
-                url
-                width
-              }
-              id
-              name
-              slug
-            }
-          }
           content
           excerpt
-          featuredImage {
-            node {
-              altText
-              caption
-              id
-              sizes
-              sourceUrl
-              srcSet
-            }
-          }
           modified
+        }
+      }
+    }
+  }
+`;
+
+export const QUERY_WORKCATEGORY_BY_ID_FOR_WORKS = gql`
+  ${WORK_FIELDS}
+  query WorkCategoryByIdForWorks($workcategoryId: ID!) {
+    workcategory(id: $workcategoryId, idType: DATABASE_ID) {
+      id
+      name
+      slug
+      works(where: { hasPassword: false }) {
+        edges {
+          node {
+            ...WorkFields
+            excerpt
+          }
         }
       }
     }
@@ -230,7 +234,7 @@ export const QUERY_WORK_SEO_BY_SLUG = gql`
 export const QUERY_WORK_PER_PAGE = gql`
   query WorkPerPage {
     allSettings {
-      readingSettingsWorksPerPage
+      readingSettingsPostsPerPage
     }
   }
 `;

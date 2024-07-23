@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import SectionTitle from '../SectionTitle'
 
-export default function Works() {
+export default function RelatedWorks() {
   return (
     <>
     <section className='w-full h-full bg-black' id='works'>
@@ -19,7 +19,7 @@ export default function Works() {
                 href="#"
               >
                 <span className="relative after:absolute leading-[1.3] after:block after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-body after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0">
-                See All work
+                  See All work
                 </span>
                 <svg
                   className="relative -rotate-[135deg] w-[2vw] h-[2vw] overflow-hidden mobile:w-[5vw] mobile:h-[5vw]"
@@ -41,7 +41,6 @@ export default function Works() {
                   />
                 </svg>
               </Link>
-
             </div>
             
         </div>
@@ -118,13 +117,9 @@ export default function Works() {
 
                 </Link>
             </div>
+          </div>
         </div>
-
-      </div>
-        
-
-    </section>
-      
+      </section>
     </>
   )
 }

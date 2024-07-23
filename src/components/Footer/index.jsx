@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap/dist/gsap";
@@ -20,10 +19,10 @@ const handleScroll = () => {
 };
 
 const Footer = () => {
+    
     const footerContainer = useRef(null);
-   
+    const observerRef = useRef(null);
 
-    if (globalThis.innerWidth > 1023) {
         useGSAP(() => {
             if (footerContainer.current) {
                 const links = footerContainer.current.querySelectorAll('.footer-social');
@@ -40,53 +39,50 @@ const Footer = () => {
                 }
             });
 
-            tl.to(".container", {
+            tl.to(".footer-top", {
+                borderBottomRightRadius: "35px",
+                borderBottomLeftRadius: "35px",
                 duration: 1,
                 delay: 0,
+            })
+            .to(".container", {
+                duration: 1,
+                delay: -1,
                 width: "95%",
                 paddingLeft: "2.5%",
                 paddingRight: "2.5%",
             })
-                .to(".footer-top", {
-                    duration: 1,
-                    delay: -1,
-                    borderBottomLeftRadius: "3vw",
-                    borderBottomRightRadius: "3vw",
-                })
-                .fromTo(".footer-bottom", {
-                    opacity: 0,
-                }, {
-                    opacity: 1,
-                    duration: 0.8,
-                    delay: -0.5,
+            .fromTo(".footer-bottom", {
+                opacity: 0,
+            }, {
+                opacity: 1,
+                duration: 0.8,
+                delay: -0.5,
+            });
+    });
+            
+        useGSAP(() => {
+            const observeHeightChange = () => {
+                if (observerRef.current) {
+                    observerRef.current.disconnect();
+                }
+                observerRef.current = new ResizeObserver((entries) => {
+                    // eslint-disable-next-line no-unused-vars
+                    for (let entry of entries) {
+                        ScrollTrigger.refresh();
+                    }
                 });
-        });
-    }
-//    if(globalThis.innerWidth>1023){
-//     useEffect(() => {
-//         const handleMouseMove = (e) => {
-//           const box = emojiRef.current.getBoundingClientRect();
-//           const xCenter = box.left + box.width / 2;
-//           const yCenter = box.top + box.height / 2;
+                observerRef.current.observe(document.body);
+            };
     
-//           const angleDeg = Math.atan2(e.clientY - yCenter, e.clientX - xCenter) * (180 / Math.PI);
+            observeHeightChange();
     
-//           gsap.to(emojiRef.current, {
-//             rotation: angleDeg,
-//             duration: 0.3,
-//             ease: 'power3.out',
-//           });
-//         };
-    
-//         window.addEventListener('mousemove', handleMouseMove);
-    
-//         return () => {
-//           window.removeEventListener('mousemove', handleMouseMove);
-//         };
-//       }, []);
-
-//    }
-   
+            return () => {
+                if (observerRef.current) {
+                    observerRef.current.disconnect();
+                }
+            };
+    });
 
     return (
         <footer id="footer" className="footer bg-black">
@@ -99,7 +95,6 @@ const Footer = () => {
                             <h5 data-para-anim className="text-[5vw] leading-[1.2] font-display para-anim mobile:text-[10vw] mobile:text-center tablet:text-[6vw]">
                                 Ready to Elevate Your Brand <span className=' mobile:block tablet:block tablet:opacity-100 mobile:opacity-100'>👉</span>
                             </h5>
-                            {/* <span ref={emojiRef} className=' w-fit text-[5vw] mb-[0.5vw] leading-[1] mobile:hidden tablet:hidden absolute bottom-0 right-[24%]'>👉</span> */}
                         </div>
                         <div className="fadein">
                             <Link
@@ -234,7 +229,7 @@ const Footer = () => {
                 </div>
             </div>
         </footer>
-    );
-};
+        )
+}
 
-export default Footer;
+export default Footer

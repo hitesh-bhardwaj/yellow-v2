@@ -14,6 +14,7 @@ import {
   QUERY_WORK_SEO_BY_SLUG,
   QUERY_WORK_PER_PAGE,
   GET_HOME_PAGE_WORKS,
+  QUERY_WORKCATEGORY_BY_ID_FOR_WORKS,
 } from '../data/works';
 
 /**
@@ -174,6 +175,40 @@ export async function getWorksByWorkCategoryId({ workcategoryId, ...options }) {
   }
 
   const works = workData?.data.works.edges.map(({ node = {} }) => node);
+
+  return {
+    works: Array.isArray(works) && works.map(mapWorkData),
+  };
+}
+
+/**
+ * getWorkCategoryByIdForWorks
+ */
+
+const WorkCategoryByIdForWorksTypes = {
+  all: QUERY_WORKCATEGORY_BY_ID_FOR_WORKS,
+};
+
+export async function getWorkCategoryByIdForWorks({ workcategoryId, ...options }) {
+  const { queryIncludes = 'all' } = options;
+
+  const apolloClient = getApolloClient();
+
+  let workData;
+
+  try {
+    workData = await apolloClient.query({
+      query: WorkCategoryByIdForWorksTypes[queryIncludes],
+      variables: {
+        workcategoryId,
+      },
+    });
+  } catch (e) {
+    console.log(`[works][getWorkCategoryByIdForWorks] Failed to query work data: ${e.message}`);
+    throw e;
+  }
+
+  const works = workData?.data.workcategory.works.edges.map(({ node = {} }) => node);
 
   return {
     works: Array.isArray(works) && works.map(mapWorkData),

@@ -6,6 +6,10 @@ import Image from "next/image";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
+gsap.config({
+    nullTargetWarn: false,
+});
+
 const Testimonial = () => {
 
     const Reviews = [

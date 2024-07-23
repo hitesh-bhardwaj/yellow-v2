@@ -11,7 +11,7 @@ import {
  */
 
 export function workcategoryPathBySlug(slug) {
-  return `/categories/${slug}`;
+  return `/our-work/category/${slug}`;
 }
 
 /**

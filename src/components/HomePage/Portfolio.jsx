@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/rules-of-hooks */
 import { gsap } from "gsap/dist/gsap";
 import Section from "../Section";
@@ -10,6 +9,7 @@ import LinkButton from "../Button/LinkButton";
 import { formatDateYear } from "@/lib/datetime";
 import RoundButton from "../Button/RoundButton";
 import { workPathBySlug } from "@/lib/works";
+import MediaRender from "../MediaRender";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -17,37 +17,6 @@ const Portfolio = ({ works }) => {
 
   const containerRef = useRef(null);
   const scrollRef = useRef(null);
-
-  const MediaRenderer = ({ url }) => {
-    const isVideo = (url) => {
-      const videoExtensions = ['mp4', 'webm', 'ogg'];
-      const urlExtension = url.split('.').pop();
-      return videoExtensions.includes(urlExtension);
-    };
-  
-    return (
-      <div className="h-full w-screen absolute left-0 right-0 top-0 bottom-0 z-[-1] panel-img">
-        {isVideo(url) ? (
-          <video
-            loading="lazy"
-            src={url}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="h-full w-full object-cover"
-          />
-        ) : (
-          <img
-            loading="lazy"
-            src={url}
-            alt="Media"
-            className="h-full w-full object-cover"
-          />
-        )}
-      </div>
-    );
-  };
 
   const createTimeline = (triggerClass, countClasses, start, end) => {
     useGSAP(() => {
@@ -216,9 +185,9 @@ const Portfolio = ({ works }) => {
         >
 
           {works.map((work, index)=>(
-            <div key={index} className="h-full w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:w-full mobile:h-[100vh] tablet:w-full tablet:h-[150vh] fadeup" data-magnetic-target data-magnetic-strength="200">
-              {/* <Link href="#"> */}
-                <MediaRenderer 
+            <div key={index} className="h-full w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:w-full " data-magnetic-target data-magnetic-strength="200">
+              
+                <MediaRender
                   url={work.workFields.featuredImagevideo.node.mediaItemUrl}
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 z-[1] -translate-y-1/2 ">
@@ -240,18 +209,21 @@ const Portfolio = ({ works }) => {
                       <p className="py-[0.5vw] px-[2vw] border border-white rounded-full bg-white/25 backdrop-blur-lg mobile:hidden">
                         {formatDateYear(work.date)}
                       </p>
-                      <div className="flex items-center gap-[2vw] mobile:gap-[4vw] mobile:mt-[4vw]">
-                        <p className="py-[0.5vw] px-[2vw] border border-white rounded-full bg-white/10 backdrop-blur-lg mobile:py-[1.5vw] mobile:px-[4vw]">
-                          Digital Marketing
-                        </p>
-                        <p className="py-[0.5vw] px-[2vw] border border-white rounded-full bg-white/10 backdrop-blur-lg mobile:py-[1.5vw] mobile:px-[4vw]">
-                          Branding
-                        </p>
+                      <div className="flex items-center gap-[2vw]">
+                          {work.workcategories.nodes[0] && (
+                            <p className="py-[0.5vw] px-[2vw] border border-white rounded-full bg-white/10 backdrop-blur-lg">
+                              {work.workcategories.nodes[0].name}
+                            </p>
+                          )}
+                          {work.workcategories.nodes[1] && (
+                            <p className="py-[0.5vw] px-[2vw] border border-white rounded-full bg-white/10 backdrop-blur-lg">
+                              {work.workcategories.nodes[1].name}
+                            </p>
+                          )}
                       </div>
                     </div>
                   </div>
                 </div>
-              {/* </Link> */}
             </div>
           ))}
           <div className="h-full w-[30vw] relative flex items-center justify-center flex-col pannel mobile:hidden tablet:h-fit tablet:gap-[3vw]">

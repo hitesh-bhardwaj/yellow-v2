@@ -2,7 +2,6 @@ import { Helmet } from 'react-helmet';
 
 import { authorPathByName } from './users';
 import { postPathBySlug } from './posts';
-import { pagePathBySlug } from './pages';
 
 import config from '../../package.json';
 
@@ -76,28 +75,28 @@ export function WebsiteJsonLd({ siteTitle = '' }) {
   );
 }
 
-export function WebpageJsonLd({ title = '', description = '', siteTitle = '', slug = '' }) {
-  const { homepage = '' } = config;
-  const path = pagePathBySlug(slug);
+// export function WebpageJsonLd({ title = '', description = '', siteTitle = '', slug = '' }) {
+//   const { homepage = '' } = config;
+//   const path = pagePathBySlug(slug);
 
-  const jsonLd = {
-    '@context': 'http://schema.org',
-    '@type': 'WebPage',
-    name: title,
-    description: description,
-    url: `${homepage}${path}`,
-    publisher: {
-      '@type': 'ProfilePage',
-      name: siteTitle,
-    },
-  };
+//   const jsonLd = {
+//     '@context': 'http://schema.org',
+//     '@type': 'WebPage',
+//     name: title,
+//     description: description,
+//     url: `${homepage}${path}`,
+//     publisher: {
+//       '@type': 'ProfilePage',
+//       name: siteTitle,
+//     },
+//   };
 
-  return (
-    <Helmet encodeSpecialCharacters={false}>
-      <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-    </Helmet>
-  );
-}
+//   return (
+//     <Helmet encodeSpecialCharacters={false}>
+//       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+//     </Helmet>
+//   );
+// }
 
 export function AuthorJsonLd({ author = {} }) {
   const { homepage = '' } = config;

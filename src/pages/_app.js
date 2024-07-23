@@ -1,11 +1,20 @@
+import NextApp from "next/app";
 import "@/styles/globals.css";
 import { ReactLenis } from 'lenis/react';
 import { DefaultSeo } from "next-seo";
+import { getSiteMetadata } from '@/lib/site';
+import { SiteContext, useSiteContext } from '@/hooks/use-site';
 import { AnimatePresence } from "framer-motion";
 
-export default function App({ Component, pageProps, router }) {
+export default function App({ Component, pageProps = {}, router, metadata }) {
+
+  const site = useSiteContext({
+    metadata,
+  });
+
   return (
-    <>
+  <>
+
       <DefaultSeo
         title="Branding & Communication Agency in Dubai - Yellow Agency"
         description="Welcome to Yellow: your trusted branding, marketing, & design agency in Dubai. We specialize in crafting brand stories & innovative marketing strategies. Let your brand shine with expert services. Contact today!"
@@ -60,12 +69,22 @@ export default function App({ Component, pageProps, router }) {
           cardType: 'summary_large_image',
         }}
       />
-
-      <ReactLenis root>
-        <AnimatePresence mode="wait">
+    <SiteContext.Provider value={site}>
+        <ReactLenis root lerp={0.3}>
+          <AnimatePresence mode="wait">
           <Component {...pageProps} key={router.route} />
-        </AnimatePresence>
+          </AnimatePresence>
       </ReactLenis>
+    </SiteContext.Provider>
     </>
   );
 }
+
+App.getInitialProps = async function (appContext) {
+  const appProps = await NextApp.getInitialProps(appContext);
+
+  return {
+    ...appProps,
+    metadata: await getSiteMetadata(),
+  };
+};
