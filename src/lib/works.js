@@ -15,6 +15,7 @@ import {
   QUERY_WORK_PER_PAGE,
   GET_HOME_PAGE_WORKS,
   QUERY_WORKCATEGORY_BY_ID_FOR_WORKS,
+  GET_RELATED_WORKS,
 } from '../data/works';
 
 /**
@@ -302,33 +303,29 @@ export function mapWorkData(work = {}) {
 /**
  * getRelatedWorks
  */
+export async function getRelatedWorks(workId, count = 3) {
+  if (!workId) return;
 
-export async function getRelatedWorks(workcategories, workId, count = 3) {
-  if (!Array.isArray(workcategories) || workcategories.length === 0) return;
+  const apolloClient = getApolloClient();
 
-  let related = {
-    workcategory: workcategories && workcategories.shift(),
-  };
+  const { data } = await apolloClient.query({
+    query: GET_RELATED_WORKS,
+    variables: {
+      first: 1,
+      count: count,
+      workId: workId,
+      notIn: [workId]
+    },
+  });
 
-  if (related.workcategory) {
-    const { works } = await getWorksByWorkCategoryId({
-      workcategoryId: related.workcategory.databaseId,
-      queryIncludes: 'archive',
-    });
+  const works = data?.work?.workcategories?.edges?.flatMap(edge => edge.node.works.edges.map(edge => edge.node)) || [];
+  const filtered = works.filter(({ databaseId: id }) => id !== workId);
+  const sorted = sortObjectsByDate(filtered);
 
-    const filtered = works.filter(({ workId: id }) => id !== workId);
-    const sorted = sortObjectsByDate(filtered);
+  const related = sorted.map((work) => ({ title: work.title, slug: work.slug, featuredImage: work.workFields.featuredImagevideo.node.mediaItemUrl, description: work.excerpt, categories: work.workcategories.edges }));
 
-    related.works = sorted.map((work) => ({ title: work.title, slug: work.slug }));
-  }
-
-  if (!Array.isArray(related.works) || related.works.length === 0) {
-    const relatedWorks = await getRelatedWorks(workcategories, workId, count);
-    related = relatedWorks || related;
-  }
-
-  if (Array.isArray(related.works) && related.works.length > count) {
-    return related.works.slice(0, count);
+  if (related.length > count) {
+    return related.slice(0, count);
   }
 
   return related;

@@ -440,3 +440,31 @@ body{
   }
 
 }
+
+
+/* Work Detail Page */
+.fullSizeImage{
+  width: 100%;
+  margin-bottom: 2.5vw;
+}
+.wp-block-gallery{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2.5vw;
+  margin-bottom: 2.5vw;
+}
+.info-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 8%;
+  margin-bottom: 8%;
+  gap: 2.5vw;
+}
+.info-container .is-layout-constrained{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5vw;
+}

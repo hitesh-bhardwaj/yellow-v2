@@ -97,21 +97,22 @@ export const QUERY_WORK_BY_SLUG = gql`
       }
       content
       date
-      excerpt
-      featuredImage {
-        node {
-          altText
-          caption
-          sourceUrl
-          srcSet
-          sizes
-          id
-        }
-      }
-      modified
       databaseId
       title
       slug
+      workId
+      workFields {
+        information {
+          description
+          industry
+          subheading
+          detailPageFeaturedImageVideo {
+            node {
+              mediaItemUrl
+            }
+          }
+        }
+      }
     }
   }
 `;
@@ -258,6 +259,47 @@ export const GET_HOME_PAGE_WORKS = gql`
         workcategories {
           nodes {
             name
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_RELATED_WORKS = gql`
+  query WorkByWorkCategoryUsingWorkID($first: Int = 1, $count: Int = 3, $workId: ID!, $notIn: [ID] = []) {
+    work(id: $workId, idType: DATABASE_ID) {
+      id
+      databaseId
+      workcategories(first: $first) {
+        edges {
+          node {
+            name
+            works(first: $count, where: {notIn: $notIn}) {
+              edges {
+                node {
+                  slug
+                  workFields {
+                    featuredImagevideo {
+                      node {
+                        mediaItemUrl
+                      }
+                    }
+                  }
+                  title
+                  excerpt
+                  workcategories {
+                    edges {
+                      node {
+                        id
+                        slug
+                        name
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }

@@ -25,7 +25,7 @@ export default function Pagehero({post}) {
           </div>
           <FeaturedImage 
             src={post.featuredImage.sourceUrl}
-            alt={post.featuredImage.alt}
+            alt={post.title}
             sizes={post.featuredImage.sizes}
             fill
           />

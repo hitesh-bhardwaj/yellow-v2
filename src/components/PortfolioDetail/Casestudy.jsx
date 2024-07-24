@@ -10,8 +10,6 @@ export default function Casestudy() {
           <div className="grid grid-cols-2 gap-x-[2.5vw] gap-y-[4vw] mobile:flex mobile:flex-col mobile:gap-y-[7vw]">
             <div className="">
               <SectionTitle data-title-anim className="text-[4.8vw] mb-[3vw] leading-[1.1] font-display w-[70%] mobile:w-full mobile:normal-case mobile:order-1 mobile:mb-[7vw] " text={"The Art of Rebellion"}/>
-                
-              
               <div className="text-[1.2vw] font-medium flex flex-wrap gap-[0.5vw] w-[70%] mobile:order-4 mobile:text-[4vw] mobile:w-full mobile:gap-[2vw] tablet:text-[2vw] tablet:gap-[0.8vw]">
                 <p className="border-[1px] border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup mobile:px-[3vw] mobile:py-[1.5vw]">
                   Brand Strategy
@@ -85,7 +83,7 @@ export default function Casestudy() {
               <h3 data-title-anim className="font-display text-[3vw] mobile:text-[10vw] tablet:text-[5vw] ">Why Maveroc</h3>
             </div>
             <div className="col-start-2">
-              <p className="text-[1.4vw] font-medium mobile:text-[4.5vw] mobile:font-normal tablet:text-[2vw]">
+              <p className="text-[1.4vw] font-medium mobile:text-[4.5vw] mobile:font-normal tablet:text-[2vw] ">
                 <span data-para-anim className="mb-[2vw]">
                   Naming is always one of the most challenging aspects of
                   creating a brand. It&apos;s incredibly personal, subjective and
@@ -96,6 +94,7 @@ export default function Casestudy() {
                   of names)! And thus Maveroc was born.
                 </span>
                 <br />
+                
                 <span data-para-anim>
                   With a strategic foundation in place, a name we all fell in
                   love with and the essence of rebellion at the heart of the

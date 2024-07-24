@@ -1,88 +1,85 @@
 /* eslint-disable no-unused-vars */
 import { Helmet } from 'react-helmet';
-
-import { getPostBySlug, getRecentPosts, getRelatedPosts } from '@/lib/posts';
-import { ArticleJsonLd } from '@/lib/json-ld';
 import { helmetSettingsFromMetadata } from '@/lib/site';
 import useSite from '@/hooks/use-site';
 import usePageMetadata from '@/hooks/use-page-metadata';
-
 import Layout from '@/components/Layout';
-import PageHero from '@/components/blog-detail/PageHero';
-import FeaturedImage from '@/components/blog-detail/FeaturedImage';
-import Categories from '@/components/blog-detail/Categories';
-import Content from '@/components/blog-detail/Content';
 import RelatedBlogs from '@/components/blog-detail/RelatedBlogs';
-import { getRecentWorks, getWorkBySlug } from '@/lib/works';
+import { getRecentWorks, getRelatedWorks, getWorkBySlug } from '@/lib/works';
+import Pagehero from '@/components/PortfolioDetail/Pagehero';
+import Section from '@/components/Section';
+import Information from '@/components/PortfolioDetail/Information';
+import styles from "@/styles/work.module.css";
+import RelatedWorks from '@/components/PortfolioDetail/RelatedWorks';
 
-export default function Work({ work, socialImage, relatedPosts }) {
+export default function Work({ work, socialImage, relatedWorks }) {
   const {
     title,
     metaTitle,
     description,
     content,
     date,
-    categories,
-    featuredImage,
+    workFields,
+    workcategories,
     slug
   } = work;
 
-  // const { metadata: siteMetadata = {}, homepage } = useSite();
+  console.log(relatedWorks);
 
-  // if (!post.og) {
-  //   post.og = {};
-  // }
+  const { metadata: siteMetadata = {}, homepage } = useSite();
 
-  // post.og.imageUrl = `${homepage}/${socialImage}`;
-  // post.og.imageSecureUrl = post.og.imageUrl;
-  // post.og.imageWidth = 2000;
-  // post.og.imageHeight = 1000;
+  if (!work.og) {
+    work.og = {};
+  }
 
-  // const { metadata } = usePageMetadata({
-  //   metadata: {
-  //     ...post,
-  //     title: metaTitle,
-  //     description: description || post.og?.description || `Read more about ${title}`,
-  //   },
-  // });
+  work.og.imageUrl = `${homepage}/${socialImage}`;
+  work.og.imageSecureUrl = work.og.imageUrl;
+  work.og.imageWidth = 2000;
+  work.og.imageHeight = 1000;
 
-  // if (process.env.WORDPRESS_PLUGIN_SEO !== true) {
-  //   metadata.title = `${title} - ${siteMetadata.title}`;
-  //   metadata.og.title = metadata.title;
-  //   metadata.twitter.title = metadata.title;
-  // }
+  const { metadata } = usePageMetadata({
+    metadata: {
+      ...work,
+      title: metaTitle,
+      description: description || work.og?.description || `Read more about ${title}`,
+    },
+  });
 
-  // const helmetSettings = helmetSettingsFromMetadata(metadata);
+  if (process.env.WORDPRESS_PLUGIN_SEO !== true) {
+    metadata.title = `${title} - ${siteMetadata.title}`;
+    metadata.og.title = metadata.title;
+    metadata.twitter.title = metadata.title;
+  }
+
+  const helmetSettings = helmetSettingsFromMetadata(metadata);
 
   return (
     <Layout>
-      {/* <Helmet {...helmetSettings} /> */}
-      {/* <ArticleJsonLd post={post} siteTitle={siteMetadata.title} /> */}
-
-        {/* <PageHero>
-          {featuredImage && (
-            <FeaturedImage
-              src={featuredImage.sourceUrl}
-              alt={featuredImage.altText}
-              sizes={featuredImage.sizes}
-            />
-          )}
-          <h1
-            className="text-[4.8vw] font-display leading-[1.2] w-[90%] mb-[3vw] capitalize"
+      <Helmet {...helmetSettings} />
+      <Pagehero
+        src={workFields.information.detailPageFeaturedImageVideo.node.mediaItemUrl}
+        workcategories={workcategories}
+        date={date}
+        title={title}
+      />
+      <Information 
+        info={workFields.information}
+        title={title}
+        categories={workcategories}
+      />
+      <Section id="work-content">
+        <div className='container'>
+          <div
+            className={styles.work}
             dangerouslySetInnerHTML={{
-              __html: title,
+              __html: content,
             }}
           />
-          <Categories
-            categories={categories}
-          />
-        </PageHero> */}
-
-        <Content date={date} content={content} link={slug}/>
-
-        {/* {relatedPosts && relatedPosts.length > 0 && (
-          <RelatedBlogs posts={relatedPosts}/>
-        )} */}
+        </div>
+      </Section>
+      {relatedWorks && relatedWorks.length > 0 && (
+        <RelatedWorks works={relatedWorks}/>
+      )}
     </Layout>
   );
 }
@@ -98,22 +95,17 @@ export async function getStaticProps({ params = {} } = {}) {
     };
   }
 
-  // const { categories, databaseId: postId } = post;
+  const { databaseId: workId } = work;
+
+    // Fetch related works
+    const relatedData = await getRelatedWorks(workId);
+    const relatedWorks = relatedData || [];
 
   const props = {
     work,
     socialImage: `${process.env.OG_IMAGE_DIRECTORY}/${workSlug}.png`,
+    relatedWorks,
   };
-
-  // const relatedData = await getRelatedPosts(categories, postId);
-  // console.log('Related Data:', relatedData); 
-
-  // const { category: relatedCategory, posts: relatedPosts } = relatedData || {};
-  // const hasRelated = relatedCategory && Array.isArray(relatedPosts) && relatedPosts.length;
-
-  // if (hasRelated) {
-  //   props.relatedPosts = relatedPosts;
-  // }
 
   return {
     props,
