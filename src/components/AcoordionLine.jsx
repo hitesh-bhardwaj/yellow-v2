@@ -26,7 +26,7 @@ function AccordionLine() {
   const setPath = (value) => {
     if (!path.current) return;
 
-    const width = window.innerWidth/1.8;
+    const width = window.innerWidth/1.85;
     const height = 100;
     const controlX = width * x; // Keep the control point in the center
 

@@ -22,14 +22,23 @@ export default function values() {
           // markers: true,
         },
       });
-      tl.from(".card1", {
+      gsap.from(".card1", {
         yPercent: 100,
+        
+        duration: 4,
+      
+        scrollTrigger:{
+           trigger:".card-block",
+           start:"top 70%",
+           end:"top -=400",
+          //  markers:true,
+           scrub:true
 
-        duration: 2,
-        delay: -3,
+        },
+        
         ease: "power1.out",
       })
-        .from(".card2", {
+        tl.from(".card2", {
           yPercent: 140,
 
           duration: 2,

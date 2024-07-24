@@ -120,6 +120,13 @@ body{
   width: 83vw;
   margin-left: 0;
 }
+.inputt span{
+  font-size: 1.5vw;
+  color: #000;
+}
+.career input{
+  height: 2vw;
+}
 /* Hide First Element */
 .hide-first .hide-first-child:first-of-type .hide{
   display: none;

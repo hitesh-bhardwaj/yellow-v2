@@ -54,35 +54,40 @@ function CareerForm() {
         <div className="container h-full ">
           <Form {...form}>
             <form className="w-full h-full border rounded-[50px] border-black py-[5vw] px-[5vw]">
-              <div className="w-full border-b border">
+              <div className="w-full border-b border career-input">
                 <Select>
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Select a fruit" />
+                  <SelectTrigger className="w-full placeholder:text-[2vw]">
+                    <SelectValue placeholder="Which role are you applying for?" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
                       <SelectLabel>Fruits</SelectLabel>
-                      <SelectItem value="apple">Apple</SelectItem>
-                      <SelectItem value="banana">Banana</SelectItem>
-                      <SelectItem value="blueberry">Blueberry</SelectItem>
-                      <SelectItem value="grapes">Grapes</SelectItem>
-                      <SelectItem value="pineapple">Pineapple</SelectItem>
+                      <SelectItem value="role1">role1</SelectItem>
+                      <SelectItem value="role2">role2</SelectItem>
+                      <SelectItem value="role3">role3</SelectItem>
+                      <SelectItem value="role4">role4</SelectItem>
+                      <SelectItem value="role5">role5</SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>
               </div>
+              <div className="w-[50%] flex flex-col">
+                <p className="text-[1.5vw] font-medium">Your name*</p>
               <FormField
             control={form.control}
             name="name"
             render={({ field }) => (
-              <FormItem className="h-full flex justify-center">
+              <FormItem className="h-full flex justify-center career">
                 <FormControl>
-                  <Input placeholder="Type your name*" {...field} />
+                  <Input placeholder="" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
+
+              </div>
+             
            <FormField
             control={form.control}
             name="email"

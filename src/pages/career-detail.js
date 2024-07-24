@@ -3,6 +3,7 @@ import Overview from '@/components/career-detail/Overview'
 import Pagehero from '@/components/career-detail/Pagehero'
 import Layout from '@/components/Layout'
 import { titleAnim , paraAnim , lineAnim, imageAnim ,fadeIn } from '@/components/gsapAnimations';
+import CareerForm from '@/components/career-detail/CareerForm';
 
 export default function careerdetail() {
   titleAnim();
@@ -15,7 +16,7 @@ export default function careerdetail() {
     <Layout>
         <Pagehero/>
         <Overview/>
-        {/* <CareerForm/> */}
+        <CareerForm/>
     </Layout>
     </>
   )

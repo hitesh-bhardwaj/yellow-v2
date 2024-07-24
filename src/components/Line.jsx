@@ -4,7 +4,7 @@ function Line() {
   const path = useRef(null);
 
   let progress = 0;
-  let x = 0.4; // Center of the screen
+  let x = 0.5; // Center of the screen
   let reqId = null;
   let time = Math.PI / 2;
 
@@ -26,7 +26,7 @@ function Line() {
   const setPath = (value) => {
     if (!path.current) return;
 
-    const width = window.innerWidth;
+    const width = window.innerWidth - window.innerWidth*0.1;
     const height = 100;
     const controlX = width * x; // Keep the control point in the center
 
@@ -65,7 +65,7 @@ function Line() {
     setPath(newProgress);
 
     progress = lerp(progress, 0, 0.05);
-    time += 0.5;
+    time += 0.3;
 
     if (Math.abs(progress) > 0.1) {
       reqId = requestAnimationFrame(animateOut);
