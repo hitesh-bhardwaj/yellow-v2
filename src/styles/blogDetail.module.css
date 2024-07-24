@@ -288,15 +288,19 @@
 @media screen and (max-width: 640px) {
     .blogContent h2{
         font-size: 6vw;
+        margin-top: 5vw;
     }
     .blogContent h3{
         font-size: 5.2vw;
+        margin-top: 5vw;
     }
     .blogContent h4{
         font-size: 4.8vw;
+        margin-top: 5vw;
     }
     .blogContent h5 {
         font-size: 4.5vw;
+        margin-top: 5vw;
     }
     .blogContent h6{
         font-size: 4.2vw;

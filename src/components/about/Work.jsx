@@ -9,7 +9,7 @@ export default function Work() {
     <section className='w-full h-full   bg-black' id='work'>
       <div className='container bg-white py-[8%] mobile:py-[15%]'>
       <div className='w-full flex justify-between mb-[5vw] mobile:flex-col mobile:mb-[10vw]'>
-        <div className='w-[50%]'>
+        <div className='w-[50%] mobile:w-full'>
         <SectionTitle text={"Our work"} className={"mb-[3vw]"}/>
         <p data-para-anim className="text-[1.9vw] w-[60%] font-medium leading-[1.2] mobile:w-[90%] mobile:text-[5vw] mobile:mb-[7vw] tablet:w-[80%] tablet:text-[2.5vw]">
         We grow amazing companies through exceptional branding and communications.

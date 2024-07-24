@@ -96,7 +96,7 @@ export default function About() {
               path to elevate your brand to its full potential.
             </p>
           </div>
-          <div className="h-[1px] col-span-3 bg-black mt-[4vw] lineDraw hidden mobile:block tablet:block"></div>
+          <div className="h-[1px] col-span-3 bg-black my-[4vw] lineDraw hidden mobile:block tablet:block"></div>
           <div  className="my-[3vw] col-span-3 tablet:hidden mobile:hidden">
           <Line/>
 

@@ -16,7 +16,7 @@ const Category = ({ category, posts, categories }) => {
       <main>
         <Section id="hero">
           <div className="container">
-            <div className='pt-[10%]'>
+            <div className='pt-[10%] tablet:pt-[15%] mobile:pt-[25%]'>
               <h1 className='text-[5.7vw] font-display leading-[1.2]'>
                 {category.name} Blogs
               </h1>
@@ -31,7 +31,7 @@ const Category = ({ category, posts, categories }) => {
 
             <div className="bg-gray-400 h-[1px] w-screen ml-[-5vw]" />
             
-            <div className='w-full h-full grid grid-cols-3 gap-[2vw] mb-[3vw] mt-[5vw]'>
+            <div className='w-full h-full grid grid-cols-3 gap-[2vw] mb-[3vw] mt-[5vw] tablet:grid-cols-2 tablet:gap-y-[4vw] tablet:gap-x-[3vw] mobile:grid-cols-1 mobile:gap-[5vw]'>
               {posts.map((post, index) => (
                 <div
                   key={post.slug}

@@ -5,7 +5,7 @@ const Pagehero = (({ children }) => {
   return (
     <>
       <Section id='hero'>
-        <div className='container pt-[8vw]'>
+        <div className='container pt-[8vw] mobile:relative tablet:pt-[15vw]'>
           <div className='flex flex-col items-start justify-start'>
             {children}
           </div>

@@ -11,7 +11,7 @@ module.exports = {
   theme: {
     screens: {
       'mobile':{'max':'540px'},
-      'tablet':{'min':'541px','max':'1023px'}
+      'tablet':{'min':'541px','max':'1024px'}
     },
     fontFamily: {
       'display': ['Outfit', 'Arial', 'sans-serif'],

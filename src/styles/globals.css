@@ -114,10 +114,11 @@ body{
   margin: 0 2vw;
 }
 .form-detail input{
-  width: 20vw;
+  width: 24vw;
 }
-.details input{
-  width: 80vw;
+.detail input{
+  width: 83vw;
+  margin-left: 0;
 }
 /* Hide First Element */
 .hide-first .hide-first-child:first-of-type .hide{
@@ -371,6 +372,18 @@ body{
     backface-visibility: hidden;
      transform: perspective(900px) rotateY(0deg);
   }
+
+  .form input{
+    width: 85vw;
+    height: 3vw;
+    margin: 0 2vw;
+  }
+  .form-detail input{
+    width: 85vw;
+  }
+  .details input{
+    width: 84vw;
+  }
   
   
 }
@@ -437,6 +450,17 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .form input{
+    width: 85vw;
+    height: 4vw;
+    margin: 0 2vw;
+  }
+  .form-detail input{
+    width: 45vw;
+  }
+  .details input{
+    width: 84vw;
   }
 
 }

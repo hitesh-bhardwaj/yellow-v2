@@ -12,8 +12,16 @@ import Categories from '@/components/blog-detail/Categories';
 import Content from '@/components/blog-detail/Content';
 import RelatedBlogs from '@/components/blog-detail/RelatedBlogs';
 import Pagehero from '@/components/blog-detail/Pagehero';
+import { titleAnim , paraAnim , lineAnim, imageAnim, fadeIn , fadeUp} from '@/components/gsapAnimations';
 
 export default function Post({ post, socialImage, relatedPosts }) {
+  titleAnim();
+    paraAnim();
+    lineAnim();
+    imageAnim();
+    fadeIn();
+    fadeUp();
+
   const {
     title,
     metaTitle,
@@ -59,21 +67,27 @@ export default function Post({ post, socialImage, relatedPosts }) {
 
         <Pagehero>
           {featuredImage && (
-            <FeaturedImage
+            <div className='mobile:relative mobile:h-[60vh] mobile:w-full tablet:w-full'>
+                <FeaturedImage
               src={featuredImage.sourceUrl}
               alt={featuredImage.altText}
               sizes={featuredImage.sizes}
             />
+            </div>
+          
           )}
-          <h1
-            className="text-[4.8vw] font-display leading-[1.2] w-[90%] mb-[3vw] capitalize"
+          <h1 data-para-anim
+            className="text-[4.8vw] font-display leading-[1.2] w-[90%] mb-[3vw] capitalize mobile:text-[10vw] mobile:mt-[7vw] tablet:text-[5.5vw]"
             dangerouslySetInnerHTML={{
               __html: title,
             }}
           />
+          <div className='mobile:w-full mobile:my-[4vw] tablet:my-[1vw]'>
           <Categories
             categories={categories}
-          />
+          /> 
+          </div>
+        
         </Pagehero>
 
         <Content date={date} content={content} link={slug}/>

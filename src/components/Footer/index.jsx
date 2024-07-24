@@ -138,7 +138,7 @@ const Footer = () => {
                 <div className="fixed bottom-0 left-0 right-0 top-0 z-[-1] pb-[2vw] mobile:static tablet:static">
                     <div ref={footerContainer} className="container flex h-full flex-col justify-end text-white footer-bottom mobile:justify-center">
                         <div className="flex items-start w-full justify-between mb-[8vw] mobile:flex-col mobile:items-center tablet:mb-[12vw]">
-                            <div className="w-[40%] flex flex-col gap-[2vw] items-start mobile:w-full mobile:items-center mobile:gap-[12vw] tablet:w-full tablet:gap-[6vw] ">
+                            <div className="w-[40%] flex flex-col gap-[2vw] items-start mobile:w-full mobile:items-center mobile:gap-[12vw] tablet:w-[80%] tablet:gap-[6vw] ">
                                 <h6 className="text-[2.5vw] font-display mobile:text-[6vw] tablet:text-[4vw]">
                                     <Link className="leading-[1.3] group" href="mailto:hello@welcometoyellow.com">
                                         <span className="relative after:absolute after:block after:bottom-[-2px] after:left-0 after:h-[2px] after:lineDraw after:w-full after:bg-current after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0">
@@ -169,7 +169,7 @@ const Footer = () => {
                                 <h6 className="text-[1.9vw] font-display leading-[1.2] mb-[1vw] mobile:text-[5vw] tablet:text-[3.5vw] mobile:uppercase mobile:text-center mobile:mb-[3vw]">Social</h6>
                                 <ul className="space-y-[1vw] mobile:space-y-[2vw]">
                                     <li>
-                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.5vw] mobile:flex mobile:justify-center" href="#" target="_blank">
+                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.3vw] mobile:flex mobile:justify-center" href="#" target="_blank">
                                             <span
                                                 className="link-line footer-social overflow-hidden block">
                                                 Linkedin
@@ -177,7 +177,7 @@ const Footer = () => {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.5vw] mobile:flex mobile:justify-center" href="#" target="_blank">
+                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.3vw] mobile:flex mobile:justify-center" href="#" target="_blank">
                                             <span
                                                 className="link-line footer-social overflow-hidden block">
                                                 Instagram
@@ -185,7 +185,7 @@ const Footer = () => {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.5vw] mobile:flex mobile:justify-center" href="#" target="_blank">
+                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.3vw] mobile:flex mobile:justify-center" href="#" target="_blank">
                                             <span
                                                 className="link-line footer-social overflow-hidden block">
                                                 behance
@@ -193,7 +193,7 @@ const Footer = () => {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.5vw] mobile:flex mobile:justify-center" href="#" target="_blank">
+                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.3vw] mobile:flex mobile:justify-center" href="#" target="_blank">
                                             <span
                                                 className="link-line footer-social overflow-hidden block">
                                                 Pinterest

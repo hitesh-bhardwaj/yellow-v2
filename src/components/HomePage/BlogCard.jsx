@@ -7,7 +7,8 @@ const BlogCard = ({title, src, date, link}) => {
     return (
         <div className="group hide-first-child">
            <Line/>
-            <div className="w-full flex justify-between items-start mt-[2vw] mb-[4vw] mobile:flex-col mobile:mt-[12vw]">
+           <div className="w-full bg-black lineDraw h-[1px] hidden mobile:block tablet:block"></div>
+            <div className="w-full flex justify-between items-start mt-[2vw] mb-[4vw] mobile:flex-col mobile:mt-[8vw]">
                 <div className="flex items-start gap-[2vw] mobile:flex-col">
                     <Link href="#">
                         <div className="h-[16.5vw] w-[26.5vw] relative rounded-[1.5vw] overflow-hidden imganim mobile:w-[85vw] mobile:h-[27vh] mobile:rounded-[20px] tablet:w-[30vw] tablet:h-[20vw]">

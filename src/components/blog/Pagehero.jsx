@@ -12,9 +12,9 @@ export default function Pagehero({post}) {
   return (
     <>
       <Section id="hero">
-        <div className="container pt-[10%] mobile:pt-[30%]">
-          <div className="w-full h-full">
-            <div className="mb-[5vw]">
+        <div className="container pt-[10%] mobile:pt-[30%] tablet:pt-[15%]">
+          <div className="w-full h-full ">
+            <div className="mb-[5vw] mobile:mb-[10vw]">
               <h1 data-para-anim className="text-[5.7vw] font-display leading-[1.2] mb-[4vw] mobile:text-[10vw] mobile:mb-[7vw]">
                 {post.title}
               </h1>

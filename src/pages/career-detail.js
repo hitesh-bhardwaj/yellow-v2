@@ -15,6 +15,7 @@ export default function careerdetail() {
     <Layout>
         <Pagehero/>
         <Overview/>
+        {/* <CareerForm/> */}
     </Layout>
     </>
   )

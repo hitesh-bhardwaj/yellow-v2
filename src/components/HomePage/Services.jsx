@@ -1,14 +1,16 @@
+/* eslint-disable no-unused-vars */
 import { useRef } from "react";
 import BlackButton from "../Button/BlackButton";
 import Section from "../Section";
 import SectionTitle from "../SectionTitle";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import Line from "../Line";
+import AccordionLine from "../AcoordionLine";
 
 const SingleAccordion = ({ id, title, content1, content2, btnLink, btnText }) => {
     return (
         <AccordionItem value={id}>
-            <Line/>
+            <AccordionLine/>
+            <div className="w-full bg-black lineDraw h-[1px] hidden mobile:block tablet:block"></div>
             <AccordionTrigger data-para-anim className="text-[2.2vw] mobile:text-[6vw] mobile:text-left mobile:flex mobile:w-full tablet:text-[4vw] tablet:text-left text-body font-display font-normal py-[3%] mobile:py-[10%]  accordion [&[data-state=open]>.line>.line-internal>.icon-container>.icon]:rotate-[90deg] [&[data-state=open]>.line>.line-internal>.icon-container>.icon>.minus]:rotate-90 [&[data-state=open]>.line>.line-internal>.icon-container>.icon]:bg-body [&[data-state=open]>.line>.line-internal>.icon-container>.icon]:text-white">
                 {title}
             </AccordionTrigger>
@@ -21,7 +23,6 @@ const SingleAccordion = ({ id, title, content1, content2, btnLink, btnText }) =>
                 </p>
                 <BlackButton btnLink={btnLink} btnText={btnText} className="text-[1.05vw] tablet:text-[2.5vw] mobile:text-[4vw]"/>
             </AccordionContent>
-            
         </AccordionItem>
     )
 }
