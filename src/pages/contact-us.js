@@ -15,9 +15,6 @@ export default function Contact() {
     fadeIn();
     fadeUp();
 
-
- 
-
   return (
     <>
     <Layout>

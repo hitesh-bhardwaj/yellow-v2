@@ -5,9 +5,6 @@ import { gsap } from "gsap/dist/gsap";
 import { CustomEase } from "gsap/dist/CustomEase";
 import { usePathname } from 'next/navigation';
 
-
-
-
 gsap.registerPlugin(CustomEase, useGSAP);
 
 const MenuLink = ({href, text, className=""}) => {
@@ -99,7 +96,6 @@ export default function Menu({ menuOpen }) {
                 className={`link-anim ${pathname=="/"?"text-gray-300 pointer-events-none":""}`}
                 href="/"
                 text="Home"
-                
               />
             </li>
             <li className="overflow-hidden tablet:mb-[2vw]">
@@ -107,7 +103,6 @@ export default function Menu({ menuOpen }) {
                   className={`link-anim ${pathname=="/about-us"?"text-gray-300 pointer-events-none":""}`}
                   href="/about-us"
                   text="About"
-                 
                 />
             </li>
             <li className="relative w-full tablet:mb-[2vw]">
@@ -119,7 +114,7 @@ export default function Menu({ menuOpen }) {
                   <div className="rounded-full border-white border text-white text-[25%] w-[2vw] h-[2vw] flex items-center justify-center mt-2 mobile:w-[7vw] mobile:h-[7vw] mobile:mt-0 tablet:w-[4vw] tablet:h-[4vw]">5</div>
                  </button>
               </div>
-              <ul className={`service-links text-[1.3vw] font-display absolute right-[-75%] pointer-events-none top-[1.5vw] pt-[1vw] leading-[1.5] transition-all duration-1000 ease-anim-primary mobile:text-[6vw] mobile:static mobile:right-auto mobile:mb-[5vw] mobile:mt-[2vw] tablet:right-[-65%] tablet:top-[50%] tablet:text-[2.5vw] ${serviceOpen ? "pointer-events-auto mobile:block" : "mobile:hidden"}`}>
+              <ul className={`service-links text-[1.3vw] font-body tracking-wide absolute right-[-75%] pointer-events-none top-[1.5vw] pt-[1vw] leading-[1.5] transition-all duration-1000 ease-anim-primary mobile:text-[6vw] mobile:static mobile:right-auto mobile:mb-[5vw] mobile:mt-[2vw] tablet:right-[-65%] tablet:top-[50%] tablet:text-[2.5vw] ${serviceOpen ? "pointer-events-auto mobile:block" : "mobile:hidden"}`}>
                 <li onClick={()=> {setServiceOpen(false)}} className={`absolute border rounded-full border-current p-[0.5vw] w-[1.8vw] flex items-center leading-[2] justify-center bottom-[90%] opacity-0 left-full cursor-pointer ease-out duration-500 mobile:static mobile:w-[7vw] mobile:flex  tablet:w-[4vw] tablet:h-[4vw]' ${serviceOpen ? "opacity-100" : ""} `} >
                   <svg className="w-full h-full " viewBox="0 0 46 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="3" y="1" width="60" height="4" rx="2" transform="rotate(45 3 1)" fill="currentColor"/>
@@ -130,42 +125,42 @@ export default function Menu({ menuOpen }) {
                   <MenuLink 
                     href="/what-we-do/brand-strategy"
                     text="Brand Strategy"
-                    
+                    className={`${pathname=="/what-we-do/brand-strategy"?"text-gray-300 pointer-events-none":""}`}
                   />
                 </li>
                 <li className="translate-x-[50px] opacity-0">
                   <MenuLink 
                     href="/what-we-do/brand-identity"
                     text="Brand Identity"
-                    
+                    className={`${pathname=="/what-we-do/brand-identity"?"text-gray-300 pointer-events-none":""}`}
                   />
                 </li>
                 <li className="translate-x-[50px] opacity-0">
                   <MenuLink 
                     href="/what-we-do/naming"
                     text="Naming"
-                    
+                    className={`${pathname=="/what-we-do/naming"?"text-gray-300 pointer-events-none":""}`}
                   />
                 </li>
                 <li className="translate-x-[50px] opacity-0">
                   <MenuLink 
                     href="/what-we-do/communication"
                     text="Communication"
-                   
+                    className={`${pathname=="/what-we-do/communication"?"text-gray-300 pointer-events-none":""}`}
                   />
                 </li>
                 <li className="translate-x-[50px] opacity-0">
                   <MenuLink 
                     href="/what-we-do/digital"
                     text="Digital"
-                   
+                    className={`${pathname=="/what-we-do/digital"?"text-gray-300 pointer-events-none":""}`}
                   />
                 </li>
                 <li className="translate-x-[50px] opacity-0">
                   <MenuLink 
+                    className={`text-[1.4vw] font-medium ${pathname=="/what-we-do"?"text-gray-300 pointer-events-none":""}`}
                     href="/what-we-do"
                     text="View All"
-                    
                   />
                 </li>
               </ul>

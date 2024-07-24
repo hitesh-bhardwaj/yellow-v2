@@ -14,7 +14,6 @@ export default function App({ Component, pageProps = {}, router, metadata }) {
 
   return (
   <>
-
       <DefaultSeo
         title="Branding & Communication Agency in Dubai - Yellow Agency"
         description="Welcome to Yellow: your trusted branding, marketing, & design agency in Dubai. We specialize in crafting brand stories & innovative marketing strategies. Let your brand shine with expert services. Contact today!"
@@ -42,6 +41,13 @@ export default function App({ Component, pageProps = {}, router, metadata }) {
           {
             rel: 'preload',
             href: '/assets/fonts/Outfit-Regular.woff2',
+            as: 'font',
+            type: 'font/woff2',
+            crossOrigin: 'anonymous',
+          },
+          {
+            rel: 'preload',
+            href: '/assets/fonts/Satoshi-Medium.woff2',
             as: 'font',
             type: 'font/woff2',
             crossOrigin: 'anonymous',

@@ -1,16 +1,15 @@
-/* eslint-disable no-unused-vars */
 import { Helmet } from 'react-helmet';
 import { helmetSettingsFromMetadata } from '@/lib/site';
 import useSite from '@/hooks/use-site';
 import usePageMetadata from '@/hooks/use-page-metadata';
 import Layout from '@/components/Layout';
-import RelatedBlogs from '@/components/blog-detail/RelatedBlogs';
 import { getRecentWorks, getRelatedWorks, getWorkBySlug } from '@/lib/works';
 import Pagehero from '@/components/PortfolioDetail/Pagehero';
 import Section from '@/components/Section';
 import Information from '@/components/PortfolioDetail/Information';
 import styles from "@/styles/work.module.css";
 import RelatedWorks from '@/components/PortfolioDetail/RelatedWorks';
+import { titleAnim , paraAnim , lineAnim, imageAnim , fadeUp } from '@/components/gsapAnimations';
 
 export default function Work({ work, socialImage, relatedWorks }) {
   const {
@@ -21,8 +20,13 @@ export default function Work({ work, socialImage, relatedWorks }) {
     date,
     workFields,
     workcategories,
-    slug
   } = work;
+
+  titleAnim();
+  paraAnim();
+  lineAnim();
+  imageAnim();
+  fadeUp();
 
   const { metadata: siteMetadata = {}, homepage } = useSite();
 

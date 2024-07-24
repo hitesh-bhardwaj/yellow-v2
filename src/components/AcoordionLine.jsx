@@ -21,7 +21,7 @@ function AccordionLine() {
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(reqId);
     };
-  }, []);
+  });
 
   const setPath = (value) => {
     if (!path.current) return;

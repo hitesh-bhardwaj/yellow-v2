@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 import { gsap } from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -9,12 +8,19 @@ import Section from '@/components/Section';
 import WorkCategories from '@/components/Portfolio/WorkCategories';
 import { getWorkCategories } from '@/lib/workcategories';
 import WorkCard from '@/components/Portfolio/WorkCard';
-
 import styles from "@/styles/blogDetail.module.css"
+import { titleAnim , paraAnim , lineAnim, imageAnim , fadeUp } from '@/components/gsapAnimations';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Works({ initialWorks, initialPagination, workcategories }) {
+
+  titleAnim();
+  paraAnim();
+  lineAnim();
+  imageAnim();
+  fadeUp();
+
   const [works, setWorks] = useState(initialWorks);
   const [pagination, setPagination] = useState(initialPagination);
   const [isLoading, setIsLoading] = useState(false);
