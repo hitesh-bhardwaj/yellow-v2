@@ -9,7 +9,7 @@ import WorkCategories from '@/components/Portfolio/WorkCategories';
 import { getWorkCategories } from '@/lib/workcategories';
 import WorkCard from '@/components/Portfolio/WorkCard';
 import styles from "@/styles/blogDetail.module.css"
-import { titleAnim , paraAnim , lineAnim, imageAnim , fadeUp } from '@/components/gsapAnimations';
+import { titleAnim , paraAnim , lineAnim , fadeUp } from '@/components/gsapAnimations';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,7 +18,6 @@ export default function Works({ initialWorks, initialPagination, workcategories 
   titleAnim();
   paraAnim();
   lineAnim();
-  imageAnim();
   fadeUp();
 
   const [works, setWorks] = useState(initialWorks);

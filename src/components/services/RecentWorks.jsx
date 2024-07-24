@@ -6,7 +6,7 @@ import LinkButton from '../Button/LinkButton'
 import { workPathBySlug } from '@/lib/works'
 import MediaRender from '../MediaRender'
 
-export default function RelatedWorks({works}) {
+export default function RecentWorks({works}) {
 
   return (
     <>
@@ -28,15 +28,13 @@ export default function RelatedWorks({works}) {
               <div key={work.slug} className='fadeup'>
                 <Link href={workPathBySlug(work.slug)} className='h-full w-full block relative'>
                   <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-none tablet:w-[41.5vw] tablet:h-[45vw]'>
-                    {work.featuredImage && (
-                      <MediaRender url={work.featuredImage} className='z-[0]'/>
-                    )}
+                    <MediaRender url={work.workFields.featuredImagevideo.node.mediaItemUrl} className='z-[0]'/>
                   </div>
                   <div className='absolute right-0 left-0 top-0 bottom-0 py-[2vw] px-[1.5vw] flex flex-col justify-between items-start'>
                     <div className="flex gap-[1vw]">
-                      {work.categories && work.categories.length > 0 && work.categories.slice(0, 2).map((category) => (
-                        <p key={category.node.slug} className="w-fit border border-current text-white rounded-full backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-black/5 tablet:text-[2vw]">
-                          {category.node.name}
+                      {work.workcategories.nodes && work.workcategories.nodes.length > 0 && work.workcategories.nodes.slice(0, 2).map((category) => (
+                        <p key={category.name} className="w-fit border border-current text-white rounded-full backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-black/5 tablet:text-[2vw]">
+                          {category.name}
                         </p>
                       ))}
                     </div>
@@ -44,7 +42,7 @@ export default function RelatedWorks({works}) {
                       <h3 data-title-anim className="text-[2vw] mb-[1vw] font-display mobile:text-[7vw] tablet:text-[4.5vw]">{work.title}</h3>
                       <div data-para-anim className="w-full text-[1.1vw] leading-[1.4] font-medium mobile:text-[4vw] mobile:w-full tablet:text-[2vw]"
                         dangerouslySetInnerHTML={{
-                          __html: work.description
+                          __html: work.excerpt
                         }}
                       />
                     </div>

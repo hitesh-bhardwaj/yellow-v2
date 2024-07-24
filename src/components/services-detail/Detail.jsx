@@ -72,16 +72,11 @@ export default function Detail() {
                   />
                 </div>
               </div>
-            
-              
-
               </div>
               <div className="h-[1px] col-span-3 bg-black my-[4vw] tablet:my-[6vw] lineDraw hidden tablet:block mobile:block"></div>
               <div className="my-[3vw] tablet:h-[2px] tablet:my-[6vw] tablet:hidden">
               <Line/>
               </div>
-             
-                
             </React.Fragment>
           ))}
           <div className="flex flex-col gap-[1.5vw] mobile:order-8 mobile:my-[5vw]">
