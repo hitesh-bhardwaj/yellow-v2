@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import Layout from '@/components/Layout'
-import Works from '@/components/Portfolio-detail/Works'
+import RelatedWorks from '@/components/Portfolio-detail/RelatedWorks'
 import Pagehero from '@/components/services/Pagehero'
 import ServiceList from '@/components/services/ServiceList'
 import { titleAnim , paraAnim , lineAnim, imageAnim, imgAnim , fadeUp} from '@/components/gsapAnimations';
@@ -18,7 +18,7 @@ export default function services() {
     <Layout>
         <Pagehero/>
         <ServiceList/>
-        <Works/>
+        <RelatedWorks/>
     </Layout>
     </>
   )

@@ -1,7 +1,7 @@
 import React from 'react'
 import Section from '../Section'
 
-const PageHero = (({ children }) => {
+const Pagehero = (({ children }) => {
   return (
     <>
       <Section id='hero'>
@@ -16,6 +16,6 @@ const PageHero = (({ children }) => {
   )
 })
 
-export default PageHero
+export default Pagehero
 
 

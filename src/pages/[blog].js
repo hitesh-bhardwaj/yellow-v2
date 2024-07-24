@@ -7,11 +7,11 @@ import useSite from '@/hooks/use-site';
 import usePageMetadata from '@/hooks/use-page-metadata';
 
 import Layout from '@/components/Layout';
-import PageHero from '@/components/blog-detail/PageHero';
 import FeaturedImage from '@/components/blog-detail/FeaturedImage';
 import Categories from '@/components/blog-detail/Categories';
 import Content from '@/components/blog-detail/Content';
 import RelatedBlogs from '@/components/blog-detail/RelatedBlogs';
+import Pagehero from '@/components/blog-detail/Pagehero';
 
 export default function Post({ post, socialImage, relatedPosts }) {
   const {
@@ -57,7 +57,7 @@ export default function Post({ post, socialImage, relatedPosts }) {
       <Helmet {...helmetSettings} />
       <ArticleJsonLd post={post} siteTitle={siteMetadata.title} />
 
-        <PageHero>
+        <Pagehero>
           {featuredImage && (
             <FeaturedImage
               src={featuredImage.sourceUrl}
@@ -74,7 +74,7 @@ export default function Post({ post, socialImage, relatedPosts }) {
           <Categories
             categories={categories}
           />
-        </PageHero>
+        </Pagehero>
 
         <Content date={date} content={content} link={slug}/>
 

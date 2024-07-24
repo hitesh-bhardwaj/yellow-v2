@@ -24,8 +24,6 @@ export default function Work({ work, socialImage, relatedWorks }) {
     slug
   } = work;
 
-  console.log(relatedWorks);
-
   const { metadata: siteMetadata = {}, homepage } = useSite();
 
   if (!work.og) {
