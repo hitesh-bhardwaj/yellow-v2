@@ -158,7 +158,7 @@ const Footer = () => {
                                         <Link href="tel:+971545178971" className="text-[1.15vw] font-medium text-shadow mobile:text-[4vw] mobile:flex mobile:justify-center tablet:text-[2.5vw]">
                                             <span
                                                 className="link-line footer-social overflow-hidden block">
-                                                +97 154 517 8971
+                                                +971 54 517 8971
                                             </span>
                                         </Link>
                                     </div>

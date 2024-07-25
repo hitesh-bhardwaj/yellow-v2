@@ -8,7 +8,6 @@ import Section from '@/components/Section';
 import WorkCategories from '@/components/Portfolio/WorkCategories';
 import { getWorkCategories } from '@/lib/workcategories';
 import WorkCard from '@/components/Portfolio/WorkCard';
-import styles from "@/styles/blogDetail.module.css"
 import { titleAnim , paraAnim , lineAnim , fadeUp } from '@/components/gsapAnimations';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -71,8 +70,8 @@ export default function Works({ initialWorks, initialPagination, workcategories 
                 const isFullWidth = index % 3 === 0;
                 const cardClass = isFullWidth ? 'col-span-2' : 'col-span-1';
                 return (
-                  <div key={work.slug} className={`work-card h-full ${cardClass} ${styles.postCard}`} style={{ animationDelay: `${index * 0.1}s` }}>
-                    <WorkCard work={work} index={index} />
+                  <div key={work.slug} className={`work-card h-full ${cardClass}`}>
+                    <WorkCard key={work.slug} work={work} index={index} />
                   </div>
                 );
               })}

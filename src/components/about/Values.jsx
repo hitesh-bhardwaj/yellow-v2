@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import SectionTitle from "../SectionTitle";
 import { CustomEase } from "gsap/dist/CustomEase";
+import Section from "../Section";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, CustomEase);
 
@@ -16,26 +17,20 @@ export default function values() {
         scrollTrigger: {
           trigger: ".card-section",
           pin: true,
-          scrub: 1,
+          scrub: 0.25,
           start: "top top",
           end: "=+3000 top",
-          // markers: true,
         },
       });
       gsap.from(".card1", {
         yPercent: 100,
-        
         duration: 4,
-      
         scrollTrigger:{
            trigger:".card-block",
            start:"top 70%",
            end:"top -=400",
-          //  markers:true,
-           scrub:true
-
+           scrub:0.25
         },
-        
         ease: "power1.out",
       })
         tl.from(".card2", {
@@ -112,8 +107,6 @@ export default function values() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".card-block",
-
-          
           start: "top 60%",
           end: "bottom 20%",
         },
@@ -130,17 +123,13 @@ export default function values() {
 
   return (
     <>
-      <section
-        className=" h-full w-full py-[5%] mobile:py-[15%] tablet:pt-[10%]"
-        id="values"
-      >
-        <div className="container card-block ">
+      <Section className="py-[5%] mobile:py-[15%] tablet:pt-[10%]" id="values">
+        <div className="container card-block">
           <SectionTitle
             data-title-anim
             className="text-[5.7vw] font-display uppercase mb-[3vw] mobile:mb-[5vw] "
             text={"Our Values"}
           />
-
           <p
             data-para-anim
             className="text-[2vw] w-[30%] font-medium leading-[1.2] mobile:w-[90%] mobile:text-[5vw] tablet:text-[2.5vw] tablet:w-[50%] "
@@ -236,7 +225,7 @@ export default function values() {
             </div>
           </div>
         </div>
-      </section>
+      </Section>
     </>
   );
 }

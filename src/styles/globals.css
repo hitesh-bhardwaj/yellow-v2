@@ -1,142 +1,148 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('./fonts.css');
-@import url('./button.css');
-@import url('./hamburger.css');
+@import url("./fonts.css");
+@import url("./button.css");
+@import url("./hamburger.css");
 
-:root{
+:root {
   --primary-color: #111111;
   --animation-primary: 0.735s cubic-bezier(0.62, 0.05, 0.01, 0.99);
 }
 
-.big-para{
+.big-para {
   font-size: 4vw;
 }
 
-.container{
-    max-width: 100%;
-    padding-right: 5%;
-    padding-left: 5%;
-    margin-left: auto;
-    margin-right: auto;
+.container {
+  max-width: 100%;
+  padding-right: 5%;
+  padding-left: 5%;
+  margin-left: auto;
+  margin-right: auto;
 }
 /* section{
   background-color: #ffffff;
 } */
 
-body{
-    font-family: 'Satoshi', Arial, sans-serif;
-    text-rendering: geometricPrecision;
-    color: var(--primary-color);
-    background-color: #ffffff;
-    overflow-x: hidden;
+body {
+  font-family: "Satoshi", Arial, sans-serif;
+  text-rendering: geometricPrecision;
+  color: var(--primary-color);
+  background-color: #ffffff;
+  overflow-x: hidden;
 }
 
-  #cursor {
-    transform: translate(-50%, -50%);
-    transition: transform 0.2s ease-out;
-  }
-
-  [data-title-anim],
-  [data-para-anim],
-  .lineWord {
-    font-kerning: none;
-  }
-  [data-title-anim] .line,
-  [data-para-anim] .line,
-  .lineWord .line {
-    overflow: hidden;
-  }
-
-  .textbreak .line{
-    width: fit-content !important;
-    background: linear-gradient(90deg, #1a1a1a 50%, #1a1a1a2e 0);
-    background-size: 200% 100%;
-    background-position-x: 100%;
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-    position: relative;
+#cursor {
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease-out;
 }
 
+[data-title-anim],
+[data-para-anim],
+.lineWord {
+  font-kerning: none;
+}
+[data-title-anim] .line,
+[data-para-anim] .line,
+.lineWord .line {
+  overflow: hidden;
+}
+
+.textbreak .line {
+  width: fit-content !important;
+  background: linear-gradient(90deg, #1a1a1a 50%, #1a1a1a2e 0);
+  background-size: 200% 100%;
+  background-position-x: 100%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  position: relative;
+}
 
 /* Services Section Accordion - HomePage */
-.accordion .line-internal{
+.accordion .line-internal {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
 }
-.accordion .line-internal span{
+.accordion .line-internal span {
   display: flex !important;
 }
 
 /* Blog Multiple Line Underline */
 .under-multi {
   text-decoration: none;
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0, 0)), linear-gradient(#ffffff, #ffffff);
-  background-size: 100% 0px, 0% 1px;
-  background-position: 100% 100%, 0 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0, 0)),
+    linear-gradient(#ffffff, #ffffff);
+  background-size:
+    100% 0px,
+    0% 1px;
+  background-position:
+    100% 100%,
+    0 100%;
   background-repeat: no-repeat, no-repeat;
-  transition: all 0.5s ease-out; 
+  transition: all 0.5s ease-out;
 }
 
 .under-multi-parent:hover .under-multi {
-  background-size: 100% 0px, 100% 1px;
+  background-size:
+    100% 0px,
+    100% 1px;
 }
 
 /* Link Hover Animation */
-.link-line{
+.link-line {
   width: fit-content;
   position: relative;
 }
-.link-line::after{
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: 0em;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: currentColor;
-    transform-origin: right;
-    transition: transform var(--animation-primary);
-    transform: scaleX(0) rotate(0.001deg);
+.link-line::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0em;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform-origin: right;
+  transition: transform var(--animation-primary);
+  transform: scaleX(0) rotate(0.001deg);
 }
 .link-line:hover::after {
   transform-origin: left;
   transform: scaleX(1) rotate(0.001deg);
 }
 
-.form input{
+.form input {
   width: 50vw;
   height: 3vw;
   margin: 0 2vw;
 }
-.form-detail input{
+.form-detail input {
   width: 24vw;
 }
-.detail input{
+.detail input {
   width: 83vw;
   margin-left: 0;
 }
-.inputt span{
+.inputt span {
   font-size: 1.5vw;
   color: #000;
 }
-.career input{
+.career input {
   height: 2vw;
 }
 /* Hide First Element */
-.hide-first .hide-first-child:first-of-type .hide{
+.hide-first .hide-first-child:first-of-type .hide {
   display: none;
 }
 
 .imageanim {
   --beforeHeight: 100%;
 }
-.imageanim::before{
-  content:"";
+.imageanim::before {
+  content: "";
   position: absolute;
   width: var(--beforeHeight);
   height: 100%;
@@ -150,133 +156,103 @@ body{
 .imganim {
   --beforeHeight: 100%;
 }
-.imganim::before{
-  content:"";
+.imganim::before {
+  content: "";
   position: absolute;
   height: var(--beforeHeight);
   width: 100%;
   bottom: 0;
-  
+
   display: block;
   background-color: #ffffff;
   z-index: 2;
   /* transition: width .8s cubic-bezier(.54,.54,.14,.99); */
 }
 
-
 /* our work number animation */
 .counter {
-  
   left: 150px;
   bottom: 150px;
   display: flex;
-  
+
   height: 100px;
   font-size: 100px;
   line-height: 102px;
   clip-path: polygon(0 0, 100% 0, 100% 100px, 0 100px);
   font-weight: 400;
-	color: #000;
-	
-	overflow: hidden;
+  color: #000;
+
+  overflow: hidden;
 }
 
 .counter-1,
 .counter-2,
 .counter-3,
-.counter-4{
+.counter-4 {
   position: relative;
   top: -15px;
-	
 }
 .count {
-  
   left: 150px;
   bottom: 150px;
   display: flex;
-  
+
   height: 100px;
   font-size: 100px;
   line-height: 102px;
   clip-path: polygon(0 0, 100% 0, 100% 100px, 0 100px);
   font-weight: 400;
-	color: #000;
-	
-	overflow: hidden;
-}
+  color: #000;
 
+  overflow: hidden;
+}
 
 .count-2,
 .count-3,
-.count-4{
+.count-4 {
   position: relative;
   top: -15px;
-	
 }
 
 /* cards anmation */
-.cardback{
+.cardback {
   backface-visibility: hidden;
-   transform: perspective(900px) rotateY(180deg);
+  transform: perspective(900px) rotateY(180deg);
 }
-.cardfront{
+.cardfront {
   backface-visibility: hidden;
 
   transform: perspective(1200px) rotateY(0deg);
 }
-.linne{
-
+.linne {
   height: 1px;
-
   position: relative;
-
   width: 100%;
-
-  margin-bottom: 20px;
-
 }
-.linne svg{
-
+.linne svg {
   position: absolute;
-
   height: 100px;
-
   width: 100%;
-
   top: -50px;
-
 }
 
-.linne svg path{
-
+.linne svg path {
   stroke-width: 1px;
-
   stroke: black;
-
   fill: none;
-
 }
-.box{
-
+.box {
   height: 40px;
-
   width: 100%;
-
   display: flex;
-
   position: relative;
-
   top: -20px;
-
   z-index: 1;
-
 }
-.box:hover{
-
+.box:hover {
   height: 150px;
 
   top: -75px;
-
 }
 /* .emoji{
   transform: rotateZ(10deg);
@@ -317,8 +293,8 @@ body{
 }
 
 /* mobile css */
-@media screen and (max-width:541px) {
-  .container{
+@media screen and (max-width: 541px) {
+  .container {
     max-width: 100%;
     padding-right: 7%;
     padding-left: 7%;
@@ -326,77 +302,67 @@ body{
     margin-right: auto;
   }
   .counter {
-  
-  
     bottom: 150px;
     display: flex;
-    
+
     height: 70px;
     font-size: 12vw;
     line-height: 102px;
     clip-path: polygon(0 0, 100% 0, 100% 100px, 0 100px);
     font-weight: 400;
     color: #000;
-    
+
     overflow: hidden;
   }
-  
+
   .counter-1,
   .counter-2,
   .counter-3,
-  .counter-4{
+  .counter-4 {
     position: relative;
     top: -15px;
-    
   }
   .count {
-    
-  
     bottom: 150px;
     display: flex;
-    
+
     height: 70px;
-    font-size:12vw;
+    font-size: 12vw;
     line-height: 102px;
     clip-path: polygon(0 0, 100% 0, 100% 100px, 0 100px);
     font-weight: 400;
     color: #000;
-    
+
     overflow: hidden;
   }
-  
-  
+
   .count-2,
   .count-3,
-  .count-4{
+  .count-4 {
     position: relative;
     top: -15px;
-    
   }
 
-
-  .cardback{
+  .cardback {
     backface-visibility: hidden;
-     transform: perspective(900px) rotateY(0deg);
+    transform: perspective(900px) rotateY(0deg);
   }
 
-  .form input{
+  .form input {
     width: 85vw;
     height: 3vw;
     margin: 0 2vw;
   }
-  .form-detail input{
+  .form-detail input {
     width: 85vw;
   }
-  .details input{
+  .details input {
     width: 84vw;
   }
-  
-  
 }
 
-@media  screen and (min-width:540px) and (max-width:1023px){
-  .container{
+@media screen and (min-width: 540px) and (max-width: 1023px) {
+  .container {
     max-width: 100%;
     padding-right: 7%;
     padding-left: 7%;
@@ -404,88 +370,79 @@ body{
     margin-right: auto;
   }
   .counter {
-  
-  
     bottom: 150px;
     display: flex;
-    
+
     height: 70px;
     font-size: 6vw;
     line-height: 102px;
     clip-path: polygon(0 0, 100% 0, 100% 100px, 0 100px);
     font-weight: 400;
     color: #000;
-    
+
     overflow: hidden;
   }
-  
+
   .counter-1,
   .counter-2,
   .counter-3,
-  .counter-4{
+  .counter-4 {
     position: relative;
     top: -15px;
-    
   }
   .count {
-    
-  
     bottom: 150px;
     display: flex;
-    
+
     height: 70px;
-    font-size:6vw;
+    font-size: 6vw;
     line-height: 102px;
     clip-path: polygon(0 0, 100% 0, 100% 100px, 0 100px);
     font-weight: 400;
     color: #000;
-    
+
     overflow: hidden;
   }
-  
-  
+
   .count-2,
   .count-3,
-  .count-4{
+  .count-4 {
     position: relative;
     top: -15px;
-    
   }
 
-  .tab{
+  .tab {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .form input{
+  .form input {
     width: 85vw;
     height: 4vw;
     margin: 0 2vw;
   }
-  .form-detail input{
+  .form-detail input {
     width: 45vw;
   }
-  .details input{
+  .details input {
     width: 84vw;
   }
-
 }
 
-
 /* Work Detail Page */
-.fullSizeImage{
+.fullSizeImage {
   width: 100%;
   margin-bottom: 2.5vw;
 }
-.wp-block-gallery{
+.wp-block-gallery {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 2.5vw;
   margin-bottom: 2.5vw;
 }
-.info-container{
+.info-container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -493,7 +450,7 @@ body{
   margin-bottom: 8%;
   gap: 2.5vw;
 }
-.info-container .is-layout-constrained{
+.info-container .is-layout-constrained {
   width: 50%;
   display: flex;
   flex-direction: column;

@@ -6,25 +6,38 @@ import Work from '@/components/about/Work'
 import Values from '@/components/about/Values'
 import React from 'react'
 import { titleAnim , paraAnim , lineAnim, imageAnim, fadeIn , fadeUp } from '@/components/gsapAnimations';
+import { getHomePageWorks } from '@/lib/works'
 
-export default function About() {
+export default function About({recentWorks}) {
+
   titleAnim();
   paraAnim();
   lineAnim();
   imageAnim();
   fadeIn();
   fadeUp();
+
   return (
-    <>
-    <Layout>
-        <Pagehero/>
-        <Values/>
-        <Meet/>
-        <Join/>
-        <Work/>
-    </Layout>
-    </>
+      <Layout>
+          <Pagehero/>
+          <Values/>
+          <Meet/>
+          <Join/>
+          <Work works={recentWorks}/>
+      </Layout>
   )
+}
+
+export async function getStaticProps() {
+
+  const recentWorks = await getHomePageWorks();
+
+  return {
+    props: {
+      recentWorks,
+    },
+    revalidate: 500,
+  };
 }
 
  
