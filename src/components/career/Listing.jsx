@@ -5,10 +5,10 @@ import Link from 'next/link';
 export default function Listing() {
 
   const jobListings = [
-    { title: 'Designer', location: 'Dubai', link: '/' },
-    { title: 'Web Designer', location: 'Dubai', link: '/' },
-    { title: 'Account Executive', location: 'Dubai', link: '/' },
-    { title: 'Account manager', location: 'Dubai', link: '/' }
+    { title: 'Designer', location: 'Dubai', link: '/career-detail' },
+    { title: 'Web Designer', location: 'Dubai', link: '/career-detail' },
+    { title: 'Account Executive', location: 'Dubai', link: '/career-detail' },
+    { title: 'Account manager', location: 'Dubai', link: '/career-detail' }
   ];
 
   return (
@@ -24,7 +24,7 @@ export default function Listing() {
           <div className='w-full h-full flex flex-col gap-y-[2vw] mobile:gap-y-[4vw] tablet:gap-y-[3vw]'>
             {jobListings.map((job, index) => (
               <div key={index} className='fadeup'>
-                <Link href="/" className='w-full grid grid-cols-3 h-[10vw] bg-transparent border-[1px] group border-white text-white rounded-[15px] py-[2vw] px-[3vw] justify-between items-center text-[1.8vw] hover:bg-white hover:text-black hover:drop-shadow-2xl hover:shadow-xl transition-all ease duration-700 mobile:h-[20vw] mobile:flex tablet:h-[15vw] '>
+                <Link href="/career-detail" className='w-full grid grid-cols-3 h-[10vw] bg-transparent border-[1px] group border-white text-white rounded-[15px] py-[2vw] px-[3vw] justify-between items-center text-[1.8vw] hover:bg-white hover:text-black hover:drop-shadow-2xl hover:shadow-xl transition-all ease duration-700 mobile:h-[20vw] mobile:flex tablet:h-[15vw] '>
                   <p data-para-anim className='col-start-1 mobile:text-[4.5vw] tablet:text-[2.5vw] '>{job.title}</p>
                   <p data-para-anim className='col-start-2 text-center mobile:hidden tablet:text-[2.5vw]'>{job.location}</p>
                   <div className='col-start-3 flex justify-end'>

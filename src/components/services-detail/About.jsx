@@ -6,7 +6,7 @@ export default function About() {
   return (
     <>
      <section className="" id='about'>
-      <div className='container pb-[5%] mobile:pt-[5%]'>
+      <div className='container pb-[2%] mobile:pt-[5%]'>
       
         <div className="w-full flex justify-between mt-[5vw] mb-[12vw] mobile:flex-col">
           <p data-para-anim className="text-[1.75vw] font-medium text-[#333333] w-[45%] leading-[1.4] mobile:text-[5vw]  mobile:w-full mobile:mb-[7vw] tablet:text-[2.5vw] tablet:w-[50%]">
@@ -22,7 +22,7 @@ export default function About() {
         </div>
         <div className="w-full grid grid-cols-3 gap-x-[5vw] gap-y-[2vw] mobile:flex mobile:flex-col mobile:gap-[10vw] tablet:flex tablet:flex-col tablet:gap-[5vw]">
           <div className="col-span-1">
-            <h3 data-para-anim className="uppercase text-[2vw] font-display mobile:text-[8vw] tablet:font-medium tablet:text-[4vw]">
+            <h3 data-para-anim className=" text-[2vw] font-display mobile:text-[8vw] tablet:font-medium tablet:text-[4vw] capitalize">
               Brand workshop, audit and research
             </h3>
             <div className="h-[1px] w-full bg-black mobile:block hidden lineDraw my-[6vw] tablet:block tablet:my-[3vw]"></div>
@@ -35,7 +35,7 @@ export default function About() {
             </p>
           </div>
           <div className="col-span-1 col-start-2 mobile:flex mobile:flex-col ">
-            <h3 data-para-anim className="uppercase text-[2vw] font-display mobile:text-[8vw] tablet:font-medium tablet:text-[4vw]">
+            <h3 data-para-anim className=" text-[2vw] font-display mobile:text-[8vw] tablet:font-medium tablet:text-[4vw] capitalize">
               why work with us
             </h3>
             <div className="h-[1px] w-full bg-black mobile:block hidden lineDraw my-[6vw] tablet:block tablet:my-[3vw]"></div>
@@ -49,7 +49,7 @@ export default function About() {
             </p>
           </div>
           <div className="col-span-1 col-start-3 flex mobile:flex-col tablet:flex-col">
-            <h3  data-para-anim className="uppercase text-[2vw] font-display mobile:text-[8vw] tablet:font-medium tablet:text-[4vw] ">
+            <h3  data-para-anim className=" text-[2vw] font-display mobile:text-[8vw] tablet:font-medium tablet:text-[4vw] capitalize ">
               What to expect: Brand strategy consulting
             </h3>
             <div className="h-[1px] w-full bg-black mobile:block hidden lineDraw my-[6vw] tablet:block tablet:my-[3vw]"></div>

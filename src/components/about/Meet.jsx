@@ -94,13 +94,13 @@ export default function Meet() {
   return (
     <>
       <Section
-        className="w-full h-full py-[5%] pb-[10%] mobile:py-[20%]"
+        className="w-full h-full pb-[10%] mobile:py-[20%]"
         id="meet"
       >
         <div className="container overflow-hidden">
           <SectionTitle text={"Meet the people"} className={"mb-[3vw]"} />
           <p
-            data-para-anim
+            
             className="text-[1.9vw] w-[30%] font-medium leading-[1.2] mobile:w-[90%] mobile:text-[5vw] tablet:w-[60%] tablet:text-[2.5vw] "
           >
             We grow amazing companies through exceptional branding and
@@ -114,7 +114,7 @@ export default function Meet() {
               {teamMembers.map((member, index) => (
                 <div
                   key={index}
-                  className={`w-[32%] h-[36vw] group cursor-pointer relative overflow-hidden border-[1px] border-black border-opacity-40 cardfade mobile:w-[75vw] mobile:h-[100vw]`}
+                  className={`w-[32%] h-[36vw] group cursor-pointer relative overflow-hidden border-[1px] border-black border-opacity-40 cardfade mobile:w-[75vw] mobile:h-[100vw] tablet:w-[48%] tablet:h-full`}
                 >
                   <img
                     loading="lazy"
@@ -128,17 +128,17 @@ export default function Meet() {
                     alt={`${member.name} B/W Image`}
                     className="absolute object-cover h-full w-full group-hover:opacity-100 opacity-0 transition-all ease top-0 left-0"
                   />
-                  <div className="absolute w-full px-[2vw] py-[1.5vw] z-[2] bottom-0 backdrop-blur-lg bg-black bg-opacity-40 mobile:py-[3vw] mobile:px-[3vw]">
+                  <div className="absolute w-full px-[2vw] py-[1.5vw] z-[2] bottom-0 backdrop-blur-lg bg-black bg-opacity-40 mobile:py-[3vw] mobile:px-[3vw] tablet:py-[3vw]">
                     <div className="text-white flex w-full justify-between h-full">
                       <div className="flex flex-col tablet:w-[100%]">
                         <h4
-                          data-title-anim
-                          className="text-[1.8vw] font-display leading-[1.2] uppercase  mobile:text-[6vw]"
+                          
+                          className="text-[1.8vw] font-display leading-[1.2] uppercase  mobile:text-[6vw] tablet:text-[2.4vw]"
                         >
                           {member.name}
                         </h4>
                         <p
-                          data-para-anim
+                          
                           className="mobile:w-full mobile:leading-[1.2] mobile:text-[3vw]"
                         >
                           {member.role}
@@ -146,7 +146,7 @@ export default function Meet() {
                       </div>
                       <div className="mobile:flex mobile:items-center">
                         <svg
-                          className="relative -rotate-[135deg] w-[2.3vw] h-[2.3vw] overflow-hidden mobile:w-[7vw] mobile:h-[7vw]"
+                          className="relative -rotate-[135deg] w-[2.3vw] h-[2.3vw] overflow-hidden mobile:w-[7vw] mobile:h-[7vw] tablet:w-[4vw] tablet:h-[4vw]"
                           width="19"
                           height="23"
                           viewBox="0 0 19 23"

@@ -9,7 +9,7 @@ import AccordionLine from "../AcoordionLine";
 const SingleAccordion = ({ id, title, content1, content2, btnLink, btnText }) => {
     return (
         <AccordionItem value={id}>
-            <AccordionLine/>
+            <AccordionLine className="relative z-[-1] my-[1vw]"/>
             <div className="w-full bg-black lineDraw h-[1px] hidden mobile:block tablet:block"></div>
             <AccordionTrigger data-para-anim className="text-[2.2vw] mobile:text-[6vw] mobile:text-left mobile:flex mobile:w-full tablet:text-[4vw] tablet:text-left text-body font-display font-normal py-[3%] mobile:py-[10%]  accordion [&[data-state=open]>.line>.line-internal>.icon-container>.icon]:rotate-[90deg] [&[data-state=open]>.line>.line-internal>.icon-container>.icon>.minus]:rotate-90 [&[data-state=open]>.line>.line-internal>.icon-container>.icon]:bg-body [&[data-state=open]>.line>.line-internal>.icon-container>.icon]:text-white">
                 {title}

@@ -67,7 +67,7 @@ export default function Post({ post, socialImage, relatedPosts }) {
 
         <Pagehero>
           {featuredImage && (
-            <div className='mobile:relative mobile:h-[60vh] mobile:w-full tablet:w-full'>
+            <div className='mobile:relative mobile:h-[60vh] mobile:w-full tablet:w-full w-[89vw]'>
                 <FeaturedImage
               src={featuredImage.sourceUrl}
               alt={featuredImage.altText}

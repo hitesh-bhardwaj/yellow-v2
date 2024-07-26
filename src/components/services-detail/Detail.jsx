@@ -52,7 +52,7 @@ export default function Detail() {
                 </div>
               </div>
               <div className="col-span-2 flex flex-col w-[60%] gap-[1.5vw] mobile:w-full mobile:my-[10vw] mobile:gap-[5vw]">
-                <h2 data-title-anim className="text-[2.5vw] font-display mobile:text-[8vw] tablet:text-[4vw]">
+                <h2 data-para-anim className="text-[2.5vw] font-display mobile:text-[8vw] tablet:text-[4vw]">
                   {service.title}
                 </h2>
                 {service.paragraphs.map((para, paraIndex) => (
@@ -66,7 +66,7 @@ export default function Detail() {
                 ))}
                 <div className="fadeup mt-[1vw]">
                   <LinkButton
-                    btnLink={"/"}
+                    btnLink={"/contact-us"}
                     btnText={"Connect With Yellow"}
                     className={"text-[1.5vw] font-medium mobile:text-[5vw] tablet:text-[2.5vw]"}
                   />
@@ -80,7 +80,7 @@ export default function Detail() {
             </React.Fragment>
           ))}
           <div className="flex flex-col gap-[1.5vw] mobile:order-8 mobile:my-[5vw]">
-            <h3 data-title-anim className="text-[2.2vw] font-display mobile:text-[7.5vw] tablet:text-[3vw]">Brand Strategy</h3>
+            <h3 data-para-anim className="text-[2.2vw] font-display mobile:text-[7.5vw] tablet:text-[3vw]">Brand Strategy</h3>
             <ul className="list-disc pl-[1.5vw] mobile:pl-[4vw]">
               <li data-para-anim className="text-[1.2vw] font-medium mobile:text-[4vw] mobile:font-normal tablet:text-[2vw]">
                 Brand Guidelines

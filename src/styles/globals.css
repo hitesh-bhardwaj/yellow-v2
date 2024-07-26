@@ -118,6 +118,7 @@ body {
   width: 50vw;
   height: 3vw;
   margin: 0 2vw;
+  font-size: 1.5vw;
 }
 .form-detail input {
   width: 24vw;
@@ -126,12 +127,32 @@ body {
   width: 83vw;
   margin-left: 0;
 }
-.inputt span {
+.select-input span {
   font-size: 1.5vw;
   color: #000;
 }
 .career input {
   height: 2vw;
+  font-size: 1.1vw;
+}
+.docs input{
+  border: #000 dashed 1px;
+  border-radius: 10px;
+  padding: 4vw;
+
+}
+.career-form textarea{
+  font-size: 1.1vw;
+  font-weight: 500;
+
+
+}
+.career-form span{
+  font-size: 1.1vw;
+  color: #000;
+}
+.career-form-span{
+  font-size: 1.3vw !important;
 }
 /* Hide First Element */
 .hide-first .hide-first-child:first-of-type .hide {
@@ -224,19 +245,19 @@ body {
 
   transform: perspective(1200px) rotateY(0deg);
 }
-.linne {
+.string-line {
   height: 1px;
   position: relative;
   width: 100%;
 }
-.linne svg {
+.string-line svg {
   position: absolute;
   height: 100px;
   width: 100%;
   top: -50px;
 }
 
-.linne svg path {
+.string-line svg path {
   stroke-width: 1px;
   stroke: black;
   fill: none;
@@ -254,35 +275,7 @@ body {
 
   top: -75px;
 }
-/* .emoji{
-  transform: rotateZ(10deg);
-} */
 
-/* transition */
-/* .blocksContainer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  pointer-events: none;
-  z-index: 99999999;
-} */
-
-/* .row {
-  flex: 1;
-  width: 100%;
-  display: flex;
-}
-
-.blocck {
-  position: relative;
-  flex: 1;
-  background: #000;
-  margin: -0.25px;
-} */
 
 .transitionIn .blocck {
   transform-origin: top;
@@ -350,8 +343,11 @@ body {
 
   .form input {
     width: 85vw;
-    height: 3vw;
+    height: 100%;
     margin: 0 2vw;
+    padding: 0vw 2vw;
+    padding-bottom: 2vw;
+    font-size: 4vw;
   }
   .form-detail input {
     width: 85vw;
@@ -359,6 +355,31 @@ body {
   .details input {
     width: 84vw;
   }
+  .career input{
+    padding-top: 4vw ;
+    padding-left: 2vw;
+    height: 5vw;
+    font-size: 3.5vw;
+  }
+  .select-input span{
+    font-size: 4.5vw;
+    color: #000;
+  }
+  .career-form span{
+    font-size: 4vw;
+    color: #000;
+  }
+  .career-form-span{
+    font-size: 3.5vw !important;
+  }
+  
+  .career-form textarea{
+    font-size: 3.5vw;
+    font-weight: 500;
+  
+  
+  }
+  
 }
 
 @media screen and (min-width: 540px) and (max-width: 1023px) {
@@ -421,6 +442,7 @@ body {
     width: 85vw;
     height: 4vw;
     margin: 0 2vw;
+    font-size: 2.5vw;
   }
   .form-detail input {
     width: 45vw;
@@ -428,6 +450,33 @@ body {
   .details input {
     width: 84vw;
   }
+  .career input{
+    padding: 1vw 1vw;
+    
+    height: 5vw;
+    font-size: 2vw;
+  }
+  .select-input span{
+    font-size: 2.5vw;
+    color: #000;
+  }
+  .career-form span{
+    font-size: 2vw;
+    color: #000;
+  }
+  .career-form textarea{
+    font-size: 2vw;
+    font-weight: 500;
+   
+    padding: 1vw 1vw;
+  
+  
+  }
+  .cardback {
+    backface-visibility: hidden;
+    transform: perspective(900px) rotateY(0deg);
+  }
+
 }
 
 /* Work Detail Page */

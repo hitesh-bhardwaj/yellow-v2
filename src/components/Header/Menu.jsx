@@ -64,6 +64,13 @@ export default function Menu({ menuOpen }) {
         });
     }
   }, [menuOpen]); 
+  const servicehandler = ()=>{
+    setServiceOpen(true);
+    if(globalThis.innerWidth<541&&serviceOpen==true){
+      setServiceOpen(false);
+    }
+
+  }
 
   useGSAP(() => {
     const serviceLinks = document.querySelectorAll(".service-links li");
@@ -108,15 +115,15 @@ export default function Menu({ menuOpen }) {
             <li className="relative w-full tablet:mb-[2vw]">
               <div className="overflow-hidden">
                 <button 
-                  onClick={()=> {setServiceOpen(true)}}
-                  className="relative link-anim flex">
+                  onClick={()=> {servicehandler()}}
+                  className="relative link-anim flex tablet:gap-[1vw]">
                   <span className="links link-line">Expertise</span>
-                  <div className="rounded-full border-white border text-white text-[25%] w-[2vw] h-[2vw] flex items-center justify-center mt-2 mobile:w-[7vw] mobile:h-[7vw] mobile:mt-0 tablet:w-[4vw] tablet:h-[4vw]">5</div>
+                  <div className="rounded-full border-white border text-white text-[25%] w-[2vw] h-[2vw] flex items-center justify-center mt-2 mobile:w-[7vw] mobile:h-[7vw] mobile:mt-0 tablet:w-[4vw] tablet:h-[4vw] tablet:text-[30%]">5</div>
                  </button>
               </div>
               <ul className={`service-links text-[1.3vw] font-body tracking-wide absolute right-[-75%] pointer-events-none top-[1.5vw] pt-[1vw] leading-[1.5] transition-all duration-1000 ease-anim-primary mobile:text-[6vw] mobile:static mobile:right-auto mobile:mb-[5vw] mobile:mt-[2vw] tablet:right-[-65%] tablet:top-[50%] tablet:text-[2.5vw] ${serviceOpen ? "pointer-events-auto mobile:block" : "mobile:hidden"}`}>
-                <li onClick={()=> {setServiceOpen(false)}} className={`absolute border rounded-full border-current p-[0.5vw] w-[1.8vw] flex items-center leading-[2] justify-center bottom-[90%] opacity-0 left-full cursor-pointer ease-out duration-500 mobile:static mobile:w-[7vw] mobile:flex  tablet:w-[4vw] tablet:h-[4vw]' ${serviceOpen ? "opacity-100" : ""} `} >
-                  <svg className="w-full h-full " viewBox="0 0 46 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <li onClick={()=> {setServiceOpen(false)}} className={`absolute border rounded-full border-current p-[0.5vw] w-[1.8vw] flex items-center leading-[2] justify-center bottom-[90%] opacity-0 left-full cursor-pointer ease-out duration-500 mobile:hidden  tablet:w-[4vw] tablet:h-[4vw] tablet:p-[1vw]' ${serviceOpen ? "opacity-100" : ""} `} >
+                  <svg className="w-full h-full tablet:p-[0.4vw] " viewBox="0 0 46 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="3" y="1" width="60" height="4" rx="2" transform="rotate(45 3 1)" fill="currentColor"/>
                     <rect y="43" width="60" height="4" rx="2" transform="rotate(-45 0 43)" fill="currentColor"/>
                   </svg>
@@ -158,7 +165,7 @@ export default function Menu({ menuOpen }) {
                 </li>
                 <li className="translate-x-[50px] opacity-0">
                   <MenuLink 
-                    className={`text-[1.4vw] font-medium ${pathname=="/what-we-do"?"text-gray-300 pointer-events-none":""}`}
+                    className={`text-[1.4vw] font-medium mobile:text-[4.5vw] ${pathname=="/what-we-do"?"text-gray-300 pointer-events-none":""}`}
                     href="/what-we-do"
                     text="View All"
                   />

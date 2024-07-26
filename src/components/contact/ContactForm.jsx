@@ -76,8 +76,8 @@ export default function ContactForm() {
         Connect with our team to bring your ideas to life.
       </h3>
       <Form {...form}>
-        <form className="form flex flex-wrap gap-y-[1.4vw] mobile:gap-[2.5vw] mobile:gap-y-[7vw] mobile:py-[10vw] tablet:gap-y-[2vw]">
-          <p data-para-anim className="text-[2.5vw] font-medium leading-[1.4] tablet:text-[3.5vw] mobile:text-[6.4vw]">
+        <form className="form flex flex-wrap gap-y-[1.4vw] mobile:gap-[2.5vw] mobile:gap-y-[7vw] mobile:py-[10vw] tablet:gap-y-[3vw]">
+          <p  className="text-[2.5vw] font-medium leading-[1.4] tablet:text-[3.5vw] mobile:text-[6.4vw]">
             Hello! My name is
           </p>
 
@@ -93,8 +93,8 @@ export default function ContactForm() {
               </FormItem>
             )}
           />
-          <p data-para-anim className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw]">and</p>
-          <p data-para-anim className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw]">
+          <p  className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw]">and</p>
+          <p  className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw]">
              I Found you using
           </p>
           <FormField
@@ -136,7 +136,7 @@ export default function ContactForm() {
             )}
           />
 
-          <p data-para-anim className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw]">
+          <p  className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw]">
             I’m looking for Service:
           </p>
           <FormField
@@ -149,7 +149,7 @@ export default function ContactForm() {
                     {services.map((service) => (
                       <Checkbox
                         key={service}
-                        className={`flex items-center relative overflow-hidden justify-center space-x-2 py-[0.5vw] px-[1.4vw] min-w-[10vw] min-h-[3.4vw] border-[1px] tablet:min-w-[14vw] tablet:min-h-[3.5vw] border-black rounded-full cursor-pointer tablet:space-x-0 tablet:h-[4vw] mobile:w-[85vw] mobile:h-[14vw] mobile:justify-start mobile:px-[6vw] ${getClassNames(
+                        className={`flex items-center relative overflow-hidden justify-center space-x-2 py-[0.5vw] px-[1.4vw] min-w-[10vw] min-h-[3.4vw] border-[1px] tablet:min-w-[14vw] tablet:min-h-[4.5vw] border-black rounded-full cursor-pointer tablet:space-x-0 tablet:h-[4vw] mobile:w-[85vw] mobile:h-[14vw] mobile:justify-start mobile:px-[6vw] ${getClassNames(
                           checkedState[service]
                         )}`}
                         onClick={() => handleCheckboxChange(service)}
@@ -178,7 +178,7 @@ export default function ContactForm() {
           />
 
           <div>
-            <p data-para-anim className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw]">
+            <p  className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw]">
               Feel Free to reach me at
             </p>
           </div>
@@ -198,7 +198,7 @@ export default function ContactForm() {
               </FormItem>
             )}
           />
-          <p data-para-anim className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:hidden">
+          <p  className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:hidden">
             and
           </p>
           <FormField
@@ -217,7 +217,7 @@ export default function ContactForm() {
               </FormItem>
             )}
           />
-          <p data-para-anim className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw]">
+          <p  className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw]">
             I would like to share more about my project:
           </p>
           <FormField 
@@ -232,12 +232,12 @@ export default function ContactForm() {
               </FormItem>
             )}
           />
-          <div className="w-full flex justify-center items-center fadeup mt-[3vw]">
+          <div className="w-full flex justify-center items-center fadeup mt-[3vw] mobile:justify-start">
             <Button
               type="submit"
-              className="text-[1.4vw] px-[1.4vw] py-[0.6vw] min-w-[12vw] bg-black rounded-full min-h-[3.5vw] flex gap-[0.5vw] hover:bg-black group tablet:text-[2vw] tablet:min-w-[15vw] tablet:px-[3vw] tablet:py-[1vw] mobile:text-[5vw] mobile:px-[4.5vw] mobile:h-[12vw]"
+              className="text-[1.4vw] px-[1.4vw] py-[0.6vw] min-w-[12vw] bg-black mobile:bg-white border border-black mobile:text-black  rounded-full min-h-[3.5vw] flex gap-[0.5vw] hover:bg-black group tablet:text-[2vw] tablet:min-w-[15vw] tablet:px-[3vw] tablet:py-[1vw] mobile:text-[4vw] mobile:px-[6vw] mobile:h-[14vw]"
             >
-              <div className="overflow- flex items-center gap-[0.5vw] w-full mobile:gap-[2vw]">
+              <div className="overflow-hidden flex items-center gap-[0.5vw] w-full mobile:gap-[2vw]">
                 <span
                   data-text={"Send Message"}
                   className="relative inline-block after:content-[attr(data-text)] after:absolute after:top-[130%] after:left-0 group-hover:translate-y-[-130%] transition-transform duration-1000 ease-link"

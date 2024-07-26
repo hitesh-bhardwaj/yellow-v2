@@ -8,6 +8,7 @@ const services = [
     imageSrc: "/assets/images/service/service-1.png",
     alt: "service-1",
     title: "Corporate Branding Strategy",
+    link:"/what-we-do/brand-strategy",
     description1:
       "We bring simplicity to complexity – distilling goals and values into brands that are relevant and inspiring, for customers and staff",
     description2:
@@ -18,6 +19,7 @@ const services = [
     imageSrc: "/assets/images/service/service-2.png",
     alt: "service-2",
     title: "Brand Identity",
+    link:"#",
     description1:
       "Unlocking your brand identity opens more doors than you can imagine. From design that results in a memorable logo that your organization or business can proudly get behind, to a visual language that captures your brand personality through a set of visual (photography, typography, patterning and production finishes) and non-visual (copywriting and messaging) tools, your visual language is how your audiences perceive, understand and recognize your brand, no matter the channel.",
   },
@@ -26,6 +28,7 @@ const services = [
     imageSrc: "/assets/images/service/service-3.png",
     alt: "service-3",
     title: "Brand Naming",
+    link:"#",
     description1:
       "At Yellow, we provide comprehensive support for precise branding needs. Whether you&apos;re naming a new venture, rejuvenating an existing brand, exploring new markets, or evaluating your current brand name, our brand naming consultancy ensures you get a compelling and enduring brand name that boosts sales.",
   },
@@ -34,6 +37,7 @@ const services = [
     imageSrc: "/assets/images/service/service-4.png",
     alt: "service-4",
     title: "Advertising",
+    link:"#",
     description1:
       "Advertising and communication is about bonding: building meaningful relationships with customers, suppliers and employees. This is what makes a business more desirable to work with and buy from.",
     description2:
@@ -44,6 +48,7 @@ const services = [
     imageSrc: "/assets/images/service/service-5.png",
     alt: "service-5",
     title: "Corporate Stationery & Report Design Services",
+    link:"#",
     description1:
       "Business cards, brochures, annual reports and book design. We write, design, and oversee the production of publications that audiences engage with.",
   },
@@ -83,7 +88,7 @@ export default function ServiceList() {
                     </p>
                   )}
                   <div className="fadeup mobile:mt-[7vw]">
-                    <BlackButton btnLink={"/"} btnText={"View More"} className="text-[1.05vw] tablet:text-[2.5vw] mobile:text-[4vw]" />
+                    <BlackButton btnLink={service.link} btnText={"View More"} className="text-[1.05vw] tablet:text-[2.5vw] mobile:text-[4vw]" />
                   </div>
                 </div>
               </React.Fragment>

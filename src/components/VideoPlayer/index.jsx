@@ -119,7 +119,7 @@ const VideoPlayer = ({ isOpen, onClose, videoSrc, poster }) => {
         
         <div
           ref={cursorRef}
-          className="w-[7vw] h-[7vw] flex items-center justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden pointer-events-none magnetic-inner"
+          className="w-[7vw] h-[7vw] flex items-center justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden pointer-events-none magnetic-inner mobile:top-[10%] mobile:right-[2%] mobile:left-auto mobile:w-[10vw] mobile:h-[10vw]"
           id="cursor"
         >
           <img ref={cursorImgRef} className="object-cover h-full w-full" src="/assets/icons/close-cursor.svg" alt="close-cursor" />
