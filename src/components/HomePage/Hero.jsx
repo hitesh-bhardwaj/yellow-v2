@@ -17,6 +17,14 @@ const VideoModal = dynamic(() => import('@/components/VideoPlayer'), {
     ssr: false,
 });
 
+function supportsHEVCAlpha() {
+    const navigator = window.navigator;
+    const ua = navigator.userAgent.toLowerCase()
+    const hasMediaCapabilities = !!(navigator.mediaCapabilities && navigator.mediaCapabilities.decodingInfo)
+    const isSafari = ((ua.indexOf('safari') != -1) && (!(ua.indexOf('chrome')!= -1) && (ua.indexOf('version/')!= -1)))
+    return isSafari && hasMediaCapabilities
+}
+
 const Hero = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const lenis = useLenis();
@@ -76,6 +84,11 @@ const Hero = () => {
         })
     })
 
+    useEffect(() => {
+        const player = document.getElementById('hero-video');
+        player.src = supportsHEVCAlpha() ? '/assets/showreel-small.mp4' : '/assets/showreel-small.webm';
+      });
+
     return (
         <Section className="py-0 dark" id={"hero"}>
             <div className="w-full h-screen relative">
@@ -97,8 +110,6 @@ const Hero = () => {
                         loading="lazy"
                         className="w-full h-full aspect-video object-cover"
                         >
-                        <source src="/assets/showreel-small.webm" type="video/webm"/>
-                        {/* <source src="/assets/showreel-small.mp4" type="video/mp4"/> */}
                     </video>
                 </div>
                 <div className="container h-full flex justify-start items-center relative mobile:flex-col mobile:pt-[35%] mobile:gap-[7vw] tablet:flex-col tablet:pt-[35%] tablet:gap-[7vw]" data-magnetic-target data-magnetic-strength="200">

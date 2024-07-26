@@ -1,15 +1,9 @@
 import React from 'react';
 import Section from '../Section';
 import Link from 'next/link';
+// import { jobPathBySlug } from '@/lib/jobs';
 
-export default function Listing() {
-
-  const jobListings = [
-    { title: 'Designer', location: 'Dubai', link: '/career-detail' },
-    { title: 'Web Designer', location: 'Dubai', link: '/career-detail' },
-    { title: 'Account Executive', location: 'Dubai', link: '/career-detail' },
-    { title: 'Account manager', location: 'Dubai', link: '/career-detail' }
-  ];
+export default function Listing({jobs}) {
 
   return (
     <>
@@ -22,13 +16,14 @@ export default function Listing() {
             As a digital branding agency, we help businesses connect with their customers by using a variety of tools and services.
           </p>
           <div className='w-full h-full flex flex-col gap-y-[2vw] mobile:gap-y-[4vw] tablet:gap-y-[3vw]'>
-            {jobListings.map((job, index) => (
-              <div key={index} className='fadeup'>
-                <Link href="/career-detail" className='w-full grid grid-cols-3 h-[10vw] bg-transparent border-[1px] group border-white text-white rounded-[15px] py-[2vw] px-[3vw] justify-between items-center text-[1.8vw] hover:bg-white hover:text-black hover:drop-shadow-2xl hover:shadow-xl transition-all ease duration-700 mobile:h-[20vw] mobile:flex tablet:h-[15vw] '>
-                  <p data-para-anim className='col-start-1 mobile:text-[4.5vw] tablet:text-[2.5vw] '>{job.title}</p>
-                  <p data-para-anim className='col-start-2 text-center mobile:hidden tablet:text-[2.5vw]'>{job.location}</p>
-                  <div className='col-start-3 flex justify-end'>
-                    <div href="/" className={`cursor-pointer relative block text-[1.2vw] w-fit h-fit bg-white text-body border border-white group-hover:text-white transition-all duration-700 ease-link py-[0.8vw] px-[1.2vw] mobile:px-[4vw] mobile:py-[2.5vw] rounded-full font-medium group overflow-hidden`}>
+            {jobs.jobs.map((job) => (
+              <div key={job.slug} className='fadeup'>
+                <Link href="#" className='w-full grid grid-cols-4 h-[10vw] bg-transparent border-[1px] group border-white text-white rounded-[15px] py-[2vw] px-[3vw] justify-between items-center hover:bg-white hover:text-black hover:drop-shadow-2xl hover:shadow-xl transition-all ease duration-700 mobile:h-[20vw] mobile:flex tablet:h-[15vw] '>
+                  <h3 data-para-anim className='col-start-1 text-[1.9vw] font-medium mobile:text-[4.5vw] tablet:text-[2.5vw] '>{job.title}</h3>
+                  <p data-para-anim className='col-start-2 text-[1.6vw] text-center mobile:hidden tablet:text-[2.5vw]'>{job.jobFields.location}</p>
+                  <p data-para-anim className='col-start-3 text-[1.6vw] text-center mobile:hidden tablet:text-[2.5vw]'>{job.jobFields.jobType}</p>
+                  <div className='col-start-4 flex justify-end'>
+                    <div className={`cursor-pointer relative block text-[1.2vw] w-fit h-fit bg-white text-body border border-white group-hover:text-white transition-all duration-700 ease-link py-[0.8vw] px-[1.2vw] mobile:px-[4vw] mobile:py-[2.5vw] rounded-full font-medium group overflow-hidden`}>
                       <span className="absolute block w-full h-full scale-y-0 bg-body group-hover:scale-y-100 left-0 top-0 origin-bottom transition-all duration-700 ease-link"/>
                       <div className="overflow-hidden flex items-center gap-[0.5vw] w-full relative mobile:gap-[2vw]">
                           <span data-text="Apply Now" className="relative inline-block after:content-[attr(data-text)] after:absolute after:top-[105%] after:left-0 group-hover:translate-y-[-105%] transition-transform duration-700 ease-link after:block">Apply Now</span>
