@@ -52,7 +52,7 @@ export default function Join() {
             <LinkButton
               btnLink={"/careers"}
               btnText={"See Open Positions"}
-              className="join text-[1.3vw] tablet:text-[2.5vw]"
+              className="join"
             />
 
             </div>

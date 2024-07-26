@@ -21,6 +21,13 @@ module.exports = {
       colors: {
         'body': '#111111',
       },
+      dropShadow: {
+        '3xl': '0 35px 35px rgba(0, 0, 0, 0.25)',
+        '4xl': [
+            '0 35px 35px rgba(0, 0, 0, 0.15)',
+            '0 45px 65px rgba(0, 0, 0, 0.15)'
+        ]
+      },
       keyframes: {
         'scale': {
           '0': { transform: 'scale(1)' },

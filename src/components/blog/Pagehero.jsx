@@ -19,7 +19,7 @@ export default function Pagehero({post}) {
                 {post.title}
               </h1>
               <div className="fadeup">
-              <LinkButton btnLink={post.slug} btnText="Read Article" className="text-[1.4vw] mobile:text-[5vw] tablet:text-[2.5vw]" />
+              <LinkButton btnLink={post.slug} btnText="Read Article"  />
               </div>
             </div>
           </div>

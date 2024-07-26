@@ -19,15 +19,15 @@ export default function RelatedWorks({works}) {
               We grow amazing companies through exceptional branding and communications.
             </p>
             <div className='fadeup flex items-end'>
-              <LinkButton btnLink="/our-work" btnText="See All Work" className='text-[1.5vw]'/>
+              <LinkButton btnLink="/our-work" btnText="See All Work"/>
             </div>
           </div>
 
           <div className='w-full flex justify-between gap-[2vw] mobile:flex-col mobile:gap-[7vw]'>
             {works.map((work) => (
-              <div key={work.slug} className='fadeup'>
+              <div key={work.slug} className='fadeup group '>
                 <Link href={workPathBySlug(work.slug)} className='h-full w-full block relative'>
-                  <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-none tablet:w-[41.5vw] tablet:h-[45vw]'>
+                  <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-none tablet:w-[41.5vw] tablet:h-[45vw] group-hover:drop-shadow-xl group-hover:shadow-xl transition-all ease-out duration-500'>
                     {work.featuredImage && (
                       <MediaRender url={work.featuredImage} className='z-[0]'/>
                     )}

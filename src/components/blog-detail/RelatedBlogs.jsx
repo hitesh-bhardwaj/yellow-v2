@@ -16,7 +16,7 @@ export default function RelatedBlogs({posts}) {
             <LinkButton
               btnLink={"/blog"}
               btnText={"All Blogs"}
-              className="text-[1.8vw] font-medium mobile:text-[5vw] tablet:text-[2.5vw]"
+              
             />
             </div>
           </div>
@@ -50,7 +50,7 @@ export default function RelatedBlogs({posts}) {
                   <LinkButton
                     btnLink={post.slug}
                     btnText="Read Article"
-                    className="text-[1.3w] mobile:text-[5vw] tablet:text-[3vw]"
+                    
                   />
                 </div>
               </div>

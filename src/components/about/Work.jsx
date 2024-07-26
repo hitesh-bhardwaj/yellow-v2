@@ -19,11 +19,11 @@ export default function Work({ works }) {
                 We grow amazing companies through exceptional branding and communications.
               </p>
             </div>
-            <LinkButton btnLink="/our-work" btnText="See All Work" className='tablet:text-[2.5vw]'/>
+            <LinkButton btnLink="/our-work" btnText="See All Work"/>
           </div>
-          <div className='w-full flex justify-between gap-[3vw] mobile:flex-col mobile:gap-[7vw]'>
+          <div className='w-full flex justify-between gap-[3vw] mobile:flex-col mobile:gap-[7vw] fadeup'>
             {works.slice(0, 2).map((work) => (
-              <div key={work.slug} className='w-[45vw] h-[45vw] relative  rounded-[15px] overflow-hidden fadeup mobile:w-[85vw] mobile:h-[90vw] mobile:rounded-none'>
+              <div key={work.slug} className='w-[45vw] h-[45vw] relative  rounded-[15px] overflow-hidden mobile:w-[85vw] group hover:drop-shadow-2xl hover:shadow-2xl transition all ease-in duration-300  mobile:h-[90vw] mobile:rounded-none'>
                 <Link href={workPathBySlug(work.slug)} className='w-full h-full block'>
                   {work.workFields.featuredImagevideo && (
                     <MediaRender url={work.workFields.featuredImagevideo.node.mediaItemUrl} />

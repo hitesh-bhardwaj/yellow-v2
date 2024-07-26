@@ -21,7 +21,7 @@ const PostCard = (({post}) => {
                         <span className='px-[0.7vw] border-[1px] border-black border-opacity-60 rounded-[50px] mobile:px-[2.5vw]'>{post.categories[2].name}</span>
                     )}
                 </div>
-                <LinkButton btnLink={postPathBySlug(post.slug)} btnText="Read Article" className='text-[1.3vw] mobile:text-[5vw] tablet:text-[2.5vw]' />
+                <LinkButton btnLink={postPathBySlug(post.slug)} btnText="Read Article"  />
             </div>
         </div>
     )

@@ -485,11 +485,22 @@ body {
   margin-bottom: 2.5vw;
 }
 .wp-block-gallery {
-  display: flex;
+  display: grid;
+  grid-template-columns: 57.6% 39%;
+  width: -webkit-fill-available;
+  justify-items: stretch;
   justify-content: space-between;
-  align-items: flex-start;
+  margin-bottom: 2.5vw;
+}
+.wp-block-gallery.gallery-half {
+  display: flex;
+  width: -webkit-fill-available;
+  justify-content: space-between;
   gap: 2.5vw;
   margin-bottom: 2.5vw;
+}
+.wp-block-gallery.gallery-half .half-size-image{
+  width: 100%;
 }
 .info-container {
   display: flex;

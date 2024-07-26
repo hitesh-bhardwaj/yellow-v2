@@ -92,8 +92,8 @@ const Footer = () => {
                     <div className="w-full h-[1px] bg-black lineDraw hidden mobile:block"></div>
                     <div className="flex justify-between items-center py-[2%] mobile:flex-col mobile:gap-[4vw] mobile:py-[10%]">
                         <div className="w-[50%] relative mobile:w-[100%] tablet:w-[70%]">
-                            <h5 data-para-anim className="text-[5vw] leading-[1.2] font-display para-anim mobile:text-[10vw] mobile:text-center tablet:text-[6vw]">
-                                Ready to Elevate Your Brand <span className=' mobile:block tablet:block tablet:opacity-100 mobile:opacity-100'>👉</span>
+                            <h5 data-para-anim  className="text-[5vw] leading-[1.2] font-display para-anim mobile:text-[10vw] mobile:text-center tablet:text-[6vw] inline-block">
+                                Ready to Elevate Your Brand <span className="w-[5vw] h-[4vw] inline-block"><img src="/assets/images/footer-hand.png" alt="footer-hand" className="object-cover"/></span>
                             </h5>
                         </div>
                         <div className="fadein">

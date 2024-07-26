@@ -68,7 +68,7 @@ export default function Detail() {
                   <LinkButton
                     btnLink={"/contact-us"}
                     btnText={"Connect With Yellow"}
-                    className={"text-[1.5vw] font-medium mobile:text-[5vw] tablet:text-[2.5vw]"}
+                    
                   />
                 </div>
               </div>
