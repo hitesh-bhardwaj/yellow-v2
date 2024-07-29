@@ -52,7 +52,7 @@ function CareerForm() {
   });
   return (
     <>
-      <section id="CareerForm" className="w-full h-full relative pt-[5%] pb-[10%]">
+      <section id="CareerForm" className="w-full h-full relative pt-[5%] pb-[10%] mobile:py-[20%] ">
         <div className="container h-full relative z-[4] ">
           <Form {...form}>
             <form className="w-full h-full border-[1.5px]  rounded-[50px] border-black/20 bg-white py-[5vw] px-[5vw] flex flex-wrap gap-x-[7.8vw] gap-y-[3vw] border-opacity-45 drop-shadow-[50px] shadow-2xl  mobile:rounded-[10px] mobile:gap-y-[12vw] mobile:border-[1px] mobile:py-[12vw] mobile:shadow-none tablet:rounded-[15px] tablet:gap-y-[4vw] tablet:py-[7vw] tablet:gap-x-[7vw] career-form">
