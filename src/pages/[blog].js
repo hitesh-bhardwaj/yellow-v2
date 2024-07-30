@@ -128,9 +128,9 @@ export async function getStaticProps({ params = {} } = {}) {
 
   return {
     props,
+    revalidate: 500,
   };
 }
-
 
 export async function getStaticPaths() {
   const { posts } = await getRecentPosts({

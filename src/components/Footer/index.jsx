@@ -38,21 +38,36 @@ const Footer = () => {
                     invalidateOnRefresh: true
                 }
             });
-
-            tl.to(".footer-top", {
-                borderBottomRightRadius: "35px",
-                borderBottomLeftRadius: "35px",
-                duration: 1,
-                delay: 0,
-            })
-            .to(".container", {
-                duration: 1,
-                delay: -1,
-                width: "95%",
-                paddingLeft: "2.5%",
-                paddingRight: "2.5%",
-            })
-            .fromTo(".footer-bottom", {
+            if(globalThis.innerWidth >= 1024) {
+                tl.to(".footer-top", {
+                    borderBottomRightRadius: "2vw",
+                    borderBottomLeftRadius: "2vw",
+                    duration: 1,
+                    delay: 0,
+                })
+                .to(".container", {
+                    duration: 1,
+                    delay: -1,
+                    width: "95%",
+                    paddingLeft: "2.5%",
+                    paddingRight: "2.5%",
+                })
+            } else {
+                tl.to(".footer-top", {
+                    borderBottomRightRadius: "4vw",
+                    borderBottomLeftRadius: "4vw",
+                    duration: 1,
+                    delay: 0,
+                })
+                .to(".container", {
+                    duration: 1,
+                    delay: -1,
+                    width: "93%",
+                    paddingLeft: "3.5%",
+                    paddingRight: "3.5%",
+                })
+            }
+            tl.fromTo(".footer-bottom", {
                 opacity: 0,
             }, {
                 opacity: 1,

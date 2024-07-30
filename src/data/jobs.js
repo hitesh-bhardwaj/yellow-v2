@@ -80,6 +80,12 @@ export const QUERY_JOB_BY_SLUG = gql`
         location
         overview
       }
+      featuredImage {
+        node {
+          altText
+          sourceUrl
+        }
+      }
     }
   }
 `;

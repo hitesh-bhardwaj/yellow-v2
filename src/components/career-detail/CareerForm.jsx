@@ -24,6 +24,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "../ui/button";
+import Section from "../Section";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -40,7 +41,10 @@ const formSchema = z.object({
   }),
 });
 
-function CareerForm() {
+function CareerForm({jobs}) {
+
+  const JobsData = jobs.jobs;
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -52,8 +56,9 @@ function CareerForm() {
   });
   return (
     <>
-      <section id="CareerForm" className="w-full h-full relative pt-[5%] pb-[10%] mobile:py-[20%] ">
-        <div className="container h-full relative z-[4] ">
+      <Section id="CareerForm" className="bg-black">
+        <div className="container h-full relative z-[4] pt-[5%] pb-[10%] mobile:py-[20%] bg-white">
+        <div className="w-screen absolute translate-x-[-5vw] bg-[#111111] h-[30%] top-[50%] z-[-2] translate-y-[-50%]"></div>
           <Form {...form}>
             <form className="w-full h-full border-[1.5px]  rounded-[50px] border-black/20 bg-white py-[5vw] px-[5vw] flex flex-wrap gap-x-[7.8vw] gap-y-[3vw] border-opacity-45 drop-shadow-[50px] shadow-2xl  mobile:rounded-[10px] mobile:gap-y-[12vw] mobile:border-[1px] mobile:py-[12vw] mobile:shadow-none tablet:rounded-[15px] tablet:gap-y-[4vw] tablet:py-[7vw] tablet:gap-x-[7vw] career-form">
               <div className="w-full  career-input border-b border-black flex flex-col gap-[1vw]">
@@ -67,11 +72,9 @@ function CareerForm() {
                   <SelectContent>
                     <SelectGroup>
                       <SelectLabel>Roles</SelectLabel>
-                      <SelectItem value="role1">role1</SelectItem>
-                      <SelectItem value="role2">role2</SelectItem>
-                      <SelectItem value="role3">role3</SelectItem>
-                      <SelectItem value="role4">role4</SelectItem>
-                      <SelectItem value="role5">role5</SelectItem>
+                      {JobsData && JobsData.map((job, index) => (
+                        <SelectItem key={index} value={job.title}>{job.title}</SelectItem>
+                      ))}
                     </SelectGroup>
                   </SelectContent>
                 </Select>
@@ -440,8 +443,7 @@ function CareerForm() {
             </form>
           </Form>
         </div>
-        <div className="w-full absolute bg-[#111111] h-[30%] top-[50%] z-[-2] translate-y-[-50%]"></div>
-      </section>
+      </Section>
     </>
   );
 }
