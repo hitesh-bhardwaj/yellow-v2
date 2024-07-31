@@ -69,8 +69,8 @@ export default function Work({ work, socialImage, relatedWorks }) {
         title={title}
         categories={workcategories}
       />
-      <Section id="work-content">
-        <div className='container'>
+      <Section id="work-content" className='bg-black'>
+        <div className='container bg-white '>
           <div
             className={styles.work}
             dangerouslySetInnerHTML={{

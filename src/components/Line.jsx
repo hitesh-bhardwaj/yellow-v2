@@ -76,7 +76,7 @@ function Line() {
   };
 
   return (
-    <div className="mobile:hidden">
+    <div className="mobile:hidden tablet:hidden">
       <div className="string-line lineDraw">
         <span
           onMouseEnter={animateIn}

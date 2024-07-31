@@ -6,24 +6,24 @@ const WorkCard = ({index, work}) => {
 
     return (
             <Link className="relative w-full h-full block group" href={workPathBySlug(work.slug)}>
-                <div className={`relative overflow-hidden rounded-[10px] ${index % 3 === 0 ? "w-[90vw] h-[45vw]" : "w-[44vw] h-[45vw]"} imageanim`}>
+                <div className={`relative overflow-hidden rounded-[10px] ${index % 3 === 0 ? "w-[90vw] h-[45vw] mobile:w-[85vw] mobile:h-[140vw] tablet:w-[84.5vw]" : "w-[44vw] h-[45vw] mobile:w-[85vw] mobile:h-[85vw] tablet:w-[41vw]"} imageanim`}>
                     <MediaRender 
                         className="z-[0] static scale-[1.05] group-hover:scale-100 transition-all duration-500 ease-in-out"
                         url={work.workFields.featuredImagevideo.node.mediaItemUrl}
                     />
                 </div>
-                <div className={`absolute bottom-[10%] left-[3%] text-white ${index % 3 === 0 ? "bottom-[10%] left-[3%]" : "bottom-[10%] left-[7%]"}`}>
-                    <h3 data-title-anim className="text-[2.5vw] mb-[1.5vw] drop-shadow-lg">{work.title}</h3>
+                <div className={`absolute bottom-[10%] left-[3%] text-white ${index % 3 === 0 ? "bottom-[10%] left-[3%] mobile:left-[7%]" : "bottom-[10%] left-[7%]"}`}>
+                    <h3 data-title-anim className="text-[2.5vw] mb-[1.5vw] drop-shadow-lg mobile:text-[7vw] tablet:text-[3vw]">{work.title}</h3>
                     <div 
-                        className={`text-[1.1vw] drop-shadow-lg leading-[1.4] ${index % 3 === 0 ? "w-[70%]" : "w-[90%]"} `}
+                        className={`text-[1.1vw] drop-shadow-lg leading-[1.4] mobile:text-[4vw] tablet:text-[2vw] ${index % 3 === 0 ? "w-[70%] mobile:w-[90%]" : "w-[90%] mobile:w-[90%]"} `}
                         dangerouslySetInnerHTML={{
                             __html: work.excerpt
                         }}
                     />
                 </div>
-                <div className={`absolute flex gap-[1.5vw] text-white ${index % 3 === 0 ? "bottom-[10%] right-[3%]" : "top-[7%] left-[7%]"}`}>
+                <div className={`absolute flex gap-[1.5vw] text-white mobile:gap-[2.5vw] ${index % 3 === 0 ? "bottom-[10%] right-[3%] mobile:top-[5%] mobile:left-[7%] mobile:bottom-auto" : "top-[7%] left-[7%]"}`}>
                     {work.workcategories && work.workcategories.slice(0, 2).map((category, i) => (
-                        <p key={i} className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[1.5vw] py-[0.6vw] text-[1.2vw] drop-shadow-lg">
+                        <p key={i} className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-md px-[1.5vw] py-[0.6vw] text-[1.2vw] drop-shadow-lg mobile:text-[3vw] mobile:px-[3vw] mobile:py-[1.5vw] tablet:text-[1.5vw] tablet:py-[0.5vw]">
                             {category.name}
                         </p>
                     ))}

@@ -76,7 +76,7 @@ export default function ContactForm() {
         Connect with our team to bring your ideas to life.
       </h3>
       <Form {...form}>
-        <form className="form flex flex-wrap gap-y-[1.4vw] mobile:gap-[2.5vw] mobile:gap-y-[7vw] mobile:py-[10vw] tablet:gap-y-[3vw]">
+        <form className="form flex flex-wrap gap-y-[1.4vw] mobile:gap-[2.5vw] mobile:gap-y-[7vw] mobile:py-[10vw] tablet:gap-y-[3vw] fadeup">
           <p  className="text-[2.5vw] font-medium leading-[1.4] tablet:text-[3.5vw] mobile:text-[6.4vw]">
             Hello! My name is
           </p>
@@ -106,7 +106,7 @@ export default function ContactForm() {
                   <RadioGroup
                     value={selectedValue}
                     onValueChange={handleValueChange}
-                    className="flex gap-[1.5vw] px-[1vw] tablet:h-[4vw] mobile:flex-col mobile:gap-[3vw] fadeup"
+                    className="flex gap-[1.5vw] px-[1vw] tablet:h-[4vw] mobile:flex-col mobile:gap-[3vw] "
                   >
                     {options.map((option) => (
                       <div
@@ -145,7 +145,7 @@ export default function ContactForm() {
             render={() => (
               <FormItem>
                 <FormControl>
-                  <div className="flex gap-[1vw] px-[2vw] justify-center items-center mobile:flex-col mobile:gap-[3vw] fadeup">
+                  <div className="flex gap-[1vw] px-[2vw] justify-center items-center mobile:flex-col mobile:gap-[3vw] ">
                     {services.map((service) => (
                       <Checkbox
                         key={service}
@@ -232,7 +232,7 @@ export default function ContactForm() {
               </FormItem>
             )}
           />
-          <div className="w-full flex justify-center items-center fadeup mt-[3vw] mobile:justify-start">
+          <div className="w-full flex justify-center items-center  mt-[3vw] mobile:justify-start">
             <Button
               type="submit"
               className="text-[1.4vw] px-[1.4vw] py-[0.6vw] min-w-[12vw] bg-black mobile:bg-white border border-black mobile:text-black  rounded-full min-h-[3.5vw] flex gap-[0.5vw] hover:bg-black group tablet:text-[2vw] tablet:min-w-[15vw] tablet:px-[3vw] tablet:py-[1vw] mobile:text-[4vw] mobile:px-[6vw] mobile:h-[14vw]"

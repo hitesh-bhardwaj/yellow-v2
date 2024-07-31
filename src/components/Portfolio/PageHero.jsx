@@ -19,7 +19,7 @@ function PageHero() {
             
           
           </p>
-          <div className="tablet:hidden mobile:block h-[1px] w-full bg-black mobile:my-[10vw] lineDraw hidden "></div>
+          <div className="tablet:block mobile:block h-[1px] w-full bg-black mobile:my-[10vw] lineDraw hidden "></div>
           <Line className="mobile:hidden"/>
         </div>
       </Section>

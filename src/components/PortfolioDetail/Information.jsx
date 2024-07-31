@@ -2,12 +2,12 @@ import Section from "../Section"
 
 const Information = ({info, title, categories}) => {
     return (
-        <Section id="second-section">
-            <div className="container py-[8%] mobile:pt-[15%] tablet:w-full">
+        <Section id="second-section" className="bg-black">
+            <div className="container py-[8%] mobile:pt-[15%] tablet:w-full bg-white">
                 <div className="flex items-start justify-between gap-x-[2vw] gap-y-[4vw] mobile:flex mobile:flex-col mobile:gap-y-[7vw]">
                     <div className="w-1/2">
                         <h2 data-title-anim className="text-[4.8vw] mb-[3vw] leading-[1.1] font-display w-[60%] mobile:w-full normal-case mobile:order-1 mobile:mb-[7vw]">{info.subheading}</h2>
-                        <div className="text-[1.2vw] font-medium flex flex-wrap gap-[0.5vw] w-[70%] mobile:order-4 mobile:text-[4vw] mobile:w-full mobile:gap-[2vw] tablet:text-[2vw] tablet:gap-[0.8vw] fadeup">
+                        <div className="text-[1.2vw] font-medium flex flex-wrap gap-[0.5vw] w-[70%] mobile:order-4 mobile:text-[4vw] mobile:w-full mobile:gap-[2vw] tablet:text-[2vw] tablet:gap-[0.8vw] fadeup tablet:w-full">
                             {categories && categories.map((category) => (
                                 <p key={category.slug} className="border-[1px] border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup mobile:px-[3vw] mobile:py-[1.5vw]">{category.name}</p>
                             ))}

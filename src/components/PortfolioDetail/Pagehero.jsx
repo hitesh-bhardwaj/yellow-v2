@@ -8,7 +8,7 @@ export default function Pagehero({src, title, date, workcategories}) {
     <>
       <Section className='dark relative w-screen h-screen mobile:h-[80vh] tablet:h-[50vh]' id='hero'>
         <MediaRender url={src}/>
-        <div className='container absolute top-0 left-0 right-0 bottom-0 z-[1] flex items-center mobile:py-[15%] mobile:flex-col mobile:items-start mobile:justify-end'>
+        <div className='container absolute top-0 left-0 right-0 bottom-0 z-[1] flex items-center mobile:py-[15%] mobile:flex-col mobile:items-start mobile:justify-end '>
           <h1 data-title-anim className='text-[5.4vw] text-white uppercase font-display mobile:text-[12vw] mobile:ps-0 mobile:mb-[10vw] tablet:ps-[2%] tablet:text-[7vw] '>
             {title}
           </h1>

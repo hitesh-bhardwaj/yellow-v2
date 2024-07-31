@@ -22,12 +22,11 @@ const Footer = () => {
     
     const footerContainer = useRef(null);
     const observerRef = useRef(null);
-
-        useGSAP(() => {
-            if (footerContainer.current) {
-                const links = footerContainer.current.querySelectorAll('.footer-social');
-                links.forEach(link => SplitInChar(link));
-            }
+    useGSAP(() => {
+        if (footerContainer.current) {
+            const links = footerContainer.current.querySelectorAll('.footer-social');
+            links.forEach(link => SplitInChar(link));
+        }
 
             const tl = gsap.timeline({
                 scrollTrigger: {
@@ -101,14 +100,14 @@ const Footer = () => {
 
     return (
         <footer id="footer" className="footer bg-black">
-            <div className="bg-white container footer-top">
+            <div className="bg-white container footer-top ">
                 <div className="pb-[10%] pt-[5%] mobile:pb-[20%]">
                     <Line />
                     <div className="w-full h-[1px] bg-black lineDraw hidden mobile:block"></div>
                     <div className="flex justify-between items-center py-[2%] mobile:flex-col mobile:gap-[4vw] mobile:py-[10%]">
                         <div className="w-[50%] relative mobile:w-[100%] tablet:w-[70%] mobile:flex mobile:justify-center">
                             <h5 data-para-anim  className="text-[5vw] leading-[1.2] font-display para-anim mobile:text-[10vw] mobile:text-center tablet:text-[6vw] inline-block">
-                                Ready to Elevate Your Brand <span className="w-[5vw] h-[4vw] inline-block mobile:w-[10vw] mobile:h-[9vw]"><img src="/assets/images/footer-hand.png" alt="footer-hand" className="object-cover"/></span>
+                                Ready to Elevate Your Brand <span className="w-[5vw] h-[4vw] inline-block mobile:w-[10vw] mobile:h-[9vw] tablet:w-[7vw] tablet:h-[6vw]"><img src="/assets/images/footer-hand.png" alt="footer-hand" className="object-cover"/></span>
                             </h5>
                         </div>
                         <div className="fadein">

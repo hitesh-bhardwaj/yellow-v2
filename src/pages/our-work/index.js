@@ -65,7 +65,7 @@ export default function Works({ initialWorks, initialPagination, workcategories 
               <WorkCategories workcategories={workcategories} activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
             </div>
 
-            <div className="grid grid-cols-2 w-full h-full gap-x-[3vw] gap-y-[3vw] mb-[3vw]">
+            <div className="grid grid-cols-2 w-full h-full gap-x-[3vw] gap-y-[3vw] mb-[3vw] mobile:flex mobile:flex-col mobile:gap-[7vw]">
               {works.map((work, index) => {
                 const isFullWidth = index % 3 === 0;
                 const cardClass = isFullWidth ? 'col-span-2' : 'col-span-1';
@@ -78,7 +78,7 @@ export default function Works({ initialWorks, initialPagination, workcategories 
             </div>
 
             {pagination && pagination.currentPage < pagination.pagesCount && (
-              <div className="flex w-full justify-center">
+              <div className="flex w-full justify-center mobile:mt-[8vw]">
                 <button onClick={loadMoreWorks} disabled={isLoading} className={`cursor-pointer flex w-fit relative text-[1.3vw] gap-[0.5vw] items-center font-medium group mobile:text-[6vw] mobile:gap-[2vw] `}>
                   <span className="relative after:absolute after:block after:bottom-0 after:left-0 after:h-[1px] after:w-full after:bg-current after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0">{isLoading ? 'Loading' : 'Load More'}</span>
                   <svg className="relative -rotate-[135deg] w-[1.2vw] h-[1.2vw] overflow-hidden mobile:w-[5vw] mobile:h-[5vw]" width="19" height="23" viewBox="0 0 19 23" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -112,7 +112,7 @@ const Header = () => {
               />
             </Link>
           </div>
-          <div className="w-[3.5vw] mr-[-0.5%] h-[3.5vw] mobile:w-[15vw] mobile:h-[15vw] relative tablet:w-[8vw] tablet:h-[10vw]">
+          <div className="w-[3.5vw] mr-[-0.5%] h-[3.5vw] mobile:w-[15vw] mobile:h-[15vw] relative tablet:w-[8vw] tablet:h-[10vw] mobile:mr-[-5%]">
             <button
               id="header-hamburger"
               disabled={buttonDisabled}

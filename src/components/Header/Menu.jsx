@@ -165,7 +165,7 @@ export default function Menu({ menuOpen }) {
                 </li>
                 <li className="translate-x-[50px] opacity-0">
                   <MenuLink 
-                    className={`text-[1.4vw] font-medium mobile:text-[4.5vw] ${pathname=="/what-we-do"?"text-gray-300 pointer-events-none":""}`}
+                    className={`text-[1.4vw] font-medium mobile:text-[4.5vw] tablet:text-[1.8vw] ${pathname=="/what-we-do"?"text-gray-300 pointer-events-none":""}`}
                     href="/what-we-do"
                     text="View All"
                   />

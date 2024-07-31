@@ -24,8 +24,8 @@ export default function RecentWorks({works}) {
           </div>
 
           <div className='w-full flex justify-between gap-[2vw] mobile:flex-col mobile:gap-[7vw]'>
-            {works.map((work) => (
-              <div key={work.slug} className='fadeup group'>
+            {works.map((work,index) => (
+              <div key={work.slug} className={`fadeup group ${index==2?"tablet:hidden":""}`}>
                 <Link href={workPathBySlug(work.slug)} className='h-full w-full block relative'>
                   <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-none tablet:w-[41.5vw] tablet:h-[45vw] group-hover:drop-shadow-3xl group-hover:shadow-xl transition-all ease-out duration-500'>
                     <MediaRender url={work.workFields.featuredImagevideo.node.mediaItemUrl} className='z-[0]'/>

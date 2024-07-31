@@ -33,14 +33,14 @@ const Category = ({ workcategory, works, workcategories }) => {
   return (
     <Layout>
       <main>
-        <Section id="hero">
+        <Section id="hero" >
           <div className="container">
-            <div className='pt-[10%]'>
-              <h1 className='text-[5.7vw] font-display leading-[1.2]'>
+            <div className='pt-[10%] mobile:pt-[30%] tablet:pt-[15%]'>
+              <h1 className='text-[5.7vw] font-display leading-[1.2] mobile:text-[10vw]'>
                 {workcategory.name} Works
               </h1>
             </div>
-            <div className="lineDraw w-full h-[1px] bg-body mt-[6%]" />
+            <div className="lineDraw w-full h-[1px] bg-body mt-[6%] mobile:mt-[10%] mobile:mb-[8%]" />
           </div>
         </Section>
 
@@ -50,7 +50,7 @@ const Category = ({ workcategory, works, workcategories }) => {
               <WorkCategories workcategories={workcategories} activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
             </div>
 
-            <div className="grid grid-cols-2 w-full h-full gap-x-[3vw] gap-y-[3vw] mb-[3vw]">
+            <div className="grid grid-cols-2 w-full h-full gap-x-[3vw] gap-y-[3vw] mb-[3vw] mobile:flex mobile:flex-col mobile:gap-[7vw]">
               {works.length > 0 ? (
                 works.map((work, index) => {
                   const isFullWidth = index % 3 === 0;

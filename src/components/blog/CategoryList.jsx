@@ -7,7 +7,7 @@ const CategoryList = ({ categories, activeCategory, setActiveCategory }) => {
 
   return (
     <div className='flex gap-[1.5vw] flex-wrap w-full h-fit mb-[5vw] fadeup'>
-      <Link key={"all"} href="/blog" onClick={() => setActiveCategory('all')} className={`group overflow-hidden relative text-body border hover:text-white transition-all duration-300 ease-out border-body rounded-full px-[1.5vw] text-[1.3vw] py-[0.3vw] leading-[1.2] tablet:text-[2.2vw] mobile:text-[4vw] mobile:px-[5vw] mobile:py-[0.7vw] ${activeCategory === 'all' ? 'bg-body text-white hover:animate-none' : ''}`}>
+      <Link key={"all"} href="/blog" onClick={() => setActiveCategory('all')} className={`group overflow-hidden relative text-body border hover:text-white transition-all duration-300 ease-out border-body rounded-full px-[1.5vw] text-[1.3vw] py-[0.3vw] leading-[1.2] tablet:text-[2.2vw] tablet:px-[2.2vw] tablet:py-[0.6vw] mobile:text-[4vw] mobile:px-[5vw] mobile:py-[0.7vw] ${activeCategory === 'all' ? 'bg-body text-white hover:animate-none' : ''}`}>
         <span className='leading-[1.4] relative z-[1]'>All</span>
         <span className="w-full h-full absolute bottom-0 left-0 block group-hover:scale-y-[1] origin-bottom transition-all duration-300 ease-out bg-body scale-y-0" />
       </Link>

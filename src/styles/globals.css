@@ -14,6 +14,30 @@
   font-size: 4vw;
 }
 
+/* lenis CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+
+
+
 .container {
   max-width: 100%;
   padding-right: 5%;
@@ -245,6 +269,8 @@ body {
 
   transform: perspective(1200px) rotateY(0deg);
 }
+
+/* string line css */
 .string-line {
   height: 1px;
   position: relative;
@@ -275,8 +301,6 @@ body {
 
   top: -75px;
 }
-
-
 .transitionIn .blocck {
   transform-origin: top;
 }
@@ -284,6 +308,16 @@ body {
 .transitionOut .blocck {
   transform-origin: bottom;
 }
+
+/* modal css */
+.ReactModalPortal {
+  position: fixed !important;
+  z-index: 300 !important;
+}
+.wp-block-video{
+  margin-bottom: 1.5vw;
+}
+
 
 /* mobile css */
 @media screen and (max-width: 541px) {
@@ -378,6 +412,9 @@ body {
     font-weight: 500;
   
   
+  }
+  .wp-block-video{
+    margin-bottom: 5vw;
   }
   
 }
@@ -475,6 +512,13 @@ body {
   .cardback {
     backface-visibility: hidden;
     transform: perspective(900px) rotateY(0deg);
+  }
+  .work_work__qXY49 p{
+    font-size: 2.5vw !important;
+    margin-bottom: 2vw;
+  }
+  .wp-block-video{
+    margin-bottom: 3vw;
   }
 
 }
