@@ -55,7 +55,7 @@ export function lineAnim(){
       gsap.from(lineDraw, {
         scrollTrigger: {
           trigger: lineDraw,
-          start: "top 85%",
+          start: "top 95%",
         },
         scaleX: 0,
         transformOrigin: "left",

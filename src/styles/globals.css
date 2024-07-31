@@ -308,6 +308,11 @@ body {
 .transitionOut .blocck {
   transform-origin: bottom;
 }
+.error-page-line .string-line svg path {
+  stroke-width: 1px;
+  stroke: white;
+  fill: none;
+}
 
 /* modal css */
 .ReactModalPortal {
