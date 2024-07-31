@@ -146,7 +146,7 @@ const Footer = () => {
             </div>
 
             <div
-                className="h-[30vw] w-full relative mobile:h-full mobile:py-[10%] tablet:h-[60vw] tablet:py-[7%]"
+                className="h-[30vw] w-full relative mobile:h-full mobile:py-[10%] tablet:h-[60vw] tablet:py-[7%] footer-anim"
                 style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
             >
                 <div className="fixed bottom-0 left-0 right-0 top-0 z-[-1] pb-[2vw] mobile:static tablet:static">

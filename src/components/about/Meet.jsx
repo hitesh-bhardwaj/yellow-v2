@@ -151,13 +151,14 @@ export default function Meet() {
           <div className="w-full mobile:overflow-scroll mobile:mt-[5vw]">
             <div
               ref={cardContainer}
-              className="flex flex-wrap mt-[8vw] justify-between gap-y-[3vw] mobile:flex-nowrap mobile:w-fit mobile:overflow-scroll mobile:gap-[5vw] mobile:h-fit tablet:gap-y-[3.5vw]"
+              className="grid grid-cols-3 mt-[8vw]  gap-[3vw] mobile:flex-nowrap mobile:w-fit mobile:overflow-scroll mobile:gap-[5vw] mobile:h-fit tablet:gap-y-[3.5vw]"
             >
               {teamMembers.map((member) => (
-                <div key={member.id}>
+                
                   <div
                     className="w-fit overflow-hidden"
                     onClick={() => handleDetail(member.id)}
+                    key={member.id}
                   >
                     <div
                       className={`w-full h-[36vw] group cursor-pointer relative overflow-hidden border-[1px] border-black border-opacity-40 cardfade mobile:w-[75vw] mobile:h-[100vw] tablet:w-[41vw] tablet:h-full`}
@@ -209,7 +210,7 @@ export default function Meet() {
                       </div>
                     </div>
                   </div>
-                </div>
+                
               ))}
             </div>
           </div>
