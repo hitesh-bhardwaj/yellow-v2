@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/router";
 import {
   Form,
   FormControl,
@@ -17,8 +18,8 @@ import {
 import { Input } from "@/components/ui/input";
 
 const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+  name: z.string().min(3, {
+    message: "Username must be at least 3 characters.",
   }),
   email: z.string().email({
     message: "Invalid email address.",
@@ -26,8 +27,8 @@ const formSchema = z.object({
   number: z.string().min(10, {
     message: "Contact number must be at least 10 digits.",
   }),
-  detail: z.string().min(10, {
-    message: "Detail must be at least 10 characters.",
+  detail: z.string().min(50, {
+    message: "Detail must be at least 50 characters.",
   }),
 });
 
@@ -39,6 +40,7 @@ export default function ContactForm() {
   const [checkedState, setCheckedState] = useState(
     Object.fromEntries(services.map((service) => [service, false]))
   );
+  const router = useRouter();
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -60,6 +62,11 @@ export default function ContactForm() {
       [service]: !prevState[service],
     }));
   };
+  const onSubmit = (data) => {
+    console.log("Form Submitted Successfully:", data);
+    router.push("/thank-you");
+    
+  };
 
   const getClassName = (value) =>
     selectedValue === value ? "text-white border-opacity-100" : "text-black border-opacity-100";
@@ -76,7 +83,7 @@ export default function ContactForm() {
         Connect with our team to bring your ideas to life.
       </h3>
       <Form {...form}>
-        <form className="form flex flex-wrap gap-y-[1.4vw] mobile:gap-[2.5vw] mobile:gap-y-[7vw] mobile:py-[10vw] tablet:gap-y-[3vw] fadeup">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="form flex flex-wrap gap-y-[1.4vw] mobile:gap-[2.5vw] mobile:gap-y-[7vw] mobile:py-[10vw] tablet:gap-y-[3vw] fadeup">
           <p  className="text-[2.5vw] font-medium leading-[1.4] tablet:text-[3.5vw] mobile:text-[6.4vw]">
             Hello! My name is
           </p>
@@ -85,9 +92,9 @@ export default function ContactForm() {
             control={form.control}
             name="name"
             render={({ field }) => (
-              <FormItem className="h-full flex justify-center">
+              <FormItem className="h-full flex justify-center flex-col">
                 <FormControl>
-                  <Input placeholder="Type your name*" {...field} />
+                  <Input placeholder="Type your name*" {...field} type="text" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -186,11 +193,12 @@ export default function ContactForm() {
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem className="form-detail">
+              <FormItem className="form-detail h-full flex justify-center flex-col">
                 <FormControl>
                   <Input
                     placeholder="Type your email*"
                     {...field}
+                    type="email"
                     className="w-[35vw]"
                   />
                 </FormControl>
@@ -205,11 +213,12 @@ export default function ContactForm() {
             control={form.control}
             name="number"
             render={({ field }) => (
-              <FormItem className="form-detail">
+              <FormItem className="form-detail h-full flex justify-center flex-col">
                 <FormControl>
                   <Input
                     placeholder="Type your Contact Number*"
                     {...field}
+                    type="number"
                     className="w-[35vw]"
                   />
                 </FormControl>
@@ -224,9 +233,9 @@ export default function ContactForm() {
             control={form.control}
             name="detail"
             render={({ field }) => (
-              <FormItem className=" detail">
+              <FormItem className=" detail h-full flex justify-center flex-col">
                 <FormControl>
-                  <Input placeholder="Type your detail*" {...field} />
+                  <Input placeholder="Type your detail*" {...field} type="text" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -235,7 +244,7 @@ export default function ContactForm() {
           <div className="w-full flex justify-center items-center  mt-[3vw] mobile:justify-start">
             <Button
               type="submit"
-              className="text-[1.4vw] px-[1.4vw] py-[0.6vw] min-w-[12vw] bg-black mobile:bg-white border border-black mobile:text-black  rounded-full min-h-[3.5vw] flex gap-[0.5vw] hover:bg-black group tablet:text-[2vw] tablet:min-w-[15vw] tablet:px-[3vw] tablet:py-[1vw] mobile:text-[4vw] mobile:px-[6vw] mobile:h-[14vw]"
+              className="text-[1.4vw] px-[1.4vw] py-[0.6vw] min-w-[12vw] bg-black mobile:bg-white border border-black mobile:text-black  rounded-full min-h-[3.5vw] flex gap-[0.5vw] hover:bg-black mobile:hover:bg-white group tablet:text-[2vw] tablet:min-w-[15vw] tablet:px-[3vw] tablet:py-[1vw] mobile:text-[4vw] mobile:px-[6vw] mobile:h-[14vw]"
             >
               <div className="overflow-hidden flex items-center gap-[0.5vw] w-full mobile:gap-[2vw]">
                 <span

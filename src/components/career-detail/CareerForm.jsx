@@ -1,10 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Label } from "@/components/ui/label";
+import { useRouter } from "next/router";
 import { Textarea } from "@/components/ui/textarea";
 import {
   Form,
@@ -27,8 +26,8 @@ import { Button } from "../ui/button";
 import Section from "../Section";
 
 const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+  name: z.string().min(3, {
+    message: "Username must be at least 3 characters.",
   }),
   email: z.string().email({
     message: "Invalid email address.",
@@ -36,14 +35,17 @@ const formSchema = z.object({
   number: z.string().min(10, {
     message: "Contact number must be at least 10 digits.",
   }),
-  detail: z.string().min(10, {
-    message: "Detail must be at least 10 characters.",
-  }),
+ social : z.string({
+  message:"Enter the social media link."
+ }),
+
+
 });
 
 function CareerForm({jobs}) {
 
   const JobsData = jobs.jobs;
+  const router = useRouter();
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -51,16 +53,27 @@ function CareerForm({jobs}) {
       name: "",
       email: "",
       number: "",
-      detail: "",
+      social:"",
+      Question1:"",
+      Question2:"",
+      Question3:"",
+
     },
   });
+  const onSubmit = (data) => {
+    console.log("Form Submitted Successfully:", data);
+    router.push("/thank-you");
+    
+  };
+
+
   return (
     <>
       <Section id="CareerForm" className="bg-black">
         <div className="container h-full relative z-[4] pt-[5%] pb-[10%] mobile:py-[20%] bg-white">
         <div className="w-screen absolute translate-x-[-5vw] bg-[#111111] h-[30%] top-[50%] z-[-2] translate-y-[-50%] tablet:translate-x-[-8vw]"></div>
           <Form {...form}>
-            <form className="w-full h-full border-[1.5px]  rounded-[50px] border-black/20 bg-white py-[5vw] px-[5vw] flex flex-wrap gap-x-[7.8vw] gap-y-[3vw] border-opacity-45 drop-shadow-[50px] shadow-2xl  mobile:rounded-[10px] mobile:gap-y-[12vw] mobile:border-[1px] mobile:py-[12vw] mobile:shadow-none tablet:rounded-[15px] tablet:gap-y-[4vw] tablet:py-[7vw] tablet:gap-x-[7vw] career-form fadeup">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="w-full h-full border-[1.5px]  rounded-[50px] border-black/20 bg-white py-[5vw] px-[5vw] flex flex-wrap gap-x-[7.8vw] gap-y-[3vw] border-opacity-45 drop-shadow-[50px] shadow-2xl  mobile:rounded-[10px] mobile:gap-y-[12vw] mobile:border-[1px] mobile:py-[12vw] mobile:shadow-none tablet:rounded-[15px] tablet:gap-y-[4vw] tablet:py-[7vw] tablet:gap-x-[7vw] career-form fadeup">
               <div className="w-full  career-input border-b border-black flex flex-col gap-[1vw]">
                 <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[5vw] tablet:text-[2.2vw]">
                   Which role are you applying for?
@@ -86,9 +99,9 @@ function CareerForm({jobs}) {
                   control={form.control}
                   name="name"
                   render={({ field }) => (
-                    <FormItem className="h-full flex justify-center career">
+                    <FormItem className="h-full flex justify-center career flex-col">
                       <FormControl>
-                        <Input placeholder="" {...field} />
+                        <Input placeholder="" {...field} type="text"/>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -102,9 +115,9 @@ function CareerForm({jobs}) {
                   control={form.control}
                   name="email"
                   render={({ field }) => (
-                    <FormItem className="h-full flex justify-center career">
+                    <FormItem className="h-full flex justify-center career flex-col">
                       <FormControl>
-                        <Input placeholder="" {...field} />
+                        <Input placeholder="" {...field} type="email" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -118,11 +131,11 @@ function CareerForm({jobs}) {
                 <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">Phone</p>
                 <FormField
                   control={form.control}
-                  name="phone"
+                  name="number"
                   render={({ field }) => (
-                    <FormItem className="h-full flex justify-center career">
+                    <FormItem className="h-full flex justify-center career flex-col">
                       <FormControl>
-                        <Input placeholder="" {...field} />
+                        <Input placeholder="" {...field} type="number" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -138,9 +151,9 @@ function CareerForm({jobs}) {
                   control={form.control}
                   name="social"
                   render={({ field }) => (
-                    <FormItem className="h-full flex justify-center career">
+                    <FormItem className="h-full flex justify-center career flex-col">
                       <FormControl>
-                        <Input placeholder="" {...field} />
+                        <Input placeholder="" {...field}  type="link"/>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -159,9 +172,9 @@ function CareerForm({jobs}) {
                   control={form.control}
                   name="Question1"
                   render={({ field }) => (
-                    <FormItem className="h-full flex justify-center career">
+                    <FormItem className="h-full flex justify-center career flex-col">
                       <FormControl>
-                        <Input placeholder="" {...field} />
+                        <Input placeholder="" {...field} type="text"/>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -253,9 +266,9 @@ function CareerForm({jobs}) {
                   control={form.control}
                   name="Question2"
                   render={({ field }) => (
-                    <FormItem className="h-full flex justify-center career">
+                    <FormItem className="h-full flex justify-center career flex-col">
                       <FormControl>
-                        <Input placeholder="" {...field} />
+                        <Input placeholder="" {...field} type="text" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -270,9 +283,9 @@ function CareerForm({jobs}) {
                   control={form.control}
                   name="Question3"
                   render={({ field }) => (
-                    <FormItem className="h-full flex justify-center career">
+                    <FormItem className="h-full flex justify-center career flex-col">
                       <FormControl>
-                        <Input placeholder="" {...field} />
+                        <Input placeholder="" {...field} type="text"/>
                       </FormControl>
                       <FormMessage />
                     </FormItem>

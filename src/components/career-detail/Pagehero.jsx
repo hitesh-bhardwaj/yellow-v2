@@ -7,7 +7,7 @@ export default function Pagehero({title, bgImage, jobInfo}) {
     <>
       <Section id='hero' className='dark bg-white'>
         <div className='w-[100vw] h-[80vh] relative tablet:h-[40vh]'>
-          <Image src={bgImage.node.sourceUrl} alt={`${bgImage.node.altText} Image`} quality={100} fill className='object-cover h-full w-full mobile:object-cover' />
+          <Image src={bgImage.node.sourceUrl} alt={`${bgImage.node.altText} Image`} quality={100} fill className='object-cover h-full w-full mobile:object-cover' priority/>
           <div className='container absolute top-[50%] translate-y-[-50%] z-[2] mobile:top-[70%] tablet:top-[70%]'>
             <div className='text-white'>
               <h1 data-title-anim className='text-[5.7vw] uppercase font-display mb-[1vw] mobile:text-[10vw] mobile:leading-[1.3] mobile:mb-[7vw] tablet:text-[6vw]'>

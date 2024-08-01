@@ -28,6 +28,7 @@ export default function Pagehero({post}) {
             alt={post.title}
             sizes={post.featuredImage.sizes}
             fill
+          
           />
         </div>
       </Section>
