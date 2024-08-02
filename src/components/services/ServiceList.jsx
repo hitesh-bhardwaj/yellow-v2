@@ -63,7 +63,7 @@ export default function ServiceList() {
             {services.map((service, index) => (
               <React.Fragment key={service.id}>
                 <div className="col-span-4 w-full h-full ">
-                  <div className={`w-[50vw] h-[33vw] rounded-xl overflow-hidden relative imageanim mobile:w-[85vw] mobile:h-[140vw] tablet:w-[85vw] tablet:h-[45vw] tablet:mt-[5vw] ${index % 2 === 0 ? '' : 'mobile:mt-[5vw]'}`}>
+                  <div className={`w-[50vw] h-[33vw] rounded-xl overflow-hidden relative imageanim mobile:w-[85vw] mobile:h-[140vw] tablet:w-[85vw] tablet:h-[45vw] ${index % 2 === 0 ? '' : 'mobile:mt-[5vw]'}`}>
                     <Image
                       src={service.imageSrc}
                       alt={service.alt}
@@ -74,7 +74,7 @@ export default function ServiceList() {
                 </div>
                 <div className="col-start-5 col-span-3 w-full mobile:mb-[7vw] tablet:mb-[3vw]">
                   <h3
-                    data-title-anim
+                    data-para-anim
                     className="text-[2.5vw] font-display mb-[1.5vw] mobile:text-[9vw] mobile:mb-[5vw] tablet:text-[5vw] "
                   >
                     {service.title}
@@ -88,7 +88,7 @@ export default function ServiceList() {
                     </p>
                   )}
                   <div className="fadeup mobile:mt-[7vw]">
-                    <BlackButton btnLink={service.link} btnText={"View More"} className="text-[1.05vw] tablet:text-[2.5vw] mobile:text-[4vw]" />
+                    <BlackButton btnLink={service.link} btnText={"View More"} />
                   </div>
                 </div>
               </React.Fragment>

@@ -10,7 +10,7 @@ export default function Overview({details}) {
                   Overview
               </h2>
               <div 
-                className='w-[45%] space-y-[1vw] tablet:space-y-[2vw] mobile:space-y-[3vw] text-[1.2vw] font-medium mobile:w-full mobile:text-[4.5vw] tablet:text-[2vw] tablet:w-[60%]'
+                className='w-[45%] space-y-[1vw] tablet:space-y-[2vw] mobile:space-y-[3vw] text-[1.2vw] font-medium mobile:w-full mobile:text-[4.5vw] tablet:text-[2vw] tablet:w-[60%] fadeup'
                 dangerouslySetInnerHTML={{
                   __html: details
                 }}

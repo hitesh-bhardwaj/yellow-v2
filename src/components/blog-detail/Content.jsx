@@ -5,8 +5,8 @@ import { LinkedinShareButton, FacebookShareButton, TwitterShareButton} from 'nex
 
 const Content = (({date, content, slug}) => {
     return (
-        <Section id="second-section" className="py-[5%]">
-            <div className="container">
+        <Section id="second-section" className=" bg-black">
+            <div className="container bg-white py-[5%]">
                 <div className="flex justify-between items-start mobile:flex-col mobile:gap-[5vw] tablet:flex-col tablet:gap-[2vw]">
                     <aside>
                         <h3 data-title-anim className="text-[1.55vw] font-medium mb-[1vw] mobile:text-[7vw] tablet:text-[4vw]">Posted On :</h3>

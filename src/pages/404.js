@@ -1,15 +1,62 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import Header from '@/components/Header'
 import Line from '@/components/Line'
 import Section from '@/components/Section'
 import React from 'react'
-import { titleAnim , paraAnim ,fadeUp ,lineAnim} from '@/components/gsapAnimations';
+import { titleAnim , paraAnim ,fadeUp } from '@/components/gsapAnimations';
 import Link from 'next/link';
+import { useGSAP } from '@gsap/react';
+import { gsap } from 'gsap/dist/gsap';
+import {ScrollTrigger} from 'gsap/dist/ScrollTrigger';
+import { CustomEase } from 'gsap/dist/CustomEase';
+gsap.registerPlugin(ScrollTrigger, useGSAP , CustomEase);
 
+const primaryEase = CustomEase.create("cus-1", "0.62, 0.05, 0.01, 0.99");
 function Empty() {
     titleAnim();
     paraAnim();
     fadeUp();
-    lineAnim();
+    if(globalThis.innerWidth<=1023&&globalThis.innerWidth>541){
+      useGSAP(() => {
+        const lineDraws = document.querySelectorAll(".lineDraw");
+        lineDraws.forEach((lineDraw) => {
+          gsap.from(lineDraw, {
+            scrollTrigger: {
+              trigger: lineDraw,
+              start: "top 95%",
+            },
+            scaleX: 0,
+            transformOrigin: "left",
+            duration: 1.47,
+            yPercent: 100,
+            stagger: 0.07,
+            ease: primaryEase,
+          });
+        });
+      }); 
+  
+    }
+    else {
+      useGSAP(() => {
+        const lineDraws = document.querySelectorAll(".lineDraw");
+        lineDraws.forEach((lineDraw) => {
+          gsap.from(lineDraw, {
+            scrollTrigger: {
+              trigger: lineDraw,
+              start: "top 95%",
+            },
+            scaleX: 0,
+            transformOrigin: "left",
+            duration: 1.47,
+            yPercent: 100,
+            stagger: 0.07,
+            ease: primaryEase,
+          });
+        });
+      }); 
+      
+    }
+    
   return (
     <>
         <Header/>
@@ -38,7 +85,7 @@ function Empty() {
               <img src="/assets/404.svg" alt='404-svg' className='object-contain h-full w-full'/>
             </div>
           </div>
-          <div  className='absolute bottom-[7%] w-screen z-[5] px-[5vw] error-page-line flex flex-col gap-[2vw] mobile:bottom-[4%] tablet:bottom-[5%] '>
+          <div  className='absolute bottom-[7%] w-screen z-[5] px-[5vw] error-page-line flex flex-col gap-[2vw] mobile:bottom-[4%] tablet:bottom-[10%] '>
             <Line className=""/>
             <div className='bg-white h-[1px] w-full hidden mobile:block tablet:block mobile:mb-[4vw] tablet:mb-[2vw] lineDraw'></div>
             <div className='w-full flex justify-between group items-center'>

@@ -145,7 +145,7 @@ function CareerForm({jobs}) {
 
               <div className="w-[45%] flex flex-col mobile:w-full">
                 <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
-                  Your website / blog / Instagram? <span className="tablet:hidden text-[1.3vw] tablet:text-[2.2vw] career-form-span">Facebook?</span>
+                  Your website / blog / Instagram? <span className="tablet:hidden text-[1.3vw] tablet:text-[2.2vw] career-form-span mobile:text-[4.5vw]">Facebook?</span>
                 </p>
                 <FormField
                   control={form.control}

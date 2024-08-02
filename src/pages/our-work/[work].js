@@ -70,7 +70,7 @@ export default function Work({ work, socialImage, relatedWorks }) {
         categories={workcategories}
       />
       <Section id="work-content" className='bg-black'>
-        <div className='container bg-white '>
+        <div className='container bg-white py-[5%] '>
           <div
             className={styles.work}
             dangerouslySetInnerHTML={{

@@ -19,7 +19,11 @@ export default function Work({ works }) {
                 We grow amazing companies through exceptional branding and communications.
               </p>
             </div>
+            <div className='fadeup'>
             <LinkButton btnLink="/our-work" btnText="See All Work"/>
+
+
+            </div>
           </div>
           <div className='w-full flex justify-between gap-[3vw] mobile:flex-col mobile:gap-[7vw] fadeup'>
             {works.slice(0, 2).map((work) => (

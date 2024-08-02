@@ -5,7 +5,7 @@ import SectionTitle from "../SectionTitle";
 export default function Casestudy() {
   return (
     <>
-      <section className="w-screen h-full py-[8%] mobile:pt-[15%] tablet:w-full bg-black" id="casestudy">
+      <section className="w-full h-full py-[8%] mobile:pt-[15%] tablet:w-full bg-black" id="casestudy">
         <div className="container bg-white">
           <div className="grid grid-cols-2 gap-x-[2.5vw] gap-y-[4vw] mobile:flex mobile:flex-col mobile:gap-y-[7vw]">
             <div className="">

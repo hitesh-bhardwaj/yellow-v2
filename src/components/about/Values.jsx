@@ -95,7 +95,7 @@ export default function values() {
           />
           <p
             data-para-anim
-            className="text-[2vw] w-[30%] font-medium leading-[1.2] mobile:w-[90%] mobile:text-[5vw] tablet:text-[2.5vw] tablet:w-[50%] "
+            className="text-[2vw] w-[35%] font-medium leading-[1.2] mobile:w-[90%] mobile:text-[5vw] tablet:text-[2.5vw] tablet:w-[50%] "
           >
             We grow amazing companies through exceptional branding and
             communications.

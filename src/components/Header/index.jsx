@@ -97,7 +97,7 @@ const Header = () => {
           showHeader ? "transform-none" : "transform -translate-y-full"
         }`}
       >
-        <div className="container py-[2.5%] flex justify-between items-center mobile:py-[7%]">
+        <div className="container pt-[2.5%] flex justify-between items-center mobile:py-[7%]">
           <div className="w-fit overflow-hidden">
             <Link href="/" className="pointer-events-auto">
               <Image

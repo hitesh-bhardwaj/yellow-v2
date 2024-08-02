@@ -6,7 +6,7 @@ const MediaRender = ({ url, className="" }) => {
     };
   
     return (
-      <div className={`h-full w-full absolute left-0 right-0 top-0 bottom-0 z-[-1] panel-img ${className}`}>
+      <div className={`h-full w-full absolute left-0 right-0 top-0 bottom-0 z-[-1] panel-img overflow-hidden ${className}`}>
         {isVideo(url) ? (
           <video
             loading="lazy"

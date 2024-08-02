@@ -2,6 +2,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Layout from "@/components/Layout";
+import { useEffect } from "react";
 import {
   paraAnim,
   imageAnim,
@@ -199,23 +200,25 @@ function Teamdetail() {
 
   const router = useRouter();
   const { slug } = router.query;
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
 
   const member = memberDetails.find((member) => member.slug === slug);
-  console.log(slug);
 
   return (
     <Layout>
       <Section id="teamdetail" className="w-full h-full bg-black">
         <div className="container py-[8%] mobile:pt-[25%] mobile:pb-[15%] tablet:py-[15%] bg-white">
           <div className="flex gap-[4vw] h-full w-full mb-[3vw] mobile:flex-col mobile:gap-[5vw]">
-            <div className="w-[30vw] h-[40vw] relative mobile:w-[85vw] mobile:h-[120vw] imageanim tablet:w-[45vw] tablet:h-[60vw]">
+            <div className="w-[35vw] h-[45vw] relative mobile:w-[85vw] mobile:h-[120vw] imageanim tablet:w-[45vw] tablet:h-[60vw]">
               <img
                 src={member.image}
                 alt={member.name}
                 className="object-cover w-full h-full "
               />
             </div>
-            <div className="flex flex-col justify-between h-[60vh] mobile:h-full mobile:ml-[1%] tablet:h-[40vh]">
+            <div className="flex flex-col justify-between h-[70vh] mobile:h-full mobile:ml-[1%] tablet:h-[40vh] tablet:w-[40vw]">
               <div className="">
                 <h1
                   data-para-anim
@@ -240,27 +243,33 @@ function Teamdetail() {
                 <a
                   data-para-anim
                   href={`mailto:${member.email}`}
-                  className="mb-[2vw] font-medium"
+                  className="mb-[2vw] font-medium text-[1.6vw] group"
                 >
-                  {member.email}
+                   <span className="link-line group-hover:text-gray-700">
+                                            {member.email}
+                                        </span>
                 </a>
                 <p data-para-anim className="opacity-40 font-medium mb-[0.5vw]">
                   Social Media:
                 </p>
-                <a data-para-anim href={member.LN} className="font-medium">
+                <a data-para-anim href={member.LN} className="font-medium text-[1.6vw] group">
+                  <span className="link-line group-hover:text-gray-700">
                   {member.LN}
+
+                  </span>
+                 
                 </a>
               </div>
             </div>
           </div>
 
-          <div className="text-[2vw] flex flex-col gap-[2vw] font-medium my-[5vw] mobile:text-[4.5vw] mobile:gap-[5vw] mobile:my-[10vw] tablet:text-[2.5vw] tablet:my-[7vw]">
+          <div className="text-[1.7vw] flex flex-col gap-[2vw] font-medium my-[5vw] mobile:text-[4.5vw] mobile:gap-[5vw] mobile:my-[10vw] tablet:text-[2.5vw] tablet:my-[7vw]">
             <p data-para-anim>{member.content1}</p>
             <p data-para-anim>{member.content2}</p>
             <p data-para-anim>{member.content3}</p>
             <p data-para-anim>{member.content4}</p>
           </div>
-          <div className="w-[90vw] h-[40vw] relative mobile:w-[85vw] mobile:h-[50vw] fadeup tablet:w-[85vw]">
+          <div className="w-[90vw] h-[40vw] relative mobile:w-[85vw] mobile:h-[50vw] fadeup tablet:w-[85vw] rounded-[15px] overflow-hidden">
             <img
               src={member.detailImage}
               alt={member.name}

@@ -83,7 +83,7 @@ export default function ContactForm() {
         Connect with our team to bring your ideas to life.
       </h3>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="form flex flex-wrap gap-y-[1.4vw] mobile:gap-[2.5vw] mobile:gap-y-[7vw] mobile:py-[10vw] tablet:gap-y-[3vw] fadeup">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="form flex flex-wrap gap-y-[1.4vw] mobile:gap-[2.5vw] mobile:gap-y-[7vw] mobile:py-[10vw] tablet:gap-y-[2vw] fadeup">
           <p  className="text-[2.5vw] font-medium leading-[1.4] tablet:text-[3.5vw] mobile:text-[6.4vw]">
             Hello! My name is
           </p>
@@ -100,8 +100,9 @@ export default function ContactForm() {
               </FormItem>
             )}
           />
-          <p  className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw]">and</p>
-          <p  className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw]">
+          <p  className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw] tablet:mt-[3vw] tablet:mb-[1vw]">and</p>
+          <span className="opacity-0 hidden tablet:block">s</span>
+          <p  className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw] tablet:mt-[3vw] tablet:mb-[1vw]">
              I Found you using
           </p>
           <FormField
@@ -118,7 +119,7 @@ export default function ContactForm() {
                     {options.map((option) => (
                       <div
                         key={option}
-                        className={`min-w-[10vw] relative overflow-hidden h-[3.5vw] px-[1.5vw] py-[0.3vw] border-[1px] border-black rounded-full tablet:min-w-[15vw] tablet:h-[4.5vw] mobile:min-w-[85vw] mobile:min-h-[14vw] mobile:flex mobile:justify-start mobile:gap-[3vw] mobile:px-[6vw] ${getClassName(
+                        className={`min-w-[10vw] relative overflow-hidden h-[3.5vw] px-[1.5vw] py-[0.3vw] border-[1px] border-black rounded-full tablet:min-w-[15vw] tablet:h-[5.5vw] mobile:min-w-[85vw] mobile:min-h-[14vw] mobile:flex mobile:justify-start mobile:gap-[3vw] mobile:px-[6vw] ${getClassName(
                           option
                         )} flex justify-center items-center gap-[1vw] cursor-pointer`}
                         onClick={() => handleValueChange(option)}
@@ -143,7 +144,7 @@ export default function ContactForm() {
             )}
           />
 
-          <p  className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw]">
+          <p  className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw] tablet:mt-[3vw] tablet:mb-[1vw]">
             I’m looking for Service:
           </p>
           <FormField
@@ -156,7 +157,7 @@ export default function ContactForm() {
                     {services.map((service) => (
                       <Checkbox
                         key={service}
-                        className={`flex items-center relative overflow-hidden justify-center space-x-2 py-[0.5vw] px-[1.4vw] min-w-[10vw] min-h-[3.4vw] border-[1px] tablet:min-w-[14vw] tablet:min-h-[4.5vw] border-black rounded-full cursor-pointer tablet:space-x-0 tablet:h-[4vw] mobile:w-[85vw] mobile:h-[14vw] mobile:justify-start mobile:px-[6vw] ${getClassNames(
+                        className={`flex items-center relative overflow-hidden justify-center space-x-2 py-[0.5vw] px-[1.4vw] min-w-[10vw] min-h-[3.4vw] border-[1px] tablet:min-w-[14vw] tablet:min-h-[5.5vw] border-black rounded-full cursor-pointer tablet:space-x-0 tablet:h-[4vw] mobile:w-[85vw] mobile:h-[14vw] mobile:justify-start mobile:px-[6vw] ${getClassNames(
                           checkedState[service]
                         )}`}
                         onClick={() => handleCheckboxChange(service)}
@@ -185,7 +186,7 @@ export default function ContactForm() {
           />
 
           <div>
-            <p  className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw]">
+            <p  className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw] tablet:mt-[3vw] tablet:mb-[1vw]">
               Feel Free to reach me at
             </p>
           </div>
@@ -193,7 +194,7 @@ export default function ContactForm() {
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem className="form-detail h-full flex justify-center flex-col">
+              <FormItem className="form-detail h-full flex justify-center flex-col tablet:mt-[3vw]">
                 <FormControl>
                   <Input
                     placeholder="Type your email*"
@@ -226,7 +227,7 @@ export default function ContactForm() {
               </FormItem>
             )}
           />
-          <p  className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw]">
+          <p  className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw] tablet:mt-[3vw]">
             I would like to share more about my project:
           </p>
           <FormField 
@@ -244,7 +245,7 @@ export default function ContactForm() {
           <div className="w-full flex justify-center items-center  mt-[3vw] mobile:justify-start">
             <Button
               type="submit"
-              className="text-[1.4vw] px-[1.4vw] py-[0.6vw] min-w-[12vw] bg-black mobile:bg-white border border-black mobile:text-black  rounded-full min-h-[3.5vw] flex gap-[0.5vw] hover:bg-black mobile:hover:bg-white group tablet:text-[2vw] tablet:min-w-[15vw] tablet:px-[3vw] tablet:py-[1vw] mobile:text-[4vw] mobile:px-[6vw] mobile:h-[14vw]"
+              className="text-[1.4vw] px-[1.4vw] py-[0.6vw] min-w-[12vw] bg-black mobile:bg-white border border-black mobile:text-black  rounded-full min-h-[3.5vw] flex gap-[0.5vw] hover:bg-black mobile:hover:bg-white group tablet:text-[2vw] tablet:min-w-[15vw] tablet:px-[3vw] tablet:h-[6vw] tablet:py-[1.2vw] mobile:text-[4vw] mobile:px-[6vw] mobile:h-[14vw]"
             >
               <div className="overflow-hidden flex items-center gap-[0.5vw] w-full mobile:gap-[2vw]">
                 <span

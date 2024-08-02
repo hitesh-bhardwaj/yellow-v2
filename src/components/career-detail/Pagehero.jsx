@@ -20,14 +20,14 @@ export default function Pagehero({title, bgImage, jobInfo}) {
                   </div>
                   <p data-para-anim className='text-[1.4vw] font-medium leading-[1.8] mobile:text-[5vw] tablet:text-[2vw]'>{jobInfo.experience}</p>
                 </div>
-                <div className='flex gap-[0.5vw] px-[2vw] border-r-[1px] border-white mobile:border-r-0 mobile:gap-[3vw]'>
+                <div className='flex gap-[0.5vw] px-[2vw] border-r-[1px] border-white mobile:border-r-0 mobile:gap-[3vw] mobile:px-0'>
                   <div className='w-[2.5vw] h-[2.5vw] relative mobile:w-[10vw] mobile:h-[10vw] tablet:w-[4vw] tablet:h-[4vw]'>
                     <Image src="/assets/images/career/icon2.png" alt='icon-2' fill />
                   </div>
                   <p data-para-anim className='text-[1.4vw] font-medium leading-[1.8] mobile:text-[5vw] tablet:text-[2vw]'>{jobInfo.ctcRange} / annum</p>
                 </div>
-                <div className='flex gap-[0.5vw] px-[1.5vw] border-white mobile:gap-[3vw]'>
-                  <div className='w-[2.5vw] h-[2.5vw] relative mobile:w-[10vw] mobile:h-[10vw] tablet:w-[4vw] tablet:h-[4vw]'>
+                <div className='flex gap-[0.5vw] px-[1.5vw] border-white mobile:gap-[3vw] mobile:px-0'>
+                  <div className='w-[2.5vw] h-[2.5vw] relative mobile:w-[10vw] mobile:h-[10vw] tablet:w-[4vw] tablet:h-[4vw] '>
                     <Image src="/assets/images/career/icon1.png" alt='icon-3' fill priority={true} />
                   </div>
                   <p data-para-anim className='text-[1.4vw] font-medium leading-[1.8] mobile:text-[5vw] tablet:text-[2vw]'>Benefits</p>

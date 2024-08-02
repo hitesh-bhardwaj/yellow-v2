@@ -52,9 +52,11 @@ html.lenis, html.lenis body {
 body {
   font-family: "Satoshi", Arial, sans-serif;
   text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
   color: var(--primary-color);
   background-color: #ffffff;
   overflow-x: hidden;
+  
 }
 
 #cursor {
@@ -413,7 +415,7 @@ body {
     color: #000;
   }
   .career-form-span{
-    font-size: 3.5vw !important;
+    font-size: 4.5vw !important;
   }
   
   .career-form textarea{
@@ -423,6 +425,15 @@ body {
   
   }
   .wp-block-video{
+    margin-bottom: 5vw;
+  }
+  .work_work__qXY49 p strong{
+    font-size: 5.5vw !important;
+    margin-bottom: 2vw !important;
+    font-weight: 500;
+  }
+  .work_work__qXY49 p{
+    font-size: 4.5vw !important;
     margin-bottom: 5vw;
   }
   

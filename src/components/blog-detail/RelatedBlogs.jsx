@@ -47,11 +47,14 @@ export default function RelatedBlogs({posts}) {
                   <h3 data-para-anim className="text-[1.5vw] font-display leading-[1.2] mobile:text-[6.5vw] tablet:text-[3.2vw]">
                     {post.title}
                   </h3>
+                  <div className="fadein">
                   <LinkButton
                     btnLink={post.slug}
                     btnText="Read Article"
                     
                   />
+                    </div>
+                 
                 </div>
               </div>
             ))}          

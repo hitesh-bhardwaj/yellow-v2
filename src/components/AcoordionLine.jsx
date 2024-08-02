@@ -76,7 +76,7 @@ function AccordionLine() {
   };
 
   return (
-    <div className="mobile:hidden my-[0.5vw] tablet:hidden ">
+    <div className="mobile:hidden my-[1vw] tablet:hidden ">
       <div className="string-line lineDraw">
         <span
           onMouseEnter={animateIn}

@@ -1,7 +1,7 @@
-import Layout from "@/components/Layout";
 import Section from "@/components/Section";
 import React from "react";
 import { titleAnim , paraAnim ,fadeUp} from '@/components/gsapAnimations';
+import Header from "@/components/Header";
 
 function Thankyou() {
     titleAnim();
@@ -9,7 +9,7 @@ function Thankyou() {
     fadeUp();
   return (
     <>
-      <Layout>
+      <Header/>
         <Section id={"thank-you"} className="bg-black">
           <div className="container flex justify-center items-center bg-white">
             <div className="w-full h-screen flex flex-col justify-center items-center ">
@@ -56,7 +56,7 @@ function Thankyou() {
             </div>
           </div>
         </Section>
-      </Layout>
+      
     </>
   );
 }

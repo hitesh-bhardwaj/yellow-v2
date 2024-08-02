@@ -15,7 +15,7 @@ export default function RelatedWorks({works}) {
 
           <div className='w-full flex justify-between mb-[5vw] mobile:flex-col mobile:gap-[5vw] mobile:mb-[10vw]'>
             <SectionTitle data-title-anim text={"Related Works"} />
-            <p className='text-[2vw] font-medium mobile:text-[5vw] w-[70%] mobile:w-[90%] hidden mobile:block'>
+            <p data-para-anim className='text-[2vw] font-medium mobile:text-[5vw] w-[70%] mobile:w-[90%] hidden mobile:block'>
               We grow amazing companies through exceptional branding and communications.
             </p>
             <div className='fadeup flex items-end'>
@@ -32,8 +32,8 @@ export default function RelatedWorks({works}) {
                       <MediaRender url={work.featuredImage} className='z-[0]'/>
                     )}
                   </div>
-                  <div className='absolute right-0 left-0 top-0 bottom-0 py-[2vw] px-[1.5vw] flex flex-col justify-between items-start'>
-                    <div className="flex gap-[1vw]">
+                  <div className='absolute right-0 left-0 top-0 bottom-0 py-[2vw] px-[1.5vw] flex flex-col justify-between items-start mobile:px-[5vw] mobile:py-[5vw]'>
+                    <div className="flex gap-[1vw] mobile:gap-[2vw]">
                       {work.categories && work.categories.length > 0 && work.categories.slice(0, 2).map((category) => (
                         <p key={category.node.slug} className="w-fit border border-current text-white rounded-full backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-black/5 tablet:text-[2vw]">
                           {category.node.name}

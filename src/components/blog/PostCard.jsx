@@ -6,7 +6,7 @@ import { postPathBySlug } from "@/lib/posts";
 const PostCard = (({post}) => {
 
     return (
-        <div key={post.id} className='col-span-1 h-full border-[1px] border-black border-opacity-40 rounded-[10px] overflow-hidden'>
+        <div key={post.id} className='col-span-1 h-full border-[1px] border-black border-opacity-40 rounded-[10px] overflow-hidden cardfade'>
             <div className='h-[16vw] w-full relative mobile:h-[60vw] tablet:h-[25vw]'>
                 <Image src={post.featuredImage.sourceUrl} alt={post.featuredImage.altText} fill sizes={post.featuredImage.sizes} />
             </div>
@@ -15,10 +15,10 @@ const PostCard = (({post}) => {
                 <p className='text-[1vw] font-medium mobile:text-[4vw] tablet:text-[2vw]'>{formatDate(post.date)}</p>
                 <div className='text-[1vw] flex gap-[0.5vw] mobile:text-[3vw] mobile:gap-[2vw] tablet:text-[2vw] tablet:gap-[1vw]'>
                     {post.categories[1] && (
-                        <span className='px-[0.7vw] border-[1px] border-black border-opacity-60 rounded-[50px] mobile:px-[2.5vw] tablet:px-[1.4vw] tablet:py-[0.3vw]'>{post.categories[1].name}</span>
+                        <span className='px-[0.7vw] border-[1px] border-black border-opacity-60 rounded-[50px] mobile:px-[2.5vw] tablet:px-[1.4vw] tablet:py-[0.3vw] mobile:py-[1vw]'>{post.categories[1].name}</span>
                     )}
                     {post.categories[2] && (
-                        <span className='px-[0.7vw] border-[1px] border-black border-opacity-60 rounded-[50px] mobile:px-[2.5vw] tablet:px-[1.4vw] tablet:py-[0.3vw]'>{post.categories[2].name}</span>
+                        <span className='px-[0.7vw] border-[1px] border-black border-opacity-60 rounded-[50px] mobile:px-[2.5vw] tablet:px-[1.4vw] tablet:py-[0.3vw] mobile:py-[1vw]'>{post.categories[2].name}</span>
                     )}
                 </div>
                 <LinkButton btnLink={postPathBySlug(post.slug)} btnText="Read Article"  />

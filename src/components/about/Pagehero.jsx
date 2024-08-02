@@ -7,7 +7,7 @@ export default function Pagehero() {
     <>
       <Section id="hero">
         <div className="container">
-          <div className="w-full h-full pt-[15%] flex items-center mb-[7vw] mobile:pt-[30%] ">
+          <div className="w-full h-full pt-[10%] flex items-center mb-[7vw] mobile:pt-[30%] ">
             <h1 data-title-anim className="text-[5.7vw] font-display uppercase heading-anim mobile:text-[12vw] tablet:text-[7vw]">Who We Are</h1>
           </div>
           <div className="flex gap-[5vw] w-full mobile:flex-col mobile:gap-[10vw] tablet:flex-col tablet:gap-[7vw]">

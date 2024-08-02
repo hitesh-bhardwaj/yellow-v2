@@ -1,4 +1,7 @@
-import { useState } from "react";
+/* eslint-disable react-hooks/rules-of-hooks */
+import { useState , useRef } from "react";
+
+
 import CategoryList from "@/components/blog/CategoryList";
 import Pagehero from "@/components/blog/Pagehero";
 import PostCard from "@/components/blog/PostCard";
@@ -8,12 +11,17 @@ import { getCategories } from "@/lib/categories";
 import { getPaginatedPosts, sortStickyPosts } from "@/lib/posts";
 import styles from "@/styles/blogDetail.module.css"
 import { titleAnim , paraAnim , lineAnim, imageAnim, fadeIn , fadeUp } from '@/components/gsapAnimations';
+import { gsap } from "gsap/dist/gsap";
+import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Blog({ initialPosts, featuredPost, initialPagination, categories  }) {
     const [posts, setPosts] = useState(initialPosts);
     const [pagination, setPagination] = useState(initialPagination);
     const [isLoading, setIsLoading] = useState(false);
     const [activeCategory, setActiveCategory] = useState('all');
+    const cardContainer = useRef(null);
     
     titleAnim();
     paraAnim();
@@ -21,6 +29,24 @@ export default function Blog({ initialPosts, featuredPost, initialPagination, ca
     imageAnim();
     fadeIn();
     fadeUp();
+
+    if (globalThis.innerWidth > 541) {
+        useGSAP(() => {
+          const cards = cardContainer.current.querySelectorAll(".cardfade");
+          gsap.from(cards, {
+            scrollTrigger: {
+              trigger: cardContainer.current,
+              start: "top 80%",
+              end: "bottom 60%",
+            },
+            opacity: 0,
+            yPercent: 20,
+            ease: "power4.Out",
+            duration: 1,
+            stagger: 0.3,
+          });
+        });
+      }
 
     const loadMorePosts = async () => {
         if (pagination.currentPage < pagination.pagesCount && !isLoading) {
@@ -45,9 +71,9 @@ export default function Blog({ initialPosts, featuredPost, initialPagination, ca
                 <div className="container py-[5%] bg-white">
                     <CategoryList categories={categories} activeCategory={activeCategory} setActiveCategory={setActiveCategory}/>
 
-                    <div className="bg-gray-400 h-[1px] w-screen ml-[-5vw] mobile:ml-[-7vw]"/>
+                    <div className="bg-gray-400 h-[1px] w-screen ml-[-5vw] mobile:ml-[-7vw] lineDraw"/>
 
-                    <div className='w-full h-full grid grid-cols-3 gap-[2vw] mb-[3vw] mt-[5vw] mobile:grid-cols-1 mobile:gap-[7vw] mobile:mt-[12vw] tablet:grid-cols-2 tablet:mt-[7vw] tablet:gap-x-[3vw] tablet:gap-y-[4vw]'>
+                    <div ref={cardContainer} className='w-full h-full grid grid-cols-3 gap-[2vw] mb-[3vw] mt-[5vw] mobile:grid-cols-1 mobile:gap-[7vw] mobile:mt-[12vw] tablet:grid-cols-2 tablet:mt-[7vw] tablet:gap-x-[3vw] tablet:gap-y-[4vw]'>
                         {posts.map((post, index) => (
                             <div
                                 key={post.slug}

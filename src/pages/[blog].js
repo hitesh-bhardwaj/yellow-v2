@@ -77,7 +77,7 @@ export default function Post({ post, socialImage, relatedPosts }) {
           
           )}
           <h1 data-para-anim
-            className="text-[4.8vw] font-display leading-[1.2] w-[90%] mb-[3vw] capitalize mobile:text-[10vw] mobile:mt-[7vw] tablet:text-[5.5vw]"
+            className="text-[4.8vw] font-display leading-[1.2] w-[90%] mb-[3vw] capitalize mobile:text-[9vw] mobile:mt-[7vw] tablet:text-[5.5vw] mobile:w-full"
             dangerouslySetInnerHTML={{
               __html: title,
             }}

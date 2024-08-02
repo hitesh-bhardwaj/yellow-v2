@@ -49,23 +49,47 @@ export function paraAnim(){
   }); 
 }
 export function lineAnim(){
-  useGSAP(() => {
-    const lineDraws = document.querySelectorAll(".lineDraw");
-    lineDraws.forEach((lineDraw) => {
-      gsap.from(lineDraw, {
-        scrollTrigger: {
-          trigger: lineDraw,
-          start: "top 95%",
-        },
-        scaleX: 0,
-        transformOrigin: "left",
-        duration: 1.47,
-        yPercent: 100,
-        stagger: 0.07,
-        ease: primaryEase,
+  if(globalThis.innerWidth<=1023&&globalThis.innerWidth>541){
+    useGSAP(() => {
+      const lineDraws = document.querySelectorAll(".lineDraw");
+      lineDraws.forEach((lineDraw) => {
+        gsap.from(lineDraw, {
+          scrollTrigger: {
+            trigger: lineDraw,
+            start: "top 80%",
+          },
+          scaleX: 0,
+          transformOrigin: "left",
+          duration: 1.47,
+          yPercent: 100,
+          stagger: 0.07,
+          ease: primaryEase,
+        });
       });
-    });
-  }); 
+    }); 
+
+  }
+  else{
+    useGSAP(() => {
+      const lineDraws = document.querySelectorAll(".lineDraw");
+      lineDraws.forEach((lineDraw) => {
+        gsap.from(lineDraw, {
+          scrollTrigger: {
+            trigger: lineDraw,
+            start: "top 95%",
+          },
+          scaleX: 0,
+          transformOrigin: "left",
+          duration: 1.47,
+          yPercent: 100,
+          stagger: 0.07,
+          ease: primaryEase,
+        });
+      });
+    }); 
+
+  }
+  
 }
 
 export function imageAnim(){
@@ -135,6 +159,7 @@ export function fadeUp(){
           
         },
         opacity:0,
+        delay:0.3,
         y:50,
         ease:"power3.Out",
         duration:0.7,

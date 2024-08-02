@@ -18,10 +18,13 @@ const handleScroll = () => {
     });
 };
 
+
 const Footer = () => {
     
     const footerContainer = useRef(null);
     const observerRef = useRef(null);
+
+    
     useGSAP(() => {
         if (footerContainer.current) {
             const links = footerContainer.current.querySelectorAll('.footer-social');
@@ -103,7 +106,7 @@ const Footer = () => {
             <div className="bg-white container footer-top ">
                 <div className="pb-[10%] pt-[5%] mobile:pb-[20%]">
                     <Line />
-                    <div className="w-full h-[1px] bg-black lineDraw hidden mobile:block"></div>
+                    <div className="w-full h-[1px] bg-black lineDraw hidden mobile:block tablet:block"></div>
                     <div className="flex justify-between items-center py-[2%] mobile:flex-col mobile:gap-[4vw] mobile:py-[10%]">
                         <div className="w-[50%] relative mobile:w-[100%] tablet:w-[70%] mobile:flex mobile:justify-center">
                             <h5 data-para-anim  className="text-[5vw] leading-[1.2] font-display para-anim mobile:text-[10vw] mobile:text-center tablet:text-[6vw] inline-block">
@@ -141,7 +144,7 @@ const Footer = () => {
                         </div>
                     </div>
                     <Line />
-                    <div className="w-full h-[1px] bg-black lineDraw hidden mobile:block"></div>
+                    <div className="w-full h-[1px] bg-black lineDraw hidden mobile:block tablet:block"></div>
                 </div>
             </div>
 
