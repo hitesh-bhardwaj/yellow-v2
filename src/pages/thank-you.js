@@ -27,7 +27,7 @@ function Thankyou() {
         <Section id={"thank-you"} className="bg-black">
           <div className="container flex justify-center items-center bg-white">
             <div className="w-full h-screen flex flex-col justify-center items-center ">
-              <h1 data-title-anim className="text-center text-[10vw] font-medium leading-[1.2] tablet:text-[15vw] mobile:text-[18vw]">
+              <h1 data-title-anim className="text-center text-[10vw] font-medium leading-[1.3] tablet:text-[15vw] mobile:text-[18vw]">
                 Thank You
               </h1>
               <p data-para-anim className="text-center w-[30%] text-[1.4vw] font-medium tablet:text-[3vw] tablet:w-[70%] mobile:text-[5vw] mobile:w-[90%]">

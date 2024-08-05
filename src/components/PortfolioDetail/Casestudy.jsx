@@ -153,7 +153,7 @@ export default function Casestudy() {
               />
             </div>
             <div className="mt-[4vw] mobile:mt-[10vw]">
-              <h3 data-title-anim className="font-display text-[3vw] mobile:text-[10vw] mobile:leading-[1.2] tablet:text-[5vw]  ">
+              <h3 data-title-anim className="font-display text-[3vw] mobile:text-[10vw] mobile:leading-[1.3] tablet:text-[5vw]  ">
                 Passionate Cheerleaders
               </h3>
             </div>

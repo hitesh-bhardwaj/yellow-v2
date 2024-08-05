@@ -428,6 +428,8 @@ body {
   }
   .wp-block-video{
     margin-bottom: 5vw;
+    border-radius: 15px;
+    overflow: hidden;
   }
   .work_work__qXY49 p strong{
     font-size: 5.5vw !important;
@@ -437,6 +439,18 @@ body {
   .work_work__qXY49 p{
     font-size: 4.5vw !important;
     margin-bottom: 5vw;
+  }
+  
+.work_work__qXY49 h3{
+  font-size: 6vw !important;
+  width: 100% !important;
+}
+  .info-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .info-container .is-layout-constrained{
+    width: 100% !important;
   }
   
 }

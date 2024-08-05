@@ -8,7 +8,7 @@ import Section from '@/components/Section';
 import WorkCategories from '@/components/Portfolio/WorkCategories';
 import { getWorkCategories } from '@/lib/workcategories';
 import WorkCard from '@/components/Portfolio/WorkCard';
-import { titleAnim , paraAnim , lineAnim , fadeUp } from '@/components/gsapAnimations';
+import { titleAnim , paraAnim , lineAnim , fadeUp , fadeIn} from '@/components/gsapAnimations';
 import { WebpageJsonLd } from '@/lib/json-ld';
 import MetaData from '@/components/Metadata';
 
@@ -20,6 +20,7 @@ export default function Works({ initialWorks, initialPagination, workcategories 
   paraAnim();
   lineAnim();
   fadeUp();
+  fadeIn();
 
   const metadata = {
     title: "A Collection Of Some Of Our Best Work | Yellow Branding",
@@ -29,6 +30,7 @@ export default function Works({ initialWorks, initialPagination, workcategories 
     date_modified: "2024-08-01T12:32",
     slug: "our-work"
   }
+  
 
   const [works, setWorks] = useState(initialWorks);
   const [pagination, setPagination] = useState(initialPagination);

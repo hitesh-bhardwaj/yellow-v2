@@ -26,7 +26,7 @@ const Category = ({ category, posts, categories }) => {
         <Section id="hero">
           <div className="container">
             <div className='pt-[10%] tablet:pt-[15%] mobile:pt-[25%]'>
-              <h1 className='text-[5.7vw] font-display leading-[1.2]'>
+              <h1 className='text-[5.7vw] font-display leading-[1.3]'>
                 {category.name} Blogs
               </h1>
             </div>

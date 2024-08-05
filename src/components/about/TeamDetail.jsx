@@ -179,12 +179,12 @@ export default function TeamDetail({ index, handleClose  , detailOpen}) {
             <p>{member.content2}</p>
             <p>{member.content3}</p>
             <div className='flex flex-col gap-[0.2vw] mobile:gap-[2vw] mobile:my-[4vw]'>
-            <p className='opacity-40 text-[1.2vw]'>Email</p>
-            <Link href={`mailto:${member.email}`} className='mb-[1vw] group'>
+            <p className='opacity-40 text-[1.2vw] mobile:text-[3.5vw]'>Email</p>
+            <Link href={`mailto:${member.email}`} className='mb-[1vw] group mobile:mb-[3vw]'>
             <span className='link-line group-hover:text-gray-700'>
             {member.email}
               </span></Link>
-            <p className='opacity-40 text-[1.2vw]'>Social Media</p>
+            <p className='opacity-40 text-[1.2vw] mobile:text-[3.5vw]'>Social Media</p>
             <Link href={"#"} className='group'>
             <span className='link-line group-hover:text-gray-700'>
             {member.LN}

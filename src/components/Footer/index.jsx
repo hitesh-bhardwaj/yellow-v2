@@ -1,105 +1,107 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable no-unused-vars */
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
-import { useRef } from "react";
 import { SplitInChar } from "../splitTextUtils";
 import Line from "../Line";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, useGSAP);
 
 const handleScroll = () => {
-    gsap.to(window, {
-        duration: 2.5,
-        scrollTo: { y: "#hero" },
-        ease: "power2.inOut",
-    });
+  gsap.to(window, {
+    duration: 2.5,
+    scrollTo: { y: "#hero" },
+    ease: "power2.inOut",
+  });
 };
 
-
 const Footer = () => {
-    
-    const footerContainer = useRef(null);
-    const observerRef = useRef(null);
+  const footerContainer = useRef(null);
+  const observerRef = useRef(null);
 
-    
-    useGSAP(() => {
-        if (footerContainer.current) {
-            const links = footerContainer.current.querySelectorAll('.footer-social');
-            links.forEach(link => SplitInChar(link));
+  useGSAP(() => {
+    if (footerContainer.current) {
+      const links = footerContainer.current.querySelectorAll(".footer-social");
+      links.forEach((link) => SplitInChar(link));
+    }
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".footer-top",
+        start: "bottom bottom",
+        end: "bottom 50%",
+        scrub: 0.25,
+        invalidateOnRefresh: true,
+      },
+    });
+
+    if (typeof window !== "undefined" && !/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+      if (globalThis.innerWidth >= 1024) {
+        tl.to(".footer-top", {
+          borderBottomRightRadius: "2vw",
+          borderBottomLeftRadius: "2vw",
+          duration: 1,
+          delay: 0,
+        }).to(".container", {
+          duration: 1,
+          delay: -1,
+          width: "95%",
+          paddingLeft: "2.5%",
+          paddingRight: "2.5%",
+        });
+      } else {
+        tl.to(".footer-top", {
+          borderBottomRightRadius: "4vw",
+          borderBottomLeftRadius: "4vw",
+          duration: 1,
+          delay: 0,
+        }).to(".container", {
+          duration: 1,
+          delay: -1,
+          width: "93%",
+          paddingLeft: "3.5%",
+          paddingRight: "3.5%",
+        });
+      }
+      tl.fromTo(
+        ".footer-bottom",
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          duration: 0.8,
+          delay: -0.5,
         }
+      );
+    }
+  });
 
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: ".footer-top",
-                    start: "bottom bottom",
-                    end: "bottom 50%",
-                    scrub: 0.25,
-                    invalidateOnRefresh: true
-                }
-            });
-            if(globalThis.innerWidth >= 1024) {
-                tl.to(".footer-top", {
-                    borderBottomRightRadius: "2vw",
-                    borderBottomLeftRadius: "2vw",
-                    duration: 1,
-                    delay: 0,
-                })
-                .to(".container", {
-                    duration: 1,
-                    delay: -1,
-                    width: "95%",
-                    paddingLeft: "2.5%",
-                    paddingRight: "2.5%",
-                })
-            } else {
-                tl.to(".footer-top", {
-                    borderBottomRightRadius: "4vw",
-                    borderBottomLeftRadius: "4vw",
-                    duration: 1,
-                    delay: 0,
-                })
-                .to(".container", {
-                    duration: 1,
-                    delay: -1,
-                    width: "93%",
-                    paddingLeft: "3.5%",
-                    paddingRight: "3.5%",
-                })
-            }
-            tl.fromTo(".footer-bottom", {
-                opacity: 0,
-            }, {
-                opacity: 1,
-                duration: 0.8,
-                delay: -0.5,
-            });
-    });
-            
-        useGSAP(() => {
-            const observeHeightChange = () => {
-                if (observerRef.current) {
-                    observerRef.current.disconnect();
-                }
-                observerRef.current = new ResizeObserver((entries) => {
-                    // eslint-disable-next-line no-unused-vars
-                    for (let entry of entries) {
-                        ScrollTrigger.refresh();
-                    }
-                });
-                observerRef.current.observe(document.body);
-            };
-    
-            observeHeightChange();
-    
-            return () => {
-                if (observerRef.current) {
-                    observerRef.current.disconnect();
-                }
-            };
-    });
+  useGSAP(() => {
+    const observeHeightChange = () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+      observerRef.current = new ResizeObserver((entries) => {
+        for (let entry of entries) {
+          ScrollTrigger.refresh();
+        }
+      });
+      observerRef.current.observe(document.body);
+    };
+
+    observeHeightChange();
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  });
 
     return (
         <footer id="footer" className="footer bg-black">
@@ -165,13 +167,13 @@ const Footer = () => {
                                 </h6>
                                 <div className="w-full flex justify-between items-start mobile:flex-col mobile:items-center gap-[4vw] mobile:gap-[7vw] mobile:order-3 tablet:w-full tablet:gap-[3vw]">
                                     <div className="w-full mobile:w-full tablet:w-full">
-                                        <h6 className="text-[1.9vw] font-display leading-[1.2] mb-[1vw] mobile:text-[5vw] mobile:text-center mobile:mb-[3vw] tablet:text-[3vw]">Address</h6>
+                                        <h6 className="text-[1.9vw] font-display leading-[1.3] mb-[1vw] mobile:text-[5vw] mobile:text-center mobile:mb-[3vw] tablet:text-[3vw]">Address</h6>
                                         <Link href="#" className="text-[1.15vw] font-medium under-multi-parent mobile:text-[4vw] mobile:flex mobile:justify-center mobile:w-full tablet:text-[2.5vw] tablet:w-[50%] ">
                                             <span className="under-multi mobile:text-center mobile:w-full tablet:w-[50%]">Loft offices 2, Office 107, Dubai Media City, Dubai UAE</span>
                                         </Link>
                                     </div>
                                     <div className="w-full mobile:w-full mobile:order-2 tablet:w-full">
-                                        <h6 className="text-[1.9vw] font-display leading-[1.2] mb-[1vw] mobile:text-[5vw] mobile:text-center mobile:mb-[3vw] tablet:text-[3vw]">Phone</h6>
+                                        <h6 className="text-[1.9vw] font-display leading-[1.3] mb-[1vw] mobile:text-[5vw] mobile:text-center mobile:mb-[3vw] tablet:text-[3vw]">Phone</h6>
                                         <Link href="tel:+971545178971" className="text-[1.15vw] font-medium text-shadow mobile:text-[4vw] mobile:flex mobile:justify-center tablet:text-[2.5vw]">
                                             <span
                                                 className="link-line footer-social overflow-hidden block">
@@ -183,7 +185,7 @@ const Footer = () => {
                             </div>
 
                             <div className="pt-[5px] mobile:pt-[7vw]">
-                                <h6 className="text-[1.9vw] font-display leading-[1.2] mb-[1vw] mobile:text-[5vw] tablet:text-[3.5vw] mobile:uppercase mobile:text-center mobile:mb-[3vw]">Social</h6>
+                                <h6 className="text-[1.9vw] font-display leading-[1.3] mb-[1vw] mobile:text-[5vw] tablet:text-[3.5vw] mobile:uppercase mobile:text-center mobile:mb-[3vw]">Social</h6>
                                 <ul className="space-y-[1vw] mobile:space-y-[2vw]">
                                     <li>
                                         <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.3vw] mobile:flex mobile:justify-center" href="https://www.linkedin.com/company/yellow-branding" target="_blank">

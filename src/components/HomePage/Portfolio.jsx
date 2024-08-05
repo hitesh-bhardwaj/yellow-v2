@@ -209,7 +209,7 @@ const Portfolio = ({ works }) => {
                     </p>
                     <div className="flex items-center gap-[2vw]">
                       {work.workcategories && work.workcategories.nodes.slice(0, 2).map((category, index)=> (
-                        <p key={index} className="py-[0.5vw] px-[2vw] border border-white rounded-full bg-white/10 backdrop-blur-lg">
+                        <p key={index} className="py-[0.5vw] px-[2vw] border border-white rounded-full bg-white/10 backdrop-blur-lg mobile:px-[4vw] mobile:py-[1vw]">
                           {category.name}
                         </p>
                       ))}

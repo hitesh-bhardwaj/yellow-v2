@@ -1,4 +1,5 @@
 // import Image from 'next/image';
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { useRouter } from "next/router";
 import Layout from "@/components/Layout";
@@ -203,7 +204,19 @@ function Teamdetail() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [slug]);
+  
+  useEffect(() => {
+    // Handle route back and force reload
+    router.beforePopState(({ url, as, options }) => {
+      window.location.reload();
+      return true; // This tells Next.js to proceed with the route change
+    });
 
+    // Cleanup event listener on unmount
+    return () => {
+      router.beforePopState(() => true); // Restore default behavior
+    };
+  }, [router]);
   const member = memberDetails.find((member) => member.slug === slug);
 
   return (
@@ -222,7 +235,7 @@ function Teamdetail() {
               <div className="">
                 <h1
                   data-para-anim
-                  className="text-[5vw] font-display leading-[1.2] uppercase mobile:text-[12vw] tablet:text-[6.5vw]"
+                  className="text-[5vw] font-display leading-[1.3] uppercase mobile:text-[12vw] tablet:text-[6.5vw]"
                 >
                   {member.name}
                 </h1>

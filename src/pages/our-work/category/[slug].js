@@ -45,7 +45,7 @@ const Category = ({ workcategory, works, workcategories }) => {
           <Section id="hero" >
             <div className="container">
               <div className='pt-[10%] mobile:pt-[30%] tablet:pt-[15%]'>
-                <h1 className='text-[5.7vw] font-display leading-[1.2] mobile:text-[10vw]'>
+                <h1 className='text-[5.7vw] font-display leading-[1.3] mobile:text-[10vw]'>
                   {workcategory.name} Works
                 </h1>
               </div>

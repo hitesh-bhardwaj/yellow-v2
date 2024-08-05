@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -12,7 +13,8 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Input} from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -35,15 +37,21 @@ const formSchema = z.object({
   number: z.string().min(10, {
     message: "Contact number must be at least 10 digits.",
   }),
- social : z.string({
-  message:"Enter the social media link."
- }),
-
-
+  social: z.string({
+    message: "Enter the social media link.",
+  }),
+  QuestionA: z.string().min(1, {
+    message: "This field is required.",
+  }),
+  QuestionB: z.string().min(1, {
+    message: "This field is required.",
+  }),
+  QuestionC: z.string().min(1, {
+    message: "This field is required.",
+  }),
 });
 
-function CareerForm({jobs}) {
-
+function CareerForm({ jobs }) {
   const JobsData = jobs.jobs;
   const router = useRouter();
 
@@ -53,27 +61,65 @@ function CareerForm({jobs}) {
       name: "",
       email: "",
       number: "",
-      social:"",
-      Question1:"",
-      Question2:"",
-      Question3:"",
-
+      social: "",
+      QuestionA: "",
+      QuestionB: "",
+      QuestionC: "",
     },
   });
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log("Form Submitted Successfully:", data);
     router.push("/thank-you");
-    
+    const formData = {
+      name: data.name,
+      email: data.email,
+      number: data.number,
+      social: data.social,
+      QuestionA: data.QuestionA,
+      QuestionB: data.QuestionB,
+      QuestionC: data.QuestionC,
+    };
+    console.log(data)
+    console.log(formData);
+    try {
+      const res = await fetch("/api/careerform", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+
+      if (!res.ok) throw new Error("Failed to send message");
+
+      form.reset();
+      // setSubmitting(false);
+      // setSubmissionSuccess(true);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
+  const [fileName, setFileName] = useState("");
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setFileName(file.name);
+    }
+  };
 
   return (
     <>
       <Section id="CareerForm" className="bg-black">
         <div className="container h-full relative z-[4] pt-[5%] pb-[10%] mobile:py-[20%] bg-white">
-        <div className="w-screen absolute translate-x-[-5vw] bg-[#111111] h-[30%] top-[50%] z-[-2] translate-y-[-50%] tablet:translate-x-[-8vw]"></div>
+          <div className="w-screen absolute translate-x-[-5vw] bg-[#111111] h-[30%] top-[50%] z-[-2] translate-y-[-50%] mobile:translate-x-[-7vw] tablet:translate-x-[-8vw]"></div>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="w-full h-full border-[1.5px]  rounded-[50px] border-black/20 bg-white py-[5vw] px-[5vw] flex flex-wrap gap-x-[7.8vw] gap-y-[3vw] border-opacity-45 drop-shadow-[50px] shadow-2xl  mobile:rounded-[10px] mobile:gap-y-[12vw] mobile:border-[1px] mobile:py-[12vw] mobile:shadow-none tablet:rounded-[15px] tablet:gap-y-[4vw] tablet:py-[7vw] tablet:gap-x-[7vw] career-form fadeup">
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="w-full h-full border-[1.5px]  rounded-[50px] border-black/20 bg-white py-[5vw] px-[5vw] flex flex-wrap gap-x-[7.8vw] gap-y-[3vw] border-opacity-45 drop-shadow-[50px] shadow-2xl  mobile:rounded-[10px] mobile:gap-y-[12vw] mobile:border-[1px] mobile:py-[12vw] mobile:shadow-none tablet:rounded-[15px] tablet:gap-y-[4vw] tablet:py-[7vw] tablet:gap-x-[7vw] career-form fadeup"
+            >
               <div className="w-full  career-input border-b border-black flex flex-col gap-[1vw]">
                 <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[5vw] tablet:text-[2.2vw]">
                   Which role are you applying for?
@@ -85,96 +131,106 @@ function CareerForm({jobs}) {
                   <SelectContent>
                     <SelectGroup>
                       <SelectLabel>Roles</SelectLabel>
-                      {JobsData && JobsData.map((job, index) => (
-                        <SelectItem key={index} value={job.title}>{job.title}</SelectItem>
-                      ))}
+                      {JobsData &&
+                        JobsData.map((job, index) => (
+                          <SelectItem key={index} value={job.title}>
+                            {job.title}
+                          </SelectItem>
+                        ))}
                     </SelectGroup>
                   </SelectContent>
                 </Select>
               </div>
               <div className="flex w-full justify-between mobile:flex-col mobile:gap-[8vw]">
-              <div className="w-[45%] flex flex-col mobile:w-full">
-                <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">Your name*</p>
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem className="h-full flex justify-center career flex-col">
-                      <FormControl>
-                        <Input placeholder="" {...field} type="text"/>
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                <div className="w-[45%] flex flex-col mobile:w-full">
+                  <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
+                    Your name*
+                  </p>
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem className="h-full flex justify-center career flex-col">
+                        <FormControl>
+                          <Input placeholder="" {...field} type="text" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                <div className="w-[45%] flex flex-col mobile:w-full">
+                  <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
+                    Email*
+                  </p>
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem className="h-full flex justify-center career flex-col">
+                        <FormControl>
+                          <Input placeholder="" {...field} type="email" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+              </div>
+              <div className="flex w-full justify-between mobile:flex-col mobile:gap-[8vw]">
+                <div className="w-[45%] flex flex-col mobile:w-full">
+                  <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
+                    Phone
+                  </p>
+                  <FormField
+                    control={form.control}
+                    name="number"
+                    render={({ field }) => (
+                      <FormItem className="h-full flex justify-center career flex-col">
+                        <FormControl>
+                          <Input placeholder="" {...field} type="number" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                <div className="w-[45%] flex flex-col mobile:w-full">
+                  <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
+                    Your website / blog / Instagram?{" "}
+                    <span className="tablet:hidden text-[1.3vw] tablet:text-[2.2vw] career-form-span mobile:text-[4.5vw]">
+                      Facebook?
+                    </span>
+                  </p>
+                  <FormField
+                    control={form.control}
+                    name="social"
+                    render={({ field }) => (
+                      <FormItem className="h-full flex justify-center career flex-col">
+                        <FormControl>
+                          <Input placeholder="" {...field} type="url" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
               </div>
 
-              <div className="w-[45%] flex flex-col mobile:w-full">
-                <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">Email*</p>
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem className="h-full flex justify-center career flex-col">
-                      <FormControl>
-                        <Input placeholder="" {...field} type="email" />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
-
-              </div>
-             <div className="flex w-full justify-between mobile:flex-col mobile:gap-[8vw]">
-             <div className="w-[45%] flex flex-col mobile:w-full">
-                <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">Phone</p>
-                <FormField
-                  control={form.control}
-                  name="number"
-                  render={({ field }) => (
-                    <FormItem className="h-full flex justify-center career flex-col">
-                      <FormControl>
-                        <Input placeholder="" {...field} type="number" />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
-
-              <div className="w-[45%] flex flex-col mobile:w-full">
-                <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
-                  Your website / blog / Instagram? <span className="tablet:hidden text-[1.3vw] tablet:text-[2.2vw] career-form-span mobile:text-[4.5vw]">Facebook?</span>
-                </p>
-                <FormField
-                  control={form.control}
-                  name="social"
-                  render={({ field }) => (
-                    <FormItem className="h-full flex justify-center career flex-col">
-                      <FormControl>
-                        <Input placeholder="" {...field}  type="link"/>
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
-              
-             </div>
-              
               <div className="w-[100%] flex flex-col">
                 <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
-                  Let&apos;s forget about propriety and talk money - what&apos;s the bare
-                  minimum you can survive on monthly?
+                  Let&apos;s forget about propriety and talk money - what&apos;s
+                  the bare minimum you can survive on monthly?
                 </p>
                 <FormField
                   control={form.control}
-                  name="Question1"
+                  name="QuestionA"
                   render={({ field }) => (
                     <FormItem className="h-full flex justify-center career flex-col">
                       <FormControl>
-                        <Input placeholder="" {...field} type="text"/>
+                        <Input placeholder="" {...field} type="text" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -205,21 +261,11 @@ function CareerForm({jobs}) {
                   <SelectContent>
                     <SelectGroup>
                       <SelectLabel>Roles</SelectLabel>
-                      <SelectItem value="role1">
-                        role1
-                      </SelectItem>
-                      <SelectItem value="role2">
-                        role2
-                      </SelectItem>
-                      <SelectItem value="role3">
-                        role3
-                      </SelectItem>
-                      <SelectItem value="role4">
-                        role4
-                      </SelectItem>
-                      <SelectItem value="role5">
-                        role5
-                      </SelectItem>
+                      <SelectItem value="role1">role1</SelectItem>
+                      <SelectItem value="role2">role2</SelectItem>
+                      <SelectItem value="role3">role3</SelectItem>
+                      <SelectItem value="role4">role4</SelectItem>
+                      <SelectItem value="role5">role5</SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>
@@ -259,12 +305,12 @@ function CareerForm({jobs}) {
               </div>
               <div className="w-[100%] flex flex-col">
                 <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
-                  When you&apos;re not hailing Helvetica as the second coming, which
-                  typeface do you champion?
+                  When you&apos;re not hailing Helvetica as the second coming,
+                  which typeface do you champion?
                 </p>
                 <FormField
                   control={form.control}
-                  name="Question2"
+                  name="QuestionB"
                   render={({ field }) => (
                     <FormItem className="h-full flex justify-center career flex-col">
                       <FormControl>
@@ -281,34 +327,34 @@ function CareerForm({jobs}) {
                 </p>
                 <FormField
                   control={form.control}
-                  name="Question3"
+                  name="QuestionC"
                   render={({ field }) => (
                     <FormItem className="h-full flex justify-center career flex-col">
                       <FormControl>
-                        <Input placeholder="" {...field} type="text"/>
+                        <Input placeholder="" {...field} type="text" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
               </div>
-              <div className=" w-full docs flex flex-col gap-[0.5vw] mobile:gap-[3vw]">
-                <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
+              <div className="w-full docs flex flex-col gap-4 mobile:gap-8">
+                <p className="text-lg font-medium mobile:text-xl tablet:text-2xl">
                   Time to do the needful - upload your CV here & cross those
                   fingers!
                 </p>
-                <p className="opacity-75 text-[1vw] font-medium mobile:text-[3.5vw] tablet:text-[2.2vw]">
+                <p className="opacity-75 text-sm font-medium mobile:text-base tablet:text-lg">
                   Only docx or pdf files are allowed
                 </p>
 
-                <div className="w-full h-full border border-dashed border-black rounded-[10px] py-[3vw] mobile:h-[70vw] mobile:mt-[10vw] tablet:h-[30vw] tablet:mt-[4vw]">
-                  <label
+                <div className="w-full h-full border border-dashed border-black rounded-lg py-8 mobile:h-[70vw] mobile:mt-[10vw] tablet:h-[30vw] tablet:mt-[4vw]">
+                  <Label
                     htmlFor="careerCV"
-                    className={`tw-border bg-white flex flex-col items-center justify-center w-full h-full rounded-lg cursor-pointer `}
+                    className="w-full h-full bg-white flex flex-col items-center justify-center rounded-lg cursor-pointer"
                   >
                     <div className="flex flex-col items-center justify-center py-4 px-5">
                       <svg
-                        className="w-[4vw] h-[4vw] text-primary tw-no-invert mobile:w-[15vw] mobile:h-[15vw] tablet:w-[8vw] tablet:h-[8vw]"
+                        className="w-16 h-16 text-primary mobile:w-20 mobile:h-20 tablet:w-24 tablet:h-24"
                         stroke="currentColor"
                         fill="none"
                         viewBox="0 0 55 43"
@@ -405,18 +451,19 @@ function CareerForm({jobs}) {
                           </filter>
                         </defs>
                       </svg>
-                      <p className="text-[1.2vw] text-black/50 font-medium mobile:text-[3.5vw] tablet:text-[1.8vw]">
-                        Upload CV
+                      <p className="text-lg text-black/50 font-medium mobile:text-xl tablet:text-2xl">
+                        {fileName || "Upload CV"}
                       </p>
                     </div>
-                    <input
+                    <Input
                       id="careerCV"
                       name="careerCV"
                       type="file"
                       accept=".pdf,.docx"
                       className="hidden"
+                      onChange={handleFileChange}
                     />
-                  </label>
+                  </Label>
                 </div>
               </div>
               <div className="w-full flex justify-center items-center fadeup mt-[3vw]">

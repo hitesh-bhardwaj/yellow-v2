@@ -48,7 +48,7 @@ export default function Essentials() {
           <h4 data-para-anim className="text-[2vw] font-display mobile:text-[7vw] tablet:text-[3vw]  ">
             Don’t see any job opening that might fit you?
           </h4>
-          <p data-para-anim className="w-[90%] text-[1.4vw] font-medium leading-[1.2] mb-[2vw] mobile:text-[4.5vw] mobile:font-normal tablet:text-[2.2vw]">
+          <p data-para-anim className="w-[90%] text-[1.4vw] font-medium leading-[1.3] mb-[2vw] mobile:text-[4.5vw] mobile:font-normal tablet:text-[2.2vw]">
             We are always looking for exceptional talent. Send us your work or a
             note on why you think you would be a good fit for the company.
           </p>
@@ -78,7 +78,7 @@ export default function Essentials() {
                 <h4 data-para-anim className="text-[2vw] font-display mb-[1.5vw] mobile:text-[7vw] tablet:text-[3vw] ">
                   {item.title}
                 </h4>
-                <p data-para-anim className="text-[1.2vw] leading-[1.2] font-medium mobile:text-[4.5vw] mobile:font-normal tablet:text-[2vw] ">
+                <p data-para-anim className="text-[1.2vw] leading-[1.3] font-medium mobile:text-[4.5vw] mobile:font-normal tablet:text-[2vw] ">
                   {item.content}
                 </p>
                 <div className={`w-full bg-black h-[1px] mt-[12vw] lineDraw hidden mobile:block ${index==5?"mobile:hidden":""}`}></div>

@@ -62,9 +62,39 @@ export default function ContactForm() {
       [service]: !prevState[service],
     }));
   };
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log("Form Submitted Successfully:", data);
     router.push("/thank-you");
+    const formData = {
+      name: data.name,
+      email: data.email,
+      number: data.number,
+      detail:data.detail,
+      source: selectedValue,
+      services: checkedState,
+     
+    };
+    // console.log(formData)
+    try {
+      const res = await fetch("/api/contactform", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+
+      if (!res.ok) throw new Error("Failed to send message");
+
+      form.reset();
+      // setSubmitting(false);
+      // setSubmissionSuccess(true);
+    } catch(error){
+      console.log(error);
+
+    }
+    
     
   };
 
@@ -78,7 +108,7 @@ export default function ContactForm() {
     <section className="px-[5vw] py-[5%] tablet:py-[10%] mobile:pt-[25%]">
       <h3
         data-para-anim
-        className="text-[4.8vw] leading-[1.2] font-display w-[70%] mb-[7vw] tablet:text-[5.4vw] mobile:text-[10vw] mobile:w-full"
+        className="text-[4.8vw] leading-[1.3] font-display w-[70%] mb-[7vw] tablet:text-[5.4vw] mobile:text-[10vw] mobile:w-full"
       >
         Connect with our team to bring your ideas to life.
       </h3>

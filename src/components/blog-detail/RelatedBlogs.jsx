@@ -9,7 +9,7 @@ export default function RelatedBlogs({posts}) {
       <Section id="relatedBlog" className="bg-black">
         <div className="container pt-[5%] pb-[8%] bg-white mobile:pb-[20%]">
           <div className="w-full flex justify-between mb-[4vw] mobile:flex-col mobile:gap-[7vw] mobile:mb-[10vw]">
-            <h2 data-title-anim className="text-[5.7vw] font-display uppercase mobile:text-[9.5vw]">
+            <h2 data-title-anim className="text-[5.7vw] font-display uppercase mobile:text-[10vw]">
               Related Blogs
             </h2>
             <div className="fadeup flex items-end">
@@ -44,7 +44,7 @@ export default function RelatedBlogs({posts}) {
                   </div>
                 </div>
                 <div className="w-full h-full px-[1.5vw] py-[1.5vw] flex flex-col gap-[2vw] mobile:px-[4vw] mobile:py-[7vw] mobile:gap-[5vw] tablet:py-[2.5vw]">
-                  <h3 data-para-anim className="text-[1.5vw] font-display leading-[1.2] mobile:text-[6.5vw] tablet:text-[3.2vw]">
+                  <h3 data-para-anim className="text-[1.5vw] font-display leading-[1.3] mobile:text-[6.5vw] tablet:text-[3.2vw]">
                     {post.title}
                   </h3>
                   <div className="fadein">

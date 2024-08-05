@@ -11,7 +11,7 @@ const PostCard = (({post}) => {
                 <Image src={post.featuredImage.sourceUrl} alt={post.featuredImage.altText} fill sizes={post.featuredImage.sizes} />
             </div>
             <div className='w-full h-full px-[1.5vw] pt-[1.5vw] py-[3vw] flex flex-col gap-[2vw] mobile:gap-[3vw] mobile:py-[7vw] mobile:px-[5vw]'>
-                <h3 className='text-[1.5vw] font-display leading-[1.2] mobile:text-[6vw] tablet:text-[3vw]'>{post.title}</h3>
+                <h3 className='text-[1.5vw] font-display leading-[1.3] mobile:text-[6vw] tablet:text-[3vw]'>{post.title}</h3>
                 <p className='text-[1vw] font-medium mobile:text-[4vw] tablet:text-[2vw]'>{formatDate(post.date)}</p>
                 <div className='text-[1vw] flex gap-[0.5vw] mobile:text-[3vw] mobile:gap-[2vw] tablet:text-[2vw] tablet:gap-[1vw]'>
                     {post.categories[1] && (

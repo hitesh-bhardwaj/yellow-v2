@@ -41,8 +41,8 @@ export default function Detail() {
           {services.map((service, index) => (
             <React.Fragment key={index}>
               <div className="tablet:flex mobile:flex mobile:flex-col tablet:gap-[2vw] flex mobile:gap-0 gap-[15vw]">
-              <div className="col-start-3 flex justify-end tablet:order-1 order-1 mobile:order-none">
-                <div className="w-[22.5vw] h-[22.5vw] rounded-[10px] overflow-hidden relative imganim mobile:w-[85vw] mobile:h-[85vw] mobile:mt-[5vw] tablet:w-[30vw] tablet:h-[30vw]">
+              <div className="col-start-3 flex justify-end mobile:justify-center tablet:order-1 order-1 mobile:order-none">
+                <div className="w-[22.5vw] h-[22.5vw] rounded-[10px] overflow-hidden relative imganim mobile:w-[86vw] mobile:h-[85vw] mobile:mt-[5vw] tablet:w-[30vw] tablet:h-[30vw]">
                   <Image
                     src={service.image}
                     alt={`detail-${index + 1}`}
@@ -73,7 +73,7 @@ export default function Detail() {
                 </div>
               </div>
               </div>
-              <div className="h-[1px] col-span-3 bg-black my-[4vw] tablet:my-[6vw] lineDraw hidden tablet:block mobile:block"></div>
+              <div className="h-[1px] col-span-3 bg-black my-[2vw] tablet:my-[6vw] lineDraw hidden tablet:block mobile:block"></div>
               <div className="my-[3vw] tablet:h-[2px] tablet:my-[6vw] tablet:hidden">
               <Line/>
               </div>

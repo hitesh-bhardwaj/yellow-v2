@@ -86,7 +86,7 @@ export default function values() {
 
   return (
     <>
-      <Section className="py-[5%] mobile:py-[15%] tablet:pt-[10%]" id="values">
+      <Section className=" pt-[10%] pb-[5%] mobile:py-[15%] tablet:pt-[10%]" id="values">
         <div className="container card-block">
           <SectionTitle
             data-title-anim
@@ -95,7 +95,7 @@ export default function values() {
           />
           <p
             data-para-anim
-            className="text-[2vw] w-[35%] font-medium leading-[1.2] mobile:w-[90%] mobile:text-[5vw] tablet:text-[2.5vw] tablet:w-[50%] "
+            className="text-[2vw] w-[35%] font-medium leading-[1.3] mobile:w-[90%] mobile:text-[5vw] tablet:text-[2.5vw] tablet:w-[50%] "
           >
             We grow amazing companies through exceptional branding and
             communications.
