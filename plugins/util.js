@@ -171,46 +171,6 @@ async function getSiteMetadata(apolloClient, process, verbose = false) {
 }
 
 /**
- * getSitePages
- */
-
-async function getPages(apolloClient, process, verbose = false) {
-  const query = gql`
-    {
-      pages(first: 10000) {
-        edges {
-          node {
-            slug
-            modified
-          }
-        }
-      }
-    }
-  `;
-
-  let pages = [];
-
-  try {
-    const data = await apolloClient.query({ query });
-    pages = [
-      ...data.data.pages.edges.map(({ node = {} }) => {
-        return {
-          slug: node.slug,
-          modified: node.modified,
-        };
-      }),
-    ];
-
-    verbose && console.log(`[${process}] Successfully fetched page slugs from ${apolloClient.link.options.uri}`);
-    return {
-      pages,
-    };
-  } catch (e) {
-    throw new Error(`[${process}] Failed to fetch page slugs from ${apolloClient.link.options.uri}: ${e.message}`);
-  }
-}
-
-/**
  * getFeedData
  */
 
@@ -230,11 +190,9 @@ async function getFeedData(apolloClient, process, verbose = false) {
 
 async function getSitemapData(apolloClient, process, verbose = false) {
   const posts = await getAllPosts(apolloClient, process, verbose);
-  const pages = await getPages(apolloClient, process, verbose);
 
   return {
     ...posts,
-    ...pages,
   };
 }
 
@@ -430,7 +388,6 @@ module.exports = {
   getFeedData,
   generateFeed,
   generateIndexSearch,
-  getPages,
   getSitemapData,
   generateSitemap,
   generateRobotsTxt,

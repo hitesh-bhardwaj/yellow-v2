@@ -1,7 +1,3 @@
-import { Helmet } from 'react-helmet';
-import { helmetSettingsFromMetadata } from '@/lib/site';
-import useSite from '@/hooks/use-site';
-import usePageMetadata from '@/hooks/use-page-metadata';
 import Layout from '@/components/Layout';
 import { getRecentWorks, getRelatedWorks, getWorkBySlug } from '@/lib/works';
 import Pagehero from '@/components/PortfolioDetail/Pagehero';
@@ -9,80 +5,101 @@ import Section from '@/components/Section';
 import Information from '@/components/PortfolioDetail/Information';
 import styles from "@/styles/work.module.css";
 import RelatedWorks from '@/components/PortfolioDetail/RelatedWorks';
-import { titleAnim , paraAnim , lineAnim, imageAnim , fadeUp } from '@/components/gsapAnimations';
+import { titleAnim, lineAnim, imageAnim, fadeUp, paraAnimWordpress } from '@/components/gsapAnimations';
+import { WebpageJsonLd } from '@/lib/json-ld';
+import config from '../../../package.json';
+import { NextSeo } from 'next-seo';
 
-export default function Work({ work, socialImage, relatedWorks }) {
+export default function Work({ work, relatedWorks }) {
   const {
     title,
     metaTitle,
-    description,
+    metaDescription,
+    metaImage,
     content,
     date,
     workFields,
     workcategories,
+    modified,
+    slug,
   } = work;
 
+  const { homepage = '' } = config;
+
   titleAnim();
-  paraAnim();
+  paraAnimWordpress();
   lineAnim();
   imageAnim();
   fadeUp();
 
-  const { metadata: siteMetadata = {}, homepage } = useSite();
-
-  if (!work.og) {
-    work.og = {};
+  const metadata = {
+    title: metaTitle,
+    description: metaDescription,
+    slug: `our-work/${slug}`,
+    date_modified: modified,
+    date_published: date,
   }
-
-  work.og.imageUrl = `${homepage}/${socialImage}`;
-  work.og.imageSecureUrl = work.og.imageUrl;
-  work.og.imageWidth = 2000;
-  work.og.imageHeight = 1000;
-
-  const { metadata } = usePageMetadata({
-    metadata: {
-      ...work,
-      title: metaTitle,
-      description: description || work.og?.description || `Read more about ${title}`,
-    },
-  });
-
-  if (process.env.WORDPRESS_PLUGIN_SEO !== true) {
-    metadata.title = `${title} - ${siteMetadata.title}`;
-    metadata.og.title = metadata.title;
-    metadata.twitter.title = metadata.title;
-  }
-
-  const helmetSettings = helmetSettingsFromMetadata(metadata);
 
   return (
-    <Layout>
-      <Helmet {...helmetSettings} />
-      <Pagehero
-        src={workFields.information.detailPageFeaturedImageVideo.node.mediaItemUrl}
-        workcategories={workcategories}
-        date={date}
+    <>
+      <NextSeo
         title={title}
+        description={metaDescription}
+        openGraph={{
+          url: `${homepage}/${metadata.slug}`,
+          title: title,
+          "description": metaDescription,
+          images: [
+            {
+              url: metaImage.sourceUrl,
+              width: metaImage.mediaDetails.width,
+              height: metaImage.mediaDetails.height,
+              alt: metaImage.mediaDetails.alt,
+              type: "image/webp",
+            },
+          ],
+          siteName: "Yellow",
+        }}
+        additionalLinkTags={[
+          {
+            rel: "canonical",
+            href: `${homepage}/${metadata.slug}`,
+          },
+          {
+            rel: "alternate",
+            href: `${homepage}/${metadata.slug}`,
+            hreflang: "x-default",
+          }
+        ]}
       />
-      <Information 
-        info={workFields.information}
-        title={title}
-        categories={workcategories}
-      />
-      <Section id="work-content" className='bg-black'>
-        <div className='container bg-white py-[5%] '>
-          <div
-            className={styles.work}
-            dangerouslySetInnerHTML={{
-              __html: content,
-            }}
-          />
-        </div>
-      </Section>
-      {relatedWorks && relatedWorks.length > 0 && (
-        <RelatedWorks works={relatedWorks}/>
-      )}
-    </Layout>
+      <WebpageJsonLd metadata={metadata} />
+      <Layout>
+        <Pagehero
+          src={workFields.information.detailPageFeaturedImageVideo.node.mediaItemUrl}
+          workcategories={workcategories}
+          date={date}
+          title={title}
+        />
+        <Information
+          info={workFields.information}
+          title={title}
+          categories={workcategories}
+        />
+        <Section id="work-content" className='bg-black'>
+          <div className='container bg-white py-[5%]'>
+            <div
+              className={styles.work}
+              dangerouslySetInnerHTML={{
+                __html: content,
+              }}
+            />
+          </div>
+        </Section>
+        {relatedWorks && relatedWorks.length > 0 && (
+          <RelatedWorks works={relatedWorks} />
+        )}
+      </Layout>
+    </>
   );
 }
 
@@ -99,13 +116,12 @@ export async function getStaticProps({ params = {} } = {}) {
 
   const { databaseId: workId } = work;
 
-    // Fetch related works
-    const relatedData = await getRelatedWorks(workId);
-    const relatedWorks = relatedData || [];
+  // Fetch related works
+  const relatedData = await getRelatedWorks(workId);
+  const relatedWorks = relatedData || [];
 
   const props = {
     work,
-    socialImage: `${process.env.OG_IMAGE_DIRECTORY}/${workSlug}.png`,
     relatedWorks,
   };
 

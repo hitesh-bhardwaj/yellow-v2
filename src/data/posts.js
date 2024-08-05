@@ -102,6 +102,11 @@ export const QUERY_POST_BY_SLUG = gql`
           id
         }
       }
+      author{
+        node{
+          name
+        }
+      }
       modified
       databaseId
       title
@@ -201,29 +206,8 @@ export const QUERY_POST_SEO_BY_SLUG = gql`
     post(id: $slug, idType: SLUG) {
       id
       seo {
-        canonical
         metaDesc
-        metaRobotsNofollow
-        metaRobotsNoindex
-        opengraphAuthor
-        opengraphDescription
-        opengraphModifiedTime
-        opengraphPublishedTime
-        opengraphPublisher
-        opengraphTitle
-        opengraphType
-        readingTime
         title
-        twitterDescription
-        twitterTitle
-        twitterImage {
-          altText
-          sourceUrl
-          mediaDetails {
-            width
-            height
-          }
-        }
         opengraphImage {
           altText
           sourceUrl

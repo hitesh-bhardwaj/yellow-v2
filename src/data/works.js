@@ -97,6 +97,7 @@ export const QUERY_WORK_BY_SLUG = gql`
       }
       content
       date
+      modified
       databaseId
       title
       slug
@@ -196,29 +197,8 @@ export const QUERY_WORK_SEO_BY_SLUG = gql`
     work(id: $slug, idType: SLUG) {
       id
       seo {
-        canonical
         metaDesc
-        metaRobotsNofollow
-        metaRobotsNoindex
-        opengraphAuthor
-        opengraphDescription
-        opengraphModifiedTime
-        opengraphPublishedTime
-        opengraphPublisher
-        opengraphTitle
-        opengraphType
-        readingTime
         title
-        twitterDescription
-        twitterTitle
-        twitterImage {
-          altText
-          sourceUrl
-          mediaDetails {
-            width
-            height
-          }
-        }
         opengraphImage {
           altText
           sourceUrl

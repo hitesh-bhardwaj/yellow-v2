@@ -34,7 +34,7 @@ export function paraAnim(){
     const paraAnimations = document.querySelectorAll("[data-para-anim]");
       paraAnimations.forEach((paraAnimation) => {
         SplitInLine(paraAnimation);
-        let paraLine = paraAnimation.querySelectorAll(" .line-internal");
+        let paraLine = paraAnimation.querySelectorAll(".line-internal");
         gsap.from(paraLine, {
           scrollTrigger: {
             trigger: paraAnimation,
@@ -48,6 +48,7 @@ export function paraAnim(){
       });
   }); 
 }
+
 export function lineAnim(){
   if(globalThis.innerWidth<=1023&&globalThis.innerWidth>541){
     useGSAP(() => {
@@ -168,4 +169,25 @@ export function fadeUp(){
     });
   });
 
+}
+
+
+export function paraAnimWordpress(){
+  useGSAP(() => {
+    const paraAnimations = document.querySelectorAll(".para-anim");
+      paraAnimations.forEach((paraAnimation) => {
+        SplitInLine(paraAnimation);
+        let paraLine = paraAnimation.querySelectorAll(".line-internal");
+        gsap.from(paraLine, {
+          scrollTrigger: {
+            trigger: paraAnimation,
+            start: "top 90%",
+          },
+          duration: 1.47,
+          yPercent: 100,
+          stagger: 0.07,
+          ease: primaryEase,
+        });
+      });
+  }); 
 }

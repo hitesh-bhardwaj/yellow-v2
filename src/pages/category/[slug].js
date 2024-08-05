@@ -7,11 +7,20 @@ import Layout from '@/components/Layout';
 import Section from '@/components/Section';
 import PostCard from '@/components/blog/PostCard';
 import styles from "@/styles/blogDetail.module.css";
+import MetaData from '@/components/Metadata';
 
 const Category = ({ category, posts, categories }) => {
   const [activeCategory, setActiveCategory] = useState(`${category.slug}`);
 
+  const metadata = {
+    title: `${category.name} Archive | Yellow`,
+    description: `Dive into our articles for fresh trends, insights, and ${category.name} inspiration.`,
+    slug: `category/${category.slug}`,
+  };
+
   return (
+    <>      
+    <MetaData metadata={metadata} />
     <Layout>
       <main>
         <Section id="hero">
@@ -47,6 +56,7 @@ const Category = ({ category, posts, categories }) => {
         </Section>
       </main>
     </Layout>
+    </>
   );
 };
 

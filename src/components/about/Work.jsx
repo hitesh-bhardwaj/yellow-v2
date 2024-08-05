@@ -40,8 +40,8 @@ export default function Work({ works }) {
                     />
                   </div>
                   <div className="absolute top-[5%] left-[7%] flex gap-[1.5vw] text-white mobile:gap-[3vw]">
-                    {work.workcategories && work.workcategories.nodes.slice(0,2).map((category) => (
-                      <p key={category.slug} className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-lg px-[1.4vw] py-[0.4vw] text-[1.4vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1vw] tablet:text-[2vw]">
+                    {work.workcategories && work.workcategories.nodes.slice(0,2).map((category, index) => (
+                      <p key={index} className="w-fit border-[1px] border-white rounded-[30px] backdrop-blur-lg px-[1.4vw] py-[0.4vw] text-[1.4vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1vw] tablet:text-[2vw]">
                         {category.name}
                       </p>
                     ))}

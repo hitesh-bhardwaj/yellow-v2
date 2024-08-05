@@ -85,8 +85,8 @@ const teamMembers = [
   },
   {
     id: 10,
-    name: "Sweatha",
-    slug: "swetha",
+    name: "Sweatha Monichen",
+    slug: "swetha-monichen",
     role: "Account Manager",
     image: "/assets/images/about/Sweatha.webp",
     imagebw: "/assets/images/about/Sweatha-bw.webp",

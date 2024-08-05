@@ -15,8 +15,7 @@ const Information = ({info, title, categories}) => {
                     </div>
                     <div className="w-1/2 col-start-2 pt-[1vw] mobile:w-full mobile:pt-[5vw] fadeup">
                         <div 
-                            className="mb-[4vw] text-[1.4vw] mobile:text-[4.5vw] tablet:text-[2.2vw] leading-[1.4] mobile:mb-[10vw]"
-                            
+                            className="mb-[4vw] text-[1.4vw] mobile:text-[4.5vw] tablet:text-[2.2vw] leading-[1.4] mobile:mb-[10vw] fadeup"
                             dangerouslySetInnerHTML={{
                             __html: info.description,
                             }}

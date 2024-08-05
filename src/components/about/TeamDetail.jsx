@@ -118,7 +118,7 @@ const memberDetails = [
       detailImage:"/assets/images/about/detail-mamta.png"
     },
     { id:10,
-      name: "Sweatha",
+      name: "Sweatha Monichen",
       role: "Account Manager",
       image: "/assets/images/about/Sweatha.webp",
       content1:"Mamta is the loudest person we know. Her version of a whisper is still a decibel or two above normal conversation levels.",

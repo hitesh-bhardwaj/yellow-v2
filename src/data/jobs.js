@@ -80,44 +80,16 @@ export const QUERY_JOB_BY_SLUG = gql`
         location
         overview
       }
+      modified
       featuredImage {
         node {
           altText
           sourceUrl
         }
       }
-    }
-  }
-`;
-
-export const QUERY_JOB_SEO_BY_SLUG = gql`
-  query JobSEOBySlug($slug: ID!) {
-    job(id: $slug, idType: SLUG) {
-      id
       seo {
-        canonical
-        metaDesc
-        metaRobotsNofollow
-        metaRobotsNoindex
-        opengraphAuthor
-        opengraphDescription
-        opengraphModifiedTime
-        opengraphPublishedTime
-        opengraphPublisher
-        opengraphTitle
-        opengraphType
-        readingTime
         title
-        twitterDescription
-        twitterTitle
-        twitterImage {
-          altText
-          sourceUrl
-          mediaDetails {
-            width
-            height
-          }
-        }
+        metaDesc
         opengraphImage {
           altText
           sourceUrl

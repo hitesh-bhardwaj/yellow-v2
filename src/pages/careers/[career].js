@@ -1,22 +1,25 @@
-import { Helmet } from 'react-helmet';
-import { helmetSettingsFromMetadata } from '@/lib/site';
-import useSite from '@/hooks/use-site';
-import usePageMetadata from '@/hooks/use-page-metadata';
 import Layout from '@/components/Layout';
-import { titleAnim , paraAnim , lineAnim, imageAnim , fadeUp } from '@/components/gsapAnimations';
+import { titleAnim, paraAnim, lineAnim, imageAnim, fadeUp } from '@/components/gsapAnimations';
 import { getAllJobs, getJobBySlug } from '@/lib/jobs';
 import Pagehero from '@/components/career-detail/Pagehero';
 import Overview from '@/components/career-detail/Overview';
 import CareerForm from '@/components/career-detail/CareerForm';
+import { JobpostingJsonLd } from '@/lib/json-ld';
+import config from '../../../package.json';
+import { NextSeo } from 'next-seo';
 
-export default function Work({ job, socialImage, jobsList }) {
+export default function Work({ job, jobsList }) {
+
   const {
     title,
-    metaTitle,
-    description,
     featuredImage,
     jobFields,
+    slug,
+    seo,
   } = job;
+
+  const { homepage = '' } = config;
+  const path = `${homepage}/careers/${slug}`
 
   titleAnim();
   paraAnim();
@@ -24,44 +27,49 @@ export default function Work({ job, socialImage, jobsList }) {
   imageAnim();
   fadeUp();
 
-  const { metadata: siteMetadata = {}, homepage } = useSite();
-
-  if (!job.og) {
-    job.og = {};
-  }
-
-  job.og.imageUrl = `${homepage}/${socialImage}`;
-  job.og.imageSecureUrl = job.og.imageUrl;
-  job.og.imageWidth = 2000;
-  job.og.imageHeight = 1000;
-
-  const { metadata } = usePageMetadata({
-    metadata: {
-      ...job,
-      title: metaTitle,
-      description: description || job.og?.description || `Read more about ${title}`,
-    },
-  });
-
-  if (process.env.WORDPRESS_PLUGIN_SEO !== true) {
-    metadata.title = `${title} - ${siteMetadata.title}`;
-    metadata.og.title = metadata.title;
-    metadata.twitter.title = metadata.title;
-  }
-
-  const helmetSettings = helmetSettingsFromMetadata(metadata);
-
   return (
-    <Layout>
-      <Helmet {...helmetSettings} />
-        <Pagehero 
-            title={title}
-            bgImage={featuredImage}
-            jobInfo={jobFields}
+    <>
+      <NextSeo
+        title={seo.title}
+        description={seo.metaDesc}
+        openGraph={{
+          url: `${path}`,
+          title: seo.title,
+          "description": seo.metaDesc,
+          images: [
+            {
+              url: seo.opengraphImage.sourceUrl,
+              width: seo.opengraphImage.mediaDetails.width,
+              height: seo.opengraphImage.mediaDetails.height,
+              alt: seo.opengraphImage.alt,
+              type: "image/webp",
+            },
+          ],
+          siteName: "Yellow",
+        }}
+        additionalLinkTags={[
+          {
+            rel: "canonical",
+            href: `${path}`,
+          },
+          {
+            rel: "alternate",
+            href: `${path}`,
+            hreflang: "x-default",
+          }
+        ]}
+      />
+      <JobpostingJsonLd job={job} />
+      <Layout>
+        <Pagehero
+          title={title}
+          bgImage={featuredImage}
+          jobInfo={jobFields}
         />
-        <Overview details={jobFields.overview}/>
+        <Overview details={jobFields.overview} />
         <CareerForm jobs={jobsList} />
-    </Layout>
+      </Layout>
+    </>
   );
 }
 
@@ -82,7 +90,6 @@ export async function getStaticProps({ params = {} } = {}) {
 
   const props = {
     job,
-    socialImage: `${process.env.OG_IMAGE_DIRECTORY}/${jobSlug}.png`,
     jobsList
   };
 

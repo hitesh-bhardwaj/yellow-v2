@@ -5,6 +5,7 @@ import { DefaultSeo } from "next-seo";
 import { getSiteMetadata } from '@/lib/site';
 import { SiteContext, useSiteContext } from '@/hooks/use-site';
 import { AnimatePresence } from "framer-motion";
+import { ImageObjectJsonLd, OrganizationJsonLd, WebsiteJsonLd } from "@/lib/json-ld";
 
 export default function App({ Component, pageProps = {}, router, metadata }) {
 
@@ -13,7 +14,7 @@ export default function App({ Component, pageProps = {}, router, metadata }) {
   });
 
   return (
-  <>
+    <>
       <DefaultSeo
         title="Branding & Communication Agency in Dubai - Yellow Agency"
         description="Welcome to Yellow: your trusted branding, marketing, & design agency in Dubai. We specialize in crafting brand stories & innovative marketing strategies. Let your brand shine with expert services. Contact today!"
@@ -68,20 +69,25 @@ export default function App({ Component, pageProps = {}, router, metadata }) {
               type: "image/png",
             },
           ],
-          siteName: "Welcome To Yellow",
+          siteName: "Yellow",
         }}
         twitter={{
-          site: 'Welcome To Yellow',
+          site: 'Yellow',
           cardType: 'summary_large_image',
         }}
-      />
-    <SiteContext.Provider value={site}>
+      /> 
+
+      <OrganizationJsonLd />
+      <WebsiteJsonLd />
+      <ImageObjectJsonLd />
+
+      <SiteContext.Provider value={site}>
         <ReactLenis root lerp={0.3}>
           <AnimatePresence mode="wait">
-          <Component {...pageProps} key={router.route} />
+            <Component {...pageProps} key={router.route} />
           </AnimatePresence>
-      </ReactLenis>
-    </SiteContext.Provider>
+        </ReactLenis>
+      </SiteContext.Provider>
     </>
   );
 }

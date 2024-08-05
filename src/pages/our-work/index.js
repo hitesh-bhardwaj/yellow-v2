@@ -9,6 +9,8 @@ import WorkCategories from '@/components/Portfolio/WorkCategories';
 import { getWorkCategories } from '@/lib/workcategories';
 import WorkCard from '@/components/Portfolio/WorkCard';
 import { titleAnim , paraAnim , lineAnim , fadeUp } from '@/components/gsapAnimations';
+import { WebpageJsonLd } from '@/lib/json-ld';
+import MetaData from '@/components/Metadata';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,6 +20,15 @@ export default function Works({ initialWorks, initialPagination, workcategories 
   paraAnim();
   lineAnim();
   fadeUp();
+
+  const metadata = {
+    title: "A Collection Of Some Of Our Best Work | Yellow Branding",
+    description: "Get a feel for our expertise, style and abilities by checking out samples of our best work. Contact us once you are ready to schedule for a consultation.",
+    img: "home.png",
+    date_published: "2017-10-22T06:17",
+    date_modified: "2024-08-01T12:32",
+    slug: "our-work"
+  }
 
   const [works, setWorks] = useState(initialWorks);
   const [pagination, setPagination] = useState(initialPagination);
@@ -56,6 +67,8 @@ export default function Works({ initialWorks, initialPagination, workcategories 
 
   return (
     <>
+      <MetaData metadata={metadata} />
+      <WebpageJsonLd metadata={metadata} />
       <Layout>
         <PageHero />
         <Section id="second-section" className='bg-black'>
@@ -97,29 +110,21 @@ export default function Works({ initialWorks, initialPagination, workcategories 
 
 export async function getStaticProps({ params }) {
   const { slug } = params || {};
-
-  // Fetch paginated posts
   let { works, pagination } = await getPaginatedWorks({
     queryIncludes: 'archive',
   });
-
-  // Fetch categories
   const workcategories = await getWorkCategories();
-
-  // If a category slug is provided, filter posts by category
   if (slug) {
     const { works: filteredWorks, pagination: filteredPagination } = await getPaginatedWorks({
       queryIncludes: 'archive',
-      categoryId: slug, // Pass the category ID or slug to filter posts
+      categoryId: slug,
     });
-
     works = filteredWorks;
     pagination = {
       ...filteredPagination,
       basePath: `/our-work/category/${slug}/page`,
     };
   }
-
   return {
     props: {
       initialWorks: works,

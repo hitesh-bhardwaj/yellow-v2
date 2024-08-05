@@ -225,7 +225,7 @@ export default function Menu({ menuOpen }) {
           <ul className="flex justify-between items-center text-[1vw] text-white font-medium uppercase w-[90%] mobile:flex-col mobile:items-start mobile:text-[4.5vw] mobile:gap-[1.5vw] tablet:text-[3vw] tablet:flex-wrap tablet:items-start tablet:gap-[2vw]">
             <li className="overflow-hidden">
               <Link 
-                className="social-link flex items-center gap-[3px] mobile:gap-[2.5vw] group" href="#">
+                className="social-link flex items-center gap-[3px] mobile:gap-[2.5vw] group" target="_blank" href="https://www.linkedin.com/company/yellow-branding">
                 <span 
                   className="link-line">
                   Linkedin
@@ -238,7 +238,7 @@ export default function Menu({ menuOpen }) {
             </li>
             <li className="overflow-hidden">
               <Link
-                className="social-link flex items-center gap-[3px] mobile:gap-[2.5vw]  group" href="#">
+                className="social-link flex items-center gap-[3px] mobile:gap-[2.5vw] group" target="_blank" href="https://www.instagram.com/welcometoyellow/">
                 <span className="link-line">
                   Instagram
                 </span>
@@ -250,7 +250,7 @@ export default function Menu({ menuOpen }) {
             </li>
             <li className="overflow-hidden">
               <Link 
-                className="social-link flex items-center gap-[3px] mobile:gap-[2.5vw]  group" href="#">
+                className="social-link flex items-center gap-[3px] mobile:gap-[2.5vw] group" target="_blank" href="https://www.behance.net/welcometoyellow">
                 <span className="link-line">
                   behance
                 </span>
@@ -262,7 +262,7 @@ export default function Menu({ menuOpen }) {
             </li>
             <li className="overflow-hidden">
               <Link 
-                className="social-link flex items-center gap-[3px] mobile:gap-[2.5vw]  group" href="#">
+                className="social-link flex items-center gap-[3px] mobile:gap-[2.5vw] group" target="_blank" href="https://in.pinterest.com/Yellowbranding/">
                 <span className="link-line">
                   Pinterest
                 </span>

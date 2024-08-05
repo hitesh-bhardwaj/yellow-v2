@@ -175,7 +175,7 @@ const memberDetails = [
   },
   {
     id: 10,
-    name: "Sweatha",
+    name: "Sweatha Monichen",
     role: "Account Manager",
     slug: "swetha",
     image: "/assets/images/about/Sweatha.webp",

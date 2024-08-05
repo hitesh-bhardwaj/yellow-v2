@@ -66,11 +66,13 @@ body {
 
 [data-title-anim],
 [data-para-anim],
+.para-anim,
 .lineWord {
   font-kerning: none;
 }
 [data-title-anim] .line,
 [data-para-anim] .line,
+.para-anim .line,
 .lineWord .line {
   overflow: hidden;
 }
@@ -547,6 +549,11 @@ body {
 .fullSizeImage {
   width: 100%;
   margin-bottom: 2.5vw;
+}
+.wp-block-video{
+  margin-bottom: 2.5vw;
+  border-radius: 15px;
+  overflow: hidden;
 }
 .wp-block-gallery {
   display: grid;

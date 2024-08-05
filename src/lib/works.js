@@ -32,7 +32,6 @@ export function workPathBySlug(slug) {
 
 export async function getWorkBySlug(slug) {
   const apolloClient = getApolloClient();
-  const apiHost = new URL(process.env.WORDPRESS_GRAPHQL_ENDPOINT).host;
 
   let workData;
   let seoData;
@@ -74,45 +73,7 @@ export async function getWorkBySlug(slug) {
 
     work.metaTitle = seo.title;
     work.metaDescription = seo.metaDesc;
-    work.readingTime = seo.readingTime;
-
-    // The SEO plugin by default includes a canonical link, but we don't want to use that
-    // because it includes the WordPress host, not the site host. We manage the canonical
-    // link along with the other metadata, but explicitly check if there's a custom one
-    // in here by looking for the API's host in the provided canonical link
-
-    if (seo.canonical && !seo.canonical.includes(apiHost)) {
-      work.canonical = seo.canonical;
-    }
-
-    work.og = {
-      author: seo.opengraphAuthor,
-      description: seo.opengraphDescription,
-      image: seo.opengraphImage,
-      modifiedTime: seo.opengraphModifiedTime,
-      publishedTime: seo.opengraphPublishedTime,
-      publisher: seo.opengraphPublisher,
-      title: seo.opengraphTitle,
-      type: seo.opengraphType,
-    };
-
-    work.article = {
-      author: work.og.author,
-      modifiedTime: work.og.modifiedTime,
-      publishedTime: work.og.publishedTime,
-      publisher: work.og.publisher,
-    };
-
-    work.robots = {
-      nofollow: seo.metaRobotsNofollow,
-      noindex: seo.metaRobotsNoindex,
-    };
-
-    work.twitter = {
-      description: seo.twitterDescription,
-      image: seo.twitterImage,
-      title: seo.twitterTitle,
-    };
+    work.metaImage = seo.opengraphImage
   }
 
   return {

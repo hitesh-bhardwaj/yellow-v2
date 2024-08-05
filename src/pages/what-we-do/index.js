@@ -1,12 +1,13 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import Layout from '@/components/Layout'
 import Pagehero from '@/components/services/Pagehero'
 import ServiceList from '@/components/services/ServiceList'
-import { titleAnim , paraAnim , lineAnim, imageAnim, imgAnim , fadeUp} from '@/components/gsapAnimations';
+import { titleAnim, paraAnim, lineAnim, imageAnim, imgAnim, fadeUp } from '@/components/gsapAnimations';
 import { getHomePageWorks } from '@/lib/works';
 import RecentWorks from '@/components/services/RecentWorks';
+import MetaData from '@/components/Metadata';
+import { WebpageJsonLd } from '@/lib/json-ld';
 
-export default function services({recentWorks}) {
+export default function services({ recentWorks }) {
   titleAnim();
   paraAnim();
   lineAnim();
@@ -14,12 +15,23 @@ export default function services({recentWorks}) {
   imgAnim();
   fadeUp();
 
+  const metadata = {
+    title: "Yellow | Brand agency, design and digital services in Dubai, UAE",
+    description: "As a brand agency in Dubai offering brand strategy, naming, brand design and advertising, we consider your brand across all communication channels.",
+    img: "home.png",
+    date_published: "2017-10-22T06:17",
+    date_modified: "2024-08-01T12:32",
+    slug: "what-we-do"
+  }
+
   return (
     <>
+      <MetaData metadata={metadata} />
+      <WebpageJsonLd metadata={metadata} />
       <Layout>
-          <Pagehero/>
-          <ServiceList/>
-          <RecentWorks works={recentWorks} />
+        <Pagehero />
+        <ServiceList />
+        <RecentWorks works={recentWorks} />
       </Layout>
     </>
   )

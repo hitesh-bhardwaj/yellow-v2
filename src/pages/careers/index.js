@@ -4,6 +4,8 @@ import Pagehero from '@/components/career/Pagehero'
 import Layout from '@/components/Layout'
 import { titleAnim , paraAnim , lineAnim, imageAnim , fadeIn , fadeUp } from '@/components/gsapAnimations';
 import { getAllJobs } from '@/lib/jobs';
+import { WebpageJsonLd } from '@/lib/json-ld';
+import MetaData from '@/components/Metadata';
 
 export default function Career({jobs}) {
 
@@ -14,8 +16,19 @@ export default function Career({jobs}) {
   fadeIn();
   fadeUp();
 
+  const metadata = {
+    title: "Yellow | Now hiring!",
+    description: "Get in touch with us here and let's build brighter brands together.",
+    img: "home.png",
+    date_published: "2017-10-22T06:17",
+    date_modified: "2024-08-01T12:32",
+    slug: "careers"
+  }
+
   return (
     <>
+      <MetaData metadata={metadata} />
+      <WebpageJsonLd metadata={metadata} />
       <Layout>
           <Pagehero/>
           <Listing jobs={jobs} />

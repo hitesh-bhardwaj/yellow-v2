@@ -1,80 +1,81 @@
-import { Helmet } from 'react-helmet';
-
 import { getPostBySlug, getRecentPosts, getRelatedPosts } from '@/lib/posts';
 import { ArticleJsonLd } from '@/lib/json-ld';
-import { helmetSettingsFromMetadata } from '@/lib/site';
-import useSite from '@/hooks/use-site';
-import usePageMetadata from '@/hooks/use-page-metadata';
-
 import Layout from '@/components/Layout';
 import FeaturedImage from '@/components/blog-detail/FeaturedImage';
 import Categories from '@/components/blog-detail/Categories';
 import Content from '@/components/blog-detail/Content';
 import RelatedBlogs from '@/components/blog-detail/RelatedBlogs';
 import Pagehero from '@/components/blog-detail/Pagehero';
-import { titleAnim , paraAnim , lineAnim, imageAnim, fadeIn , fadeUp} from '@/components/gsapAnimations';
+import { titleAnim, paraAnim, lineAnim, imageAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
+import { NextSeo } from 'next-seo';
+import config from '../../package.json';
 
-export default function Post({ post, socialImage, relatedPosts }) {
-  titleAnim();
-    paraAnim();
-    lineAnim();
-    imageAnim();
-    fadeIn();
-    fadeUp();
-
+export default function Post({ post, relatedPosts }) {
   const {
     title,
-    metaTitle,
-    description,
+    metaImage,
+    metaDescription,
     content,
     date,
     categories,
     featuredImage,
-    slug
+    slug,
   } = post;
 
-  const { metadata: siteMetadata = {}, homepage } = useSite();
+  const { homepage = '' } = config;
 
-  if (!post.og) {
-    post.og = {};
-  }
-
-  post.og.imageUrl = `${homepage}/${socialImage}`;
-  post.og.imageSecureUrl = post.og.imageUrl;
-  post.og.imageWidth = 2000;
-  post.og.imageHeight = 1000;
-
-  const { metadata } = usePageMetadata({
-    metadata: {
-      ...post,
-      title: metaTitle,
-      description: description || post.og?.description || `Read more about ${title}`,
-    },
-  });
-
-  if (process.env.WORDPRESS_PLUGIN_SEO !== true) {
-    metadata.title = `${title} - ${siteMetadata.title}`;
-    metadata.og.title = metadata.title;
-    metadata.twitter.title = metadata.title;
-  }
-
-  const helmetSettings = helmetSettingsFromMetadata(metadata);
+  titleAnim();
+  paraAnim();
+  lineAnim();
+  imageAnim();
+  fadeIn();
+  fadeUp();
 
   return (
-    <Layout>
-      <Helmet {...helmetSettings} />
-      <ArticleJsonLd post={post} siteTitle={siteMetadata.title} />
-
+    <>
+      <NextSeo
+        title={title}
+        description={metaDescription}
+        openGraph={{
+          type: 'article',
+          url: `${homepage}/${slug}`,
+          title: title,
+          "description": metaDescription,
+          images: [
+            {
+              url: metaImage.sourceUrl,
+              width: metaImage.mediaDetails.width,
+              height: metaImage.mediaDetails.height,
+              alt: metaImage.mediaDetails.alt,
+              type: "image/jpg",
+            },
+          ],
+          siteName: "Yellow",
+        }}
+        additionalLinkTags={[
+          {
+            rel: "canonical",
+            href: `${homepage}/${slug}`,
+          },
+          {
+            rel: "alternate",
+            href: `${homepage}/${slug}`,
+            hreflang: "x-default",
+          }
+        ]}
+      />
+      <ArticleJsonLd post={post} />
+      <Layout>
         <Pagehero>
           {featuredImage && (
             <div className='mobile:relative mobile:h-[60vh] mobile:w-full tablet:w-full w-[89vw]'>
-                <FeaturedImage
-              src={featuredImage.sourceUrl}
-              alt={featuredImage.altText}
-              sizes={featuredImage.sizes}
-            />
+              <FeaturedImage
+                src={featuredImage.sourceUrl}
+                alt={featuredImage.altText}
+                sizes={featuredImage.sizes}
+              />
             </div>
-          
+
           )}
           <h1 data-para-anim
             className="text-[4.8vw] font-display leading-[1.2] w-[90%] mb-[3vw] capitalize mobile:text-[9vw] mobile:mt-[7vw] tablet:text-[5.5vw] mobile:w-full"
@@ -83,19 +84,20 @@ export default function Post({ post, socialImage, relatedPosts }) {
             }}
           />
           <div className='mobile:w-full mobile:my-[4vw] tablet:my-[1vw]'>
-          <Categories
-            categories={categories}
-          /> 
+            <Categories
+              categories={categories}
+            />
           </div>
-        
+
         </Pagehero>
 
-        <Content date={date} content={content} link={slug}/>
+        <Content date={date} content={content} link={slug} />
 
         {relatedPosts && relatedPosts.length > 0 && (
-          <RelatedBlogs posts={relatedPosts}/>
+          <RelatedBlogs posts={relatedPosts} />
         )}
-    </Layout>
+      </Layout>
+    </>
   );
 }
 
@@ -114,7 +116,6 @@ export async function getStaticProps({ params = {} } = {}) {
 
   const props = {
     post,
-    socialImage: `${process.env.OG_IMAGE_DIRECTORY}/${postSlug}.png`,
   };
 
   const relatedData = await getRelatedPosts(categories, postId);

@@ -9,6 +9,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/about-us/mamta-varekar',
+        destination: '/about-us',
+        permanent: true,
+      },
+    ]
+  },
   env: {
     // The image directory for open graph images will be saved at the location above
     // with `public` prepended. By default, images will be saved at /public/images/og

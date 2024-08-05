@@ -186,7 +186,7 @@ const Footer = () => {
                                 <h6 className="text-[1.9vw] font-display leading-[1.2] mb-[1vw] mobile:text-[5vw] tablet:text-[3.5vw] mobile:uppercase mobile:text-center mobile:mb-[3vw]">Social</h6>
                                 <ul className="space-y-[1vw] mobile:space-y-[2vw]">
                                     <li>
-                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.3vw] mobile:flex mobile:justify-center" href="#" target="_blank">
+                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.3vw] mobile:flex mobile:justify-center" href="https://www.linkedin.com/company/yellow-branding" target="_blank">
                                             <span
                                                 className="link-line footer-social overflow-hidden block">
                                                 Linkedin
@@ -194,7 +194,7 @@ const Footer = () => {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.3vw] mobile:flex mobile:justify-center" href="#" target="_blank">
+                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.3vw] mobile:flex mobile:justify-center" href="https://www.instagram.com/welcometoyellow/" target="_blank">
                                             <span
                                                 className="link-line footer-social overflow-hidden block">
                                                 Instagram
@@ -202,7 +202,7 @@ const Footer = () => {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.3vw] mobile:flex mobile:justify-center" href="#" target="_blank">
+                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.3vw] mobile:flex mobile:justify-center" href="https://www.behance.net/welcometoyellow" target="_blank">
                                             <span
                                                 className="link-line footer-social overflow-hidden block">
                                                 behance
@@ -210,7 +210,7 @@ const Footer = () => {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.3vw] mobile:flex mobile:justify-center" href="#" target="_blank">
+                                        <Link className="text-[1.15vw] font-medium uppercase text-shadow mobile:text-[4vw] tablet:text-[2.3vw] mobile:flex mobile:justify-center" href="https://in.pinterest.com/Yellowbranding/" target="_blank">
                                             <span
                                                 className="link-line footer-social overflow-hidden block">
                                                 Pinterest

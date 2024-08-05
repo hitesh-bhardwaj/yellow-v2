@@ -2,13 +2,27 @@ import Section from "@/components/Section";
 import React from "react";
 import { titleAnim , paraAnim ,fadeUp} from '@/components/gsapAnimations';
 import Header from "@/components/Header";
+import { WebpageJsonLd } from "@/lib/json-ld";
+import MetaData from "@/components/Metadata";
 
 function Thankyou() {
     titleAnim();
     paraAnim();
     fadeUp();
+
+    const metadata = {
+      title: "Thankyou - Yellow Agency",
+      description: "Thanks for getting in touch! We'll contact you shortly to discuss how we can help your business grow and succeed online.",
+      img: "home.png",
+      date_published: "2017-10-22T06:17",
+      date_modified: "2024-08-01T12:32",
+      slug: "thank-you"
+    }
+
   return (
     <>
+      <MetaData metadata={metadata} />
+      <WebpageJsonLd metadata={metadata} />
       <Header/>
         <Section id={"thank-you"} className="bg-black">
           <div className="container flex justify-center items-center bg-white">
