@@ -177,7 +177,7 @@ body {
 }
 .career-form span{
   font-size: 1.1vw;
-  color: #000;
+  
 }
 .career-form-span{
   font-size: 1.3vw !important;
@@ -414,7 +414,7 @@ body {
   }
   .career-form span{
     font-size: 4vw;
-    color: #000;
+    
   }
   .career-form-span{
     font-size: 4.5vw !important;
@@ -535,7 +535,7 @@ body {
   }
   .career-form span{
     font-size: 2vw;
-    color: #000;
+    
   }
   .career-form textarea{
     font-size: 2vw;

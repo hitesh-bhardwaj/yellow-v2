@@ -37,8 +37,9 @@ const formSchema = z.object({
   number: z.string().min(10, {
     message: "Contact number must be at least 10 digits.",
   }),
-  social: z.string({
-    message: "Enter the social media link.",
+  social:z.string().min(5,{
+  
+
   }),
   QuestionA: z.string().min(1, {
     message: "This field is required.",
@@ -49,11 +50,25 @@ const formSchema = z.object({
   QuestionC: z.string().min(1, {
     message: "This field is required.",
   }),
+ 
 });
 
 function CareerForm({ jobs }) {
   const JobsData = jobs.jobs;
   const router = useRouter();
+  const [selectedRole , setSelectedRole] = useState('');
+  const [currentRole, setCurrentRole] = useState('');
+  const [medium, setMedium] = useState('');
+  const [firstTextArea, setFirstTextArea] = useState('');
+  const [secondTextArea, setSecondTextArea] = useState('');
+  const [thirdTextArea, setThirdTextArea] = useState('');
+  const [fourthTextArea, setFourthTextArea] = useState('');
+ 
+  const [content, setContent] = React.useState(null);
+  const [fileName, setFileName] = useState(null);
+  const [fileError, setFileError] = useState(null);
+ 
+
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -65,11 +80,19 @@ function CareerForm({ jobs }) {
       QuestionA: "",
       QuestionB: "",
       QuestionC: "",
+      careerCV:null
     },
   });
+  const fileRef = form.register("file");
   const onSubmit = async (data) => {
+
+    if (!fileName) {
+      setFileError("File is required.");
+      return; // Prevent form submission
+    }
+    const base64Content = content.split(',')[1];
     console.log("Form Submitted Successfully:", data);
-    router.push("/thank-you");
+    
     const formData = {
       name: data.name,
       email: data.email,
@@ -78,10 +101,21 @@ function CareerForm({ jobs }) {
       QuestionA: data.QuestionA,
       QuestionB: data.QuestionB,
       QuestionC: data.QuestionC,
+      role:selectedRole,
+      currentRole:currentRole,
+      medium:medium,
+      firstTextArea:firstTextArea,
+      secondTextArea:secondTextArea,
+      thirdTextArea:thirdTextArea,
+      fourthTextArea:fourthTextArea,
+      careerCV:fileName,
+      content:base64Content
+
     };
-    console.log(data)
+    // console.log(data)
     console.log(formData);
     try {
+      
       const res = await fetch("/api/careerform", {
         method: "POST",
         body: JSON.stringify(formData),
@@ -91,24 +125,65 @@ function CareerForm({ jobs }) {
         },
       });
 
-      if (!res.ok) throw new Error("Failed to send message");
+      if (!res.ok) {
+        
+        throw new Error("Failed to send message");
+        
 
-      form.reset();
-      // setSubmitting(false);
-      // setSubmissionSuccess(true);
+      }
+      else{
+        form.reset();
+        router.push("/thank-you");
+
+      }
+      
+
+
+      
+     
     } catch (error) {
       console.log(error);
     }
   };
-
-  const [fileName, setFileName] = useState("");
-
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      setFileName(file.name);
-    }
+   
+  const handleValueChange = (value) => {
+    setSelectedRole(value);
   };
+  const handleCurrentRoleChange = (value) => {
+    setCurrentRole(value);
+  };
+  const handleMediumChange = (value) => {
+    setMedium(value);
+  };
+  const handleFirstTextAreaChange = (e)=>{
+    setFirstTextArea(e.target.value)
+  }
+  const handleSecondTextAreaChange = (e)=>{
+    setSecondTextArea(e.target.value)
+  }
+  const handleThirdTextAreaChange = (e)=>{
+    setThirdTextArea(e.target.value)
+  }
+  const handleFourthTextAreaChange = (e)=>{
+    setFourthTextArea(e.target.value)
+  }
+  const onAddFileAction = (e) => {
+    const reader = new FileReader();
+    const files = e.target.files;
+  
+    reader.onload = (r) => {
+      const fileContent = r.target.result.toString();
+      setContent(fileContent);
+      setFileName(files[0].name);
+      // console.log("File read successfully:", fileContent);
+      console.log("Filename:", files[0].name);
+    };
+  
+    reader.readAsDataURL(files[0]);
+  };
+  
+
+
 
   return (
     <>
@@ -120,11 +195,11 @@ function CareerForm({ jobs }) {
               onSubmit={form.handleSubmit(onSubmit)}
               className="w-full h-full border-[1.5px]  rounded-[50px] border-black/20 bg-white py-[5vw] px-[5vw] flex flex-wrap gap-x-[7.8vw] gap-y-[3vw] border-opacity-45 drop-shadow-[50px] shadow-2xl  mobile:rounded-[10px] mobile:gap-y-[12vw] mobile:border-[1px] mobile:py-[12vw] mobile:shadow-none tablet:rounded-[15px] tablet:gap-y-[4vw] tablet:py-[7vw] tablet:gap-x-[7vw] career-form fadeup"
             >
-              <div className="w-full  career-input border-b border-black flex flex-col gap-[1vw]">
-                <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[5vw] tablet:text-[2.2vw]">
+              <div className="w-full  career-input border-b border-black flex flex-col gap-[0.5vw]">
+                <Label className="text-[1.3vw] mb-[1vw] font-medium mobile:text-[4.5vw] mobile:mb-[5vw] tablet:text-[2.2vw]">
                   Which role are you applying for?
-                </p>
-                <Select>
+                </Label>
+                <Select onValueChange={handleValueChange}>
                   <SelectTrigger className="w-full placeholder:text-[2vw]">
                     <SelectValue placeholder="" />
                   </SelectTrigger>
@@ -143,14 +218,14 @@ function CareerForm({ jobs }) {
               </div>
               <div className="flex w-full justify-between mobile:flex-col mobile:gap-[8vw]">
                 <div className="w-[45%] flex flex-col mobile:w-full">
-                  <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
+                  <Label className="text-[1.3vw] mb-[1vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
                     Your name*
-                  </p>
+                  </Label>
                   <FormField
                     control={form.control}
                     name="name"
                     render={({ field }) => (
-                      <FormItem className="h-full flex justify-center career flex-col">
+                      <FormItem className="h-full career">
                         <FormControl>
                           <Input placeholder="" {...field} type="text" />
                         </FormControl>
@@ -161,14 +236,14 @@ function CareerForm({ jobs }) {
                 </div>
 
                 <div className="w-[45%] flex flex-col mobile:w-full">
-                  <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
+                  <Label className="text-[1.3vw] mb-[1vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
                     Email*
-                  </p>
+                  </Label>
                   <FormField
                     control={form.control}
                     name="email"
                     render={({ field }) => (
-                      <FormItem className="h-full flex justify-center career flex-col">
+                      <FormItem className="h-full career">
                         <FormControl>
                           <Input placeholder="" {...field} type="email" />
                         </FormControl>
@@ -180,14 +255,14 @@ function CareerForm({ jobs }) {
               </div>
               <div className="flex w-full justify-between mobile:flex-col mobile:gap-[8vw]">
                 <div className="w-[45%] flex flex-col mobile:w-full">
-                  <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
+                  <Label className="text-[1.3vw] mb-[1vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
                     Phone
-                  </p>
+                  </Label>
                   <FormField
                     control={form.control}
                     name="number"
                     render={({ field }) => (
-                      <FormItem className="h-full flex justify-center career flex-col">
+                      <FormItem className="h-full career">
                         <FormControl>
                           <Input placeholder="" {...field} type="number" />
                         </FormControl>
@@ -198,19 +273,19 @@ function CareerForm({ jobs }) {
                 </div>
 
                 <div className="w-[45%] flex flex-col mobile:w-full">
-                  <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
+                  <Label className="text-[1.3vw] mb-[1vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
                     Your website / blog / Instagram?{" "}
                     <span className="tablet:hidden text-[1.3vw] tablet:text-[2.2vw] career-form-span mobile:text-[4.5vw]">
                       Facebook?
                     </span>
-                  </p>
+                  </Label>
                   <FormField
                     control={form.control}
                     name="social"
                     render={({ field }) => (
-                      <FormItem className="h-full flex justify-center career flex-col">
+                      <FormItem className="h-full career">
                         <FormControl>
-                          <Input placeholder="" {...field} type="url" />
+                          <Input placeholder="" {...field} type="text" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -220,15 +295,15 @@ function CareerForm({ jobs }) {
               </div>
 
               <div className="w-[100%] flex flex-col">
-                <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
+                <Label className="text-[1.3vw] mb-[1vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
                   Let&apos;s forget about propriety and talk money - what&apos;s
                   the bare minimum you can survive on monthly?
-                </p>
+                </Label>
                 <FormField
                   control={form.control}
                   name="QuestionA"
                   render={({ field }) => (
-                    <FormItem className="h-full flex justify-center career flex-col">
+                    <FormItem className="h-full career">
                       <FormControl>
                         <Input placeholder="" {...field} type="text" />
                       </FormControl>
@@ -238,76 +313,77 @@ function CareerForm({ jobs }) {
                 />
               </div>
               <div className="w-[100%] border-b border-black">
-                <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
+                <Label className="text-[1.3vw] mb-[1vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
                   What&apos;s making you search for a new role? And what are you
                   hoping to find at Yellow?
-                </p>
-                <Textarea placeholder="" />
+                </Label>
+                <Textarea placeholder="" value={firstTextArea} onChange={handleFirstTextAreaChange} className="mt-[1vw]" />
               </div>
               <div className="w-[100%] border-b border-black">
-                <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
+                <Label className="text-[1.3vw] mb-[1vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
                   Tell us about your past - just the work part, for now!
-                </p>
-                <Textarea placeholder="" />
+                </Label>
+                <Textarea placeholder="" value={secondTextArea} onChange={handleSecondTextAreaChange} className="mt-[1vw]"/>
               </div>
               <div className="w-[45%]  career-input border-b border-black flex flex-col gap-[1vw] mobile:w-full ">
-                <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[5vw] tablet:text-[2.2vw]">
+                <Label className="text-[1.3vw] mb-[1vw] font-medium mobile:text-[4.5vw] mobile:mb-[5vw] tablet:text-[2.2vw]">
                   Which one of these best describes your current role?
-                </p>
-                <Select>
+                </Label>
+                <Select onValueChange={handleCurrentRoleChange}>
                   <SelectTrigger className="w-full placeholder:text-[2vw]">
                     <SelectValue placeholder="" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
                       <SelectLabel>Roles</SelectLabel>
-                      <SelectItem value="role1">role1</SelectItem>
-                      <SelectItem value="role2">role2</SelectItem>
-                      <SelectItem value="role3">role3</SelectItem>
-                      <SelectItem value="role4">role4</SelectItem>
-                      <SelectItem value="role5">role5</SelectItem>
+                      {JobsData &&
+                        JobsData.map((job, index) => (
+                          <SelectItem key={index} value={job.title}>
+                            {job.title}
+                          </SelectItem>
+                        ))}
                     </SelectGroup>
                   </SelectContent>
                 </Select>
               </div>
               <div className="w-[45%]  career-input border-b border-black flex flex-col gap-[1vw] mobile:w-full">
-                <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[5vw] tablet:text-[2.2vw]">
+                <Label className="text-[1.3vw] mb-[1vw] font-medium mobile:text-[4.5vw] mobile:mb-[5vw] tablet:text-[2.2vw]">
                   How do you keep up with what&apos;s going on in the world?
-                </p>
-                <Select>
+                </Label>
+                <Select onValueChange={handleMediumChange}>
                   <SelectTrigger className="w-full placeholder:text-[2vw]">
                     <SelectValue placeholder="" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
-                      <SelectLabel>Roles</SelectLabel>
-                      <SelectItem value="role1">role1</SelectItem>
-                      <SelectItem value="role2">role2</SelectItem>
-                      <SelectItem value="role3">role3</SelectItem>
-                      <SelectItem value="role4">role4</SelectItem>
-                      <SelectItem value="role5">role5</SelectItem>
+                      <SelectLabel>Mediums</SelectLabel>
+                      <SelectItem value="Television">Television</SelectItem>
+                      <SelectItem value="Social Media">Social Media</SelectItem>
+                      <SelectItem value="News paper">News paper</SelectItem>
+                      <SelectItem value="Articles">Articles</SelectItem>
+                     
                     </SelectGroup>
                   </SelectContent>
                 </Select>
               </div>
               <div className="w-[100%] border-b border-black">
-                <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
+                <Label className="text-[1.3vw] mb-[1vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
                   If you could work on any brand or client in the world, which
                   would it be and why?
-                </p>
-                <Textarea placeholder="" />
+                </Label>
+                <Textarea placeholder="" value={thirdTextArea} onChange={handleThirdTextAreaChange} className="mt-[1vw]" />
               </div>
               <div className="w-[100%] border-b border-black">
-                <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] tablet:text-[2.2vw]">
+                <Label className="text-[1.3vw] mb-[1vw] font-medium mobile:text-[4.5vw] tablet:text-[2.2vw]">
                   What&apos;s the coolest thing you&apos;ve ever done?
-                </p>
-                <Textarea placeholder="" />
+                </Label>
+                <Textarea placeholder="" value={fourthTextArea} onChange={handleFourthTextAreaChange} className="mt-[1vw]"/>
               </div>
               <div className="w-[100%] flex flex-col">
-                <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
+                <Label className="text-[1.3vw] mb-[1vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
                   When you&apos;re not hailing Helvetica as the second coming,
                   which typeface do you champion?
-                </p>
+                </Label>
                 <FormField
                   control={form.control}
                   name="QuestionB"
@@ -322,9 +398,9 @@ function CareerForm({ jobs }) {
                 />
               </div>
               <div className="w-[100%] flex flex-col">
-                <p className="text-[1.3vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
+                <Label htmlFor="QuestionC" className="text-[1.3vw] mb-[1vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
                   Which is your favourite film ever?
-                </p>
+                </Label>
                 <FormField
                   control={form.control}
                   name="QuestionC"
@@ -338,20 +414,22 @@ function CareerForm({ jobs }) {
                   )}
                 />
               </div>
-              <div className="w-full docs flex flex-col gap-4 mobile:gap-8">
-                <p className="text-lg font-medium mobile:text-xl tablet:text-2xl">
+              <div className="w-full docs flex flex-col gap-[0.5vw] mobile:gap-[4vw]">
+                <Label className="text-[1.3vw] font-medium mobile:text-[4.5vw] tablet:text-[2.2vw]">
                   Time to do the needful - upload your CV here & cross those
                   fingers!
-                </p>
-                <p className="opacity-75 text-sm font-medium mobile:text-base tablet:text-lg">
+                </Label>
+                <p className="text-gray-600 text-[1.2vw] font-medium mobile:text-[3vw] tablet:text-[1.8vw]">
                   Only docx or pdf files are allowed
                 </p>
 
-                <div className="w-full h-full border border-dashed border-black rounded-lg py-8 mobile:h-[70vw] mobile:mt-[10vw] tablet:h-[30vw] tablet:mt-[4vw]">
-                  <Label
+                <div className="w-full h-full border border-dashed border-black rounded-lg py-[3vw] mobile:h-[70vw] mobile:mt-[10vw] tablet:h-[30vw] tablet:mt-[4vw]">
+                 
+                   <Label
                     htmlFor="careerCV"
                     className="w-full h-full bg-white flex flex-col items-center justify-center rounded-lg cursor-pointer"
                   >
+                    
                     <div className="flex flex-col items-center justify-center py-4 px-5">
                       <svg
                         className="w-16 h-16 text-primary mobile:w-20 mobile:h-20 tablet:w-24 tablet:h-24"
@@ -455,29 +533,42 @@ function CareerForm({ jobs }) {
                         {fileName || "Upload CV"}
                       </p>
                     </div>
-                    <Input
+                  </Label>
+                    <FormField
+                  control={form.control}
+                  name="careerCV"
+                  render={({ field }) => (
+                    <FormItem className="h-full flex justify-center career flex-col">
+                      <FormControl>
+                      <Input
                       id="careerCV"
-                      name="careerCV"
+                     {...fileRef}
                       type="file"
                       accept=".pdf,.docx"
                       className="hidden"
-                      onChange={handleFileChange}
+                      onChange={onAddFileAction}
                     />
-                  </Label>
+                      </FormControl>
+                      {fileError && <p className="text-red-600 text-[1.1vw] tablet:text-[2vw] mobile:text-[3vw] mt-[1vw] mobile:mt-[4vw]">{fileError}</p>}
+                    </FormItem>
+                  )}
+                />
                 </div>
               </div>
               <div className="w-full flex justify-center items-center fadeup mt-[3vw]">
                 <Button
                   type="submit"
-                  className="text-[1.4vw] px-[1.4vw] py-[0.3vw] min-w-[12vw] text-black border-black border bg-white rounded-full min-h-[3.5vw] flex gap-[2vw] group tablet:text-[2vw] tablet:min-w-[15vw] tablet:px-[3vw] tablet:py-[1vw] mobile:text-[4.5vw] mobile:px-[4.5vw] mobile:h-[12vw] "
+                  className="text-[1.4vw] px-[1.4vw] py-[0.3vw] min-w-[10vw] text-body border-black border bg-white hover:text-white rounded-full min-h-[3.5vw] flex gap-[2vw] group tablet:text-[2vw] tablet:min-w-[15vw] tablet:px-[3vw] tablet:py-[1vw] mobile:text-[4.5vw] mobile:px-[4.5vw] mobile:h-[12vw] overflow-hidden relative"
                 >
-                  <div className="overflow-hidden flex items-center justify-center gap-[0.5vw] w-full mobile:gap-[2vw]">
+                  <div className="overflow-hidden flex items-center justify-center gap-[0.7vw] w-full mobile:gap-[2vw] ">
+                  <span className="absolute block w-full h-full scale-y-0 bg-body group-hover:scale-y-100 left-0 top-0 origin-bottom transition-all duration-700 ease-link"/>
                     <span
                       data-text={"Submit"}
                       className="relative inline-block after:content-[attr(data-text)] after:absolute after:top-[130%] after:left-0 group-hover:translate-y-[-130%] transition-transform duration-1000 ease-link"
                     >
                       Submit
                     </span>
+                    
                     <svg
                       className="relative -rotate-[135deg] w-[1.1vw] h-[1.1vw] tablet:w-[2vw] tablet:h-[2vw] mobile:w-[5vw] mobile:h-[5vw] "
                       width="19"

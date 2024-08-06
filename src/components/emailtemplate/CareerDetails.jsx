@@ -1,7 +1,7 @@
 import React from "react";
 import { Body, Column, Container, Head, Hr, Html, Img, Link, Preview, Row, Section, Text} from "@react-email/components";
 
-const CareerDetails = ({ userName, userEmail, userNumber, userSocial, userQuestionA, userQuestionB, userQuestionC }) => {
+const CareerDetails = ({ userName, userEmail, userNumber, userSocial, userQuestionA, userQuestionB, userQuestionC , userRole , userCurrentRole, userMedium, userFirstTextArea, userSecondTextArea, userThirdTextArea, userFourthTextArea,   }) => {
   // const selectedServices = Object.keys(userService).filter(service => userService[service]);
 
   return (
@@ -54,6 +54,35 @@ const CareerDetails = ({ userName, userEmail, userNumber, userSocial, userQuesti
               <Column style={columnHead}>Question3</Column>
               <Column style={columnText}>{userQuestionC}</Column>
             </Row>
+            <Row style={row}>
+              <Column style={columnHead}>role</Column>
+              <Column style={columnText}>{userRole}</Column>
+            </Row>
+            <Row style={row}>
+              <Column style={columnHead}>Which one of these best describes your current role?</Column>
+              <Column style={columnText}>{userCurrentRole}</Column>
+            </Row>
+            <Row style={row}>
+              <Column style={columnHead}>How do you keep up with what&apos;s going on in the world?</Column>
+              <Column style={columnText}>{userMedium}</Column>
+            </Row>
+            <Row style={row}>
+              <Column style={columnHead}>What&apos;s making you search for a new role? </Column>
+              <Column style={columnText}>{userFirstTextArea}</Column>
+            </Row>
+            <Row style={row}>
+              <Column style={columnHead}>Tell us about your past </Column>
+              <Column style={columnText}>{userSecondTextArea}</Column>
+            </Row>
+            <Row style={row}>
+              <Column style={columnHead}>Any brand you wants to work with?</Column>
+              <Column style={columnText}>{userThirdTextArea}</Column>
+            </Row>
+            <Row style={row}>
+              <Column style={columnHead}>What&apos;s the coolest thing you&apos;ve ever done? </Column>
+              <Column style={columnText}>{userFourthTextArea}</Column>
+            </Row>
+
            
           </Section>
           <Text style={footer}>
@@ -64,7 +93,7 @@ const CareerDetails = ({ userName, userEmail, userNumber, userSocial, userQuesti
           </Text>
           <Hr style={hr} />
           <Text style={footer}>
-            610, 6th floor, Assotech Business cresterra plot 22, Sector 135, Noida, Uttar Pradesh 201304
+          Loft offices 2, Office 107, Dubai Media City, Dubai UAE
           </Text>
         </Container>
       </Body>

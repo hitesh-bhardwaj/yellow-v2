@@ -63,7 +63,7 @@ const ContactDetails = ({ userName, userEmail, userNumber, userDetail, userServi
           </Text>
           <Hr style={hr} />
           <Text style={footer}>
-            610, 6th floor, Assotech Business cresterra plot 22, Sector 135, Noida, Uttar Pradesh 201304
+          Loft offices 2, Office 107, Dubai Media City, Dubai UAE
           </Text>
         </Container>
       </Body>
