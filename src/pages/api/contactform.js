@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import { Resend } from "resend";
 import ContactDetails from "@/components/emailtemplate/ContactDetails";
 
@@ -6,9 +7,6 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export default async (req, res) => {
   try {
     const { name, email, number, detail , services , source} = req.body;
-    console.log(services)
-
-    
 
     const { data, error } = await resend.emails.send({
       from: "Yellow <onboarding@resend.dev>",

@@ -13,15 +13,15 @@ import { NextSeo } from 'next-seo';
 export default function Work({ work, relatedWorks }) {
   const {
     title,
-    metaTitle,
-    metaDescription,
-    metaImage,
     content,
     date,
     workFields,
     workcategories,
     modified,
     slug,
+    metaTitle,
+    metaDescription,
+    metaImage
   } = work;
 
   const { homepage = '' } = config;

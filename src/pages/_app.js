@@ -7,8 +7,14 @@ import { SiteContext, useSiteContext } from '@/hooks/use-site';
 import { AnimatePresence } from "framer-motion";
 import { ImageObjectJsonLd, OrganizationJsonLd, WebsiteJsonLd } from "@/lib/json-ld";
 import { useEffect } from "react";
+import config from "../../package.json";
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function App({ Component, pageProps = {}, router, metadata }) {
+
+  const { homepage = "" } = config;
 
   const site = useSiteContext({
     metadata,
@@ -66,16 +72,22 @@ export default function App({ Component, pageProps = {}, router, metadata }) {
             type: 'font/woff2',
             crossOrigin: 'anonymous',
           },
+          {
+            rel: 'alternate',
+            type: 'application/rss+xml',
+            title: 'Welcome To Yellow Feed',
+            href: `${homepage}/feed.xml`
+          },
         ]}
         openGraph={{
           type: 'website',
           locale: 'en_US',
           title: "Branding & Communication Agency in Dubai - Yellow Agency",
           description: "Welcome to Yellow: your trusted branding, marketing, & design agency in Dubai. We specialize in crafting brand stories & innovative marketing strategies. Let your brand shine with expert services. Contact today!",
-          url: "https://welcometoyellow.com/",
+          url: homepage,
           images: [
             {
-              url: "https://yellow-v2.vercel.app/assets/images/seo/home.png",
+              url: `${homepage}/assets/images/seo/home.png`,
               width: 1920,
               height: 1016,
               alt: "Yellow Brand Image",
@@ -93,7 +105,6 @@ export default function App({ Component, pageProps = {}, router, metadata }) {
       <OrganizationJsonLd />
       <WebsiteJsonLd />
       <ImageObjectJsonLd />
-
       <SiteContext.Provider value={site}>
         <ReactLenis root lerp={0.3}>
           <AnimatePresence mode="wait">
@@ -101,6 +112,10 @@ export default function App({ Component, pageProps = {}, router, metadata }) {
           </AnimatePresence>
         </ReactLenis>
       </SiteContext.Provider>
+      <GoogleTagManager gtmId="GTM-W99KBPB" />
+      <GoogleAnalytics gaId="G-CSXSBEQKTY" />
+      <SpeedInsights />
+      <Analytics />
     </>
   );
 }

@@ -52,10 +52,6 @@ export async function getWorkBySlug(slug) {
 
   const work = [workData?.data.work].map(mapWorkData)[0];
 
-  // If the SEO plugin is enabled, look up the data
-  // and apply it to the default settings
-
-  if (process.env.WORDPRESS_PLUGIN_SEO === true) {
     try {
       seoData = await apolloClient.query({
         query: QUERY_WORK_SEO_BY_SLUG,
@@ -74,7 +70,6 @@ export async function getWorkBySlug(slug) {
     work.metaTitle = seo.title;
     work.metaDescription = seo.metaDesc;
     work.metaImage = seo.opengraphImage
-  }
 
   return {
     work,

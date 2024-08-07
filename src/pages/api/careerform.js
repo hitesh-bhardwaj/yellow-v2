@@ -7,9 +7,6 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export default async (req, res) => {
   try {
     const { name, email, number, social , QuestionA , QuestionB , QuestionC , role , currentRole,medium,firstTextArea, secondTextArea, thirdTextArea, fourthTextArea,filename , content} = req.body;
-   
-
-    
 
     const { data, error } = await resend.emails.send({
       from: "Yellow <onboarding@resend.dev>",

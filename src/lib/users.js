@@ -82,7 +82,6 @@ export async function getAllUsers() {
   // If the SEO plugin is enabled, look up the data
   // and apply it to the default settings
 
-  if (process.env.WORDPRESS_PLUGIN_SEO === true) {
     try {
       seoData = await apolloClient.query({
         query: QUERY_ALL_USERS_SEO,
@@ -110,7 +109,6 @@ export async function getAllUsers() {
         social: seo.social,
       };
     });
-  }
 
   return {
     users,
