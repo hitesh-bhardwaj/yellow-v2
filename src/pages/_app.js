@@ -6,12 +6,25 @@ import { getSiteMetadata } from '@/lib/site';
 import { SiteContext, useSiteContext } from '@/hooks/use-site';
 import { AnimatePresence } from "framer-motion";
 import { ImageObjectJsonLd, OrganizationJsonLd, WebsiteJsonLd } from "@/lib/json-ld";
+import { useEffect } from "react";
 
 export default function App({ Component, pageProps = {}, router, metadata }) {
 
   const site = useSiteContext({
     metadata,
   });
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      window.scrollTo(0, 0)
+    };
+
+    window.addEventListener("beforeunload", handleRouteChange);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleRouteChange);
+    };
+  }, []);
 
   return (
     <>

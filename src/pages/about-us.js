@@ -9,8 +9,9 @@ import { getHomePageWorks } from '@/lib/works';
 import Meet from '@/components/about/Meet';
 import { WebpageJsonLd } from '@/lib/json-ld';
 import MetaData from '@/components/Metadata';
+import { getAllTeams } from '@/lib/teams';
 
-export default function About({ recentWorks }) {
+export default function About({ recentWorks, teams }) {
 
   titleAnim();
   paraAnim();
@@ -35,7 +36,7 @@ export default function About({ recentWorks }) {
       <Layout>
         <Pagehero />
         <Values />
-        <Meet />
+        <Meet teams={teams} />
         <Join />
         <Work works={recentWorks} />
       </Layout>
@@ -45,10 +46,14 @@ export default function About({ recentWorks }) {
 
 export async function getStaticProps() {
   const recentWorks = await getHomePageWorks();
+  const teams = await getAllTeams({
+    queryIncludes: "archive"
+  });
 
   return {
     props: {
       recentWorks,
+      teams,
     },
     revalidate: 500,
   };

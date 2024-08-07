@@ -10,98 +10,17 @@ import { useLenis } from "lenis/react";
 import TeamDetail from "./TeamDetail";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-const teamMembers = [
-  {
-    id: 1,
-    name: "Wael Bittar",
-    slug: "wael-bittar",
-    role: "Communication Director",
-    image: "/assets/images/about/Wael-Bittar.webp",
-    imagebw: "/assets/images/about/Wael-Bittar-bw.webp",
-  },
-  {
-    id: 2,
-    name: "Mamta Varekar",
-    slug: "mamta-varekar",
-    role: "General Manager",
-    image: "/assets/images/about/Mamta-Varekar.webp",
-    imagebw: "/assets/images/about/Mamta-Varekar-bw.webp",
-  },
-  {
-    id: 3,
-    name: "Stuart Harris",
-    slug: "stuart-harris",
-    role: "Creative Director",
-    image: "/assets/images/about/stuart-harris.webp",
-    imagebw: "/assets/images/about/stuart-harris-bw.webp",
-  },
-  {
-    id: 4,
-    name: "Sarah Azmi",
-    slug: "sarah-azmi",
-    role: "Co-Founder & Head of Strategy",
-    image: "/assets/images/about/Sarah-Azmi.webp",
-    imagebw: "/assets/images/about/Sarah-Azmi-bw.webp",
-  },
-  {
-    id: 5,
-    name: "Aishwarya Carriappa",
-    slug: "aishwarya-carriappa",
-    role: "Designer",
-    image: "/assets/images/about/Aishwarya-Carriappa.webp",
-    imagebw: "/assets/images/about/Aishwarya-Carriappa-bw.webp",
-  },
-  {
-    id: 6,
-    name: "Danielle Haddad",
-    slug: "danielle-haddad",
-    role: "Senior Account Manager",
-    image: "/assets/images/about/Danielle-Haddad.webp",
-    imagebw: "/assets/images/about/Danielle-Haddad-bw.webp",
-  },
-  {
-    id: 7,
-    name: "Gunjan Mathur",
-    role: "Designer",
-    slug: "gunjan-mathur",
-    image: "/assets/images/about/Gunjan-Mathur.webp",
-    imagebw: "/assets/images/about/Gunjan-Mathur-bw.webp",
-  },
-  {
-    id: 8,
-    name: "Youmna Kanaan",
-    slug: "youmna-kanaan",
-    role: "Designer",
-    image: "/assets/images/about/Youmna-Kanaan.webp",
-    imagebw: "/assets/images/about/Youmna-Kanaan-bw.webp",
-  },
-  {
-    id: 9,
-    name: "Maritony Flores",
-    slug: "maritony-flores",
-    role: "Admin",
-    image: "/assets/images/about/Maritony-Flores.webp",
-    imagebw: "/assets/images/about/Maritony-Flores-bw.webp",
-  },
-  {
-    id: 10,
-    name: "Sweatha Monichen",
-    slug: "swetha-monichen",
-    role: "Account Manager",
-    image: "/assets/images/about/Sweatha.webp",
-    imagebw: "/assets/images/about/Sweatha-bw.webp",
-  },
-];
-
-export default function Meet() {
+export default function Meet({ teams }) {
   const [detailOpen, setDetailOpen] = useState(false);
   const [id, setId] = useState(1);
   const lenis = useLenis();
   const cardContainer = useRef(null);
 
+  const teamInfo = teams.teams;
+
   const handleDetail = (index) => {
     setId(index);
-    const selectedMember = teamMembers.find((member) => member.id === index);
+    const selectedMember = teamInfo.find((member) => member.menuOrder === index);
     if (selectedMember) {
       const newPath = `/teams/${selectedMember.slug}`;
       window.history.pushState({}, "", newPath);
@@ -109,6 +28,7 @@ export default function Meet() {
       lenis.stop();
     }
   };
+  
   const handleClose = () => {
     const originalPath = `/about-us`;
     window.history.pushState({}, "", originalPath);
@@ -153,35 +73,38 @@ export default function Meet() {
               ref={cardContainer}
               className="grid grid-cols-3 gap-[3vw] mt-[8vw] justify-between gap-y-[3vw] mobile:flex mobile:flex-nowrap mobile:w-fit mobile:overflow-scroll mobile:gap-[5vw] mobile:h-fit tablet:gap-y-[3.5vw] tablet:grid-cols-2"
             >
-              {teamMembers.map((member) => (
-                <div key={member.id}>
+
+              {teamInfo.map((member) => (
+                <div key={member.menuOrder}>
                   <div
                     className="w-fit overflow-hidden"
-                    onClick={() => handleDetail(member.id)}
+                    onClick={() => handleDetail(member.menuOrder)}
                   >
                     <div
-                      className={`w-full h-[36vw] group cursor-pointer relative overflow-hidden border-[1px] border-black border-opacity-40 cardfade mobile:w-[75vw] mobile:h-[100vw] tablet:w-[41vw] tablet:h-full`}
+                      className={`w-full h-[36vw] group cursor-pointer relative overflow-hidden border-[1px] border-black/40 cardfade mobile:w-[75vw] mobile:h-[100vw] tablet:w-[41vw] tablet:h-full`}
                     >
                       <img
                         loading="lazy"
-                        src={member.image}
-                        alt={`${member.name} Image`}
+                        src={member.featuredImage.node.sourceUrl}
+                        alt={`${member.title} Image`}
                         className="object-cover h-full w-full group-hover:opacity-0 transition-all ease"
                       />
-                      <img
-                        loading="lazy"
-                        src={member.imagebw}
-                        alt={`${member.name} B/W Image`}
-                        className="absolute object-cover h-full w-full group-hover:opacity-100 opacity-0 transition-all ease top-0 left-0"
-                      />
-                      <div className="absolute w-full px-[2vw] py-[1.5vw] z-[2] bottom-0 backdrop-blur-lg bg-black bg-opacity-40 mobile:py-[3vw] mobile:px-[3vw] tablet:py-[3vw]">
+                      {member.teams.blackWhitePicture && (
+                        <img
+                          loading="lazy"
+                          src={member.teams.blackWhitePicture.node.sourceUrl}
+                          alt={`${member.title} B&W Image`}
+                          className="absolute object-cover h-full w-full group-hover:opacity-100 opacity-0 transition-all ease top-0 left-0"
+                        />
+                      )}
+                      <div className="absolute w-full px-[2vw] py-[1.5vw] z-[2] bottom-0 backdrop-blur-lg bg-black/40 mobile:py-[3vw] mobile:px-[3vw] tablet:py-[3vw]">
                         <div className="text-white flex w-full justify-between h-full">
                           <div className="flex flex-col tablet:w-[100%]">
                             <h4 className="text-[1.8vw] font-display leading-[1.3] uppercase  mobile:text-[6vw] tablet:text-[2.4vw]">
-                              {member.name}
+                              {member.title}
                             </h4>
                             <p className="mobile:w-full mobile:leading-[1.3] mobile:text-[3vw] text-[1.2vw]">
-                              {member.role}
+                              {member.teams.designation}
                             </p>
                           </div>
                           <div className="mobile:flex mobile:items-center">
@@ -211,11 +134,13 @@ export default function Meet() {
                   </div>
                 </div>
               ))}
+
             </div>
           </div>
         </div>
 
         <TeamDetail
+          teams={teamInfo}
           index={id}
           handleClose={handleClose}
           detailOpen={detailOpen}

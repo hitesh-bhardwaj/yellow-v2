@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import { Resend } from "resend";
 import ContactDetails from "@/components/emailtemplate/CareerDetails";
 
