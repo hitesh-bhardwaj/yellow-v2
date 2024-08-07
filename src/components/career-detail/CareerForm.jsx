@@ -52,6 +52,8 @@ const formSchema = z.object({
   }),
  
 });
+const currentRoles = ['Art Director','Senior Designer','Midweight Designer','Junior Designer','Artworker','Illustrator','Copywriter','Marketing Manager','Social Media Manager','Web Designer','Web Developer','Office Manager','Account Manager','Account Executive']
+const mediums = ['Facebook','BBC News',"Its' all fake news",'Twitter','Instagram','Gulf News','The Daily Show','Guardian','Cosmopolitan','The Kardashians tell me all I need to know','104.1','103.8','The New Yorker','Snapchat','Time Out','I bury my head in the sand']
 
 function CareerForm({ jobs }) {
   const JobsData = jobs.jobs;
@@ -80,7 +82,7 @@ function CareerForm({ jobs }) {
       QuestionA: "",
       QuestionB: "",
       QuestionC: "",
-      careerCV:null
+      filename:null
     },
   });
   const fileRef = form.register("file");
@@ -108,7 +110,7 @@ function CareerForm({ jobs }) {
       secondTextArea:secondTextArea,
       thirdTextArea:thirdTextArea,
       fourthTextArea:fourthTextArea,
-      careerCV:fileName,
+      filename:fileName,
       content:base64Content
 
     };
@@ -335,13 +337,13 @@ function CareerForm({ jobs }) {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
-                      <SelectLabel>Roles</SelectLabel>
-                      {JobsData &&
-                        JobsData.map((job, index) => (
-                          <SelectItem key={index} value={job.title}>
-                            {job.title}
-                          </SelectItem>
-                        ))}
+                      <SelectLabel>current role</SelectLabel>
+                      {currentRoles.map((roles,index)=>(
+                      <SelectItem value={roles} key={index}>{roles}</SelectItem>
+
+
+                      ))}
+                 
                     </SelectGroup>
                   </SelectContent>
                 </Select>
@@ -357,10 +359,9 @@ function CareerForm({ jobs }) {
                   <SelectContent>
                     <SelectGroup>
                       <SelectLabel>Mediums</SelectLabel>
-                      <SelectItem value="Television">Television</SelectItem>
-                      <SelectItem value="Social Media">Social Media</SelectItem>
-                      <SelectItem value="News paper">News paper</SelectItem>
-                      <SelectItem value="Articles">Articles</SelectItem>
+                      {mediums.map((medium,index)=>(
+                        <SelectItem value={medium} key={index}>{medium}</SelectItem>
+                      ))}
                      
                     </SelectGroup>
                   </SelectContent>
@@ -426,7 +427,7 @@ function CareerForm({ jobs }) {
                 <div className="w-full h-full border border-dashed border-black rounded-lg py-[3vw] mobile:h-[70vw] mobile:mt-[10vw] tablet:h-[30vw] tablet:mt-[4vw]">
                  
                    <Label
-                    htmlFor="careerCV"
+                    htmlFor="filename"
                     className="w-full h-full bg-white flex flex-col items-center justify-center rounded-lg cursor-pointer"
                   >
                     
@@ -536,12 +537,12 @@ function CareerForm({ jobs }) {
                   </Label>
                     <FormField
                   control={form.control}
-                  name="careerCV"
+                  name="filename"
                   render={({ field }) => (
                     <FormItem className="h-full flex justify-center career flex-col">
                       <FormControl>
                       <Input
-                      id="careerCV"
+                      id="filename"
                      {...fileRef}
                       type="file"
                       accept=".pdf,.docx"

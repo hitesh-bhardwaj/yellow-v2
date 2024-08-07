@@ -6,7 +6,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async (req, res) => {
   try {
-    const { name, email, number, social , QuestionA , QuestionB , QuestionC , role , currentRole,medium,firstTextArea, secondTextArea, thirdTextArea, fourthTextArea,careerCV , content} = req.body;
+    const { name, email, number, social , QuestionA , QuestionB , QuestionC , role , currentRole,medium,firstTextArea, secondTextArea, thirdTextArea, fourthTextArea,filename , content} = req.body;
    
 
     
@@ -34,7 +34,7 @@ export default async (req, res) => {
       attachments: [
         {
           content,
-          careerCV,
+          filename,
         },
       ],
     });
