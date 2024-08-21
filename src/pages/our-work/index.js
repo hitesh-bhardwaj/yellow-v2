@@ -34,19 +34,28 @@ export default function Works({ initialWorks, initialPagination, workcategories 
   const [works, setWorks] = useState(initialWorks);
   const [pagination, setPagination] = useState(initialPagination);
   const [isLoading, setIsLoading] = useState(false);
+  const [nextPageData, setNextPageData] = useState(null);
   const [activeCategory, setActiveCategory] = useState('all');
 
-  const loadMoreWorks = async () => {
-    if (pagination.currentPage < pagination.pagesCount && !isLoading) {
-      setIsLoading(true);
-      const nextPage = pagination.currentPage + 1;
+  useEffect(() => {
+    const prefetchNextPage = async () => {
+        if (pagination.currentPage < pagination.pagesCount) {
+            const nextPage = pagination.currentPage + 1;
+            const res = await fetch(`/api/getWorks?page=${nextPage}`);
+            const { works: newWorks, pagination: newPagination } = await res.json();
+            setNextPageData({ newWorks, newPagination });
+        }
+    };
+    prefetchNextPage();
+}, [pagination]);
 
-      const res = await fetch(`/api/getWorks?page=${nextPage}`);
-      const { works: newWorks, pagination: newPagination } = await res.json();
-
-      setWorks((prevWorks) => [...prevWorks, ...newWorks]);
-      setPagination(newPagination);
-      setIsLoading(false);
+  const loadMoreWorks = () => {
+    setIsLoading(true);
+    if (nextPageData && !isLoading) {
+        setWorks((prevWorks) => [...prevWorks, ...nextPageData.newWorks]);
+        setPagination(nextPageData.newPagination);
+        setNextPageData(null);
+        setIsLoading(false);
     }
   };
 
