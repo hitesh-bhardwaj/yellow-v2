@@ -30,7 +30,7 @@ export default function services({ recentWorks }) {
       <Layout>
         <Pagehero />
         <ServiceList />
-        <RecentWorks works={recentWorks} />
+        <RecentWorks heading={"Our Works"} works={recentWorks} />
       </Layout>
     </>
   )

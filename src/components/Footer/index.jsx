@@ -112,7 +112,7 @@ const Footer = () => {
                     <div className="flex justify-between items-center py-[2%] mobile:flex-col mobile:gap-[4vw] mobile:py-[10%]">
                         <div className="w-[50%] relative mobile:w-[100%] tablet:w-[70%] mobile:flex mobile:justify-center">
                             <h5 data-para-anim  className="text-[5vw] leading-[1.2] font-display para-anim mobile:text-[10vw] mobile:text-center tablet:text-[6vw] inline-block">
-                                Ready to Elevate Your Brand <span className="w-[5vw] h-[4vw] inline-block mobile:w-[10vw] mobile:h-[9vw] tablet:w-[7vw] tablet:h-[6vw]"><img src="/assets/images/footer-hand.png" alt="footer-hand" className="object-cover"/></span>
+                                Ready to Elevate Your Brand <span className="w-[7vw] h-[4vw] inline-block mobile:w-[14vw] mobile:h-[7vw] tablet:w-[8vw] tablet:h-[4vw]"><img src="/assets/images/gifs/Bart.gif" loading="lazy" width={120} height={120} alt="footer-gif" className="object-cover h-full w-full"/></span>
                             </h5>
                         </div>
                         <div className="fadein">

@@ -242,14 +242,12 @@ body {
   left: 150px;
   bottom: 150px;
   display: flex;
-
-  height: 100px;
-  font-size: 100px;
+  height: 90px;
+  font-size: 5vw;
   line-height: 102px;
   clip-path: polygon(0 0, 100% 0, 100% 100px, 0 100px);
   font-weight: 400;
   color: #000;
-
   overflow: hidden;
 }
 
@@ -258,15 +256,15 @@ body {
 .counter-3,
 .counter-4 {
   position: relative;
-  top: -15px;
+  top: -10px;
 }
 .count {
   left: 150px;
   bottom: 150px;
   display: flex;
 
-  height: 100px;
-  font-size: 100px;
+  height: 90px;
+  font-size: 5vw;
   line-height: 102px;
   clip-path: polygon(0 0, 100% 0, 100% 100px, 0 100px);
   font-weight: 400;
@@ -279,7 +277,7 @@ body {
 .count-3,
 .count-4 {
   position: relative;
-  top: -15px;
+  top: -10px;
 }
 
 /* cards anmation */
@@ -362,14 +360,12 @@ body {
   .counter {
     bottom: 150px;
     display: flex;
-
     height: 70px;
     font-size: 12vw;
     line-height: 102px;
     clip-path: polygon(0 0, 100% 0, 100% 100px, 0 100px);
     font-weight: 400;
     color: #000;
-
     overflow: hidden;
   }
 
@@ -383,17 +379,14 @@ body {
   .count {
     bottom: 150px;
     display: flex;
-
     height: 70px;
     font-size: 12vw;
     line-height: 102px;
     clip-path: polygon(0 0, 100% 0, 100% 100px, 0 100px);
     font-weight: 400;
     color: #000;
-
     overflow: hidden;
   }
-
   .count-2,
   .count-3,
   .count-4 {

@@ -57,7 +57,7 @@ export default function Meet({ teams }) {
   return (
     <>
       <Section
-        className="w-full h-full pb-[10%] mobile:pb-[20%] relative"
+        className="w-full h-full pb-[8%] mobile:pb-[20%] relative"
         id="meet"
       >
         <div
@@ -136,6 +136,10 @@ export default function Meet({ teams }) {
               ))}
 
             </div>
+          </div>
+
+          <div className="fadeup ml-0 w-[6vw] h-[6vw] mt-[6vw] tablet:w-[12vw] tablet:h-[12vw] mobile:w-[20vw] mobile:h-[20vw] mobile:mt-[10vw]">
+            <img src="/assets/images/gifs/flower.gif" loading="lazy" height={150} width={150} alt="Flower gif"/>
           </div>
         </div>
 

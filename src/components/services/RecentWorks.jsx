@@ -6,7 +6,7 @@ import LinkButton from '../Button/LinkButton'
 import { workPathBySlug } from '@/lib/works'
 import MediaRender from '../MediaRender'
 
-export default function RecentWorks({works}) {
+export default function RecentWorks({works, heading}) {
 
   return (
     <>
@@ -14,7 +14,7 @@ export default function RecentWorks({works}) {
         <div className='container py-[8%] mobile:pb-[15%] bg-white'>
 
           <div className='w-full flex justify-between mb-[5vw] mobile:flex-col mobile:gap-[5vw] mobile:mb-[10vw]'>
-            <SectionTitle data-title-anim text={"Related Works"} />
+            <SectionTitle data-title-anim text={heading} />
             <p data-para-anim className='text-[2vw] font-medium mobile:text-[5vw] w-[70%] mobile:w-[90%] hidden mobile:block'>
               We grow amazing companies through exceptional branding and communications.
             </p>
