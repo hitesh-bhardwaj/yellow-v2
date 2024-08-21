@@ -89,6 +89,7 @@ export const QUERY_POST_BY_SLUG = gql`
           }
         }
       }
+      readingTime
       content
       date
       excerpt

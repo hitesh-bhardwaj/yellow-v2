@@ -7,7 +7,7 @@ import Clients from "@/components/HomePage/Clients";
 import Blogs from "@/components/HomePage/Blogs";
 import { getHomePagePosts } from "@/lib/posts";
 import { getHomePageWorks } from "@/lib/works";
-import { titleAnim, paraAnim, lineAnim, imageAnim, imgAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
+import { titleAnim, paraAnim, lineAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
 import { gsap } from 'gsap/dist/gsap';
 import { WebpageJsonLd } from "@/lib/json-ld";
 import config from '../../package.json';
@@ -32,8 +32,6 @@ export default function Home({ recentPosts, recentWorks }) {
   titleAnim();
   paraAnim();
   lineAnim();
-  imageAnim();
-  imgAnim();
   fadeIn();
   fadeUp();
 

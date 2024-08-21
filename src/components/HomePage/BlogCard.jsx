@@ -4,21 +4,24 @@ import Link from "next/link";
 import Line from "../Line";
 
 const BlogCard = ({title, src, date, link}) => {
+
     return (
         <div className="group hide-first-child">
            <Line/>
            <div className="w-full bg-black lineDraw h-[1px] hidden mobile:block tablet:block"></div>
             <div className="w-full flex justify-between items-start mt-[2vw] mb-[4vw] mobile:flex-col mobile:mt-[8vw]">
                 <div className="flex items-start gap-[2vw] mobile:flex-col">
-                    <Link href="#">
-                        <div className="h-[16.5vw] w-[26.5vw] relative rounded-[1.5vw] overflow-hidden imganim mobile:w-[85vw] mobile:h-[27vh] mobile:rounded-[20px] tablet:w-[30vw] tablet:h-[20vw]">
-                            <Image
-                                src={src}
-                                alt="blog image" 
-                                priority={false}
-                                fill
-                                className="object-cover h-full w-full  scale-[1.1] group-hover:scale-[1] transition-all ease-in-out duration-500"
-                            />
+                    <Link href={link} className="overflow-hidden rounded-[1.5vw] mobile:rounded-[20px]">
+                        <div className="h-[16.5vw] w-[26.5vw] image-animation-down-wrapper overflow-hidden mobile:w-[85vw] mobile:h-[27vh] tablet:w-[30vw] tablet:h-[20vw] scale-[1.1] group-hover:scale-[1] transition-all ease-in-out duration-500">
+                            <div className="">
+                                <Image
+                                    src={src}
+                                    alt="blog image"
+                                    priority={false}
+                                    fill
+                                    className="object-cover h-full w-full"
+                                />
+                            </div>
                         </div>
                     </Link>
                     <div className="flex flex-col h-[16vw] justify-between items-start mobile:h-full mobile:gap-[3vw] mobile:pl-[2vw]">

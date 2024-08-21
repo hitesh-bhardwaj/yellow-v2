@@ -221,7 +221,7 @@ const Portfolio = ({ works }) => {
           ))}
           <div className="h-full w-[30vw] relative bg-amber-50 tablet:bg-transparent mobile:bg-transparent flex items-center justify-center flex-col pannel mobile:hidden tablet:h-fit tablet:gap-[3vw]">
             <p className="font-display text-[4vw] tablet:text-[6vw] tablet:hidden">Want More?</p>
-            <LinkButton btnText="View Showcase" btnLink="#" className="tablet:text-[3vw]" />
+            <LinkButton btnText="View Showcase" btnLink="/our-work" className="tablet:text-[3vw]" />
           </div>
         </div>
       </div>

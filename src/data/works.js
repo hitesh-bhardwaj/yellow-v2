@@ -103,14 +103,12 @@ export const QUERY_WORK_BY_SLUG = gql`
       slug
       workId
       workFields {
-        information {
-          description
-          industry
-          subheading
-          detailPageFeaturedImageVideo {
-            node {
-              mediaItemUrl
-            }
+        description
+        industry
+        subheading
+        detailPageFeaturedImageVideo {
+          node {
+            mediaItemUrl
           }
         }
       }

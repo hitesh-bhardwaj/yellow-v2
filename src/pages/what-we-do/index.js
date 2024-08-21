@@ -1,18 +1,17 @@
 import Layout from '@/components/Layout'
 import Pagehero from '@/components/services/Pagehero'
 import ServiceList from '@/components/services/ServiceList'
-import { titleAnim, paraAnim, lineAnim, imageAnim, imgAnim, fadeUp } from '@/components/gsapAnimations';
+import { titleAnim, paraAnim, lineAnim, fadeUp } from '@/components/gsapAnimations';
 import { getHomePageWorks } from '@/lib/works';
 import RecentWorks from '@/components/services/RecentWorks';
 import MetaData from '@/components/Metadata';
 import { WebpageJsonLd } from '@/lib/json-ld';
 
 export default function services({ recentWorks }) {
+
   titleAnim();
   paraAnim();
   lineAnim();
-  imageAnim();
-  imgAnim();
   fadeUp();
 
   const metadata = {

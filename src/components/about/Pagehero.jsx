@@ -1,8 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import Section from "../Section";
+import { imageAnimationLeft } from "../gsapAnimations";
 
 export default function Pagehero() {
+
+  imageAnimationLeft();
+
   return (
     <>
       <Section id="hero">
@@ -40,8 +44,10 @@ export default function Pagehero() {
                 </p>
               </div>
             </div>
-            <div className=" h-[40vw] w-[40vw] relative imageanim mobile:w-[85vw] mobile:h-[105vw] tablet:w-[85vw] tablet:h-[80vw]">
-              <Image src="/assets/images/about/about-hero.png" alt="about-hero" fill className="object-cover h-full w-full" priority={true} />
+            <div className=" h-[40vw] w-[40vw] relative mobile:w-[85vw] mobile:h-[105vw] tablet:w-[85vw] tablet:h-[80vw] image-animation-left-wrapper">
+              <div>
+                <Image src="/assets/images/about/about-hero.png" alt="about-hero" fill className="object-cover h-full w-full" priority={true} />
+              </div>
             </div>
           </div>
         </div>

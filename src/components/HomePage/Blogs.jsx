@@ -1,9 +1,12 @@
 import LinkButton from "../Button/LinkButton"
+import { imageAnimationDown } from "../gsapAnimations"
 import Section from "../Section"
 import SectionTitle from "../SectionTitle"
 import BlogCard from "./BlogCard"
 
 const Blogs = ({posts}) => {
+
+    imageAnimationDown();
 
     return (
         <Section id="Blogs" className="bg-black">
@@ -13,7 +16,7 @@ const Blogs = ({posts}) => {
                         <SectionTitle text="Featured Blogs" className="uppercase"/>
                     </div>
                     <div className="fadein">
-                        <LinkButton btnLink="#" btnText="All Blogs"/>
+                        <LinkButton btnLink="/blog" btnText="All Blogs"/>
                     </div>
                 </div>
 

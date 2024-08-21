@@ -1,6 +1,9 @@
 /* eslint-disable no-unused-vars */
 const feed = require('./plugins/feed');
 const sitemap = require('./plugins/sitemap');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -23,7 +26,7 @@ const nextConfig = {
 
 // export default nextConfig;
 module.exports = () => {
-  const plugins = [feed, sitemap];
+  const plugins = [feed, sitemap, withBundleAnalyzer];
   return plugins.reduce((acc, plugin) => plugin(acc), nextConfig);
 };
 

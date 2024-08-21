@@ -302,9 +302,6 @@ export function sortStickyWorks(works) {
 export async function getWorksPerPage() {
   //If WORK_PER_PAGE is defined at next.config.js
   if (process.env.WORKS_PER_PAGE) {
-    console.warn(
-      'You are using the deprecated WORK_PER_PAGE variable. Use your WordPress instance instead to set this value ("Settings" > "Reading" > "Blog pages show at most").'
-    );
     return Number(process.env.WORKS_PER_PAGE);
   }
 

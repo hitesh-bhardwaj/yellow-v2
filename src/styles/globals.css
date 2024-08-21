@@ -10,7 +10,7 @@
   --animation-primary: 0.735s cubic-bezier(0.62, 0.05, 0.01, 0.99);
 }
 
-::selection{
+::selection {
   background: rgb(80, 176, 255);
   color: #ffffff;
 }
@@ -20,7 +20,8 @@
 }
 
 /* lenis CSS */
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -40,9 +41,6 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-
-
-
 .container {
   max-width: 100%;
   padding-right: 5%;
@@ -61,7 +59,6 @@ body {
   color: var(--primary-color);
   background-color: #ffffff;
   overflow-x: hidden;
-  
 }
 
 #cursor {
@@ -168,28 +165,45 @@ body {
   height: 2vw;
   font-size: 1.1vw;
 }
-.docs input{
+.docs input {
   border: #000 dashed 1px;
   border-radius: 10px;
   padding: 4vw;
-
 }
-.career-form textarea{
+
+.career-form textarea {
   font-size: 1.1vw;
   font-weight: 500;
-
-
 }
-.career-form span{
+
+.career-form span {
   font-size: 1.1vw;
-  
 }
-.career-form-span{
+.career-form-span {
   font-size: 1.3vw !important;
 }
 /* Hide First Element */
 .hide-first .hide-first-child:first-of-type .hide {
   display: none;
+}
+
+
+/* Image Animation CSS Start*/
+
+.image-animation-left-wrapper, .image-animation-down-wrapper {
+  overflow: hidden;
+}
+.image-animation-left-wrapper div, .image-animation-down-wrapper div {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+.image-animation-left-wrapper img, .image-animation-down-wrapper img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .imageanim {
@@ -204,8 +218,8 @@ body {
   right: 0;
   display: block;
   background-color: #ffffff;
+  will-change: transform;
   z-index: 2;
-  /* transition: width .8s cubic-bezier(.54,.54,.14,.99); */
 }
 .imganim {
   --beforeHeight: 100%;
@@ -216,12 +230,12 @@ body {
   height: var(--beforeHeight);
   width: 100%;
   bottom: 0;
-
+  will-change: transform;
   display: block;
   background-color: #ffffff;
   z-index: 2;
-  /* transition: width .8s cubic-bezier(.54,.54,.14,.99); */
 }
+/* Image Animation CSS END*/
 
 /* our work number animation */
 .counter {
@@ -328,14 +342,13 @@ body {
   position: fixed !important;
   z-index: 300 !important;
 }
-.wp-block-video{
+.wp-block-video {
   margin-bottom: 1.5vw;
 }
-.footer-anim{
-   clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
-   -webkit-clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%)  ;
+.footer-anim {
+  clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
 }
-
 
 /* mobile css */
 @media screen and (max-width: 541px) {
@@ -407,57 +420,53 @@ body {
   .details input {
     width: 84vw;
   }
-  .career input{
-    padding-top: 4vw ;
+  .career input {
+    padding-top: 4vw;
     padding-left: 2vw;
     height: 5vw;
     font-size: 3.5vw;
   }
-  .select-input span{
+  .select-input span {
     font-size: 4.5vw;
     color: #000;
   }
-  .career-form span{
+  .career-form span {
     font-size: 4vw;
-    
   }
-  .career-form-span{
+  .career-form-span {
     font-size: 4.5vw !important;
   }
-  
-  .career-form textarea{
+
+  .career-form textarea {
     font-size: 3.5vw;
     font-weight: 500;
-  
-  
   }
-  .wp-block-video{
+  .wp-block-video {
     margin-bottom: 5vw;
     border-radius: 15px;
     overflow: hidden;
   }
-  .work_work__qXY49 p strong{
+  .work_work__qXY49 p strong {
     font-size: 5.5vw !important;
     margin-bottom: 2vw !important;
     font-weight: 500;
   }
-  .work_work__qXY49 p{
+  .work_work__qXY49 p {
     font-size: 4.5vw !important;
     margin-bottom: 5vw;
   }
-  
-.work_work__qXY49 h3{
-  font-size: 6vw !important;
-  width: 100% !important;
-}
-  .info-container{
+
+  .work_work__qXY49 h3 {
+    font-size: 6vw !important;
+    width: 100% !important;
+  }
+  .info-container {
     display: flex;
     flex-direction: column;
   }
-  .info-container .is-layout-constrained{
+  .info-container .is-layout-constrained {
     width: 100% !important;
   }
-  
 }
 
 @media screen and (min-width: 540px) and (max-width: 1023px) {
@@ -528,40 +537,36 @@ body {
   .details input {
     width: 84vw;
   }
-  .career input{
+  .career input {
     padding: 1vw 1vw;
-    
+
     height: 5vw;
     font-size: 2vw;
   }
-  .select-input span{
+  .select-input span {
     font-size: 2.5vw;
     color: #000;
   }
-  .career-form span{
+  .career-form span {
     font-size: 2vw;
-    
   }
-  .career-form textarea{
+  .career-form textarea {
     font-size: 2vw;
     font-weight: 500;
-   
+
     padding: 1vw 1vw;
-  
-  
   }
   .cardback {
     backface-visibility: hidden;
     transform: perspective(900px) rotateY(0deg);
   }
-  .work_work__qXY49 p{
+  .work_work__qXY49 p {
     font-size: 2.5vw !important;
     margin-bottom: 2vw;
   }
-  .wp-block-video{
+  .wp-block-video {
     margin-bottom: 3vw;
   }
-
 }
 
 /* Work Detail Page */
@@ -569,7 +574,7 @@ body {
   width: 100%;
   margin-bottom: 2.5vw;
 }
-.wp-block-video{
+.wp-block-video {
   margin-bottom: 2.5vw;
   border-radius: 15px;
   overflow: hidden;
@@ -589,7 +594,7 @@ body {
   gap: 2.5vw;
   margin-bottom: 2.5vw;
 }
-.wp-block-gallery.gallery-half .half-size-image{
+.wp-block-gallery.gallery-half .half-size-image {
   width: 100%;
 }
 .info-container {

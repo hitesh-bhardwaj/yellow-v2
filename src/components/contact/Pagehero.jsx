@@ -1,9 +1,12 @@
 import React from "react";
 import Image from "next/image";
+import { imageAnimationLeft } from "../gsapAnimations";
 
 export default function Pagehero() {
-  return (
+  
+  imageAnimationLeft();
 
+  return (
     <>
       <section className="w-full h-full pt-[10%] flex items-center mobile:h-full mobile:pt-[30%] tablet:h-full  tablet:pt-[15%] bg-white " id="hero">
         <div className="flex justify-between container mobile:flex-col  mobile:gap-[15vw] ">
@@ -17,8 +20,10 @@ export default function Pagehero() {
               others.
             </p>
           </div>
-          <div className="w-[50vw] h-[45vw] relative imageanim mobile:w-[85vw] mobile:h-[120vw]">
-            <Image src="/assets/images/contact/contact-head.png" alt="contac-head-img" className="object-cover h-full w-full " fill priority={true}/>
+          <div className="w-[50vw] h-[45vw] relative mobile:w-[85vw] mobile:h-[120vw] image-animation-left-wrapper">
+            <div>
+              <Image src="/assets/images/contact/contact-head.png" alt="contac-head-img" className="object-cover h-full w-full " fill priority={true}/>
+            </div>
           </div>
         </div>
       </section>

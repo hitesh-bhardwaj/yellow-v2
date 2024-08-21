@@ -2,7 +2,7 @@
 import Layout from "@/components/Layout";
 import Pagehero from '@/components/contact/Pagehero';
 import Address from '@/components/contact/Address';
-import { titleAnim, paraAnim, lineAnim, imageAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
+import { titleAnim, paraAnim, lineAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
 import ContactForm from "@/components/contact/ContactForm";
 import MetaData from "@/components/Metadata";
 import { WebpageJsonLd } from "@/lib/json-ld";
@@ -12,7 +12,6 @@ export default function Contact() {
   titleAnim();
   paraAnim();
   lineAnim();
-  imageAnim();
   fadeIn();
   fadeUp();
 

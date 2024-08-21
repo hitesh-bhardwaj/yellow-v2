@@ -75,13 +75,13 @@ export default function Work({ work, relatedWorks }) {
       <WebpageJsonLd metadata={metadata} />
       <Layout>
         <Pagehero
-          src={workFields.information.detailPageFeaturedImageVideo.node.mediaItemUrl}
+          src={workFields.detailPageFeaturedImageVideo.node.mediaItemUrl}
           workcategories={workcategories}
           date={date}
           title={title}
         />
         <Information
-          info={workFields.information}
+          info={workFields}
           title={title}
           categories={workcategories}
         />

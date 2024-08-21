@@ -1,6 +1,7 @@
 import React from "react";
 import BlackButton from "../Button/BlackButton";
 import Image from "next/image";
+import { imageAnimationLeft } from "../gsapAnimations";
 
 const services = [
   {
@@ -55,6 +56,9 @@ const services = [
 ];
 
 export default function ServiceList() {
+
+  imageAnimationLeft();
+
   return (
     <>
       <section className="w-full h-full bg-black" id="list">
@@ -62,14 +66,16 @@ export default function ServiceList() {
           <div className="grid grid-cols-7 h-full gap-x-[3vw] gap-y-[7vw] mobile:flex mobile:flex-col tablet:flex-col tablet:flex tablet:gap-y-[3vw] ">
             {services.map((service, index) => (
               <React.Fragment key={service.id}>
-                <div className="col-span-4 w-full h-full ">
-                  <div className={`w-[50vw] h-[33vw] rounded-xl overflow-hidden relative imageanim mobile:w-[85vw] mobile:h-[140vw] tablet:w-[85vw] tablet:h-[45vw] ${index % 2 === 0 ? '' : 'mobile:mt-[5vw]'}`}>
-                    <Image
-                      src={service.imageSrc}
-                      alt={service.alt}
-                      className="object-cover w-full h-full"
-                      fill
-                    />
+                <div className="col-span-4 w-full h-full">
+                  <div className={`w-[50vw] h-[33vw] rounded-xl overflow-hidden relative mobile:w-[85vw] mobile:h-[140vw] tablet:w-[85vw] image-animation-left-wrapper tablet:h-[45vw] ${index % 2 === 0 ? '' : 'mobile:mt-[5vw]'}`}>
+                    <div>
+                      <Image
+                        src={service.imageSrc}
+                        alt={service.alt}
+                        className="object-cover w-full h-full"
+                        fill
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className="col-start-5 col-span-3 w-full mobile:mb-[7vw] tablet:mb-[3vw]">

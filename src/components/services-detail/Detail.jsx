@@ -2,6 +2,7 @@ import React from "react";
 import LinkButton from "../Button/LinkButton";
 import Image from "next/image";
 import Line from "../Line";
+import { imageAnimationDown } from "../gsapAnimations";
 
 const services = [
   {
@@ -34,6 +35,9 @@ const services = [
 ];
 
 export default function Detail() {
+
+  imageAnimationDown();
+
   return (
     <>
       <section className="w-full h-full bg-black " id="detail">
@@ -42,13 +46,15 @@ export default function Detail() {
             <React.Fragment key={index}>
               <div className="tablet:flex mobile:flex mobile:flex-col tablet:gap-[2vw] flex mobile:gap-0 gap-[15vw]">
               <div className="col-start-3 flex justify-end mobile:justify-center tablet:order-1 order-1 mobile:order-none">
-                <div className="w-[22.5vw] h-[22.5vw] rounded-[10px] overflow-hidden relative imganim mobile:w-[86vw] mobile:h-[85vw] mobile:mt-[5vw] tablet:w-[30vw] tablet:h-[30vw]">
-                  <Image
-                    src={service.image}
-                    alt={`detail-${index + 1}`}
-                    className="absolute h-full w-full object-cover"
-                    fill
-                  />
+                <div className="w-[22.5vw] h-[22.5vw] rounded-[10px] overflow-hidden relative image-animation-down-wrapper mobile:w-[86vw] mobile:h-[85vw] mobile:mt-[5vw] tablet:w-[30vw] tablet:h-[30vw]">
+                  <div>
+                    <Image
+                      src={service.image}
+                      alt={`detail-${index + 1}`}
+                      className="absolute h-full w-full object-cover"
+                      fill
+                    />
+                  </div>
                 </div>
               </div>
               <div className="col-span-2 flex flex-col w-[60%] gap-[1.5vw] mobile:w-full mobile:my-[10vw] mobile:gap-[5vw]">

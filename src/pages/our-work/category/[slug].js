@@ -16,20 +16,33 @@ const Category = ({ workcategory, works, workcategories }) => {
   const [activeCategory, setActiveCategory] = useState(`${workcategory.slug}`);
 
   useEffect(() => {
-    const images = document.querySelectorAll('.imageanim');
-    images.forEach((img) => {
-      gsap.to(img, {
+    const imageAnimations = document.querySelectorAll(".image-animation-wrapper")
+    imageAnimations.forEach((img) => {
+      const imgHolder = img.querySelector("div");
+      const imgImage = img.querySelector("img, video");
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: img,
-          start: 'top 90%',
+          start: "top 80%",
         },
-        '--beforeHeight': '0%',
+        defaults: {
+          ease: 'power3.inOut',
+        }
+      })
+      tl.fromTo(imgHolder, {
+        xPercent: -100,
+      }, {
         duration: 1.5,
-        stagger: 0.05,
-        ease: 'power3.inOut',
-      });
-    });
-  }, [works]);
+        xPercent: 0,
+      })
+      tl.fromTo(imgImage, {
+        xPercent: 100,
+      }, {
+        duration: 1.5,
+        xPercent: 0,
+      }, "<")
+    })
+}, [works]);
 
   const metadata = {
     title: `${workcategory.name} Portfolio Archive | Yellow`,

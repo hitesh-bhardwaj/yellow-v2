@@ -1,8 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import Section from "../Section";
+import { imageAnimationLeft } from "../gsapAnimations";
 
 export default function Pagehero() {
+
+  imageAnimationLeft();
+
   return (
     <>
       <Section id="hero">
@@ -14,8 +18,10 @@ export default function Pagehero() {
                 As a digital branding agency, we help businesses connect with their customers by using a variety of tools and services.As a digital branding agency, we help businesses connect with their customers by using a variety of tools and services.
               </p>
             </div>
-            <div className="w-[30vw] h-[40vw] relative imageanim mobile:w-[85vw] mobile:h-[120vw]">
-              <Image src="/assets/images/career/career-hero.png" alt="career-hero" fill priority/>
+            <div className="w-[30vw] h-[40vw] relative mobile:w-[85vw] mobile:h-[120vw] image-animation-left-wrapper">
+              <div>
+                <Image src="/assets/images/career/career-hero.png" alt="career-hero" fill priority/>
+              </div>
             </div>
           </div>
         </div>

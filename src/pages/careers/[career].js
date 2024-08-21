@@ -1,5 +1,5 @@
 import Layout from '@/components/Layout';
-import { titleAnim, paraAnim, lineAnim, imageAnim, fadeUp } from '@/components/gsapAnimations';
+import { titleAnim, paraAnim, lineAnim, fadeUp } from '@/components/gsapAnimations';
 import { getAllJobs, getJobBySlug } from '@/lib/jobs';
 import Pagehero from '@/components/career-detail/Pagehero';
 import Overview from '@/components/career-detail/Overview';
@@ -24,7 +24,6 @@ export default function Work({ job, jobsList }) {
   titleAnim();
   paraAnim();
   lineAnim();
-  imageAnim();
   fadeUp();
 
   return (

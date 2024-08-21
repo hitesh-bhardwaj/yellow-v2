@@ -1,9 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import Menu from "./Menu";
+// import Menu from "./Menu";
+import dynamic from "next/dynamic";
+
 import { useLenis } from "lenis/react";
 import { useRouter } from "next/router";
+
+// Import dynamic menu
+const DynamicMenu = dynamic(() => import('./Menu'), {
+  ssr: false,
+});
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -137,7 +144,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-      <Menu menuOpen={menuOpen} />
+      <DynamicMenu menuOpen={menuOpen} />
     </>
   );
 };

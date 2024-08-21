@@ -8,10 +8,9 @@ import { AnimatePresence } from "framer-motion";
 import { ImageObjectJsonLd, OrganizationJsonLd, WebsiteJsonLd } from "@/lib/json-ld";
 import { useEffect } from "react";
 import config from "../../package.json";
-import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
+// import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-
 export default function App({ Component, pageProps = {}, router, metadata }) {
 
   const { homepage = "" } = config;
@@ -112,8 +111,8 @@ export default function App({ Component, pageProps = {}, router, metadata }) {
           </AnimatePresence>
         </ReactLenis>
       </SiteContext.Provider>
-      <GoogleTagManager gtmId="GTM-W99KBPB" />
-      <GoogleAnalytics gaId="G-CSXSBEQKTY" />
+      {/* <GoogleTagManager gtmId="GTM-W99KBPB" />
+      <GoogleAnalytics gaId="G-CSXSBEQKTY" /> */}
       <SpeedInsights />
       <Analytics />
     </>

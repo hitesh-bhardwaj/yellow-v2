@@ -15,14 +15,14 @@ const MediaRender = ({ url, className="" }) => {
             loop
             muted
             playsInline
-            className="h-full w-full object-cover scale-[1.1] group-hover:scale-[1] transition-all duration-500"
+            className="h-full w-full block object-cover"
           />
         ) : (
           <img
             loading="lazy"
             src={url}
             alt="Media"
-            className="h-full w-full object-cover scale-[1.1] group-hover:scale-[1] transition-all duration-500"
+            className="h-full w-full object-cover block"
           />
         )}
       </div>

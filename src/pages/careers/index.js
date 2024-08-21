@@ -2,7 +2,7 @@ import Essentials from '@/components/career/Essentials'
 import Listing from '@/components/career/Listing'
 import Pagehero from '@/components/career/Pagehero'
 import Layout from '@/components/Layout'
-import { titleAnim , paraAnim , lineAnim, imageAnim , fadeIn , fadeUp } from '@/components/gsapAnimations';
+import { titleAnim, paraAnim, lineAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
 import { getAllJobs } from '@/lib/jobs';
 import { WebpageJsonLd } from '@/lib/json-ld';
 import MetaData from '@/components/Metadata';
@@ -12,7 +12,6 @@ export default function Career({jobs}) {
   titleAnim();
   paraAnim();
   lineAnim();
-  imageAnim();
   fadeIn();
   fadeUp();
 

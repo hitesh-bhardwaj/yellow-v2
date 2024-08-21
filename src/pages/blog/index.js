@@ -1,7 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useState , useRef } from "react";
-
-
 import CategoryList from "@/components/blog/CategoryList";
 import Pagehero from "@/components/blog/Pagehero";
 import PostCard from "@/components/blog/PostCard";
@@ -10,7 +8,7 @@ import Section from "@/components/Section";
 import { getCategories } from "@/lib/categories";
 import { getPaginatedPosts, sortStickyPosts } from "@/lib/posts";
 import styles from "@/styles/blogDetail.module.css"
-import { titleAnim, paraAnim, lineAnim, imageAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
+import { titleAnim, paraAnim, lineAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
 import { gsap } from "gsap/dist/gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
@@ -28,7 +26,6 @@ export default function Blog({ initialPosts, featuredPost, initialPagination, ca
     titleAnim();
     paraAnim();
     lineAnim();
-    imageAnim();
     fadeIn();
     fadeUp();
 

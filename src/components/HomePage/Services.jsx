@@ -49,7 +49,7 @@ const Services = () => {
                             title="Corporate Branding Strategy"
                             content1="We bring simplicity to complexity – distilling goals and values into brands that are relevant and inspiring, for customers and staff."
                             content2="Through a brand workshop, a series of interactive sessions, research and a thorough understanding of your business, we work with you to define your business strategy – developing a set of tools, brand values, brand purpose and personality traits that drive everything from your brand identity, communication, digital presence and even your social media presence."
-                            btnLink="#"
+                            btnLink="/what-we-do/brand-strategy"
                             btnText="View More"
                         />
                         <SingleAccordion

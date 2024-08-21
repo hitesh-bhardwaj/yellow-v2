@@ -30,7 +30,6 @@ export default function Works({ initialWorks, initialPagination, workcategories 
     date_modified: "2024-08-01T12:32",
     slug: "our-work"
   }
-  
 
   const [works, setWorks] = useState(initialWorks);
   const [pagination, setPagination] = useState(initialPagination);
@@ -52,19 +51,32 @@ export default function Works({ initialWorks, initialPagination, workcategories 
   };
 
   useEffect(() => {
-    const images = document.querySelectorAll('.imageanim');
-    images.forEach((img) => {
-      gsap.to(img, {
-        scrollTrigger: {
-          trigger: img,
-          start: 'top 90%',
-        },
-        '--beforeHeight': '0%',
-        duration: 1.5,
-        stagger: 0.05,
-        ease: 'power3.inOut',
-      });
-    });
+      const imageAnimations = document.querySelectorAll(".image-animation-wrapper")
+      imageAnimations.forEach((img) => {
+        const imgHolder = img.querySelector("div");
+        const imgImage = img.querySelector("img, video");
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: img,
+            start: "top 80%",
+          },
+          defaults: {
+            ease: 'power3.inOut',
+          }
+        })
+        tl.fromTo(imgHolder, {
+          xPercent: -100,
+        }, {
+          duration: 1.5,
+          xPercent: 0,
+        })
+        tl.fromTo(imgImage, {
+          xPercent: 100,
+        }, {
+          duration: 1.5,
+          xPercent: 0,
+        }, "<")
+      })
   }, [works]);
 
   return (

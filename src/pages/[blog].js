@@ -6,7 +6,7 @@ import Categories from '@/components/blog-detail/Categories';
 import Content from '@/components/blog-detail/Content';
 import RelatedBlogs from '@/components/blog-detail/RelatedBlogs';
 import Pagehero from '@/components/blog-detail/Pagehero';
-import { titleAnim, paraAnim, lineAnim, imageAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
+import { titleAnim, paraAnim, lineAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
 import { NextSeo } from 'next-seo';
 import config from '../../package.json';
 
@@ -20,6 +20,7 @@ export default function Post({ post, relatedPosts }) {
     categories,
     featuredImage,
     slug,
+    readingTime,
   } = post;
 
   const { homepage = '' } = config;
@@ -27,7 +28,6 @@ export default function Post({ post, relatedPosts }) {
   titleAnim();
   paraAnim();
   lineAnim();
-  imageAnim();
   fadeIn();
   fadeUp();
 
@@ -75,7 +75,6 @@ export default function Post({ post, relatedPosts }) {
                 sizes={featuredImage.sizes}
               />
             </div>
-
           )}
           <h1 data-para-anim
             className="text-[4.8vw] font-display leading-[1.3] w-[90%] mb-[3vw] capitalize mobile:text-[9vw] mobile:mt-[7vw] tablet:text-[5.5vw] mobile:w-full"
@@ -88,11 +87,8 @@ export default function Post({ post, relatedPosts }) {
               categories={categories}
             />
           </div>
-
         </Pagehero>
-
-        <Content date={date} content={content} link={slug} />
-
+        <Content date={date} content={content} link={slug} readingTime={readingTime} />
         {relatedPosts && relatedPosts.length > 0 && (
           <RelatedBlogs posts={relatedPosts} />
         )}

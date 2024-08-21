@@ -4,7 +4,7 @@ import Pagehero from '@/components/about/Pagehero';
 import Work from '@/components/about/Work';
 import Values from '@/components/about/Values';
 import React from 'react';
-import { titleAnim, paraAnim, lineAnim, imageAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
+import { titleAnim, paraAnim, lineAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
 import { getHomePageWorks } from '@/lib/works';
 import Meet from '@/components/about/Meet';
 import { WebpageJsonLd } from '@/lib/json-ld';
@@ -16,7 +16,6 @@ export default function About({ recentWorks, teams }) {
   titleAnim();
   paraAnim();
   lineAnim();
-  imageAnim();
   fadeIn();
   fadeUp();
 
