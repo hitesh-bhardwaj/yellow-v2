@@ -89,7 +89,7 @@ const AboutUs = () => {
     });
 
     return (
-        <Section className="py-[10%]" id="second-section">
+        <Section className="py-[10%] mobile:py-[20%]" id="second-section">
             <div ref={containerRef} className="container">
                 <div className="flex justify-between items-start mobile:flex-col">
                     <div className="w-[40%] h-[45vw] mobile:w-full mobile:h-[100vw overflow-hidden rounded-xl fadeIn image-animation-left-wrapper">
@@ -106,9 +106,11 @@ const AboutUs = () => {
                         </div>
                     </div>
                     <div ref={textRef} className="w-[52%] mobile:w-full">
-                        <div className="text-left pr-[3vw] space-y-[2vw] mobile:space-y-[7vw] mobile:pt-[8vw]">
-                            <p className="text-[1.2vw] font-medium mobile:text-[6vw] tablet:text-[4vw]">About</p>
-                            <h2 ref={texth2Ref} className="font-display text-[2.5vw] textbreak mobile:text-[8vw] mobile:leading-[1.4] tablet:text-[3vw]">A branding and communications agency in Dubai, Yellow stands for all that’s bright in business – collaboration, ambition, opportunity and transformation. Dubai-born and Dubai-bred, we have its optimisim and drive in our DNA. We’ve helped businesses start, grow and thrive here.</h2>
+                        <div className="text-left pr-[3vw] space-y-[2vw] mobile:space-y-[5vw] mobile:pt-[8vw]">
+                            <p className="text-[1.2vw] font-medium mobile:text-[5vw] tablet:text-[3vw]">About</p>
+                            <h2 ref={texth2Ref} className="font-display text-[2.5vw] textbreak mobile:text-[8vw] mobile:leading-[1.3] tablet:text-[3vw]">
+                                A branding and communication consultancy in Dubai, Yellow stands for all that’s bright in business – collaboration, ambition, opportunity and transformation. Dubai-born and Dubai-bred, we have its optimisim and drive in our DNA. We’ve helped businesses start, grow and thrive here and globally.
+                            </h2>
                             <div className="fadeUp">
                                 <LinkButton btnLink="/about-us" btnText="Get To Know Us" />
                             </div>

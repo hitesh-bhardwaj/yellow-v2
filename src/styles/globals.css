@@ -238,7 +238,7 @@ body {
 /* Image Animation CSS END*/
 
 /* our work number animation */
-.counter {
+.counter, .count, .countnew {
   left: 150px;
   bottom: 150px;
   display: flex;
@@ -254,28 +254,13 @@ body {
 .counter-1,
 .counter-2,
 .counter-3,
-.counter-4 {
-  position: relative;
-  top: -10px;
-}
-.count {
-  left: 150px;
-  bottom: 150px;
-  display: flex;
-
-  height: 90px;
-  font-size: 5vw;
-  line-height: 102px;
-  clip-path: polygon(0 0, 100% 0, 100% 100px, 0 100px);
-  font-weight: 400;
-  color: #000;
-
-  overflow: hidden;
-}
-
+.counter-4,
 .count-2,
 .count-3,
-.count-4 {
+.count-4,
+.countnew-2,
+.countnew-3,
+.countnew-4 {
   position: relative;
   top: -10px;
 }
@@ -357,42 +342,27 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
-  .counter {
+
+  /* Counter Animation */
+  .counter, .count, .countnew {
     bottom: 150px;
     display: flex;
     height: 70px;
-    font-size: 12vw;
-    line-height: 102px;
-    clip-path: polygon(0 0, 100% 0, 100% 100px, 0 100px);
-    font-weight: 400;
-    color: #000;
-    overflow: hidden;
+    font-size: 10vw;
   }
-
   .counter-1,
   .counter-2,
   .counter-3,
-  .counter-4 {
-    position: relative;
-    top: -15px;
-  }
-  .count {
-    bottom: 150px;
-    display: flex;
-    height: 70px;
-    font-size: 12vw;
-    line-height: 102px;
-    clip-path: polygon(0 0, 100% 0, 100% 100px, 0 100px);
-    font-weight: 400;
-    color: #000;
-    overflow: hidden;
-  }
+  .counter-4,
   .count-2,
   .count-3,
-  .count-4 {
-    position: relative;
-    top: -15px;
+  .count-4,
+  .countnew-2,
+  .countnew-3,
+  .countnew-4 {
+    top: -10px;
   }
+  /* Counter Animation */
 
   .cardback {
     backface-visibility: hidden;
@@ -470,47 +440,28 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
-  .counter {
+
+  /* Counter Animation */
+  .counter, .count, .countnew {
     bottom: 150px;
     display: flex;
-
     height: 70px;
     font-size: 6vw;
-    line-height: 102px;
-    clip-path: polygon(0 0, 100% 0, 100% 100px, 0 100px);
-    font-weight: 400;
-    color: #000;
-
-    overflow: hidden;
   }
 
   .counter-1,
   .counter-2,
   .counter-3,
-  .counter-4 {
-    position: relative;
-    top: -15px;
-  }
-  .count {
-    bottom: 150px;
-    display: flex;
-
-    height: 70px;
-    font-size: 6vw;
-    line-height: 102px;
-    clip-path: polygon(0 0, 100% 0, 100% 100px, 0 100px);
-    font-weight: 400;
-    color: #000;
-
-    overflow: hidden;
-  }
-
+  .counter-4,
   .count-2,
   .count-3,
-  .count-4 {
-    position: relative;
+  .count-4,
+  .countnew-2,
+  .countnew-3,
+  .countnew-4 {
     top: -15px;
   }
+  /* Counter Animation */
 
   .tab {
     width: 100%;

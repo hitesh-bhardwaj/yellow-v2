@@ -25,20 +25,20 @@ export default function values() {
       gsap.from(".card1", {
         yPercent: 100,
         duration: 4,
-        scrollTrigger:{
-           trigger:".card-block",
-           start:"top 70%",
-           end:"top -=400",
-           scrub:0.25
+        scrollTrigger: {
+          trigger: ".card-block",
+          start: "top 70%",
+          end: "top -=400",
+          scrub: 0.25
         },
         ease: "power1.out",
       })
-        tl.from(".card2", {
-          yPercent: 140,
+      tl.from(".card2", {
+        yPercent: 140,
 
-          duration: 2,
-          delay: -1,
-        })
+        duration: 2,
+        delay: -1,
+      })
         .from(".card3", {
           yPercent: 140,
 
@@ -62,9 +62,9 @@ export default function values() {
             each: 0.5,
           },
         })
-        
+
     });
-  } 
+  }
   else {
     useGSAP(() => {
       const tl = gsap.timeline({
@@ -74,12 +74,12 @@ export default function values() {
           end: "bottom 20%",
         },
       });
-      tl.from(".card-container",{
-        yPercent:80,
-        opacity:0,
-        ease:"power3.out",
-        duration:1,
-        stagger:0.5
+      tl.from(".card-container", {
+        yPercent: 80,
+        opacity: 0,
+        ease: "power3.out",
+        duration: 1,
+        stagger: 0.5
       })
     });
   }
@@ -97,91 +97,88 @@ export default function values() {
             data-para-anim
             className="text-[2vw] w-[35%] font-medium leading-[1.3] mobile:w-[90%] mobile:text-[5vw] tablet:text-[2.5vw] tablet:w-[50%] "
           >
-            We grow amazing companies through exceptional branding and
-            communications.
+            Internal culture and our team is our greatest asset. We are intentional about our values of:
           </p>
           <div className="w-full h-[100vh] flex items-center card-section mobile:h-full mobile:mt-[7vw] tablet:h-full">
             <div className=" h-[100vh] w-full py-[7%] flex justify-between items-center mobile:h-full mobile:flex-col mobile:gap-[7vw] tablet:flex-wrap tablet:gap-y-[5vw] tablet:h-full tablet:pt-[10%]">
+
               <div className="card-container relative w-[29vw] h-[35vw] rounded-[15px] card1 mobile:w-[90vw] mobile:h-[100vw] tablet:w-[41vw] tablet:h-[50vw] mobile:">
                 <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#222222] cardfront flex items-center justify-center rounded-[20px] overflow-hidden border-white border-[1px] mobile:w-[90vw] mobile:h-[100vw] tablet:w-[40vw] tablet:h-[50vw]  mobile:hidden tablet:hidden">
                   <img
-                    src="/assets/images/about/card-1.png"
-                    alt="card-1"
+                    src="/assets/images/about/wellness-card.webp"
+                    alt="wellness card image"
                     className="object-cover h-full w-full"
                   />
                 </div>
                 <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#222222] cardback py-[4vw] px-[2vw] flex flex-col items-start justify-between text-white rounded-[20px] border-white border-[1px] border-opacity-40 mobile:w-[90vw] mobile:h-[100vw] mobile:justify-center mobile:items-center tablet:w-[41vw] tablet:h-[50vw]">
                   <div className="w-[5vw] h-[5vw] relative mobile:w-[20vw] mobile:h-[20vw] tablet:w-[8vw] tablet:h-[8vw]">
                     <img
-                      src="/assets/images/about/icon-1.svg"
-                      alt="icon-1"
+                      src="/assets/images/about/wellness-icon.svg"
+                      alt="wellness-icon"
                       className="object-contain h-full w-full"
                     />
                   </div>
                   <div className="mobile:px-[5vw] mobile:flex mobile:flex-col mobile:gap-[5vw] mobile:w-full">
                     <h4 className="text-[2.5vw] font-display  mb-[1vw] mobile:text-[10vw] mobile:text-center tablet:text-[4vw]">
-                      Trust
+                      Wellness
                     </h4>
                     <p className="text-[1.2vw] w-full leading-[1.4] mobile:text-[4vw] mobile:text-center tablet:text-[2vw] ">
-                      Here are many variations of passages of Lorem Ipsum
-                      available, but the majority have suffered.
+                      Mental, Emotional and Physical wellness are not just appreciated within Yellow, but encouraged with policies in place. Mental health days - we have them. Participation in Dubai Run - we do it. Steps challenge - check.
                     </p>
                   </div>
                 </div>
               </div>
+
               <div className="card-container relative w-[29vw] h-[35vw] rounded-[15px] card2 mobile:w-[90vw] mobile:h-[100vw] tablet:w-[41vw] tablet:h-[50vw] mobile:">
                 <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#222222] cardfront flex items-center justify-center rounded-[20px] overflow-hidden border-white border-[1px] mobile:w-[90vw] mobile:h-[100vw] tablet:w-[41vw] tablet:h-[50vw]  mobile:hidden tablet:hidden">
                   <img
-                    src="/assets/images/about/card-2.png"
-                    alt="card-2"
+                    src="/assets/images/about/curiosity-card.webp"
+                    alt="curiosity card image"
                     className="object-cover h-full w-full"
                   />
                 </div>
                 <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#222222] cardback py-[4vw] px-[2vw] flex flex-col items-start justify-between text-white rounded-[20px] border-white border-[1px] border-opacity-40 mobile:w-[90vw] mobile:h-[100vw] mobile:justify-center mobile:items-center tablet:w-[41vw] tablet:h-[50vw] mobile:">
                   <div className="w-[5vw] h-[5vw] relative mobile:w-[20vw] mobile:h-[20vw] tablet:w-[8vw] tablet:h-[8vw]">
                     <img
-                      src="/assets/images/about/icon-2.svg"
-                      alt="icon-2"
+                      src="/assets/images/about/curiosity-icon.svg"
+                      alt="curiosity-icon"
                       className="object-contain h-full w-full"
                     />
                   </div>
                   <div className="mobile:px-[5vw] mobile:flex mobile:flex-col mobile:gap-[5vw] mobile:w-full">
                     <h4 className="text-[2.5vw] font-display  mb-[1vw] mobile:text-[10vw] mobile:text-center tablet:text-[4vw] ">
-                      Responsibility
+                      Curiosity
                     </h4>
                     <p className="text-[1.2vw] w-full leading-[1.4]  mobile:text-[4vw] mobile:text-center tablet:text-[2vw]">
-                      Here are many variations of passages of Lorem Ipsum
-                      available, but the majority have suffered.
+                      Love for learning is a core value of Yellow. We are not intimidated by advancements in trends, AI and technology, we embrace it and we play and learn, and more importantly we share it with our team and clients.
                     </p>
                   </div>
                 </div>
               </div>
-              <div className="tab">
-                <div className="card-container relative w-[29vw] h-[35vw] rounded-[15px] card3 mobile:w-[90vw] mobile:h-[100vw] tablet:w-[41vw] tablet:h-[50vw] mobile:  ">
-                  <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#222222] cardfront flex items-center justify-center rounded-[20px] overflow-hidden border-white border-[1px] mobile:w-[90vw] mobile:h-[100vw] tablet:w-[40vw] tablet:h-[50vw]  mobile:hidden tablet:hidden">
+
+              <div className="card-container relative w-[29vw] h-[35vw] rounded-[15px] card3 mobile:w-[90vw] mobile:h-[100vw] tablet:w-[41vw] tablet:h-[50vw] mobile:  ">
+                <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#222222] cardfront flex items-center justify-center rounded-[20px] overflow-hidden border-white border-[1px] mobile:w-[90vw] mobile:h-[100vw] tablet:w-[40vw] tablet:h-[50vw]  mobile:hidden tablet:hidden">
+                  <img
+                    src="/assets/images/about/teamwork-card.webp"
+                    alt="teamwork card image"
+                    className="object-cover h-full w-full"
+                  />
+                </div>
+                <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#222222] cardback py-[4vw] px-[2vw] flex flex-col items-start justify-between text-white rounded-[20px] border-white border-[1px] border-opacity-40 mobile:w-[90vw] mobile:h-[100vw] mobile:justify-center mobile:items-center tablet:w-[41vw] tablet:h-[50vw] mobile:">
+                  <div className="w-[5vw] h-[5vw] relative mobile:w-[20vw] mobile:h-[20vw] tablet:w-[8vw] tablet:h-[8vw]">
                     <img
-                      src="/assets/images/about/card-3.png"
-                      alt="card-3"
-                      className="object-cover h-full w-full"
+                      src="/assets/images/about/teamwork-icon.svg"
+                      alt="teamwork icon"
+                      className="object-contain h-full w-full"
                     />
                   </div>
-                  <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#222222] cardback py-[4vw] px-[2vw] flex flex-col items-start justify-between text-white rounded-[20px] border-white border-[1px] border-opacity-40 mobile:w-[90vw] mobile:h-[100vw] mobile:justify-center mobile:items-center tablet:w-[41vw] tablet:h-[50vw] mobile:">
-                    <div className="w-[5vw] h-[5vw] relative mobile:w-[20vw] mobile:h-[20vw] tablet:w-[8vw] tablet:h-[8vw]">
-                      <img
-                        src="/assets/images/about/icon-3.svg"
-                        alt="icon-3"
-                        className="object-contain h-full w-full"
-                      />
-                    </div>
-                    <div className="mobile:px-[5vw] mobile:flex mobile:flex-col mobile:gap-[5vw] mobile:w-full">
-                      <h4 className="text-[2.5vw] font-display  mb-[1vw]  mobile:text-[10vw] mobile:text-center tablet:text-[4vw]">
-                        Team Work
-                      </h4>
-                      <p className="text-[1.2vw] w-full leading-[1.4] mobile:text-[4vw] mobile:text-center tablet:text-[2vw] ">
-                        Here are many variations of passages of Lorem Ipsum
-                        available, but the majority have suffered.
-                      </p>
-                    </div>
+                  <div className="mobile:px-[5vw] mobile:flex mobile:flex-col mobile:gap-[5vw] mobile:w-full">
+                    <h4 className="text-[2.5vw] font-display  mb-[1vw]  mobile:text-[10vw] mobile:text-center tablet:text-[4vw]">
+                      Team Work
+                    </h4>
+                    <p className="text-[1.2vw] w-full leading-[1.4] mobile:text-[4vw] mobile:text-center tablet:text-[2vw] ">
+                      We prioritise collaboration and helpfulness, internally and with clients and go the extra mile. Yellow was started out of passion and purpose over profit. (Although, we like profit too :))
+                    </p>
                   </div>
                 </div>
               </div>

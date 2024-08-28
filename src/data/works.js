@@ -244,6 +244,40 @@ export const GET_HOME_PAGE_WORKS = gql`
   }
 `;
 
+export const GET_RELATED_WORKS_FOR_PAGES = gql`
+  query pageArticles($slug: ID!) {
+    page(id: $slug, idType: URI) {
+      aboutUs {
+        relatedArticles {
+          edges {
+            node {
+              ... on Work {
+                id
+                slug
+                title
+                date
+                excerpt
+                workFields {
+                  featuredImagevideo {
+                    node {
+                      mediaItemUrl
+                    }
+                  }
+                }
+                workcategories {
+                  nodes {
+                    name
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 export const GET_RELATED_WORKS = gql`
   query WorkByWorkCategoryUsingWorkID($first: Int = 1, $count: Int = 3, $workId: ID!, $notIn: [ID] = []) {
     work(id: $workId, idType: DATABASE_ID) {

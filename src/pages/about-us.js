@@ -5,13 +5,13 @@ import Work from '@/components/about/Work';
 import Values from '@/components/about/Values';
 import React from 'react';
 import { titleAnim, paraAnim, lineAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
-import { getHomePageWorks } from '@/lib/works';
+import { getRelatedWorksForPages } from '@/lib/works';
 import Meet from '@/components/about/Meet';
 import { WebpageJsonLd } from '@/lib/json-ld';
 import MetaData from '@/components/Metadata';
 import { getAllTeams } from '@/lib/teams';
 
-export default function About({ recentWorks, teams }) {
+export default function About({ relatedWorks, teams }) {
 
   titleAnim();
   paraAnim();
@@ -37,21 +37,21 @@ export default function About({ recentWorks, teams }) {
         <Values />
         <Meet teams={teams} />
         <Join />
-        <Work works={recentWorks} />
+        <Work works={relatedWorks} />
       </Layout>
     </>
   );
 }
 
 export async function getStaticProps() {
-  const recentWorks = await getHomePageWorks();
+  const relatedWorks = await getRelatedWorksForPages("about-us");
   const teams = await getAllTeams({
     queryIncludes: "archive"
   });
 
   return {
     props: {
-      recentWorks,
+      relatedWorks,
       teams,
     },
     revalidate: 500,

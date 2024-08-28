@@ -28,6 +28,9 @@ module.exports = {
             '0 45px 65px rgba(0, 0, 0, 0.15)'
         ]
       },
+      gridTemplateColumns: {
+        '20': 'repeat(20, minmax(0, 1fr))',
+      },
       keyframes: {
         'scale': {
           '0': { transform: 'scale(1)' },

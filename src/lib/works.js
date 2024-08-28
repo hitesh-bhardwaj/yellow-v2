@@ -16,6 +16,7 @@ import {
   GET_HOME_PAGE_WORKS,
   QUERY_WORKCATEGORY_BY_ID_FOR_WORKS,
   GET_RELATED_WORKS,
+  GET_RELATED_WORKS_FOR_PAGES,
 } from '../data/works';
 
 /**
@@ -372,4 +373,20 @@ export async function getHomePageWorks() {
   });
 
   return data.works.nodes;
+}
+
+
+// Related Works for Pages
+export async function getRelatedWorksForPages(slug) {
+
+  const apolloClient = getApolloClient();
+
+  const { data } = await apolloClient.query({
+    query: GET_RELATED_WORKS_FOR_PAGES,
+    variables: {
+      slug,
+    },
+  });
+
+  return data.page.aboutUs.relatedArticles.edges;
 }
