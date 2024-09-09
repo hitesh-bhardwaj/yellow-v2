@@ -102,18 +102,22 @@ export default function values() {
           <div className="w-full h-[100vh] flex items-center card-section mobile:h-full mobile:mt-[7vw] tablet:h-full">
             <div className=" h-[100vh] w-full py-[7%] flex justify-between items-center mobile:h-full mobile:flex-col mobile:gap-[7vw] tablet:flex-wrap tablet:gap-y-[5vw] tablet:h-full tablet:pt-[10%]">
 
-              <div className="card-container relative w-[29vw] h-[35vw] rounded-[15px] card1 mobile:w-[90vw] mobile:h-[100vw] tablet:w-[41vw] tablet:h-[50vw] mobile:">
+              <div className="card-container text-white relative w-[29vw] h-[35vw] rounded-[15px] card1 mobile:w-[90vw] mobile:h-[100vw] tablet:w-[41vw] tablet:h-[50vw] mobile:">
                 <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#222222] cardfront flex items-center justify-center rounded-[20px] overflow-hidden border-white border-[1px] mobile:w-[90vw] mobile:h-[100vw] tablet:w-[40vw] tablet:h-[50vw]  mobile:hidden tablet:hidden">
-                  <img
+                  <h3 className="text-[3.5vw] font-display">
+                    Wellness
+                  </h3>
+                  {/* <img
                     src="/assets/images/about/wellness-card.webp"
                     alt="wellness card image"
                     className="object-cover h-full w-full"
-                  />
+                  /> */}
                 </div>
-                <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#222222] cardback py-[4vw] px-[2vw] flex flex-col items-start justify-between text-white rounded-[20px] border-white border-[1px] border-opacity-40 mobile:w-[90vw] mobile:h-[100vw] mobile:justify-center mobile:items-center tablet:w-[41vw] tablet:h-[50vw]">
+                <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#353535] cardback py-[4vw] px-[2vw] flex flex-col items-start justify-between text-white rounded-[20px] border-white border-[1px] border-opacity-40 mobile:w-[90vw] mobile:h-[100vw] mobile:justify-center mobile:items-center tablet:w-[41vw] tablet:h-[50vw]">
                   <div className="w-[5vw] h-[5vw] relative mobile:w-[20vw] mobile:h-[20vw] tablet:w-[8vw] tablet:h-[8vw]">
                     <img
-                      src="/assets/images/about/wellness-icon.svg"
+                      loading="lazy"
+                      src="/assets/images/gifs/flower.gif"
                       alt="wellness-icon"
                       className="object-contain h-full w-full"
                     />
@@ -129,18 +133,22 @@ export default function values() {
                 </div>
               </div>
 
-              <div className="card-container relative w-[29vw] h-[35vw] rounded-[15px] card2 mobile:w-[90vw] mobile:h-[100vw] tablet:w-[41vw] tablet:h-[50vw] mobile:">
+              <div className="card-container relative text-white w-[29vw] h-[35vw] rounded-[15px] card2 mobile:w-[90vw] mobile:h-[100vw] tablet:w-[41vw] tablet:h-[50vw] mobile:">
                 <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#222222] cardfront flex items-center justify-center rounded-[20px] overflow-hidden border-white border-[1px] mobile:w-[90vw] mobile:h-[100vw] tablet:w-[41vw] tablet:h-[50vw]  mobile:hidden tablet:hidden">
-                  <img
+                  <h3 className="text-[3.5vw] font-display">
+                    Curiosity
+                  </h3>
+                  {/* <img
                     src="/assets/images/about/curiosity-card.webp"
                     alt="curiosity card image"
                     className="object-cover h-full w-full"
-                  />
+                  /> */}
                 </div>
-                <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#222222] cardback py-[4vw] px-[2vw] flex flex-col items-start justify-between text-white rounded-[20px] border-white border-[1px] border-opacity-40 mobile:w-[90vw] mobile:h-[100vw] mobile:justify-center mobile:items-center tablet:w-[41vw] tablet:h-[50vw] mobile:">
-                  <div className="w-[5vw] h-[5vw] relative mobile:w-[20vw] mobile:h-[20vw] tablet:w-[8vw] tablet:h-[8vw]">
+                <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#353535] cardback py-[4vw] px-[2vw] flex flex-col items-start justify-between text-white rounded-[20px] border-white border-[1px] border-opacity-40 mobile:w-[90vw] mobile:h-[100vw] mobile:justify-center mobile:items-center tablet:w-[41vw] tablet:h-[50vw] mobile:">
+                  <div className="w-[6vw] relative mobile:w-[20vw] mobile:h-[20vw] tablet:w-[8vw] tablet:h-[8vw]">
                     <img
-                      src="/assets/images/about/curiosity-icon.svg"
+                      loading="lazy"
+                      src="/assets/images/gifs/Bart.gif"
                       alt="curiosity-icon"
                       className="object-contain h-full w-full"
                     />
@@ -156,20 +164,24 @@ export default function values() {
                 </div>
               </div>
 
-              <div className="card-container relative w-[29vw] h-[35vw] rounded-[15px] card3 mobile:w-[90vw] mobile:h-[100vw] tablet:w-[41vw] tablet:h-[50vw] mobile:  ">
+              <div className="card-container relative text-white w-[29vw] h-[35vw] rounded-[15px] card3 mobile:w-[90vw] mobile:h-[100vw] tablet:w-[41vw] tablet:h-[50vw] mobile:  ">
                 <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#222222] cardfront flex items-center justify-center rounded-[20px] overflow-hidden border-white border-[1px] mobile:w-[90vw] mobile:h-[100vw] tablet:w-[40vw] tablet:h-[50vw]  mobile:hidden tablet:hidden">
-                  <img
+                  <h3 className="text-[3.5vw] font-display">
+                    Team Work
+                  </h3>
+                  {/* <img
                     src="/assets/images/about/teamwork-card.webp"
                     alt="teamwork card image"
                     className="object-cover h-full w-full"
-                  />
+                  /> */}
                 </div>
-                <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#222222] cardback py-[4vw] px-[2vw] flex flex-col items-start justify-between text-white rounded-[20px] border-white border-[1px] border-opacity-40 mobile:w-[90vw] mobile:h-[100vw] mobile:justify-center mobile:items-center tablet:w-[41vw] tablet:h-[50vw] mobile:">
+                <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#353535] cardback py-[4vw] px-[2vw] flex flex-col items-start justify-between text-white rounded-[20px] border-white border-[1px] border-opacity-40 mobile:w-[90vw] mobile:h-[100vw] mobile:justify-center mobile:items-center tablet:w-[41vw] tablet:h-[50vw] mobile:">
                   <div className="w-[5vw] h-[5vw] relative mobile:w-[20vw] mobile:h-[20vw] tablet:w-[8vw] tablet:h-[8vw]">
                     <img
-                      src="/assets/images/about/teamwork-icon.svg"
+                      loading="lazy"
+                      src="/assets/images/gifs/bee.png"
                       alt="teamwork icon"
-                      className="object-contain h-full w-full"
+                      className="object-contain h-full w-full animate-bounce ease-in-out"
                     />
                   </div>
                   <div className="mobile:px-[5vw] mobile:flex mobile:flex-col mobile:gap-[5vw] mobile:w-full">

@@ -95,7 +95,7 @@ const AboutUs = () => {
                     <div className="w-[40%] h-[45vw] mobile:w-full mobile:h-[100vw overflow-hidden rounded-xl fadeIn image-animation-left-wrapper">
                         <div className="overflow-hidden relative h-full w-full">
                             <Image
-                                src="/assets/images/homepage/about.png"
+                                src="/assets/images/homepage/yellow-office.webp"
                                 alt="About Image"
                                 title="About Us Image"
                                 fill

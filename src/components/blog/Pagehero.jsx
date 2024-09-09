@@ -19,7 +19,7 @@ export default function Pagehero({post}) {
                 {post.title}
               </h1>
               <div className="fadeup">
-              <LinkButton btnLink={post.slug} btnText="Read Article"  />
+                <LinkButton btnLink={post.slug} btnText="Read Article"  />
               </div>
             </div>
           </div>
@@ -28,7 +28,6 @@ export default function Pagehero({post}) {
             alt={post.title}
             sizes={post.featuredImage.sizes}
             fill
-          
           />
         </div>
       </Section>

@@ -20,7 +20,7 @@ export default function Pagehero() {
             </div>
             <div className="w-[30vw] h-[40vw] relative mobile:w-[85vw] mobile:h-[120vw] image-animation-left-wrapper">
               <div>
-                <Image src="/assets/images/career/career-hero.png" alt="career-hero" fill priority/>
+                <Image src="/assets/images/career/work-with-us.webp" quality={100} alt="career-hero" fill priority={true}/>
               </div>
             </div>
           </div>

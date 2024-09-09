@@ -8,14 +8,12 @@ import { useRef } from "react";
 import LinkButton from "../Button/LinkButton";
 import { formatDateYear } from "@/lib/datetime";
 import RoundButton from "../Button/RoundButton";
-import { workPathBySlug } from "@/lib/works";
+import { workPathBySlug } from "@/lib/portfolio";
 import MediaRender from "../MediaRender";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const Portfolio = ({ works }) => {
-
-  console.log(works);
 
   const containerRef = useRef(null);
   const scrollRef = useRef(null);
@@ -205,14 +203,14 @@ const Portfolio = ({ works }) => {
       </div>
       <div
         ref={containerRef}
-        className="horizontal-scroll w-full h-screen overflow-hidden mt-[5vw] mobile:mt-[12vw] mobile:h-[250vh] tablet:h-[130vh]"
+        className="horizontal-scroll w-screen h-screen overflow-hidden mt-[5vw] mobile:mt-[12vw] mobile:h-[250vh] tablet:h-[130vh]"
       >
         <div
           ref={scrollRef}
-          className="flex h-full w-[300vw] whitespace-nowrap mobile:flex-col mobile:w-full mobile:gap-[10vw] tablet:flex-col tablet:gap-[5vw] tablet:w-full tablet:justify-center tablet:items-center"
+          className="flex h-screen w-[300%] whitespace-nowrap mobile:flex-col mobile:w-full mobile:gap-[10vw] tablet:flex-col tablet:gap-[5vw] tablet:w-full tablet:justify-center tablet:items-center"
         >
           {works.map((work, index) => (
-            <div key={index} className="h-full w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:w-full " data-magnetic-target data-magnetic-strength="200">
+            <div key={index} className="h-screen w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:w-full " data-magnetic-target data-magnetic-strength="200">
               <MediaRender
                 url={work.node.workFields.featuredImagevideo.node.mediaItemUrl}
               />
@@ -236,9 +234,9 @@ const Portfolio = ({ works }) => {
                       {formatDateYear(work.node.date)}
                     </p>
                     <div className="flex items-center gap-[2vw]">
-                      {work.node.workcategories && work.node.workcategories.nodes.slice(0, 2).map((category, index)=> (
+                      {work.node.portfolioIndustries && work.node.portfolioIndustries.edges.slice(0, 2).map((industry, index)=> (
                         <p key={index} className="py-[0.5vw] px-[2vw] border border-white rounded-full bg-white/10 backdrop-blur-lg mobile:px-[4vw] mobile:py-[1vw]">
-                          {category.name}
+                          {industry.node.name}
                         </p>
                       ))}
                     </div>

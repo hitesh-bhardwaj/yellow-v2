@@ -53,9 +53,6 @@ export async function getPostBySlug(slug) {
 
   const post = [postData?.data.post].map(mapPostData)[0];
 
-  // If the SEO plugin is enabled, look up the data
-  // and apply it to the default settings
-
     try {
       seoData = await apolloClient.query({
         query: QUERY_POST_SEO_BY_SLUG,

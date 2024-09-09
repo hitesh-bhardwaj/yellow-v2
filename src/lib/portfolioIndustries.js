@@ -4,60 +4,60 @@ import {
   QUERY_ALL_WORKCATEGORIES,
   QUERY_WORKCATEGORY_BY_SLUG,
   QUERY_WORKCATEGORY_SEO_BY_SLUG,
-} from '../data/workcategories';
+} from '../data/portfolioIndustries';
 
 /**
- * workcategoryPathBySlug
+ * portfolioIndustryPathBySlug
  */
 
-export function workcategoryPathBySlug(slug) {
-  return `/our-work/category/${slug}`;
+export function portfolioIndustryPathBySlug(slug) {
+  return `/our-work/industry/${slug}`;
 }
 
 /**
- * getAllWorkCategories
+ * getAllportfolioIndustries
  */
 
-export async function getAllWorkCategories() {
+export async function getAllPortfolioIndustries() {
   const apolloClient = getApolloClient();
 
   const data = await apolloClient.query({
     query: QUERY_ALL_WORKCATEGORIES,
   });
 
-  const workcategories = data?.data.workcategories.edges.map(({ node = {} }) => node);
+  const portfolioIndustries = data?.data.portfolioIndustries.edges.map(({ node = {} }) => node);
 
   return {
-    workcategories,
+    portfolioIndustries,
   };
 }
 
 /**
- * getWorkCategoryBySlug
+ * getPortfolioIndustryBySlug
  */
 
-export async function getWorkCategoryBySlug(slug) {
+export async function getPortfolioIndustryBySlug(slug) {
   const apolloClient = getApolloClient();
   const apiHost = new URL(process.env.WORDPRESS_GRAPHQL_ENDPOINT).host;
 
-  let workcategoryData;
+  let portfolioIndustryData;
   let seoData;
 
   try {
-    workcategoryData = await apolloClient.query({
+    portfolioIndustryData = await apolloClient.query({
       query: QUERY_WORKCATEGORY_BY_SLUG,
       variables: {
         slug,
       },
     });
   } catch (e) {
-    console.log(`[categories][getWorkCategoryBySlug] Failed to query workcategory data: ${e.message}`);
+    console.log(`[categories][getPortfolioIndustryBySlug] Failed to query portfolioIndustry data: ${e.message}`);
     throw e;
   }
 
-  if (!workcategoryData?.data.workcategory) return { workcategory: undefined };
+  if (!portfolioIndustryData?.data.portfolioIndustry) return { portfolioIndustry: undefined };
 
-  const workcategory = mapWorkCategoryData(workcategoryData?.data.workcategory);
+  const portfolioIndustry = mapPortfolioIndustryData(portfolioIndustryData?.data.portfolioIndustry);
 
   // If the SEO plugin is enabled, look up the data
   // and apply it to the default settings
@@ -71,15 +71,15 @@ export async function getWorkCategoryBySlug(slug) {
         },
       });
     } catch (e) {
-      console.log(`[workcategories][getWorkCategoryBySlug] Failed to query SEO plugin: ${e.message}`);
+      console.log(`[portfolioIndustries][getPortfolioIndustryBySlug] Failed to query SEO plugin: ${e.message}`);
       console.log('Is the SEO Plugin installed? If not, disable WORDPRESS_PLUGIN_SEO in next.config.js.');
       throw e;
     }
 
-    const { seo = {} } = seoData?.data?.workcategory || {};
+    const { seo = {} } = seoData?.data?.portfolioIndustry || {};
 
-    workcategory.title = seo.title;
-    workcategory.description = seo.metaDesc;
+    portfolioIndustry.title = seo.title;
+    portfolioIndustry.description = seo.metaDesc;
 
     // The SEO plugin by default includes a canonical link, but we don't want to use that
     // because it includes the WordPress host, not the site host. We manage the canonical
@@ -87,10 +87,10 @@ export async function getWorkCategoryBySlug(slug) {
     // in here by looking for the API's host in the provided canonical link
 
     if (seo.canonical && !seo.canonical.includes(apiHost)) {
-      workcategory.canonical = seo.canonical;
+      portfolioIndustry.canonical = seo.canonical;
     }
 
-    workcategory.og = {
+    portfolioIndustry.og = {
       author: seo.opengraphAuthor,
       description: seo.opengraphDescription,
       image: seo.opengraphImage,
@@ -101,19 +101,19 @@ export async function getWorkCategoryBySlug(slug) {
       type: seo.opengraphType,
     };
 
-    workcategory.article = {
-      author: workcategory.og.author,
-      modifiedTime: workcategory.og.modifiedTime,
-      publishedTime: workcategory.og.publishedTime,
-      publisher: workcategory.og.publisher,
+    portfolioIndustry.article = {
+      author: portfolioIndustry.og.author,
+      modifiedTime: portfolioIndustry.og.modifiedTime,
+      publishedTime: portfolioIndustry.og.publishedTime,
+      publisher: portfolioIndustry.og.publisher,
     };
 
-    workcategory.robots = {
+    portfolioIndustry.robots = {
       nofollow: seo.metaRobotsNofollow,
       noindex: seo.metaRobotsNoindex,
     };
 
-    workcategory.twitter = {
+    portfolioIndustry.twitter = {
       description: seo.twitterDescription,
       image: seo.twitterImage,
       title: seo.twitterTitle,
@@ -121,26 +121,26 @@ export async function getWorkCategoryBySlug(slug) {
   }
 
   return {
-    workcategory,
+    portfolioIndustry,
   };
 }
 
 /**
- * getWorkCategories
+ * getportfolioIndustries
  */
 
-export async function getWorkCategories({ count } = {}) {
-  const { workcategories } = await getAllWorkCategories();
+export async function getPortfolioIndustries({ count } = {}) {
+  const { portfolioIndustries } = await getAllPortfolioIndustries();
   return {
-    workcategories: workcategories.slice(0, count),
+    portfolioIndustries: portfolioIndustries.slice(0, count),
   };
 }
 
 /**
- * mapWorkCategoryData
+ * mapPortfolioIndustryData
  */
 
-export function mapWorkCategoryData(workcategory = {}) {
-  const data = { ...workcategory };
+export function mapPortfolioIndustryData(portfolioIndustry = {}) {
+  const data = { ...portfolioIndustry };
   return data;
 }

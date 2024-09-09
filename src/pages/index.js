@@ -6,7 +6,7 @@ import Services from "@/components/HomePage/Services";
 import Clients from "@/components/HomePage/Clients";
 import Blogs from "@/components/HomePage/Blogs";
 import { getHomePagePosts } from "@/lib/posts";
-import { getRelatedWorksForPages } from "@/lib/works";
+import { getRelatedPortfolioForPages } from "@/lib/portfolio";
 import { titleAnim, paraAnim, lineAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
 import { gsap } from 'gsap/dist/gsap';
 import { WebpageJsonLd } from "@/lib/json-ld";
@@ -83,7 +83,7 @@ export default function Home({ recentPosts, recentWorks }) {
 export async function getStaticProps() {
 
   const recentPosts = await getHomePagePosts();
-  const recentWorks = await getRelatedWorksForPages("homepage");
+  const recentWorks = await getRelatedPortfolioForPages("homepage");
 
   return {
     props: {

@@ -81,7 +81,7 @@ export default function Meet({ teams }) {
                     onClick={() => handleDetail(member.menuOrder)}
                   >
                     <div
-                      className={`w-full h-[36vw] group cursor-pointer relative overflow-hidden border-[1px] border-black/40 cardfade mobile:w-[75vw] mobile:h-[100vw] tablet:w-[41vw] tablet:h-full`}
+                      className={`w-full h-[36vw] group cursor-pointer relative overflow-hidden cardfade mobile:w-[75vw] mobile:h-[100vw] tablet:w-[41vw] tablet:h-full`}
                     >
                       <img
                         loading="lazy"

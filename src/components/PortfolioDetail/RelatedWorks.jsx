@@ -3,7 +3,7 @@ import Link from 'next/link'
 import SectionTitle from '../SectionTitle'
 import Section from '../Section'
 import LinkButton from '../Button/LinkButton'
-import { workPathBySlug } from '@/lib/works'
+import { workPathBySlug } from '@/lib/portfolio'
 import MediaRender from '../MediaRender'
 
 export default function RelatedWorks({works}) {
@@ -25,26 +25,26 @@ export default function RelatedWorks({works}) {
 
           <div className='w-full flex justify-between gap-[2vw] mobile:flex-col mobile:gap-[7vw]'>
             {works.map((work,index) => (
-              <div key={work.slug} className={`fadeup group ${index>=2?"tablet:hidden":""}`}>
-                <Link href={workPathBySlug(work.slug)} className='h-full w-full block relative'>
-                  <div className='w-[28vw] h-[30vw] relative rounded-[10px] overflow-hidden mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-none tablet:w-[41.5vw] tablet:h-[45vw] group-hover:drop-shadow-xl group-hover:shadow-xl transition-all ease-out duration-500'>
-                    {work.featuredImage && (
-                      <MediaRender url={work.featuredImage} className='z-[0]'/>
+              <div key={work.node.slug} className={`fadeup group ${index>=2?"tablet:hidden":""}`}>
+                <Link href={workPathBySlug(work.node.slug)} className='h-full w-full block relative'>
+                  <div className='w-[28vw] h-[30vw] relative rounded-[10px] bg-gray-500 overflow-hidden mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-none tablet:w-[41.5vw] tablet:h-[45vw] group-hover:drop-shadow-xl group-hover:shadow-xl transition-all ease-out duration-500'>
+                    {work.node.workFields && (
+                      <MediaRender url={work.node.workFields.featuredImagevideo.node.mediaItemUrl} className='z-[0] duration-300 group-hover:scale-110'/>
                     )}
                   </div>
                   <div className='absolute right-0 left-0 top-0 bottom-0 py-[2vw] px-[1.5vw] flex flex-col justify-between items-start mobile:px-[5vw] mobile:py-[5vw]'>
                     <div className="flex gap-[1vw] mobile:gap-[2vw]">
-                      {work.categories && work.categories.length > 0 && work.categories.slice(0, 2).map((category) => (
-                        <p key={category.node.slug} className="w-fit border border-current text-white rounded-full backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-black/5 tablet:text-[2vw]">
-                          {category.node.name}
+                      {work.node.portfolioIndustries && work.node.portfolioIndustries.edges.length > 0 &&work.node.portfolioIndustries.edges  .slice(0, 2).map((tag) => (
+                        <p key={tag.node.slug} className="w-fit capitalize border border-current text-white rounded-full backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-black/5 tablet:text-[2vw]">
+                          {tag.node.name}
                         </p>
                       ))}
                     </div>
                     <div className='text-white'>
-                      <h3 data-title-anim className="text-[2vw] mb-[1vw] font-display mobile:text-[7vw] tablet:text-[4.5vw]">{work.title}</h3>
+                      <h3 data-title-anim className="text-[2vw] mb-[1vw] font-display mobile:text-[7vw] tablet:text-[4.5vw]">{work.node.title}</h3>
                       <div data-para-anim className="w-full text-[1.1vw] leading-[1.4] font-medium mobile:text-[4vw] mobile:w-full tablet:text-[2vw]"
                         dangerouslySetInnerHTML={{
-                          __html: work.description
+                          __html: work.node.excerpt
                         }}
                       />
                     </div>

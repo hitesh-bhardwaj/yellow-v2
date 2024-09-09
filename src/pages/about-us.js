@@ -5,7 +5,7 @@ import Work from '@/components/about/Work';
 import Values from '@/components/about/Values';
 import React from 'react';
 import { titleAnim, paraAnim, lineAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
-import { getRelatedWorksForPages } from '@/lib/works';
+import { getRelatedPortfolioForPages } from '@/lib/portfolio';
 import Meet from '@/components/about/Meet';
 import { WebpageJsonLd } from '@/lib/json-ld';
 import MetaData from '@/components/Metadata';
@@ -44,7 +44,7 @@ export default function About({ relatedWorks, teams }) {
 }
 
 export async function getStaticProps() {
-  const relatedWorks = await getRelatedWorksForPages("about-us");
+  const relatedWorks = await getRelatedPortfolioForPages("about-us")
   const teams = await getAllTeams({
     queryIncludes: "archive"
   });

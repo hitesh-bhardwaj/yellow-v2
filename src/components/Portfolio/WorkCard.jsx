@@ -1,4 +1,4 @@
-import { workPathBySlug } from "@/lib/works";
+import { workPathBySlug } from "@/lib/portfolio";
 import Link from "next/link";
 import MediaRender from "../MediaRender";
 

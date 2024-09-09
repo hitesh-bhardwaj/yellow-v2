@@ -6,8 +6,10 @@ import Detail from '@/components/services-detail/Detail'
 import { titleAnim, paraAnim, lineAnim, fadeUp } from '@/components/gsapAnimations';
 import MetaData from '@/components/Metadata';
 import { WebpageJsonLd } from '@/lib/json-ld';
+import Work from '@/components/services-detail/Work';
+import { getRelatedPortfolioForPages } from '@/lib/portfolio';
 
-export default function servicesdetail() {
+export default function servicesdetail({recentWorks}) {
   titleAnim();
   paraAnim();
   lineAnim();
@@ -30,9 +32,22 @@ export default function servicesdetail() {
         <Pagehero />
         <About />
         <Detail />
+        <Work works={recentWorks}/>
       </Layout>
     </>
   )
+}
+
+export async function getStaticProps() {
+
+  const recentWorks = await getRelatedPortfolioForPages("brand-strategy");
+
+  return {
+    props: {
+      recentWorks,
+    },
+    revalidate: 500,
+  };
 }
 
 

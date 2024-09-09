@@ -2,7 +2,7 @@ import Layout from '@/components/Layout'
 import Pagehero from '@/components/services/Pagehero'
 import ServiceList from '@/components/services/ServiceList'
 import { titleAnim, paraAnim, lineAnim, fadeUp } from '@/components/gsapAnimations';
-import { getHomePageWorks } from '@/lib/works';
+import { getRelatedPortfolioForPages } from '@/lib/portfolio';
 import RecentWorks from '@/components/services/RecentWorks';
 import MetaData from '@/components/Metadata';
 import { WebpageJsonLd } from '@/lib/json-ld';
@@ -38,7 +38,7 @@ export default function services({ recentWorks }) {
 
 export async function getStaticProps() {
 
-  const recentWorks = await getHomePageWorks();
+  const recentWorks = await getRelatedPortfolioForPages("what-we-do");
 
   return {
     props: {

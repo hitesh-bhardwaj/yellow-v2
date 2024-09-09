@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+const indexSearch = require('./plugins/search-index');
 const feed = require('./plugins/feed');
 const sitemap = require('./plugins/sitemap');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
@@ -26,7 +27,7 @@ const nextConfig = {
 
 // export default nextConfig;
 module.exports = () => {
-  const plugins = [feed, sitemap, withBundleAnalyzer];
+  const plugins = [indexSearch, feed, sitemap, withBundleAnalyzer];
   return plugins.reduce((acc, plugin) => plugin(acc), nextConfig);
 };
 

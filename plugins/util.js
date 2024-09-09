@@ -1,4 +1,5 @@
 const fs = require('fs');
+const he = require('he');
 const { gql, ApolloClient, InMemoryCache } = require('@apollo/client');
 const RSS = require('rss');
 const prettier = require('prettier');
@@ -76,21 +77,24 @@ async function getAllPosts(apolloClient, process, verbose = false) {
           node {
             title
             excerpt
-            databaseId
             slug
             date
-            modified
-            content
-            author {
-              node {
-                name
-              }
-            }
             categories {
               edges {
                 node {
                   name
                 }
+              }
+            }
+            featuredImage {
+              node {
+                altText
+                mediaItemUrl
+              }
+            }
+            contentType {
+              node {
+                label
               }
             }
           }
@@ -366,6 +370,38 @@ async function getCategories(apolloClient, process, verbose = false) {
   } catch (e) {
     throw new Error(`[${process}] Failed to fetch category slugs from ${apolloClient.link.options.uri}: ${e.message}`);
   }
+}
+
+/**
+ * generateIndexSearch
+ */
+
+function generateIndexSearch({ posts }) {
+  const index = posts.map((post = {}) => {
+    // We need to decode the title because we're using the
+    // rendered version which assumes this value will be used
+    // within the DOM
+
+    const title = he.decode(post.title);
+
+
+
+    return {
+      title,
+      slug: post.slug,
+      date: post.date,
+      excerpt: post.excerpt,
+      contentType: post.contentType.node.label,
+      featuredImage: post.featuredImage.node,
+    };
+  });
+
+  const indexJson = JSON.stringify({
+    generated: Date.now(),
+    posts: index,
+  });
+
+  return indexJson;
 }
 
 /**
@@ -665,6 +701,7 @@ module.exports = {
   getWorks,
   getTeams,
   getJobs,
+  generateIndexSearch,
   getCategories,
   getSiteMetadata,
   getFeedData,

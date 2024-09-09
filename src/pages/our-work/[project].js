@@ -1,5 +1,5 @@
 import Layout from '@/components/Layout';
-import { getRecentWorks, getRelatedWorks, getWorkBySlug } from '@/lib/works';
+import { getRecentPortfolio, getProjectBySlug } from '@/lib/portfolio';
 import Pagehero from '@/components/PortfolioDetail/Pagehero';
 import Section from '@/components/Section';
 import Information from '@/components/PortfolioDetail/Information';
@@ -10,19 +10,23 @@ import { WebpageJsonLd } from '@/lib/json-ld';
 import config from '../../../package.json';
 import { NextSeo } from 'next-seo';
 
-export default function Work({ work, relatedWorks }) {
+export default function Work({ project }) {
   const {
     title,
+    tags,
     content,
     date,
     workFields,
-    workcategories,
     modified,
     slug,
     metaTitle,
     metaDescription,
-    metaImage
-  } = work;
+    metaImage,
+    portfolioIndustries,
+    portfolioForPages,
+  } = project;
+
+  const RelatedPortfolio = portfolioForPages.relatedPortfolio.edges;
 
   const { homepage = '' } = config;
 
@@ -76,14 +80,15 @@ export default function Work({ work, relatedWorks }) {
       <Layout>
         <Pagehero
           src={workFields.detailPageFeaturedImageVideo.node.mediaItemUrl}
-          workcategories={workcategories}
+          tags={tags}
           date={date}
           title={title}
         />
         <Information
           info={workFields}
           title={title}
-          categories={workcategories}
+          tags={tags}
+          industry={portfolioIndustries}
         />
         <Section id="work-content" className='bg-black'>
           <div className='container bg-white py-[5%]'>
@@ -94,9 +99,9 @@ export default function Work({ work, relatedWorks }) {
               }}
             />
           </div>
-        </Section>
-        {relatedWorks && relatedWorks.length > 0 && (
-          <RelatedWorks works={relatedWorks} />
+        </Section> 
+        {RelatedPortfolio && RelatedPortfolio.length > 0 && (
+          <RelatedWorks works={RelatedPortfolio} />
         )}
       </Layout>
     </>
@@ -104,25 +109,18 @@ export default function Work({ work, relatedWorks }) {
 }
 
 export async function getStaticProps({ params = {} } = {}) {
-  const { work: workSlug } = params;
-  const { work } = await getWorkBySlug(workSlug);
+  const { project: projectSlug } = params;
+  const { project } = await getProjectBySlug(projectSlug);
 
-  if (!work) {
+  if (!project) {
     return {
       props: {},
       notFound: true,
     };
   }
 
-  const { databaseId: workId } = work;
-
-  // Fetch related works
-  const relatedData = await getRelatedWorks(workId);
-  const relatedWorks = relatedData || [];
-
   const props = {
-    work,
-    relatedWorks,
+    project,
   };
 
   return {
@@ -132,16 +130,16 @@ export async function getStaticProps({ params = {} } = {}) {
 }
 
 export async function getStaticPaths() {
-  const { works } = await getRecentWorks({
+  const { portfolio } = await getRecentPortfolio({
     count: process.env.POSTS_PRERENDER_COUNT,
     queryIncludes: 'index',
   });
 
-  const paths = works
+  const paths = portfolio
     .filter(({ slug }) => typeof slug === 'string')
     .map(({ slug }) => ({
       params: {
-        work: slug,
+        project: slug,
       },
     }));
 
