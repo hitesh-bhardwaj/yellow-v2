@@ -147,11 +147,11 @@ const SearchButton = ({ isInverted, menuOpen }) => {
 
     return (
         <div className={`${styles.navSearch} flex items-center relative`} id="search-btn">
-            <div class="search-wrapper">
-                <span class="bg"></span>
-                <div class="search-bar-container container flex items-center justify-between w-full py-[2.7%] tablet:py-[5%] mobile:py-[7%] h-fit relative">
-                    <div class="flex flex-wrap mx-auto items-center w-full justify-between mobile:flex-nowrap">
-                        <span class="bg"></span>
+            <div className="search-wrapper">
+                <span className="bg"></span>
+                <div className="search-bar-container container flex items-center justify-between w-full py-[2.7%] tablet:py-[5%] mobile:py-[7%] h-fit relative">
+                    <div className="flex flex-wrap mx-auto items-center w-full justify-between mobile:flex-nowrap">
+                        <span className="bg"></span>
                         <div className="w-fit overflow-hidden tablet:hidden mobile:hidden">
                             <Link href="/" className="pointer-events-auto">
                                 <Image
@@ -164,11 +164,11 @@ const SearchButton = ({ isInverted, menuOpen }) => {
                                 />
                             </Link>
                         </div>
-                        <div class="search-container w-[50%] tablet:w-[80%] mobile:w-[80%]">
+                        <div className="search-container w-[50%] tablet:w-[80%] mobile:w-[80%]">
                             <form ref={formRef} action="/search" data-search-is-active={!!query} className="flex items-center justify-center w-full h-full mobile:justify-end">
                                 <input
                                     placeholder="Search for something"
-                                    class="search-input landscape-input z-10 text-[1.4vw] tablet:text-[4vw] mobile:text-[4.5vw]"
+                                    className="search-input landscape-input z-10 text-[1.4vw] tablet:text-[4vw] mobile:text-[4.5vw]"
                                     type="search"
                                     name="q"
                                     value={query || ''}
@@ -198,18 +198,18 @@ const SearchButton = ({ isInverted, menuOpen }) => {
                                 </div>
                             </form>
                         </div>
-                        <div class="ml-[-10px] mobile:mt-0">
-                            <button aria-label="close" class="close-btn" onClick={onSearchCloseClick}>
-                                <span class="bg" ></span>
-                                <span class="label" >Close</span>
-                                <span class="icon" >
-                                    <svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="desktop-icon icon-svg" >
-                                        <line x1="2.06066" y1="1" x2="25.8909" y2="24.8302" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ></line>
-                                        <line x1="1" y1="24.8302" x2="24.8302" y2="0.999996" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ></line>
+                        <div className="ml-[-10px] mobile:mt-0">
+                            <button aria-label="close" className="close-btn" onClick={onSearchCloseClick}>
+                                <span className="bg" ></span>
+                                <span className="label" >Close</span>
+                                <span className="icon" >
+                                    <svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg" className="desktop-icon icon-svg" >
+                                        <line x1="2.06066" y1="1" x2="25.8909" y2="24.8302" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" ></line>
+                                        <line x1="1" y1="24.8302" x2="24.8302" y2="0.999996" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" ></line>
                                     </svg>
-                                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="mobile-icon icon-svg" >
-                                        <line x1="1.99816" y1="1.94167" x2="15.0625" y2="15.006" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ></line>
-                                        <line x1="15.0625" y1="2.06066" x2="1.99816" y2="15.125" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ></line>
+                                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" className="mobile-icon icon-svg" >
+                                        <line x1="1.99816" y1="1.94167" x2="15.0625" y2="15.006" stroke="#111111" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" ></line>
+                                        <line x1="15.0625" y1="2.06066" x2="1.99816" y2="15.125" stroke="#111111" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" ></line>
                                     </svg>
                                 </span>
                             </button>
@@ -218,13 +218,13 @@ const SearchButton = ({ isInverted, menuOpen }) => {
                 </div>
             </div>
 
-            <button aria-label="Search Button" class="search-btn" onClick={handleOnToggleSearch} disabled={!searchIsLoaded}>
-                <span class="bg" ></span>
-                <span class="label" >Search</span>
+            <button aria-label="Search Button" className="search-btn" onClick={handleOnToggleSearch} disabled={!searchIsLoaded}>
+                <span className="bg" ></span>
+                <span className="label" >Search</span>
                 <span className="icon" >
                     <svg width="28" height="26" viewBox="0 0 28 26" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" className={`${isInverted ? "text-white" : ""} ${menuOpen ? "text-white" : ""} search-icon`} >
-                        <circle cx="11" cy="11" r="10" stroke-width="2" ></circle>
-                        <line x1="18.6585" y1="18.2474" x2="26.6585" y2="25.2474" stroke-width="2" ></line>
+                        <circle cx="11" cy="11" r="10" strokeWidth="2" ></circle>
+                        <line x1="18.6585" y1="18.2474" x2="26.6585" y2="25.2474" strokeWidth="2" ></line>
                     </svg>
                 </span>
             </button>

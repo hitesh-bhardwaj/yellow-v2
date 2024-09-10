@@ -56,16 +56,18 @@ export default function Work({ project }) {
         openGraph={{
           url: `${homepage}/${metadata.slug}`,
           title: title,
-          "description": metaDescription,
-          images: [
-            {
-              url: metaImage.sourceUrl,
-              width: metaImage.mediaDetails.width,
-              height: metaImage.mediaDetails.height,
-              alt: metaImage.mediaDetails.alt,
-              type: "image/webp",
-            },
-          ],
+          description: metaDescription,
+          images: metaImage
+            ? [
+                {
+                  url: metaImage.sourceUrl,
+                  width: metaImage.mediaDetails?.width,
+                  height: metaImage.mediaDetails?.height,
+                  alt: metaImage.mediaDetails?.alt || title, // fallback to title for alt text
+                  type: "image/webp",
+                },
+              ]
+            : [],
           siteName: "Yellow",
         }}
         additionalLinkTags={[
@@ -103,7 +105,7 @@ export default function Work({ project }) {
               }}
             />
           </div>
-        </Section> 
+        </Section>
         {relatedPortfolio && relatedPortfolio.length > 0 && (
           <RelatedWorks works={relatedPortfolio} />
         )}

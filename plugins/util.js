@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const fs = require('fs');
 const he = require('he');
 const { gql, ApolloClient, InMemoryCache } = require('@apollo/client');
@@ -215,13 +216,13 @@ async function getPages(apolloClient, process, verbose = false) {
 }
 
 /**
- * getWorks
+ * getPortfolio
  */
 
-async function getWorks(apolloClient, process, verbose = false) {
+async function getPortfolio(apolloClient, process, verbose = false) {
   const query = gql`
     {
-      works(first: 10000) {
+      portfolio(first: 10000) {
         edges {
           node {
             slug
@@ -232,12 +233,12 @@ async function getWorks(apolloClient, process, verbose = false) {
     }
   `;
 
-  let works = [];
+  let portfolio = [];
 
   try {
     const data = await apolloClient.query({ query });
-    works = [
-      ...data.data.works.edges.map(({ node = {} }) => {
+    portfolio = [
+      ...data.data.portfolio.edges.map(({ node = {} }) => {
         return {
           slug: node.slug,
           modified: node.modified,
@@ -245,12 +246,12 @@ async function getWorks(apolloClient, process, verbose = false) {
       }),
     ];
 
-    verbose && console.log(`[${process}] Successfully fetched work slugs from ${apolloClient.link.options.uri}`);
+    verbose && console.log(`[${process}] Successfully fetched project slugs from ${apolloClient.link.options.uri}`);
     return {
-      works,
+      portfolio,
     };
   } catch (e) {
-    throw new Error(`[${process}] Failed to fetch work slugs from ${apolloClient.link.options.uri}: ${e.message}`);
+    throw new Error(`[${process}] Failed to fetch project slugs from ${apolloClient.link.options.uri}: ${e.message}`);
   }
 }
 
@@ -373,6 +374,44 @@ async function getCategories(apolloClient, process, verbose = false) {
 }
 
 /**
+ * getIndustries
+ */
+
+async function getPortfolioIndustries(apolloClient, process, verbose = false) {
+  const query = gql`
+    {
+      portfolioIndustries(first: 10000) {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+    }
+  `;
+
+  let  portfolioIndustries = [];
+
+  try {
+    const data = await apolloClient.query({ query });
+    portfolioIndustries = [
+      ...data.data.portfolioIndustries.edges.map(({ node = {} }) => {
+        return {
+          slug: node.slug,
+        };
+      }),
+    ];
+
+    verbose && console.log(`[${process}] Successfully fetched category slugs from ${apolloClient.link.options.uri}`);
+    return {
+      portfolioIndustries,
+    };
+  } catch (e) {
+    throw new Error(`[${process}] Failed to fetch category slugs from ${apolloClient.link.options.uri}: ${e.message}`);
+  }
+}
+
+/**
  * generateIndexSearch
  */
 
@@ -383,8 +422,6 @@ function generateIndexSearch({ posts }) {
     // within the DOM
 
     const title = he.decode(post.title);
-
-
 
     return {
       title,
@@ -424,18 +461,20 @@ async function getFeedData(apolloClient, process, verbose = false) {
 async function getSitemapData(apolloClient, process, verbose = false) {
   const posts = await getAllPosts(apolloClient, process, verbose);
   const pages = await getPages(apolloClient, process, verbose);
-  const works = await getWorks(apolloClient, process, verbose);
+  const portfolio = await getPortfolio(apolloClient, process, verbose);
   const teams = await getTeams(apolloClient, process, verbose);
   const jobs = await getJobs(apolloClient, process, verbose);
   const categories = await getCategories(apolloClient, process, verbose);
+  const portfolioIndustries = await getPortfolioIndustries(apolloClient, process, verbose);
 
   return {
     ...posts,
     ...pages,
-    ...works,
+    ...portfolio,
     ...teams,
     ...jobs,
     ...categories,
+    ...portfolioIndustries,
   };
 }
 
@@ -475,7 +514,7 @@ function generateFeed({ posts = [], metadata = {} }) {
  * generateSitemap
  */
 
-function generateSitemap({ posts = [], pages = [], works = [], jobs = [], teams = [], categories = [], }, nextConfig = {}) {
+function generateSitemap({ posts = [], portfolio = [], jobs = [], teams = [], categories = [], portfolioIndustries = [] }, nextConfig = {}) {
   const { homepage = '' } = config;
   const { trailingSlash } = nextConfig;
 
@@ -541,65 +580,71 @@ function generateSitemap({ posts = [], pages = [], works = [], jobs = [], teams 
         <priority>0.9</priority>
         <lastmod>${new Date().toISOString()}</lastmod>
       </url>
-        ${pages
-          .map((page) => {
-            return `<url>
-                      <loc>${homepage}/${page.slug}${trailingSlash ? '/' : ''}</loc>
-                      <priority>0.8</priority>
-                      <lastmod>${new Date(page.modified).toISOString()}</lastmod>
-                    </url>
-                `;
-          })
-          .join('')}
           ${posts
             .map((post) => {
+              const modifiedDate = post.modified ? new Date(post.modified).toISOString() : new Date().toISOString();
               return `<url>
                         <loc>${homepage}/${post.slug}${trailingSlash ? '/' : ''}</loc>
                         <priority>0.7</priority>
-                        <lastmod>${new Date(post.modified).toISOString()}</lastmod>
+                        <lastmod>${modifiedDate}</lastmod>
                       </url>
                   `;
             })
             .join('')}
-
-          ${works
-            .map((work) => {
+          ${portfolio
+            .map((project) => {
+              const modifiedDate = project.modified ? new Date(project.modified).toISOString() : new Date().toISOString();
               return `<url>
-                        <loc>${homepage}/our-work/${work.slug}${trailingSlash ? '/' : ''}</loc>
+                        <loc>${homepage}/our-work/${project.slug}${trailingSlash ? '/' : ''}</loc>
                         <priority>0.7</priority>
-                        <lastmod>${new Date(work.modified).toISOString()}</lastmod>
+                        <lastmod>${modifiedDate}</lastmod>
                       </url>
                   `;
             })
-          .join('')}
+            .join('')}
           ${teams
             .map((team) => {
+              const modifiedDate = team.modified ? new Date(team.modified).toISOString() : new Date().toISOString();
               return `<url>
                         <loc>${homepage}/teams/${team.slug}${trailingSlash ? '/' : ''}</loc>
                         <priority>0.7</priority>
-                        <lastmod>${new Date(team.modified).toISOString()}</lastmod>
+                        <lastmod>${modifiedDate}</lastmod>
                       </url>
                   `;
             })
-          .join('')}
+            .join('')}
+          ${categories
+            .map((category) => {
+              const modifiedDate = category.modified ? new Date(category.modified).toISOString() : new Date().toISOString();
+              return `<url>
+                        <loc>${homepage}/category/${category.slug}${trailingSlash ? '/' : ''}</loc>
+                        <priority>0.7</priority>
+                        <lastmod>${modifiedDate}</lastmod>
+                      </url>
+                  `;
+            })
+            .join('')}
+          ${portfolioIndustries
+            .map((industry) => {
+              const modifiedDate = industry.modified ? new Date(industry.modified).toISOString() : new Date().toISOString();
+              return `<url>
+                        <loc>${homepage}/our-work/industry/${industry.slug}${trailingSlash ? '/' : ''}</loc>
+                        <priority>0.7</priority>
+                        <lastmod>${modifiedDate}</lastmod>
+                      </url>
+                  `;
+            })
+            .join('')}
           ${jobs
             .map((job) => {
+              const modifiedDate = job.modified ? new Date(job.modified).toISOString() : new Date().toISOString();
               return `<url>
                         <loc>${homepage}/careers/${job.slug}${trailingSlash ? '/' : ''}</loc>
                         <priority>0.7</priority>
-                        <lastmod>${new Date(job.modified).toISOString()}</lastmod>
+                        <lastmod>${modifiedDate}</lastmod>
                       </url>
                   `;
             })
-          .join('')}
-            ${categories
-              .map((category) => {
-                return `<url>
-                          <loc>${homepage}/category/${category.slug}${trailingSlash ? '/' : ''}</loc>
-                          <priority>0.5</priority>
-                        </url>
-                    `;
-              })
             .join('')}
     </urlset>
     `;
@@ -698,11 +743,12 @@ module.exports = {
   createApolloClient,
   getAllPosts,
   getPages,
-  getWorks,
+  getPortfolio,
   getTeams,
   getJobs,
   generateIndexSearch,
   getCategories,
+  getPortfolioIndustries,
   getSiteMetadata,
   getFeedData,
   generateFeed,

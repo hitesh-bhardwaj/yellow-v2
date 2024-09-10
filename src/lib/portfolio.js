@@ -15,9 +15,8 @@ import {
   QUERY_PROJECT_PER_PAGE,
   GET_HOME_PAGE_PORTFOLIO,
   QUERY_PORTFOLIOINDUSTRY_BY_ID_FOR_PORTFOLIO,
-  GET_RELATED_PORTFOLIO,
   GET_RELATED_PORTFOLIO_FOR_PAGES,
-} from '../data/portfolio';
+} from '@/data/portfolio';
 
 /**
  * projectPathBySlug
@@ -263,37 +262,6 @@ export function mapProjectData(project = {}) {
   }
 
   return data;
-}
-
-/**
- * getRelatedPortfolio
- */
-export async function getRelatedPortfolio(projectId, count = 3) {
-  if (!projectId) return;
-
-  const apolloClient = getApolloClient();
-
-  const { data } = await apolloClient.query({
-    query: GET_RELATED_PORTFOLIO,
-    variables: {
-      first: 1,
-      count: count,
-      projectId: projectId,
-      notIn: [projectId]
-    },
-  });
-
-  const portfolio = data?.project?.portfolioIndustries?.edges?.flatMap(edge => edge.node.portfolio.edges.map(edge => edge.node)) || [];
-  const filtered = portfolio.filter(({ databaseId: id }) => id !== projectId);
-  const sorted = sortObjectsByDate(filtered);
-
-  const related = sorted.map((project) => ({ title: project.title, slug: project.slug, featuredImage: project.projectFields.featuredImagevideo.node.mediaItemUrl, description: project.excerpt, portfolioIndustry: project.portfolioIndustries.edges }));
-
-  if (related.length > count) {
-    return related.slice(0, count);
-  }
-
-  return related;
 }
 
 /**

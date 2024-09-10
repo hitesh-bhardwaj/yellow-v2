@@ -25,7 +25,7 @@ export default function RelatedWorks({works}) {
 
           <div className='w-full flex justify-between gap-[2vw] mobile:flex-col mobile:gap-[7vw]'>
             {works.map((work,index) => (
-              <div key={work.node.slug} className={`fadeup group ${index>=2?"tablet:hidden":""}`}>
+              <div key={index} className={`fadeup group ${index>=2?"tablet:hidden":""}`}>
                 <Link href={workPathBySlug(work.node.slug)} className='h-full w-full block relative'>
                   <div className='w-[28vw] h-[30vw] relative rounded-[10px] bg-gray-500 overflow-hidden mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-none tablet:w-[41.5vw] tablet:h-[45vw] group-hover:drop-shadow-xl group-hover:shadow-xl transition-all ease-out duration-500'>
                     {work.node.workFields && (
@@ -34,8 +34,8 @@ export default function RelatedWorks({works}) {
                   </div>
                   <div className='absolute right-0 left-0 top-0 bottom-0 py-[2vw] px-[1.5vw] flex flex-col justify-between items-start mobile:px-[5vw] mobile:py-[5vw]'>
                     <div className="flex gap-[1vw] mobile:gap-[2vw]">
-                      {work.node.portfolioIndustries && work.node.portfolioIndustries.edges.length > 0 &&work.node.portfolioIndustries.edges  .slice(0, 2).map((tag) => (
-                        <p key={tag.node.slug} className="w-fit capitalize border border-current text-white rounded-full backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-black/5 tablet:text-[2vw]">
+                      {work.node.portfolioIndustries && work.node.portfolioIndustries.edges.length > 0 &&work.node.portfolioIndustries.edges  .slice(0, 2).map((tag, index) => (
+                        <p key={index} className="w-fit capitalize border border-current text-white rounded-full backdrop-blur-md px-[1vw] py-[0.2vw] text-[1vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-black/5 tablet:text-[2vw]">
                           {tag.node.name}
                         </p>
                       ))}
