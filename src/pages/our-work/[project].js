@@ -26,7 +26,11 @@ export default function Work({ project }) {
     portfolioForPages,
   } = project;
 
-  const RelatedPortfolio = portfolioForPages.relatedPortfolio.edges;
+  let relatedPortfolio = null;
+
+  if (portfolioForPages && portfolioForPages.relatedPortfolio && portfolioForPages.relatedPortfolio.edges) {
+    relatedPortfolio = portfolioForPages.relatedPortfolio.edges;
+  }
 
   const { homepage = '' } = config;
 
@@ -100,8 +104,8 @@ export default function Work({ project }) {
             />
           </div>
         </Section> 
-        {RelatedPortfolio && RelatedPortfolio.length > 0 && (
-          <RelatedWorks works={RelatedPortfolio} />
+        {relatedPortfolio && relatedPortfolio.length > 0 && (
+          <RelatedWorks works={relatedPortfolio} />
         )}
       </Layout>
     </>
