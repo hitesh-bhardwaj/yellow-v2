@@ -18,7 +18,7 @@ const Testimonial = () => {
             id: "01",
             name: "Damir",
             company: "Fidelix",
-            img: "/assets/images/clients/fidelix.png",
+            img: "/assets/images/clients/Fidelix.png",
             content: "I am extremely happy that our paths crossed with Yellow Team and these beautiful people helped me to create the entire brand identity from the scratch! Working with Yellow Agency was an absolute pleasure! They are not only super creative and friendly but also true professionals who deliver top-notch results! Highly recommend them for anyone looking for a branding agency that truly cares!"
         },
         {
