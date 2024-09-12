@@ -5,7 +5,7 @@ import Section from '@/components/Section';
 import Information from '@/components/PortfolioDetail/Information';
 import styles from "@/styles/work.module.css";
 import RelatedWorks from '@/components/PortfolioDetail/RelatedWorks';
-import { titleAnim, lineAnim, imageAnim, fadeUp, paraAnimWordpress } from '@/components/gsapAnimations';
+import { titleAnim, lineAnim, fadeUp, paraAnimWordpress, imageAnimationWork } from '@/components/gsapAnimations';
 import { WebpageJsonLd } from '@/lib/json-ld';
 import config from '../../../package.json';
 import { NextSeo } from 'next-seo';
@@ -37,8 +37,8 @@ export default function Work({ project }) {
   titleAnim();
   paraAnimWordpress();
   lineAnim();
-  imageAnim();
   fadeUp();
+  imageAnimationWork();
 
   const metadata = {
     title: metaTitle,
@@ -63,7 +63,7 @@ export default function Work({ project }) {
                   url: metaImage.sourceUrl,
                   width: metaImage.mediaDetails?.width,
                   height: metaImage.mediaDetails?.height,
-                  alt: metaImage.mediaDetails?.alt || title, // fallback to title for alt text
+                  alt: metaImage.mediaDetails?.alt || title,
                   type: "image/webp",
                 },
               ]

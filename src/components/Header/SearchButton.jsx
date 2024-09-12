@@ -157,7 +157,7 @@ const SearchButton = ({ isInverted, menuOpen }) => {
                                 <Image
                                     className={`w-[9vw] opacity-0 logo mobile:w-[25vw] relative z-[202] tablet:w-[15vw]`}
                                     id="header-logo"
-                                    src="/logo-white.png"
+                                    src="/logo-white.svg"
                                     alt="Yellow Brand Logo"
                                     width={153}
                                     height={48}

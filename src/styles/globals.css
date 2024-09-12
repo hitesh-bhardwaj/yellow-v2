@@ -190,18 +190,21 @@ body {
 /* Image Animation CSS Start*/
 
 .image-animation-left-wrapper,
-.image-animation-down-wrapper {
+.image-animation-down-wrapper,
+.img-work-anim {
   overflow: hidden;
 }
 .image-animation-left-wrapper div,
-.image-animation-down-wrapper div {
+.image-animation-down-wrapper div,
+.img-work-anim .inner-div {
   position: relative;
   overflow: hidden;
   height: 100%;
   width: 100%;
 }
 .image-animation-left-wrapper img,
-.image-animation-down-wrapper img {
+.image-animation-down-wrapper img,
+.img-work-anim .inner-div img {
   display: block;
   height: 100%;
   width: 100%;
@@ -539,15 +542,18 @@ body {
   justify-content: space-between;
   margin-bottom: 2.5vw;
 }
-.wp-block-gallery.gallery-half {
+.wp-block-gallery.gallery-half,
+.wp-block-group.gallery-half {
   display: flex;
   width: -webkit-fill-available;
   justify-content: space-between;
   gap: 2.5vw;
   margin-bottom: 2.5vw;
 }
-.wp-block-gallery.gallery-half .half-size-image {
+.wp-block-gallery.gallery-half .half-size-image,
+.wp-block-group.gallery-half .half-size-image {
   width: 100%;
+  margin-bottom: 0;
 }
 .info-container {
   display: flex;

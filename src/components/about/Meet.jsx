@@ -8,9 +8,13 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Section from "../Section";
 import { useLenis } from "lenis/react";
 import TeamDetail from "./TeamDetail";
+import { imageAnimationWork } from "../gsapAnimations";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Meet({ teams }) {
+
+  imageAnimationWork();
+
   const [detailOpen, setDetailOpen] = useState(false);
   const [id, setId] = useState(1);
   const lenis = useLenis();
@@ -28,31 +32,13 @@ export default function Meet({ teams }) {
       lenis.stop();
     }
   };
-  
+
   const handleClose = () => {
     const originalPath = `/about-us`;
     window.history.pushState({}, "", originalPath);
     setDetailOpen(false);
     lenis.start();
   };
-
-  if (globalThis.innerWidth > 541) {
-    useGSAP(() => {
-      const cards = cardContainer.current.querySelectorAll(".cardfade");
-      gsap.from(cards, {
-        scrollTrigger: {
-          trigger: cardContainer.current,
-          start: "top 90%",
-          end: "bottom 60%",
-        },
-        opacity: 0,
-        yPercent: 20,
-        ease: "power4.Out",
-        duration: 1,
-        stagger: 0.3,
-      });
-    });
-  }
 
   return (
     <>
@@ -75,29 +61,29 @@ export default function Meet({ teams }) {
             >
 
               {teamInfo.map((member) => (
-                <div key={member.menuOrder}>
                   <div
+                    key={member.menuOrder}
                     className="w-fit overflow-hidden"
                     onClick={() => handleDetail(member.menuOrder)}
                   >
                     <div
-                      className={`w-full h-[36vw] group cursor-pointer relative overflow-hidden cardfade mobile:w-[75vw] mobile:h-[100vw] tablet:w-[41vw] tablet:h-full`}
+                      className={`w-full h-[36vw] group cursor-pointer img-work-anim relative overflow-hidden mobile:w-[75vw] mobile:h-[100vw] tablet:w-[41vw] tablet:h-full`}
                     >
                       <img
                         loading="lazy"
                         src={member.featuredImage.node.sourceUrl}
                         alt={`${member.title} Image`}
-                        className="object-cover h-full w-full group-hover:opacity-0 transition-all ease"
+                        className="object-cover h-full w-full"
                       />
                       {member.teams.blackWhitePicture && (
                         <img
                           loading="lazy"
                           src={member.teams.blackWhitePicture.node.sourceUrl}
                           alt={`${member.title} B&W Image`}
-                          className="absolute object-cover h-full w-full group-hover:opacity-100 opacity-0 transition-all ease top-0 left-0"
+                          className="absolute object-cover h-full w-full top-0 left-0 bottom-0 right-0 opacity-0 group-hover:opacity-100 duration-200"
                         />
                       )}
-                      <div className="absolute w-full px-[2vw] py-[1.5vw] z-[2] bottom-0 backdrop-blur-lg bg-black/40 mobile:py-[3vw] mobile:px-[3vw] tablet:py-[3vw]">
+                      <div className="absolute w-full px-[2vw] py-[1.5vw] z-[2] bottom-0 backdrop-blur-lg translate-y-full group-hover:translate-y-0 duration-300 ease-out bg-black/40 mobile:py-[3vw] mobile:px-[3vw] tablet:py-[3vw]">
                         <div className="text-white flex w-full justify-between h-full">
                           <div className="flex flex-col tablet:w-[100%]">
                             <h4 className="text-[1.8vw] font-display leading-[1.3] uppercase  mobile:text-[6vw] tablet:text-[2.4vw]">
@@ -132,14 +118,13 @@ export default function Meet({ teams }) {
                       </div>
                     </div>
                   </div>
-                </div>
               ))}
 
             </div>
           </div>
 
           <div className="fadeup ml-0 w-[6vw] h-[6vw] mt-[6vw] tablet:w-[12vw] tablet:h-[12vw] mobile:w-[20vw] mobile:h-[20vw] mobile:mt-[10vw]">
-            <img src="/assets/images/gifs/flower.gif" loading="lazy" height={150} width={150} alt="Flower gif"/>
+            <img src="/assets/images/gifs/flower.gif" loading="lazy" height={150} width={150} alt="Flower gif" />
           </div>
         </div>
 

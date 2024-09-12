@@ -101,7 +101,7 @@ const Header = () => {
               <Image
                 className={`w-[9vw] mobile:w-[26vw] relative z-[202] tablet:w-[15vw] transition-all duration-500 ease-out ${isInverted ? "invert" : ""}`}
                 id="header-logo"
-                src="/logo-black.png"
+                src="/logo-black.svg"
                 alt="Yellow Brand Logo"
                 width={153}
                 height={48}

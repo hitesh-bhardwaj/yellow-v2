@@ -87,7 +87,7 @@ const Hero = () => {
             duration: 0.5,
             delay: -0.3,
         })
-    })
+    });
 
     useEffect(() => {
         const player = document.getElementById('hero-video');
@@ -107,7 +107,7 @@ const Hero = () => {
                     </div>
                     <video
                         id="hero-video"
-                        poster="/assets/images/homepage/poster.webp"
+                        poster="/assets/images/homepage/showreel-poster.webp"
                         autoPlay
                         muted
                         loop
