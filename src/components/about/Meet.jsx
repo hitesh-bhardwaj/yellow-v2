@@ -142,7 +142,7 @@ export default function Meet({ teams }) {
 
         <div data-lenis-prevent id='team-detail' className={`w-full bg-transparent fixed h-full top-0 right-0 overflow-y-auto overflow-x-hidden overflow-scroll detail-section z-[204] flex justify-end pointer-events-none`}>
           <div onClick={handleClose} className={`bg-[#000000] w-full h-full detail-overlay opacity-0 ${detailOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none'}`}></div>
-            <div className={` w-[70%] px-[5vw] absolute right-0 flex flex-col gap-[2vw] bg-white h-full overflow-y-auto overflow-scroll z-[205] pointer-events-auto mobile:w-full mobile:gap-[5vw] tablet:w-[80%] tablet:gap-[3vw] transition-all ease-in-out duration-700 translate-x-full ${detailOpen ? "translate-x-0" : ""}`}>
+            <div className={` w-[70%] px-[5vw] absolute right-0 flex flex-col gap-[2vw] bg-white h-full overflow-y-auto overflow-scroll z-[205] pointer-events-auto mobile:w-full mobile:gap-[5vw] tablet:w-[80%] tablet:gap-[3vw] transition-all ease-in-out duration-700 ${detailOpen ? "translate-x-0" : "translate-x-full"}`}>
               <TeamDetail
                 teams={teamInfo}
                 member={selectedMember}
