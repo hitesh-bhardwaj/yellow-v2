@@ -1,36 +1,17 @@
 import React from 'react'
 import Image from 'next/image';
-import { useEffect } from 'react';
 import Link from 'next/link';
-import { gsap } from 'gsap/dist/gsap';
 
-export default function TeamDetail({ index, handleClose, detailOpen, teams }) {
-  const member = teams[index - 1];
+export default function TeamDetail({ member, handleClose, teams }) {
 
-  useEffect(() => {
-    if (detailOpen) {
-      gsap.to(".detail-overlay", {
-        opacity: 0.2,
-        ease: "power2.in"
-      })
-    }
-    else {
-      gsap.to(".detail-overlay", {
-        opacity: 0,
-        delay: -0.2,
-        ease: "power2.in"
-      })
-    }
-  }, [detailOpen])
+  if (!member) return null;
 
   return (
     <>
-      <section data-lenis-prevent id='team-detail' className={`w-full bg-transparent fixed h-full  top-0 right-0 overflow-y-auto overflow-x-hidden overflow-scroll detail-section z-[204] flex justify-end pointer-events-none `}>
-        <div onClick={handleClose} className={`bg-[#000000] w-full h-full detail-overlay opacity-0 ${detailOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}></div>
-        <div className={` w-[70%] px-[5vw] absolute right-0 flex flex-col gap-[2vw] bg-white h-full overflow-y-auto overflow-scroll z-[205] pointer-events-auto mobile:w-full mobile:gap-[5vw] tablet:w-[80%] tablet:gap-[3vw] ${detailOpen ? "transition-all ease-in-out duration-700" : "translate-x-[100%] transition-all ease-in-out duration-700"}`}>
+        
           <div className='w-full flex justify-between pt-[5%] mobile:pt-[10%]'>
             <div className='w-[3vw] h-[3vw] cursor-pointer relative mobile:w-[10vw] mobile:h-[10vw] tablet:w-[7vw] tablet:h-[7vw]' onClick={handleClose} ><Image src="/assets/icons/cross.svg" alt='cross' fill /></div>
-            <span className='text-[1.5vw] mobile:text-[4.5vw] tablet:text-[2.5vw]'>{index}/{teams.length}</span>
+            <span className='text-[1.5vw] mobile:text-[4.5vw] tablet:text-[2.5vw]'>{member.menuOrder}/{teams.length}</span>
           </div>
           <div className='w-full h-[1px] py-[0.01vw] bg-black lineDraw mobile:my-[4vw] mobile:py-[0.1vw] tablet:my-[2vw]'></div>
           <div className='w-full flex gap-[2vw] mobile:flex-col mobile:gap-[5vw]'>
@@ -50,7 +31,7 @@ export default function TeamDetail({ index, handleClose, detailOpen, teams }) {
               }}
             />
 
-            <div className='flex gap-[2vw] items-end mt-[1vw] mobile:gap-[6vw] tablet:gap-[4vw]'>
+            <div className='flex gap-[2vw] items-end mt-[1vw] mb-[5%] mobile:mb-[10%] tablet:mb-[10%] mobile:gap-[6vw] tablet:gap-[4vw]'>
 
               <Link href={`mailto:${member.teams.email}`} className='text-zinc-400 hover:text-black duration-300 w-[1.5vw] tablet:w-[4vw] mobile:w-[6vw]'>
                 <svg viewBox="0 0 39 28" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -69,13 +50,12 @@ export default function TeamDetail({ index, handleClose, detailOpen, teams }) {
 
             </div>
 
-            <div className='w-[62vw] h-full relative my-[5%] mobile:w-[90vw] mobile:mb-[10%] tablet:mb-[10%] tablet:w-[70vw]'>
-              <img src={member.teams.profilePicture.node.sourceUrl} loading='lazy' alt={`${member.title} Featured Image`} />
-            </div>
-
-          </div>
+            {member.teams.profilePicture && (
+              <div className='w-[62vw] h-full relative mb-[5%] mobile:w-[90vw] mobile:mb-[10%] tablet:mb-[10%] tablet:w-[70vw]'>
+                <img src={member.teams.profilePicture.node.sourceUrl} loading='lazy' alt={`${member.title} Featured Image`} />
+              </div>
+            )}
         </div>
-      </section>
     </>
   );
 }

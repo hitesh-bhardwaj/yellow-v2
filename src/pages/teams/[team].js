@@ -131,14 +131,16 @@ function Teamdetail({ team }) {
                 }}
               />
             </div>
-            <div className="w-[90vw] relative mobile:w-[90vw] fadeup tablet:w-[85vw] rounded-[15px] overflow-hidden">
-              <img
-                src={teams.profilePicture.node.sourceUrl}
-                alt={`${title} Profile Image`}
-                className="object-cover w-full h-full"
-                loading="lazy"
-              />
-            </div>
+            {teams.profilePicture && (
+              <div className="w-[90vw] relative mobile:w-[90vw] fadeup tablet:w-[85vw] rounded-[15px] overflow-hidden">
+                <img
+                  src={teams.profilePicture.node.sourceUrl}
+                  alt={`${title} Profile Image`}
+                  className="object-cover w-full h-full"
+                  loading="lazy"
+                />
+              </div>
+            )}
           </div>
         </Section>
       </Layout>

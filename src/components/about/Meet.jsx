@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SectionTitle from "../SectionTitle";
 import { gsap } from "gsap/dist/gsap";
 import { useGSAP } from "@gsap/react";
@@ -16,29 +16,42 @@ export default function Meet({ teams }) {
   imageAnimationWork();
 
   const [detailOpen, setDetailOpen] = useState(false);
-  const [id, setId] = useState(1);
+  const [selectedMember, setSelectedMember] = useState(null);
   const lenis = useLenis();
   const cardContainer = useRef(null);
 
   const teamInfo = teams.teams;
 
-  const handleDetail = (index) => {
-    setId(index);
-    const selectedMember = teamInfo.find((member) => member.menuOrder === index);
-    if (selectedMember) {
-      const newPath = `/teams/${selectedMember.slug}`;
-      window.history.pushState({}, "", newPath);
-      setDetailOpen(true);
-      lenis.stop();
-    }
+  const handleDetail = (member) => {
+    setSelectedMember(member);
+    const newPath = `/teams/${member.slug}`;
+    window.history.pushState({}, "", newPath);
+    setDetailOpen(true);
+    lenis.stop();
   };
 
   const handleClose = () => {
     const originalPath = `/about-us`;
     window.history.pushState({}, "", originalPath);
     setDetailOpen(false);
+    setSelectedMember(null);
     lenis.start();
   };
+
+  useEffect(() => {
+    if (detailOpen) {
+      gsap.to(".detail-overlay", {
+        opacity: 0.2,
+        ease: "power2.in"
+      });
+    } else {
+      gsap.to(".detail-overlay", {
+        opacity: 0,
+        delay: -0.2,
+        ease: "power2.in"
+      });
+    }
+  }, [detailOpen]);
 
   return (
     <>
@@ -62,9 +75,9 @@ export default function Meet({ teams }) {
 
               {teamInfo.map((member) => (
                   <div
-                    key={member.menuOrder}
+                    key={member.id}
                     className="w-fit overflow-hidden"
-                    onClick={() => handleDetail(member.menuOrder)}
+                    onClick={() => handleDetail(member)}
                   >
                     <div
                       className={`w-full h-[36vw] group cursor-pointer img-work-anim relative overflow-hidden mobile:w-[75vw] mobile:h-[100vw] tablet:w-[41vw] tablet:h-full`}
@@ -119,7 +132,6 @@ export default function Meet({ teams }) {
                     </div>
                   </div>
               ))}
-
             </div>
           </div>
 
@@ -128,12 +140,16 @@ export default function Meet({ teams }) {
           </div>
         </div>
 
-        <TeamDetail
-          teams={teamInfo}
-          index={id}
-          handleClose={handleClose}
-          detailOpen={detailOpen}
-        />
+        <div data-lenis-prevent id='team-detail' className={`w-full bg-transparent fixed h-full top-0 right-0 overflow-y-auto overflow-x-hidden overflow-scroll detail-section z-[204] flex justify-end pointer-events-none`}>
+          <div onClick={handleClose} className={`bg-[#000000] w-full h-full detail-overlay opacity-0 ${detailOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none'}`}></div>
+            <div className={` w-[70%] px-[5vw] absolute right-0 flex flex-col gap-[2vw] bg-white h-full overflow-y-auto overflow-scroll z-[205] pointer-events-auto mobile:w-full mobile:gap-[5vw] tablet:w-[80%] tablet:gap-[3vw] transition-all ease-in-out duration-700 translate-x-full ${detailOpen ? "translate-x-0" : ""}`}>
+              <TeamDetail
+                teams={teamInfo}
+                member={selectedMember}
+                handleClose={handleClose}
+              />
+            </div>
+        </div>
       </Section>
     </>
   );

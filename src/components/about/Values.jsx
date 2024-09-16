@@ -107,13 +107,8 @@ export default function values() {
                   <h3 className="text-[3.5vw] font-display">
                     Wellness
                   </h3>
-                  {/* <img
-                    src="/assets/images/about/wellness-card.webp"
-                    alt="wellness card image"
-                    className="object-cover h-full w-full"
-                  /> */}
                 </div>
-                <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#353535] cardback py-[4vw] px-[2vw] flex flex-col items-start justify-between text-white rounded-[20px] border-white border-[1px] border-opacity-40 mobile:w-[90vw] mobile:h-[100vw] mobile:justify-center mobile:items-center tablet:w-[41vw] tablet:h-[50vw]">
+                <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#EAE9E8] cardback py-[4vw] px-[2vw] flex flex-col items-start justify-between text-black rounded-[20px] border-white border-[1px] border-opacity-40 mobile:w-[90vw] mobile:h-[100vw] mobile:justify-center mobile:items-center tablet:w-[41vw] tablet:h-[50vw]">
                   <div className="w-[5vw] h-[5vw] relative mobile:w-[20vw] mobile:h-[20vw] tablet:w-[8vw] tablet:h-[8vw]">
                     <img
                       loading="lazy"
@@ -138,13 +133,8 @@ export default function values() {
                   <h3 className="text-[3.5vw] font-display">
                     Curiosity
                   </h3>
-                  {/* <img
-                    src="/assets/images/about/curiosity-card.webp"
-                    alt="curiosity card image"
-                    className="object-cover h-full w-full"
-                  /> */}
                 </div>
-                <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#353535] cardback py-[4vw] px-[2vw] flex flex-col items-start justify-between text-white rounded-[20px] border-white border-[1px] border-opacity-40 mobile:w-[90vw] mobile:h-[100vw] mobile:justify-center mobile:items-center tablet:w-[41vw] tablet:h-[50vw] mobile:">
+                <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#EAE9E8] cardback py-[4vw] px-[2vw] flex flex-col items-start justify-between text-black rounded-[20px] border-white border-[1px] border-opacity-40 mobile:w-[90vw] mobile:h-[100vw] mobile:justify-center mobile:items-center tablet:w-[41vw] tablet:h-[50vw] mobile:">
                   <div className="w-[6vw] relative mobile:w-[20vw] mobile:h-[20vw] tablet:w-[8vw] tablet:h-[8vw]">
                     <img
                       loading="lazy"
@@ -169,13 +159,8 @@ export default function values() {
                   <h3 className="text-[3.5vw] font-display">
                     Team Work
                   </h3>
-                  {/* <img
-                    src="/assets/images/about/teamwork-card.webp"
-                    alt="teamwork card image"
-                    className="object-cover h-full w-full"
-                  /> */}
                 </div>
-                <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#353535] cardback py-[4vw] px-[2vw] flex flex-col items-start justify-between text-white rounded-[20px] border-white border-[1px] border-opacity-40 mobile:w-[90vw] mobile:h-[100vw] mobile:justify-center mobile:items-center tablet:w-[41vw] tablet:h-[50vw] mobile:">
+                <div className="absolute top-0 left-0 w-[29vw] h-[35vw] bg-[#EAE9E8] cardback py-[4vw] px-[2vw] flex flex-col items-start justify-between text-black rounded-[20px] border-white border-[1px] border-opacity-40 mobile:w-[90vw] mobile:h-[100vw] mobile:justify-center mobile:items-center tablet:w-[41vw] tablet:h-[50vw] mobile:">
                   <div className="w-[5vw] h-[5vw] relative mobile:w-[20vw] mobile:h-[20vw] tablet:w-[8vw] tablet:h-[8vw]">
                     <img
                       loading="lazy"

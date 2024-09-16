@@ -35,7 +35,7 @@ export const TEAM_FIELDS = gql`
 export const QUERY_ALL_TEAMS_INDEX = gql`
   ${TEAM_FIELDS}
   query AllTeamsIndex {
-    teams(first: 1000, where: {orderby: {field: MENU_ORDER, order: ASC}, hasPassword: false}) {
+    teams(first: 1000, where: {hasPassword: false}) {
       edges {
         node {
           ...TeamFields
@@ -48,7 +48,7 @@ export const QUERY_ALL_TEAMS_INDEX = gql`
 export const QUERY_ALL_TEAMS_ARCHIVE = gql`
   ${TEAM_FIELDS}
   query AllTeamsArchive {
-    teams(first: 1000, where: {orderby: {field: MENU_ORDER, order: ASC}, hasPassword: false}) {
+    teams(first: 1000, where: {hasPassword: false}) {
       edges {
         node {
           ...TeamFields
@@ -61,7 +61,7 @@ export const QUERY_ALL_TEAMS_ARCHIVE = gql`
 export const QUERY_ALL_TEAMS = gql`
   ${TEAM_FIELDS}
   query AllTeams {
-    teams(first: 1000, where: {orderby: {field: MENU_ORDER, order: ASC}, hasPassword: false}) {
+    teams(first: 1000, where: {hasPassword: false}) {
       edges {
         node {
           ...TeamFields
