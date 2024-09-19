@@ -415,7 +415,7 @@ body {
   }
   .wp-block-video {
     margin-bottom: 5vw;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     overflow: hidden;
   }
   .work_work__qXY49 p strong {
@@ -438,6 +438,19 @@ body {
   }
   .info-container .is-layout-constrained {
     width: 100% !important;
+  }
+  .wp-block-gallery.gallery-half,
+  .wp-block-group.gallery-half {
+  display: flex;
+  flex-direction: column;
+  width: -webkit-fill-available;
+  justify-content: space-between;
+  gap: 5vw !important;
+  margin-bottom: 5vw !important;
+  }
+  .fullSizeImage, .wp-block-video{
+    height: 40vh;
+    margin-bottom: 5vw !important;
   }
 }
 
@@ -531,7 +544,7 @@ body {
 }
 .wp-block-video {
   margin-bottom: 2.5vw;
-  border-radius: 15px;
+  /* border-radius: 15px; */
   overflow: hidden;
 }
 .wp-block-gallery {

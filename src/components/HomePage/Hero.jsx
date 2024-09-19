@@ -91,7 +91,7 @@ const Hero = () => {
 
     useEffect(() => {
         const player = document.getElementById('hero-video');
-        player.src = supportsHEVCAlpha() ? '/assets/showreel-small.mp4' : '/assets/showreel-small.webm';
+        player.src = supportsHEVCAlpha() ? '/assets/showreel-small-new.mp4' : '/assets/showreel-small-new.mp4';
       });
 
     return (
@@ -113,7 +113,7 @@ const Hero = () => {
                         loop
                         playsInline
                         loading="lazy"
-                        className="w-full h-full aspect-video object-cover"
+                        className="w-full h-full aspect-video object-cover brightness-90"
                         >
                     </video>
                 </div>
@@ -135,7 +135,7 @@ const Hero = () => {
                         poster="/assets/images/homepage/poster.webp"
                         isOpen={isModalOpen}
                         onClose={handleClose}
-                        videoSrc="/assets/showreel.mp4"
+                        videoSrc="/assets/showreel-small-new.mp4"
                     />
                 )}
             </div>

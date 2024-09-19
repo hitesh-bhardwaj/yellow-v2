@@ -11,7 +11,7 @@ export default function Pagehero() {
     <>
       <Section id="hero">
         <div className="container">
-          <div className="w-full h-full pt-[10%] flex items-center mb-[7vw] mobile:pt-[30%] ">
+          <div className="w-full h-full pt-[10%] flex items-center mb-[7vw] mobile:pt-[30%] tablet:pt-[20%]">
             <h1 data-title-anim className="text-[5.7vw] font-display uppercase heading-anim mobile:text-[12vw] tablet:text-[7vw]">Who We Are</h1>
           </div>
           <div className="flex justify-between w-full mobile:flex-col mobile:gap-[10vw] tablet:flex-col tablet:gap-[7vw]">
@@ -45,9 +45,9 @@ export default function Pagehero() {
                 </ul>
               </div>
             </div>
-            <div className="h-[41vw] w-[30vw] relative mobile:w-[85vw] mobile:h-[105vw] tablet:w-[85vw] tablet:h-[80vw] image-animation-left-wrapper">
+            <div className="h-[41vw] w-[30vw] relative mobile:w-[85vw] mobile:h-[105vw] tablet:w-[80vw] tablet:h-[80vw] image-animation-left-wrapper">
               <div className="h-full w-full">
-                <Image src="/assets/images/about/partners-image.webp" alt="about-hero" fill className="object-cover h-full w-full" priority={true} quality={100} />
+                <Image src="/assets/images/about/partners-image.webp" alt="about-hero" fill className="object-cover h-full w-full tablet:object-top" priority={true} quality={100} />
               </div>
             </div>
           </div>

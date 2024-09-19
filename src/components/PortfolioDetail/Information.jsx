@@ -21,7 +21,7 @@ const Information = ({info, title, tags, industry}) => {
                             __html: info.description,
                             }}
                         />
-                        <div className="flex gap-[5vw] text-[1.4vw] font-medium tablet:text-[2vw] mobile:flex-col">
+                        <div className="flex gap-[5vw] text-[1.4vw] font-medium tablet:text-[2vw] mobile:gap-[10vw]">
                             <div>
                                 <p data-para-anim className="text-[1vw] mb-[0.5vw] mobile:text-[3.5vw] tablet:text-[2vw]">Client</p>
                                 <p data-para-anim className="mobile:text-[5vw]" >{title}</p>

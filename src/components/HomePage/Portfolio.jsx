@@ -203,14 +203,14 @@ const Portfolio = ({ works }) => {
       </div>
       <div
         ref={containerRef}
-        className="horizontal-scroll w-screen h-screen overflow-hidden mt-[5vw] mobile:mt-[12vw] mobile:h-[250vh] tablet:h-[130vh]"
+        className="horizontal-scroll w-screen h-screen overflow-hidden mt-[5vw] mobile:mt-[12vw] mobile:h-auto tablet:h-auto"
       >
         <div
           ref={scrollRef}
-          className="flex h-screen w-[300%] whitespace-nowrap mobile:flex-col mobile:w-full mobile:gap-[10vw] tablet:flex-col tablet:gap-[5vw] tablet:w-full tablet:justify-center tablet:items-center"
+          className="flex h-screen w-[300%] mobile:h-auto whitespace-nowrap mobile:flex-col mobile:w-full mobile:gap-[10vw] tablet:flex-col tablet:gap-[5vw] tablet:w-full tablet:justify-center tablet:items-center tablet:h-auto"
         >
           {works.map((work, index) => (
-            <div key={index} className="h-screen w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:w-full " data-magnetic-target data-magnetic-strength="200">
+            <div key={index} className="h-screen w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:h-[50vh] mobile:mx-auto rounded-xl tablet:h-[40vh]" data-magnetic-target data-magnetic-strength="200">
               <MediaRender
                 url={work.node.workFields.featuredImagevideo.node.mediaItemUrl}
               />

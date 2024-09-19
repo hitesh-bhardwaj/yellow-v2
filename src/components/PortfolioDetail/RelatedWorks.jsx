@@ -27,7 +27,7 @@ export default function RelatedWorks({works}) {
             {works.map((work,index) => (
               <div key={index} className={`fadeup group ${index>=2?"tablet:hidden":""}`}>
                 <Link href={workPathBySlug(work.node.slug)} className='h-full w-full block relative'>
-                  <div className='w-[28vw] h-[30vw] relative rounded-[10px] bg-gray-500 overflow-hidden mobile:w-[85vw] mobile:h-[100vw] mobile:rounded-none tablet:w-[41.5vw] tablet:h-[45vw] group-hover:drop-shadow-xl group-hover:shadow-xl transition-all ease-out duration-500'>
+                  <div className='w-[28vw] h-[30vw] relative rounded-[10px] bg-gray-500 overflow-hidden mobile:w-[85vw] mobile:h-[100vw] tablet:w-[41.5vw] tablet:h-[45vw] group-hover:drop-shadow-xl group-hover:shadow-xl transition-all ease-out duration-500'>
                     {work.node.workFields && (
                       <MediaRender url={work.node.workFields.featuredImagevideo.node.mediaItemUrl} className='z-[0] duration-300 group-hover:scale-110'/>
                     )}
