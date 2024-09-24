@@ -25,73 +25,43 @@ export default function Address() {
               As a digital branding agency, we help businesses connect with
               their customers by using a variety of tools and services.
             </h3>
-            <div className="flex w-full gap-[8vw] mb-[8vw] mobile:flex-col tablet:gap-[12vw]">
-              <span>
-                <p
-                  data-para-anim
-                  className="text-[2.5vw] font-display mb-[0.5vw] mobile:text-[7vw] tablet:text-[3.5vw] "
-                >
-                  New Business
-                </p>
-                <Link
-                  className="w-fit text-[1.2vw] font-medium mobile:text-[4.5vw] mobile:font-normal tablet:text-[2.5vw]"
-                  href="mailto:hello@welcometoyellow.com"
-                >
-                  <span data-para-anim className="link-line">
-                    hello@welcometoyellow.com
-                  </span>
-                </Link>
-              </span>
-              <span>
-                <p
-                  data-para-anim
-                  className="text-[2.5vw] font-display mb-[0.5vw]  mobile:text-[7vw] tablet:text-[3.5vw]"
-                >
-                  General
-                </p>
-                <Link
-                  className="w-fit text-[1.2vw] font-medium mobile:text-[4.5vw] mobile:font-normal tablet:text-[2.5vw]"
-                  href="mailto:hi@welcometoyellow.com"
-                >
-                  <span data-para-anim className="link-line">
-                    hi@welcometoyellow.com
-                  </span>
-                </Link>
-              </span>
-            </div>
-            <div className="flex w-full gap-[8vw] mobile:flex-col tablet:gap-[12vw]">
-              <span>
-                <p
-                  data-para-anim
-                  className="text-[2.5vw] font-display mb-[0.5vw]  mobile:text-[7vw] tablet:text-[3.5vw]"
-                >
-                  Press
-                </p>
-                <Link
-                  className="w-fit text-[1.2vw] font-medium mobile:text-[4.5vw] mobile:font-normal tablet:text-[2.5vw]"
-                  href="mailto:press@welcometoyellow.com"
-                >
-                  <span data-para-anim className="link-line">
-                    press@welcometoyellow.com
-                  </span>
-                </Link>
-              </span>
-              <span>
-                <p
-                  data-para-anim
-                  className="text-[2.5vw] font-display mb-[0.5vw] mobile:text-[7vw] tablet:text-[3.5vw]"
-                >
-                  Join Us
-                </p>
-                <Link
-                  className="w-fit text-[1.2vw] font-medium mobile:text-[4.5vw] mobile:font-normal tablet:text-[2.5vw]"
-                  href="mailto:career@welcometoyellow.com"
-                >
-                  <span data-para-anim className="link-line">
-                    career@welcometoyellow.com
-                  </span>
-                </Link>
-              </span>
+            <div className="tablet:flex">
+              <div className="flex w-full gap-[8vw] mb-[8vw] mobile:flex-col tablet:gap-[12vw]">
+                <span>
+                  <p
+                    data-para-anim
+                    className="text-[2.5vw] font-display mb-[0.5vw] mobile:text-[7vw] tablet:text-[3.5vw] "
+                  >
+                    New Business
+                  </p>
+                  <Link
+                    className="w-fit text-[1.2vw] font-medium mobile:text-[4.5vw] mobile:font-normal tablet:text-[2.5vw]"
+                    href="mailto:hello@welcometoyellow.com"
+                  >
+                    <span data-para-anim className="link-line">
+                      hello@welcometoyellow.com
+                    </span>
+                  </Link>
+                </span>
+              </div>
+              <div className="flex w-full gap-[8vw] mobile:flex-col tablet:gap-[12vw]">
+                <span>
+                  <p
+                    data-para-anim
+                    className="text-[2.5vw] font-display mb-[0.5vw] mobile:text-[7vw] tablet:text-[3.5vw]"
+                  >
+                    Join Us
+                  </p>
+                  <Link
+                    className="w-fit text-[1.2vw] font-medium mobile:text-[4.5vw] mobile:font-normal tablet:text-[2.5vw]"
+                    href="mailto:career@welcometoyellow.com"
+                  >
+                    <span data-para-anim className="link-line">
+                      career@welcometoyellow.com
+                    </span>
+                  </Link>
+                </span>
+              </div>
             </div>
           </div>
         </div>

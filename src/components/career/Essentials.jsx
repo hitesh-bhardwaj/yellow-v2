@@ -4,39 +4,27 @@ import LinkButton from "../Button/LinkButton";
 const essentialsData = [
   {
     id: 1,
-    title: "Lorem Ipsum",
+    title: "Easily amused",
     content:
-      "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs",
+      "Amongst all the deadlines and drama, how will it ever be fun if someone isn't bursting into song or being given gold stars or telling stories that sound wildly made up or sharing how they're a strong, independent woman at all of 23? As the cliche goes, we're incredibly serious about the work but a lot less so about ourselves.",
   },
   {
     id: 2,
-    title: "Lorem Ipsum",
+    title: "Full of curiosity, wonder and passion",
     content:
-      "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs",
+      '"Every child is an artist. The problem is how to remain an artist once we grow up" Picasso <br/> We look for those who have managed to hold on to their inner child and the artist within. The ones who want to keep learning, not just about their craft, but about the world around them, about people, trends, fashion, cuisines. They&apos;re discoverers, curators and storytellers. And they bring all of this into the work they do, every day, sprinkling each project with their own magic.',
   },
   {
     id: 3,
-    title: "Lorem Ipsum",
+    title: "Ready to dive in",
     content:
-      "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs",
+      "The best ones of us can't stop coming up with new ideas and then executing them flawlessly, are unafraid of jumping in, scraping their knees and getting it occasionally wrong, but always giving it their all. We're still small and growing, so we love that each member of our team is always willing to help out and take ownership.",
   },
   {
     id: 4,
-    title: "Lorem Ipsum",
+    title: "Always open-minded",
     content:
-      "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs",
-  },
-  {
-    id: 5,
-    title: "Lorem Ipsum",
-    content:
-      "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs",
-  },
-  {
-    id: 6,
-    title: "Lorem Ipsum",
-    content:
-      "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs",
+      "We pride ourselves on being a safe space for different types of people - the geeks, the introverts, the main characters, the workaholics, the fitness enthusiasts, the future influencers and the future housewives of beverly hills (okay, maybe not). We're a very eclectic mix that accepts, encourages and celebrates each others' quirks, because that diversity of personalities and thoughts makes what we do all the more creative.",
   },
 ];
 
@@ -63,25 +51,22 @@ export default function Essentials() {
         <div className="w-[40%] flex flex-col gap-[2vw] mb-[5vw] mobile:w-full tablet:w-[70%]">
           <h2 data-title-anim className="text-[5vw] font-display mobile:text-[10vw] tablet:text-[6vw] ">Essentials</h2>
           <p data-para-anim className="w-[80%] font-medium text-[1.4vw] mobile:w-full mobile:text-[4.5vw] mobile:font-normal tablet:text-[2.2vw] ">
-            As a digital branding agency, we help businesses connect with their
-            customers by using a variety of tools and services.
+            Our team is made up of some incredibly talented people who also happen to have a few traits in common. Things that make them all Yellow (this is the only time we are referencing *that song*, we promise!).
           </p>
         </div>
-        <div className="grid grid-cols-3 gap-y-[2vw] gap-x-[13vw] mobile:flex mobile:flex-col mobile:gap-y-[5vw] tablet:gap-x-[5vw] ">
+        <div className="grid grid-cols-2 gap-y-[2vw] gap-x-[15vw] mobile:flex mobile:flex-col mobile:gap-y-[5vw] tablet:gap-x-[5vw] ">
           {essentialsData.map((item, index) => (
             <div
               key={item.id}
-              className={`col-start-${(index % 3) + 1} ${index % 3 === 1 ? "flex justify-center mobile:justify-start mobile:w-full" : ""} ${index % 3 === 2 ? "flex justify-end mobile:justify-start" : ""}`}
+              className={`col-span-1 flex justify-center mobile:justify-start mobile:w-full`}
             >
               <div className="w-full">
                 <span data-title-anim className="text-[7vw] font-normal font-display mb-[1.5vw] mobile:text-[17vw] mobile:font-normal tablet:text-[8vw] ">{`0${item.id}.`}</span>
-                <h4 data-para-anim className="text-[2vw] font-display mb-[1.5vw] mobile:text-[7vw] tablet:text-[3vw] ">
+                <h4 data-para-anim className="text-[2vw] font-display mb-[1.5vw] mobile:text-[7vw] tablet:text-[3vw]">
                   {item.title}
                 </h4>
-                <p data-para-anim className="text-[1.2vw] leading-[1.3] font-medium mobile:text-[4.5vw] mobile:font-normal tablet:text-[2vw] ">
-                  {item.content}
-                </p>
-                <div className={`w-full bg-black h-[1px] mt-[12vw] lineDraw hidden mobile:block ${index==5?"mobile:hidden":""}`}></div>
+                <p data-para-anim className="text-[1.2vw] leading-[1.3] font-medium mobile:text-[4.5vw] mobile:font-normal tablet:text-[2vw] " dangerouslySetInnerHTML={{__html:item.content}}/>
+                <div className={`w-full bg-black h-[1px] mt-[12vw] lineDraw hidden mobile:block ${index === essentialsData.length - 1 ? "mobile:hidden" : ""}`}></div>
               </div>
             </div>
           ))}

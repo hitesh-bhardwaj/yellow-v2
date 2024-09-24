@@ -96,7 +96,7 @@ export default function Menu({ menuOpen }) {
   return (
     <div ref={menuRef} className="fixed top-0 z-[199] left-0 right-0 bottom-0 flex items-start justify-end pointer-events-none">
       <nav ref={navRef} className={`relative w-[50%] pointer-events-auto translate-x-[100%] left-[99px] h-full bg-black/40 backdrop-blur-[25px] mobile:w-full tablet:w-[70%]`}>
-        <div className="w-full h-full px-[5vw] pt-[5.5vw] pb-[3.5vw] relative flex flex-col justify-between items-start tablet:justify-between tablet:py-[15vw] mobile:pt-[25vw] mobile:pb-[10vw]">
+        <div data-lenis-prevent className="w-full h-full px-[5vw] pt-[5.5vw] pb-[3.5vw] relative flex flex-col justify-between items-start tablet:justify-between tablet:py-[15vw] mobile:pt-[25vw] mobile:pb-[10vw] overflow-y-auto">
           <ul className="text-[7.8vh] font-display text-white leading-[1.15] mobile:text-[11.5vw] tablet:text-[6.5vw]">
             <li className="overflow-hidden tablet:mb-[2vw]">
               <MenuLink 
@@ -165,7 +165,7 @@ export default function Menu({ menuOpen }) {
                 </li>
                 <li className="translate-x-[50px] opacity-0">
                   <MenuLink 
-                    className={`text-[1.4vw] font-medium mobile:text-[4.5vw] tablet:text-[1.8vw] ${pathname=="/what-we-do"?"text-gray-300 pointer-events-none":""}`}
+                    className={`text-[1.4vw] font-medium mobile:text-[4.5vw] tablet:text-[2.5vw] ${pathname=="/what-we-do"?"text-gray-300 pointer-events-none":""}`}
                     href="/what-we-do"
                     text="View All"
                   />

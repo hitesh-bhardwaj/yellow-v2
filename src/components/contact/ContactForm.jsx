@@ -32,11 +32,11 @@ const formSchema = z.object({
   }),
 });
 
-const options = ["option-one", "option-two", "option-three", "option-four"];
-const services = ["Service1", "Service2", "Service3", "Service4"];
+const options = ["Google", "Instagram", "LinkedIn", "Word of mouth"];
+const services = ["Brand Identity", "Strategy", "Naming", "Advertising", "Digital"];
 
 export default function ContactForm() {
-  const [selectedValue, setSelectedValue] = useState("option-one");
+  const [selectedValue, setSelectedValue] = useState("Google");
   const [checkedState, setCheckedState] = useState(
     Object.fromEntries(services.map((service) => [service, false]))
   );
@@ -69,10 +69,9 @@ export default function ContactForm() {
       name: data.name,
       email: data.email,
       number: data.number,
-      detail:data.detail,
+      detail: data.detail,
       source: selectedValue,
       services: checkedState,
-     
     };
     // console.log(formData)
     try {
@@ -84,18 +83,13 @@ export default function ContactForm() {
           Accept: "application/json",
         },
       });
-
       if (!res.ok) throw new Error("Failed to send message");
-
       form.reset();
       // setSubmitting(false);
       // setSubmissionSuccess(true);
-    } catch(error){
+    } catch (error) {
       console.log(error);
-
     }
-    
-    
   };
 
   const getClassName = (value) =>
@@ -104,20 +98,24 @@ export default function ContactForm() {
   const getClassNames = (isChecked) =>
     isChecked ? "text-white border-opacity-100" : "text-black border-opacity-100";
 
+
   return (
-    <section className="px-[5vw] py-[5%] tablet:py-[10%] mobile:pt-[25%]">
+    <section className="px-[5vw] py-[5%] tablet:py-[10%] mobile:pt-[25%]" id="contact-form">
       <h3
         data-para-anim
         className="text-[4.8vw] leading-[1.3] font-display w-[70%] mb-[7vw] tablet:text-[5.4vw] mobile:text-[10vw] mobile:w-full"
       >
         Connect with our team to bring your ideas to life.
       </h3>
-      <Form {...form}>
+
+      <Form {...form} >
         <form onSubmit={form.handleSubmit(onSubmit)} className="form flex flex-wrap gap-y-[1.4vw] mobile:gap-[2.5vw] mobile:gap-y-[7vw] mobile:py-[10vw] tablet:gap-y-[2vw] fadeup">
-          <p  className="text-[2.5vw] font-medium leading-[1.4] tablet:text-[3.5vw] mobile:text-[6.4vw]">
+          
+          
+          <p className="text-[2.5vw] font-medium leading-[1.4] tablet:text-[3.5vw] mobile:text-[6.4vw]">
             Hello! My name is
           </p>
-
+          {/* Name field */}
           <FormField
             control={form.control}
             name="name"
@@ -130,11 +128,12 @@ export default function ContactForm() {
               </FormItem>
             )}
           />
-          <p  className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw] tablet:mt-[3vw] tablet:mb-[1vw]">and</p>
-          <span className="opacity-0 hidden tablet:block">s</span>
-          <p  className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw] tablet:mt-[3vw] tablet:mb-[1vw]">
-             I Found you using
+          <p className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw] tablet:mt-[3vw] tablet:mb-[1vw]">and</p>
+          <p className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw] tablet:mt-[3vw] tablet:mb-[1vw] tablet:ml-2">
+            I found you using
           </p>
+
+          {/* Source Option filed  */}
           <FormField
             control={form.control}
             name="source"
@@ -149,19 +148,18 @@ export default function ContactForm() {
                     {options.map((option) => (
                       <div
                         key={option}
-                        className={`min-w-[10vw] relative overflow-hidden h-[3.5vw] px-[1.5vw] py-[0.3vw] border-[1px] border-black rounded-full tablet:min-w-[15vw] tablet:h-[5.5vw] mobile:min-w-[85vw] mobile:min-h-[14vw] mobile:flex mobile:justify-start mobile:gap-[3vw] mobile:px-[6vw] ${getClassName(
+                        className={`min-w-[10vw] group relative overflow-hidden h-[3.5vw] px-[1.5vw] py-[0.3vw] border-[1px] border-black rounded-full tablet:min-w-[15vw] tablet:h-[5.5vw] mobile:min-w-[85vw] mobile:min-h-[14vw] mobile:flex mobile:justify-start mobile:gap-[3vw] mobile:px-[6vw] ${getClassName(
                           option
                         )} flex justify-center items-center gap-[1vw] cursor-pointer`}
                         onClick={() => handleValueChange(option)}
                         data-state={selectedValue === option ? "checked" : "unchecked"}
                       >
                         <span
-                          className={`w-full h-full absolute bottom-0 left-0 block origin-bottom transition-all duration-300 ease-out bg-black z-[-1]  ${
-                            selectedValue === option ? "scale-y-[1]" : "scale-y-0"
-                          }`}
+                          className={`w-full h-full absolute bottom-0 left-0 block origin-bottom transition-all duration-300 ease-out bg-black z-[-1]  ${selectedValue === option ? "scale-y-[1]" : "scale-y-0"
+                            }`}
                         />
                         <RadioGroupItem value={option} id={option} />
-                        <div className="w-[1vw] h-[1vw] border rounded-full bg-white border-black mobile:w-[3vw] mobile:h-[3vw]"></div>
+                        <div className='w-[1vw] h-[1vw] rounded-full bg-white border border-black mobile:w-[3vw] mobile:h-[3vw]'></div>
                         <Label htmlFor={option} className="text-[1.2vw] cursor-pointer tablet:text-[2vw] mobile:text-[4vw]">
                           {option.replace("-", " ")}
                         </Label>
@@ -174,9 +172,10 @@ export default function ContactForm() {
             )}
           />
 
-          <p  className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw] tablet:mt-[3vw] tablet:mb-[1vw]">
+          <p className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw] tablet:mt-[3vw] tablet:mb-[1vw]">
             I’m looking for Service:
           </p>
+          {/* Service Selection filed  */}
           <FormField
             control={form.control}
             name="services"
@@ -187,16 +186,15 @@ export default function ContactForm() {
                     {services.map((service) => (
                       <Checkbox
                         key={service}
-                        className={`flex items-center relative overflow-hidden justify-center space-x-2 py-[0.5vw] px-[1.4vw] min-w-[10vw] min-h-[3.4vw] border-[1px] tablet:min-w-[14vw] tablet:min-h-[5.5vw] border-black rounded-full cursor-pointer tablet:space-x-0 tablet:h-[4vw] mobile:w-[85vw] mobile:h-[14vw] mobile:justify-start mobile:px-[6vw] ${getClassNames(
+                        className={`flex items-center relative overflow-hidden justify-center py-[0.5vw] px-[1.4vw] min-w-[10vw] min-h-[3.4vw] border-[1px] tablet:min-w-[14vw] tablet:min-h-[5.5vw] border-black rounded-full cursor-pointer tablet:space-x-0 tablet:h-[4vw] mobile:w-[85vw] mobile:h-[14vw] mobile:justify-start mobile:px-[6vw] ${getClassNames(
                           checkedState[service]
                         )}`}
                         onClick={() => handleCheckboxChange(service)}
                         data-state={checkedState[service] ? "checked" : "unchecked"}
                       >
                         <span
-                          className={`w-full h-full absolute bottom-0 left-0 block origin-bottom transition-all duration-300 ease-out bg-black z-[-1] ${
-                            checkedState[service] ? "scale-y-[1]" : "scale-y-0"
-                          }`}
+                          className={`w-full h-full absolute bottom-0 left-0 block origin-bottom transition-all duration-300 ease-out bg-black z-[-1] ${checkedState[service] ? "scale-y-[1]" : "scale-y-0"
+                            }`}
                         />
                         <label className="text-[1.2vw] font-medium leading-none cursor-pointer peer-disabled:opacity-70 tablet:text-[2vw] tablet:ml-0 mobile:text-[4.5vw]">
                           {service}
@@ -216,8 +214,8 @@ export default function ContactForm() {
           />
 
           <div>
-            <p  className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw] tablet:mt-[3vw] tablet:mb-[1vw]">
-              Feel Free to reach me at
+            <p className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw] tablet:mt-[3vw] tablet:mb-[1vw]">
+              Feel free to reach me at
             </p>
           </div>
           <FormField
@@ -227,7 +225,7 @@ export default function ContactForm() {
               <FormItem className="form-detail h-full flex justify-center flex-col tablet:mt-[3vw]">
                 <FormControl>
                   <Input
-                    placeholder="Type your email*"
+                    placeholder="Type your Contact Email*"
                     {...field}
                     type="email"
                     className="w-[35vw]"
@@ -237,7 +235,7 @@ export default function ContactForm() {
               </FormItem>
             )}
           />
-          <p  className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:hidden">
+          <p className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:hidden">
             and
           </p>
           <FormField
@@ -257,16 +255,16 @@ export default function ContactForm() {
               </FormItem>
             )}
           />
-          <p  className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw] tablet:mt-[3vw]">
+          <p className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw] tablet:mt-[3vw]">
             I would like to share more about my project:
           </p>
-          <FormField 
+          <FormField
             control={form.control}
             name="detail"
             render={({ field }) => (
               <FormItem className=" detail h-full flex justify-center flex-col">
                 <FormControl>
-                  <Input placeholder="Type your detail*" {...field} type="text" />
+                  <Input placeholder="Type your Project Details*" {...field} type="text" />
                 </FormControl>
                 <FormMessage />
               </FormItem>

@@ -117,8 +117,9 @@ const Footer = () => {
                         </div>
                         <div className="fadein">
                             <Link
+                                scroll={false}
                                 className={`cursor-pointer flex w-fit relative text-[3.4vw] gap-[0.5vw] items-center font-medium group mobile:text-[7vw] mobile:gap-[2vw] `}
-                                href="/contact-us"
+                                href="/contact-us#contact-form"
                             >
                                 <span className="relative after:absolute leading-[1.3] after:block after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-body after:transition-all after:duration-500 after:ease-out group-hover:after:scale-x-0 ">
                                     Let&apos;s Talk

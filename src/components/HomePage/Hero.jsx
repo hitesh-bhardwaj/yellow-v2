@@ -113,7 +113,7 @@ const Hero = () => {
                         loop
                         playsInline
                         loading="lazy"
-                        className="w-full h-full aspect-video object-cover brightness-90"
+                        className="w-full h-full aspect-video object-cover brightness-[.65]"
                         >
                     </video>
                 </div>

@@ -210,11 +210,12 @@ const Portfolio = ({ works }) => {
           className="flex h-screen w-[300%] mobile:h-auto whitespace-nowrap mobile:flex-col mobile:w-full mobile:gap-[10vw] tablet:flex-col tablet:gap-[5vw] tablet:w-full tablet:justify-center tablet:items-center tablet:h-auto"
         >
           {works.map((work, index) => (
-            <div key={index} className="h-screen w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:h-[50vh] mobile:mx-auto rounded-xl tablet:h-[40vh]" data-magnetic-target data-magnetic-strength="200">
+            <div key={index} className="h-screen w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:h-[50vh] mobile:mx-auto tablet:rounded-xl mobile:rounded-xl tablet:h-[40vh]" data-magnetic-target data-magnetic-strength="200">
               <MediaRender
+                className="brightness-[.80]"
                 url={work.node.workFields.featuredImagevideo.node.mediaItemUrl}
               />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 z-[1] -translate-y-1/2 ">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 z-[1] -translate-y-1/2">
                 <RoundButton href={workPathBySlug(work.node.slug)} text="View More" className="magnetic-inner pointer-events-auto tablet:w-[10vw] tablet:h-[10vw] tablet:text-[1.5vw] tablet:px-[2vw]" />
               </div>
               <div className="relative w-full flex text-white h-full items-end">
