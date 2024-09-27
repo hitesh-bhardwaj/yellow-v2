@@ -20,21 +20,21 @@ const services = [
   },
   {
     id: 3,
-    imageSrc: "/assets/images/service/service-3.png",
+    imageSrc: "/assets/images/service/brand-naming-listing.webp",
     title: "Brand Naming",
     link:"/what-we-do/naming",
-    description:"<p data-para-anim>From diving into the meaning of obscure words in different languages to stories, lyrics, poetry, art, classical and historical texts to Gen Z colloquialisms, we explore every single angle when it comes to naming your brand. This is why each name crafted by our team has such a great story behind it. From brand and product names to business names to even street naming within communities, we pride ourselves on our extensive experience. Our thorough process includes pre-screening for identical trademarks, linguistic and domain checks, descriptor and TLD recommendations to ensure the names we present are yours to fall in love with.</p><br><p>Some of our greatest hits include <a href='/our-work/cafu-branding-and-digital' class='link-style'>CAFU</a>, <a href='/our-work/olioli-branding' class='link-style'>OliOli</a>, <a href='/our-work/pan-home-case-study' class='link-style'>Pan Home</a>, <a href='/our-work/numu-early-childhood-centre-brand-case-study' class='link-style'>Numu</a> and Irth.</p>"
+    description:"<p data-para-anim>From diving into the meaning of obscure words in different languages to stories, lyrics, poetry, art, classical and historical texts to Gen Z colloquialisms, we explore every single angle when it comes to naming your brand. This is why each name crafted by our team has such a great story behind it. From brand and product names to business names to even street naming within communities, we pride ourselves on our extensive experience. Our thorough process includes pre-screening for identical trademarks, linguistic and domain checks, descriptor and TLD recommendations to ensure the names we present are yours to fall in love with.</p><br><p data-para-anim>Some of our greatest hits include <a href='/our-work/cafu-branding-and-digital' class='link-style'>CAFU</a>, <a href='/our-work/olioli-branding' class='link-style'>OliOli</a>, <a href='/our-work/pan-home-case-study' class='link-style'>Pan Home</a>, <a href='/our-work/numu-early-childhood-centre-brand-case-study' class='link-style'>Numu</a> and Irth.</p>"
   },
   {
     id: 4,
-    imageSrc: "/assets/images/service/service-4.png",
+    imageSrc: "/assets/images/service/advertising-listing.webp",
     title: "Advertising",
     link:"/what-we-do/communication",
     description: "<p data-para-anim>Driven by data, research, and insights and guided by experience and creativity, our communication strategies and campaigns always intersect cultural movements, consumer needs and your brand's best self. This is why they strike a chord, create impact and deliver results. From bridge banners to reels, activation ideas or radio, we can go all out or rein it in, depending on what feels right for your brand, needs and budgets. Our roster includes global brands such as <a class='link-style' href='/our-work/mitsubishi-motors'>Mitsubishi Motors</a> to local powerhouses like <a class='link-style' href='/our-work/emaar-malls-group'>Emaar Malls Group</a> to many independent, homegrown brands.</p>"
   },
   {
     id: 5,
-    imageSrc: "/assets/images/service/service-5.png",
+    imageSrc: "/assets/images/service/digital-listing.webp",
     title: "Content & Production",
     link:"/what-we-do/digital",
     description: "<p data-para-anim>We help brands connect with audiences, wherever they may be. We work with you to bring your brand to life across all digital applications, from website design and writing, to app design and creation – taking UAE and Dubai based businesses global through all forms of new media.</p><br><p data-para-anim>We develop social media strategies and calendars, creating content that reflects and communicates your brand story through different social channels, including Facebook, Instagram, YouTube, Twitter, LinkedIn and Snapchat. We manage your social media accounts, publish content and taking care of response management.</p><br><p data-para-anim>We develop digital advertising campaigns that communicate your message, driving traffic to your website, store or business.</p>"
@@ -56,6 +56,7 @@ export default function ServiceList() {
                   <div className={`w-[50vw] h-[33vw] rounded-xl overflow-hidden relative mobile:w-full mobile:h-[140vw] tablet:w-full image-animation-left-wrapper tablet:h-[45vw] ${index % 2 === 0 ? '' : 'mobile:mt-[5vw]'}`}>
                     <div>
                       <Image
+                        loading="lazy"
                         src={service.imageSrc}
                         alt={`${service.title} Image`}
                         title={`${service.title} Image`}

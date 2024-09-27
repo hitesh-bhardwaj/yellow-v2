@@ -18,12 +18,8 @@ export default function Pagehero() {
             priority={true}
           />
         </div>
-
       </div>
-        
-
     </section>
-      
     </>
   )
 }

@@ -12,7 +12,7 @@ const services = [
       "Building a brand strategy in Dubai and similarly high-stake markets requires a discovery process that uses a big-thinking, growth-driven approach. The brand audit is an opportunity to not just take an honest look at your brand’s direction, but more importantly to challenge it. Yellow has the framework to allow you to accomplish this delicate process with precision and expertise.",
       "Schedule a brand workshop here.",
     ],
-    image: "/assets/images/service/service-detail/detail-1.png",
+    image: "/assets/images/service/brand-strategy/Brand-Positioning.png",
   },
   {
     title: "Brand architecture",
@@ -21,7 +21,7 @@ const services = [
       "Through brand architecture shown in visual format such as diagrams and illustrations, we create association between business units where you need it and distance where you don’t. A well-defined, thoughtfully designed brand architecture diagram allows you to define the brand accurately, in a way that the target audience can understand and truly resonate with.",
       "Define brand perception and brand reputation with a smartly designed brand architecture.",
     ],
-    image: "/assets/images/service/service-detail/detail-2.png",
+    image: "/assets/images/service/brand-strategy/Brand-Architecture.png",
   },
   {
     title: "Staff engagement",
@@ -30,7 +30,7 @@ const services = [
       "We believe that a brand’s own people are its greatest ambassadors. Combining data analytics, talent insights and company culture exercises, we’ll work directly with you to make sure that your staff are your brand’s most passionate voice.",
       "Engage your brand’s very own champions.",
     ],
-    image: "/assets/images/service/service-detail/detail-3.png",
+    image: "/assets/images/service/brand-strategy/Staff-Engagement.png",
   },
 ];
 
@@ -46,11 +46,11 @@ export default function Detail() {
             <React.Fragment key={index}>
               <div className="tablet:flex mobile:flex mobile:flex-col tablet:gap-[2vw] flex mobile:gap-0 gap-[15vw]">
               <div className="col-start-3 flex justify-end mobile:justify-center tablet:order-1 order-1 mobile:order-none">
-                <div className="w-[22.5vw] h-[22.5vw] rounded-[10px] overflow-hidden relative image-animation-down-wrapper mobile:w-[86vw] mobile:h-[85vw] mobile:mt-[5vw] tablet:w-[30vw] tablet:h-[30vw]">
+                <div className="w-[22.5vw] h-[28vw] rounded-[10px] overflow-hidden relative image-animation-down-wrapper mobile:w-[86vw] mobile:h-[85vw] mobile:mt-[5vw] tablet:w-[30vw] tablet:h-[30vw]">
                   <div>
                     <Image
                       src={service.image}
-                      alt={`detail-${index + 1}`}
+                      alt={`${service.title} Image`}
                       className="absolute h-full w-full object-cover"
                       fill
                     />
@@ -74,7 +74,6 @@ export default function Detail() {
                   <LinkButton
                     btnLink={"/contact-us"}
                     btnText={"Connect With Yellow"}
-                    
                   />
                 </div>
               </div>

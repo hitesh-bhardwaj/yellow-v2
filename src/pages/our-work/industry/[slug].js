@@ -9,11 +9,19 @@ import { getAllPortfolioIndustries, getPortfolioIndustryBySlug } from '@/lib/por
 import { getPortfolioIndustryByIdForPortfolio } from '@/lib/portfolio';
 import WorkCard from '@/components/Portfolio/WorkCard';
 import MetaData from '@/components/Metadata';
+import Consultant from '@/components/Portfolio/Consultant';
+import { titleAnim, paraAnim, lineAnim, fadeUp, fadeIn } from '@/components/gsapAnimations';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Category = ({ portfolioIndustry, portfolio, portfolioIndustries }) => {
   const [activeIndustry, setActiveIndustry] = useState(`${portfolioIndustry.slug}`);
+
+  titleAnim();
+  paraAnim();
+  lineAnim();
+  fadeUp();
+  fadeIn();
 
   useEffect(() => {
     const imageAnimations = document.querySelectorAll(".image-animation-wrapper")
@@ -42,7 +50,7 @@ const Category = ({ portfolioIndustry, portfolio, portfolioIndustries }) => {
         xPercent: 0,
       }, "<")
     })
-}, [portfolio]);
+  }, [portfolio]);
 
   const metadata = {
     title: `${portfolioIndustry.name} Portfolio Archive | Yellow`,
@@ -58,7 +66,7 @@ const Category = ({ portfolioIndustry, portfolio, portfolioIndustries }) => {
           <Section id="hero" >
             <div className="container">
               <div className='pt-[10%] mobile:pt-[30%] tablet:pt-[15%]'>
-                <h1 className='text-[5.7vw] font-display leading-[1.3] mobile:text-[10vw]'>
+                <h1 data-title-anim className='text-[5.7vw] font-display leading-[1.3] mobile:text-[10vw]'>
                   {portfolioIndustry.name} Works
                 </h1>
               </div>
@@ -71,7 +79,6 @@ const Category = ({ portfolioIndustry, portfolio, portfolioIndustries }) => {
               <div className='pb-[5%]'>
                 <PortfolioIndustries portfolioIndustries={portfolioIndustries} activeIndustry={activeIndustry} setActiveIndustry={setActiveIndustry} />
               </div>
-
               <div className="grid grid-cols-2 w-full h-full gap-x-[3vw] gap-y-[3vw] mb-[3vw] mobile:flex mobile:flex-col mobile:gap-[7vw]">
                 {portfolio.length > 0 ? (
                   portfolio.map((work, index) => {
@@ -87,9 +94,13 @@ const Category = ({ portfolioIndustry, portfolio, portfolioIndustries }) => {
                   <p className="col-span-2 text-center text-[1.2vw] text-body mt-[5%]">There are no works for the selected category.</p>
                 )}
               </div>
-
             </div>
           </Section>
+
+          {portfolioIndustry.industryConsultant && portfolioIndustry.industryConsultant.consultantName && (
+            <Consultant consultant={portfolioIndustry.industryConsultant} />
+          )}
+
         </main>
       </Layout>
     </>

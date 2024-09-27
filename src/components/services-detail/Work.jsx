@@ -49,10 +49,8 @@ export default function Work({ works }) {
               </div>
             ))}
           </div>
-
         </div>
       </Section>
-
     </>
   )
 }

@@ -19,10 +19,19 @@ export const QUERY_WORKCATEGORY_BY_SLUG = gql`
   query WorkCategoryBySlug($slug: ID!) {
     portfolioIndustry(id: $slug, idType: SLUG) {
       databaseId
-      description
       id
       name
       slug
+      industryConsultant {
+        consultantBio
+        consultantName
+        consultantImage {
+          node {
+            altText
+            mediaItemUrl
+          }
+        }
+      }
     }
   }
 `;
