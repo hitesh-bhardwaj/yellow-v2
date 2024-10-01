@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const MediaRender = ({ url, className="" }) => {
     const isVideo = (url) => {
       const videoExtensions = ['mp4', 'webm', 'ogg'];
@@ -18,9 +20,11 @@ const MediaRender = ({ url, className="" }) => {
             className="h-full w-full block object-cover"
           />
         ) : (
-          <img
-            loading="lazy"
+          <Image
             src={url}
+            priority={false}
+            width={1720}
+            height={1000}
             alt="Media"
             className="h-full w-full object-cover block"
           />

@@ -17,14 +17,6 @@ const VideoModal = dynamic(() => import('@/components/VideoPlayer'), {
     ssr: false,
 });
 
-function supportsHEVCAlpha() {
-    const navigator = window.navigator;
-    const ua = navigator.userAgent.toLowerCase()
-    const hasMediaCapabilities = !!(navigator.mediaCapabilities && navigator.mediaCapabilities.decodingInfo)
-    const isSafari = ((ua.indexOf('safari') != -1) && (!(ua.indexOf('chrome')!= -1) && (ua.indexOf('version/')!= -1)))
-    return isSafari && hasMediaCapabilities
-}
-
 const Hero = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const lenis = useLenis();
@@ -89,11 +81,6 @@ const Hero = () => {
         })
     });
 
-    useEffect(() => {
-        const player = document.getElementById('hero-video');
-        player.src = supportsHEVCAlpha() ? '/assets/showreel-small-new.mp4' : '/assets/showreel-small-new.mp4';
-      });
-
     return (
         <Section className="py-0 dark" id={"hero"}>
             <div className="w-full h-screen relative">
@@ -114,6 +101,7 @@ const Hero = () => {
                         playsInline
                         loading="lazy"
                         className="w-full h-full aspect-video object-cover brightness-[.65]"
+                        src="/assets/showreel-6sec-optimized.mp4"
                         >
                     </video>
                 </div>
@@ -132,10 +120,10 @@ const Hero = () => {
                 </div>
                 {isModalOpen && (
                     <VideoModal
-                        poster="/assets/images/homepage/poster.webp"
+                        poster="/assets/images/homepage/showreel-poster.webp"
                         isOpen={isModalOpen}
                         onClose={handleClose}
-                        videoSrc="/assets/showreel-small-new.mp4"
+                        videoSrc="/assets/website-showreel-final.mp4"
                     />
                 )}
             </div>

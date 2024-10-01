@@ -1,3 +1,4 @@
+"use client"
 import styles from "./styles.module.css";
 import useSearch, { SEARCH_STATE_LOADED } from '@/hooks/use-search';
 import { postPathBySlug } from "@/lib/posts";
@@ -146,7 +147,7 @@ const SearchButton = ({ isInverted, menuOpen }) => {
     }, []);
 
     return (
-        <div className={`${styles.navSearch} flex items-center relative`} id="search-btn">
+        <div className="flex items-center relative" id="search-btn">
             <div className="search-wrapper">
                 <span className="bg"></span>
                 <div className="search-bar-container container flex items-center justify-between w-full py-[2.7%] tablet:py-[5%] mobile:py-[7%] h-fit relative">
@@ -155,8 +156,8 @@ const SearchButton = ({ isInverted, menuOpen }) => {
                         <div className="w-fit overflow-hidden tablet:hidden mobile:hidden">
                             <Link href="/" className="pointer-events-auto">
                                 <Image
-                                    className={`w-[9vw] opacity-0 logo mobile:w-[25vw] relative z-[202] tablet:w-[15vw]`}
-                                    id="header-logo"
+                                    loading="lazy"
+                                    className="w-[9vw] opacity-0 logo mobile:w-[25vw] relative z-[202] tablet:w-[15vw]"
                                     src="/logo-white.svg"
                                     alt="Yellow Brand Logo"
                                     width={153}

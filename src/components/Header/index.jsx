@@ -109,9 +109,7 @@ const Header = () => {
             </Link>
           </div>
           <div className="flex items-center gap-8 tablet:gap-4 mobile:gap-0 mobile:items-start">
-            <Suspense fallback={null}>
-              <SearchButton isInverted={isInverted} menuOpen={menuOpen} />
-            </Suspense>
+            <SearchButton isInverted={isInverted} menuOpen={menuOpen} />
             <div className="w-[3.5vw] mr-[-0.5%] h-[3.5vw] mobile:w-[15vw] mobile:h-[15vw] relative tablet:w-[8vw] tablet:h-[10vw] mobile:mr-[-5%]">
               <button
                 id="header-hamburger"
