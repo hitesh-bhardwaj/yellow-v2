@@ -82,7 +82,8 @@ export default function servicesdetail({ recentWorks }) {
             </h1>
             <div className="w-[90vw] h-[45vw] rounded-[15px] overflow-hidden relative fadeup mobile:w-[85vw] mobile:h-[140vw] tablet:w-[85vw]">
               <Image
-                src="/assets/images/service/service-detail/service-detail-hero.png"
+                quality={100}
+                src="/assets/images/service/brand-strategy/brand-strategy-listing.png"
                 alt="service-detail-hero"
                 className="object-cover w-full h-full"
                 fill
@@ -258,7 +259,6 @@ export default function servicesdetail({ recentWorks }) {
                 </div>
               </React.Fragment>
             ))}
-           
           </div>
         </section>
 

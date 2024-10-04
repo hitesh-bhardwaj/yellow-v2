@@ -2,6 +2,11 @@
 import styles from "./styles.module.css";
 import useSearch, { SEARCH_STATE_LOADED } from '@/hooks/use-search';
 import { postPathBySlug } from "@/lib/posts";
+import { workPathBySlug } from "@/lib/portfolio";
+
+export function pagePathBySlug(slug) {
+    return `/${slug}`; // Adjust based on your routing setup
+}
 
 import { useLenis } from "lenis/react";
 import { useEffect, useRef, useState, useCallback } from "react";
@@ -17,12 +22,23 @@ const SearchButton = ({ isInverted, menuOpen }) => {
     const formRef = useRef();
     const [searchVisibility, setSearchVisibility] = useState(SEARCH_HIDDEN);
     const { query, results, search, clearSearch, state } = useSearch({
-        maxResults: 8,
+        maxResults: 10,
     });
     const searchIsLoaded = state === SEARCH_STATE_LOADED;
     // When the search visibility changes, we want to add an event listener that allows us to
     // detect when someone clicks outside of the search box, allowing us to close the results
     // when focus is drawn away from search
+
+    // Group results by content type
+    const groupedResults = results.reduce((acc, result) => {
+        const type = result.contentType;
+        if (!acc[type]) {
+            acc[type] = [];
+        }
+        acc[type].push(result);
+        return acc;
+    }, {});
+
     useEffect(() => {
         // If we don't have a query, don't need to bother adding an event listener
         // but run the cleanup in case the previous state instance exists
@@ -40,6 +56,7 @@ const SearchButton = ({ isInverted, menuOpen }) => {
             removeResultsRoving();
             removeDocumentOnClick();
         };
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchVisibility]);
     /**
@@ -169,7 +186,7 @@ const SearchButton = ({ isInverted, menuOpen }) => {
                             <form ref={formRef} action="/search" data-search-is-active={!!query} className="flex items-center justify-center w-full h-full mobile:justify-end">
                                 <input
                                     placeholder="Search for something"
-                                    className="search-input landscape-input z-10 text-[1.4vw] tablet:text-[4vw] mobile:text-[4.5vw]"
+                                    className="search-input placeholder:font-normal landscape-input z-10 text-[1.4vw] tablet:text-[4vw] mobile:text-[4.5vw]"
                                     type="search"
                                     name="q"
                                     value={query || ''}
@@ -177,18 +194,37 @@ const SearchButton = ({ isInverted, menuOpen }) => {
                                     autoComplete="off"
                                     required
                                 />
-                                <div className={styles.navSearchResults}>
+                                <div data-lenis-prevent className={styles.navSearchResults}>
                                     {results.length > 0 && (
-                                        <ul>
-                                            {results.map(({ slug, title }, index) => {
-                                                return (
-                                                    <li key={slug}>
-                                                        <Link tabIndex={index} href={postPathBySlug(slug)}>
-                                                            {title}
-                                                        </Link>
-                                                    </li>
-                                                );
-                                            })}
+                                        <ul className="space-y-[2vw] tablet:space-y-[3vw]">
+                                            {Object.keys(groupedResults).map((contentType) => (
+                                                <li key={contentType} className="flex gap-[2vw] mobile:flex-col mobile:py-[2vw]">
+                                                    <h3 className="text-white uppercase text-right w-[10%] text-[1.1vw] py-[0.5vw] tablet:text-[2vw] tablet:w-[15%] mobile:text-left mobile:w-auto mobile:text-[3vw]">
+                                                        {contentType}
+                                                    </h3>
+                                                    <ul className="border-l border-gray-500 py-[0.5vw] px-[2vw] space-y-[0.5vw] w-[80%] tablet:space-y-[2vw] mobile:border-none mobile:px-0 mobile:w-full mobile:space-y-[2vw]">
+                                                        {groupedResults[contentType].map(({ slug, title }, index) => {
+                                                            // Determine the path based on the content type
+                                                            let path = '#';
+                                                            if (contentType === 'Posts') {
+                                                                path = postPathBySlug(slug);
+                                                            } else if (contentType === 'Pages') {
+                                                                path = pagePathBySlug(slug);
+                                                            } else if (contentType === 'Portfolio') {
+                                                                path = workPathBySlug(slug);
+                                                            }
+
+                                                            return (
+                                                                <li key={slug}>
+                                                                    <Link tabIndex={index} href={path}>
+                                                                        {title}
+                                                                    </Link>
+                                                                </li>
+                                                            );
+                                                        })}
+                                                    </ul>
+                                                </li>
+                                            ))}
                                         </ul>
                                     )}
                                     {results.length === 0 && (

@@ -7,7 +7,7 @@ const Information = ({info, title, tags, industry}) => {
             <div className="container py-[8%] mobile:pt-[15%] tablet:w-full bg-white">
                 <div className="flex items-start justify-between gap-x-[2vw] gap-y-[4vw] mobile:flex mobile:flex-col mobile:gap-y-[7vw]">
                     <div className="w-1/2 mobile:w-full pt-[2vw]">
-                        {/* <h2 data-para-anim className="text-[4.8vw] mb-[3vw] leading-[1.1] para-anim font-display w-[85%] mobile:text-[8vw] mobile:w-full normal-case mobile:order-1 mobile:mb-[7vw]">{info.subheading}</h2> */}
+                        <h2 data-para-anim className="text-[4.8vw] mb-[3vw] leading-[1.1] para-anim font-display w-[85%] mobile:text-[8vw] mobile:w-full normal-case mobile:order-1 mobile:mb-[7vw]">{info.subheading}</h2>
                         <div className="text-[1.2vw] font-medium flex flex-wrap gap-[0.5vw] w-[80%] mobile:order-4 mobile:text-[4vw] mobile:w-full mobile:gap-[2vw] tablet:text-[2vw] tablet:gap-[0.8vw] fadeup tablet:w-full">
                             {tags && tags.map((tag) => (
                                 <p key={tag.slug} className="border-[1px] capitalize border-black rounded-[50px] px-[1.5vw] py-[0.6vw] min-w-[7vw] w-fit border-opacity-70 fadeup mobile:px-[3vw] mobile:py-[1.5vw] ">{tag.name}</p>

@@ -40,7 +40,7 @@ export default function servicesdetail({ recentWorks }) {
         "How your brand speaks is driven by a carefully considered personality and brand archetype. Is the brand authoritative? Perhaps it’s a retail brand and should take a slightly less serious tone with its audiences? Whatever the case, it’s important that your brand speaks with a voice that is congruent with how it looks, appears and acts.",
         
       ],
-      image: "/assets/images/service/brand-identity/Brand-Messaging.webp",
+      image: "/assets/images/service/brand-identity/Brand-Messaging.png",
     },
   
     {
@@ -48,7 +48,7 @@ export default function servicesdetail({ recentWorks }) {
       paragraphs: [
         "We develop a set of guidelines for our brands to provide our clients and their partners with the tools they need to ensure the brand continues to stay consistent. We make sure to include everything anyone will ever need to fully understand, replicate, build on and even improve the overall brand experience. These manuals are much more than a simple set of rules and regulations – they aim to introduce internal and external stakeholders to the brand, give them insight into the brand’s personality and the tone it should be taking with its customers.",
       ],
-      image: "/assets/images/service/brand-identity/Brand-guidelines.webp",
+      image: "/assets/images/service/brand-identity/Brand-Guidelines.png",
     },
   ];
 
@@ -71,7 +71,8 @@ export default function servicesdetail({ recentWorks }) {
             </h1>
             <div className="w-[90vw] h-[45vw] rounded-[15px] overflow-hidden relative fadeup mobile:w-[85vw] mobile:h-[140vw] tablet:w-[85vw]">
               <Image
-                src="/assets/images/service/brand-identity/main-image.webp"
+                quality={100}
+                src="/assets/images/service/brand-identity/brand-identity-listing.webp"
                 alt="brand-identity-hero"
                 className="object-cover w-full h-full"
                 fill
@@ -278,7 +279,7 @@ export default function servicesdetail({ recentWorks }) {
 }
 
 export async function getStaticProps() {
-  const recentWorks = await getRelatedPortfolioForPages("brand-strategy");
+  const recentWorks = await getRelatedPortfolioForPages("brand-identity");
 
   return {
     props: {

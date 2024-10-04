@@ -75,7 +75,8 @@ export default function servicesdetail({ recentWorks }) {
             </h1>
             <div className="w-[90vw] h-[45vw] rounded-[15px] overflow-hidden relative fadeup mobile:w-[85vw] mobile:h-[140vw] tablet:w-[85vw]">
               <Image
-                src="/assets/images/service/communication/main-image.webp"
+                quality={100}
+                src="/assets/images/service/communication/communication-detail-listing.webp"
                 alt="service-detail-hero"
                 className="object-cover w-full h-full"
                 fill
@@ -266,7 +267,7 @@ export default function servicesdetail({ recentWorks }) {
 }
 
 export async function getStaticProps() {
-  const recentWorks = await getRelatedPortfolioForPages("brand-strategy");
+  const recentWorks = await getRelatedPortfolioForPages("communication");
 
   return {
     props: {

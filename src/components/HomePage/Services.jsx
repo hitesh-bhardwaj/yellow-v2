@@ -35,7 +35,7 @@ const serviceData = [
       id: 5,
       title: "Content & Production",
       link:"/what-we-do/digital",
-      description: "<p data-para-anim>We help brands connect with audiences, wherever they may be. We work with you to bring your brand to life across all digital applications, from website design and writing, to app design and creation – taking UAE and Dubai based businesses global through all forms of new media.</p><br><p data-para-anim>We develop social media strategies and calendars, creating content that reflects and communicates your brand story through different social channels, including Facebook, Instagram, YouTube, Twitter, LinkedIn and Snapchat. We manage your social media accounts, publish content and taking care of response management.</p><br><p data-para-anim>We develop digital advertising campaigns that communicate your message, driving traffic to your website, store or business.</p>"
+      description: "<p data-para-anim>We work with you to bring your brand to life across social media channels based on the strategy and objectives. We support brands with ideation and exploring trends that work within the industry and with the audience. Following ideation, we manage the complete production process from sourcing the right videographer/photographer, location, talent, influencer and overseeing the total output. We produce content that converts.</p>"
     },
   ];
 

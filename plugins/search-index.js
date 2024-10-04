@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 const path = require('path');
-const { getAllPosts, generateIndexSearch } = require('./util');
+const { getAllSearchPosts, generateIndexSearch } = require('./util');
 
 const WebpackPluginCompiler = require('./plugin-compiler');
 
@@ -11,7 +11,7 @@ module.exports = function indexSearch(nextConfig = {}) {
     name: 'SearchIndex',
     outputDirectory: outputDirectory || './public',
     outputName: outputName || 'wp-search.json',
-    getData: getAllPosts,
+    getData: getAllSearchPosts,
     generate: generateIndexSearch,
   };
 

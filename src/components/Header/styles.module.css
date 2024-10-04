@@ -13,18 +13,11 @@
 [data-search-is-active="true"] .navSearchResults {
     display: block;
 }
-.navSearchResults ul {
-    list-style: none;
-    padding: 0;
-    margin: -0.5em 0;
-}
 .navSearchResults a {
     width: fit-content;
     display: block;
     color: #fff;
     text-decoration: none;
-    padding: 0.5em;
-    margin: 0 -0.5em;
     font-weight: 400;
     font-size: 1.2vw;
     transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
@@ -37,7 +30,10 @@
 
 @media only screen and (max-width: 1023px) {
     .navSearchResults {
-        padding: 22vw 10vw 10vw;
+        padding: 22vw 5vw 10vw;
+        overflow: scroll;
+        position: fixed;
+        height: auto;
     }
     .navSearchResults a, .navSearchResults p {
         font-size: 2.5vw;
@@ -47,6 +43,7 @@
 @media only screen and (max-width: 640px) {
     .navSearchResults {
         padding: 15vh 8vw 10vw;
+        height: auto;
     }
     .navSearchResults a, .navSearchResults p {
         font-size: 4.5vw;

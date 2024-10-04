@@ -14,7 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Label } from "@/components/ui/label";
-import { Input} from "@/components/ui/input";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -38,8 +38,8 @@ const formSchema = z.object({
   number: z.string().min(10, {
     message: "Contact number must be at least 10 digits.",
   }),
-  social:z.string().min(5,{
-  
+  social: z.string().min(5, {
+
 
   }),
   QuestionA: z.string().min(1, {
@@ -51,26 +51,27 @@ const formSchema = z.object({
   QuestionC: z.string().min(1, {
     message: "This field is required.",
   }),
- 
-});
-const currentRoles = ['Art Director','Senior Designer','Midweight Designer','Junior Designer','Artworker','Illustrator','Copywriter','Marketing Manager','Social Media Manager','Web Designer','Web Developer','Office Manager','Account Manager','Account Executive']
-const mediums = ['Facebook','BBC News',"Its' all fake news",'Twitter','Instagram','Gulf News','The Daily Show','Guardian','Cosmopolitan','The Kardashians tell me all I need to know','104.1','103.8','The New Yorker','Snapchat','Time Out','I bury my head in the sand']
 
-function FormModal({isOpen , handleClose , jobs} ) {
- const JobsData = jobs.jobs
+});
+const currentRoles = ['Art Director', 'Senior Designer', 'Midweight Designer', 'Junior Designer', 'Artworker', 'Illustrator', 'Copywriter', 'Marketing Manager', 'Social Media Manager', 'Web Designer', 'Web Developer', 'Office Manager', 'Account Manager', 'Account Executive']
+const mediums = ['Facebook', 'BBC News', "Its' all fake news", 'Twitter', 'Instagram', 'Gulf News', 'The Daily Show', 'Guardian', 'Cosmopolitan', 'The Kardashians tell me all I need to know', '104.1', '103.8', 'The New Yorker', 'Snapchat', 'Time Out', 'I bury my head in the sand']
+
+function FormModal({ isOpen, handleClose, jobs }) {
+  const JobsData = jobs.jobs;
+  console.log(JobsData);
   const router = useRouter();
-  const [selectedRole , setSelectedRole] = useState('');
+  const [selectedRole, setSelectedRole] = useState('');
   const [currentRole, setCurrentRole] = useState('');
   const [medium, setMedium] = useState('');
   const [firstTextArea, setFirstTextArea] = useState('');
   const [secondTextArea, setSecondTextArea] = useState('');
   const [thirdTextArea, setThirdTextArea] = useState('');
   const [fourthTextArea, setFourthTextArea] = useState('');
- 
+
   const [content, setContent] = React.useState(null);
   const [fileName, setFileName] = useState(null);
   const [fileError, setFileError] = useState(null);
- console.log(JobsData)
+  console.log(JobsData)
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -82,7 +83,7 @@ function FormModal({isOpen , handleClose , jobs} ) {
       QuestionA: "",
       QuestionB: "",
       QuestionC: "",
-      filename:null
+      filename: null
     },
   });
   const fileRef = form.register("file");
@@ -94,7 +95,7 @@ function FormModal({isOpen , handleClose , jobs} ) {
     }
     const base64Content = content.split(',')[1];
     console.log("Form Submitted Successfully:", data);
-    
+
     const formData = {
       name: data.name,
       email: data.email,
@@ -103,21 +104,19 @@ function FormModal({isOpen , handleClose , jobs} ) {
       QuestionA: data.QuestionA,
       QuestionB: data.QuestionB,
       QuestionC: data.QuestionC,
-      role:selectedRole,
-      currentRole:currentRole,
-      medium:medium,
-      firstTextArea:firstTextArea,
-      secondTextArea:secondTextArea,
-      thirdTextArea:thirdTextArea,
-      fourthTextArea:fourthTextArea,
-      filename:fileName,
-      content:base64Content
+      role: selectedRole,
+      currentRole: currentRole,
+      medium: medium,
+      firstTextArea: firstTextArea,
+      secondTextArea: secondTextArea,
+      thirdTextArea: thirdTextArea,
+      fourthTextArea: fourthTextArea,
+      filename: fileName,
+      content: base64Content
 
     };
-    // console.log(data)
-    console.log(formData);
     try {
-      
+
       const res = await fetch("/api/careerform", {
         method: "POST",
         body: JSON.stringify(formData),
@@ -128,26 +127,17 @@ function FormModal({isOpen , handleClose , jobs} ) {
       });
 
       if (!res.ok) {
-        
         throw new Error("Failed to send message");
-        
-
       }
-      else{
+      else {
         form.reset();
         router.push("/thank-you");
-
       }
-      
-
-
-      
-     
     } catch (error) {
       console.log(error);
     }
   };
-   
+
   const handleValueChange = (value) => {
     setSelectedRole(value);
   };
@@ -157,22 +147,22 @@ function FormModal({isOpen , handleClose , jobs} ) {
   const handleMediumChange = (value) => {
     setMedium(value);
   };
-  const handleFirstTextAreaChange = (e)=>{
+  const handleFirstTextAreaChange = (e) => {
     setFirstTextArea(e.target.value)
   }
-  const handleSecondTextAreaChange = (e)=>{
+  const handleSecondTextAreaChange = (e) => {
     setSecondTextArea(e.target.value)
   }
-  const handleThirdTextAreaChange = (e)=>{
+  const handleThirdTextAreaChange = (e) => {
     setThirdTextArea(e.target.value)
   }
-  const handleFourthTextAreaChange = (e)=>{
+  const handleFourthTextAreaChange = (e) => {
     setFourthTextArea(e.target.value)
   }
   const onAddFileAction = (e) => {
     const reader = new FileReader();
     const files = e.target.files;
-  
+
     reader.onload = (r) => {
       const fileContent = r.target.result.toString();
       setContent(fileContent);
@@ -180,29 +170,25 @@ function FormModal({isOpen , handleClose , jobs} ) {
       // console.log("File read successfully:", fileContent);
       console.log("Filename:", files[0].name);
     };
-  
+
     reader.readAsDataURL(files[0]);
   };
-  
-
-
 
   return (
     <>
       <section id="FormModal" className="w-full fixed top-0 right-0">
         <div data-lenis-prevent className={`w-full h-full relative z-[4] pt-[5%] pb-[10%] mobile:py-[20%]`}>
-          {/* <div className="w-full absolute translate-x-[-5vw] bg-[#111111] h-[30%] top-[50%] z-[-2] translate-y-[-50%] mobile:translate-x-[-7vw] tablet:translate-x-[-8vw]"></div> */}
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
               className="w-full h-full border-[1.5px]  rounded-tl-[50px] rounded-bl-[50px] border-black/20 bg-white py-[5vw] px-[5vw] flex flex-wrap gap-x-[7.8vw] gap-y-[3vw] border-opacity-45 drop-shadow-[50px] shadow-2xl  mobile:rounded-[10px] mobile:gap-y-[12vw] mobile:border-[1px] mobile:py-[12vw] mobile:shadow-none tablet:rounded-[15px] tablet:gap-y-[4vw] tablet:py-[7vw] tablet:gap-x-[7vw] career-form fadeup"
             >
-                <div className='w-[3vw] h-[3vw] cursor-pointer relative mobile:w-[10vw] mobile:h-[10vw] tablet:w-[7vw] tablet:h-[7vw]' onClick={handleClose} ><Image src="/assets/icons/cross.svg" alt='cross' fill /></div>
+              <div className='w-[3vw] h-[3vw] cursor-pointer relative mobile:w-[10vw] mobile:h-[10vw] tablet:w-[7vw] tablet:h-[7vw]' onClick={handleClose} ><Image src="/assets/icons/cross.svg" alt='cross' fill /></div>
               <div className="w-full  career-input border-b border-black flex flex-col gap-[0.5vw]">
                 <Label className="text-[1.3vw] mb-[1vw] font-medium mobile:text-[4.5vw] mobile:mb-[5vw] tablet:text-[2.2vw]">
                   Which role are you applying for?
                 </Label>
-                <Select onValueChange={handleValueChange}> 
+                <Select onValueChange={handleValueChange}>
                   <SelectTrigger className="w-full placeholder:text-[2vw]">
                     <SelectValue placeholder="" />
                   </SelectTrigger>
@@ -326,7 +312,7 @@ function FormModal({isOpen , handleClose , jobs} ) {
                 <Label className="text-[1.3vw] mb-[1vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
                   Tell us about your past - just the work part, for now!
                 </Label>
-                <Textarea placeholder="" value={secondTextArea} onChange={handleSecondTextAreaChange} className="mt-[1vw]"/>
+                <Textarea placeholder="" value={secondTextArea} onChange={handleSecondTextAreaChange} className="mt-[1vw]" />
               </div>
               <div className="w-[45%]  career-input border-b border-black flex flex-col gap-[1vw] mobile:w-full ">
                 <Label className="text-[1.3vw] mb-[1vw] font-medium mobile:text-[4.5vw] mobile:mb-[5vw] tablet:text-[2.2vw]">
@@ -339,12 +325,9 @@ function FormModal({isOpen , handleClose , jobs} ) {
                   <SelectContent>
                     <SelectGroup>
                       <SelectLabel>current role</SelectLabel>
-                      {currentRoles.map((roles,index)=>(
-                      <SelectItem value={roles} key={index}>{roles}</SelectItem>
-
-
+                      {currentRoles.map((roles, index) => (
+                        <SelectItem value={roles} key={index}>{roles}</SelectItem>
                       ))}
-                 
                     </SelectGroup>
                   </SelectContent>
                 </Select>
@@ -360,10 +343,9 @@ function FormModal({isOpen , handleClose , jobs} ) {
                   <SelectContent>
                     <SelectGroup>
                       <SelectLabel>Mediums</SelectLabel>
-                      {mediums.map((medium,index)=>(
+                      {mediums.map((medium, index) => (
                         <SelectItem value={medium} key={index}>{medium}</SelectItem>
                       ))}
-                     
                     </SelectGroup>
                   </SelectContent>
                 </Select>
@@ -379,7 +361,7 @@ function FormModal({isOpen , handleClose , jobs} ) {
                 <Label className="text-[1.3vw] mb-[1vw] font-medium mobile:text-[4.5vw] tablet:text-[2.2vw]">
                   What&apos;s the coolest thing you&apos;ve ever done?
                 </Label>
-                <Textarea placeholder="" value={fourthTextArea} onChange={handleFourthTextAreaChange} className="mt-[1vw]"/>
+                <Textarea placeholder="" value={fourthTextArea} onChange={handleFourthTextAreaChange} className="mt-[1vw]" />
               </div>
               <div className="w-[100%] flex flex-col">
                 <Label className="text-[1.3vw] mb-[1vw] font-medium mobile:text-[4.5vw] mobile:mb-[2vw] tablet:text-[2.2vw]">
@@ -424,14 +406,11 @@ function FormModal({isOpen , handleClose , jobs} ) {
                 <p className="text-gray-600 text-[1.2vw] font-medium mobile:text-[3vw] tablet:text-[1.8vw]">
                   Only docx or pdf files are allowed
                 </p>
-
                 <div className="w-full h-full border border-dashed border-black rounded-lg py-[3vw] mobile:h-[70vw] mobile:mt-[10vw] tablet:h-[30vw] tablet:mt-[4vw]">
-                 
-                   <Label
+                  <Label
                     htmlFor="filename"
                     className="w-full h-full bg-white flex flex-col items-center justify-center rounded-lg cursor-pointer"
                   >
-                    
                     <div className="flex flex-col items-center justify-center py-4 px-5">
                       <svg
                         className="w-16 h-16 text-primary mobile:w-20 mobile:h-20 tablet:w-24 tablet:h-24"
@@ -536,25 +515,25 @@ function FormModal({isOpen , handleClose , jobs} ) {
                       </p>
                     </div>
                   </Label>
-                    <FormField
-                  control={form.control}
-                  name="filename"
-                  render={({ field }) => (
-                    <FormItem className="h-full flex justify-center career flex-col">
-                      <FormControl>
-                      <Input
-                      id="filename"
-                     {...fileRef}
-                      type="file"
-                      accept=".pdf,.docx"
-                      className="hidden"
-                      onChange={onAddFileAction}
-                    />
-                      </FormControl>
-                      {fileError && <p className="text-red-600 text-[1.1vw] tablet:text-[2vw] mobile:text-[3vw] mt-[1vw] mobile:mt-[4vw]">{fileError}</p>}
-                    </FormItem>
-                  )}
-                />
+                  <FormField
+                    control={form.control}
+                    name="filename"
+                    render={({ field }) => (
+                      <FormItem className="h-full flex justify-center career flex-col">
+                        <FormControl>
+                          <Input
+                            id="filename"
+                            {...fileRef}
+                            type="file"
+                            accept=".pdf,.docx"
+                            className="hidden"
+                            onChange={onAddFileAction}
+                          />
+                        </FormControl>
+                        {fileError && <p className="text-red-600 text-[1.1vw] tablet:text-[2vw] mobile:text-[3vw] mt-[1vw] mobile:mt-[4vw]">{fileError}</p>}
+                      </FormItem>
+                    )}
+                  />
                 </div>
               </div>
               <div className="w-full flex justify-center items-center fadeup mt-[3vw]">
@@ -563,14 +542,13 @@ function FormModal({isOpen , handleClose , jobs} ) {
                   className="text-[1.4vw] px-[1.4vw] py-[0.3vw] min-w-[10vw] text-body border-black border bg-white hover:text-white rounded-full min-h-[3.5vw] flex gap-[2vw] group tablet:text-[2vw] tablet:min-w-[15vw] tablet:px-[3vw] tablet:py-[1vw] mobile:text-[4.5vw] mobile:px-[4.5vw] mobile:h-[12vw] overflow-hidden relative"
                 >
                   <div className="overflow-hidden flex items-center justify-center gap-[0.7vw] w-full mobile:gap-[2vw] ">
-                  <span className="absolute block w-full h-full scale-y-0 bg-body group-hover:scale-y-100 left-0 top-0 origin-bottom transition-all duration-700 ease-link"/>
+                    <span className="absolute block w-full h-full scale-y-0 bg-body group-hover:scale-y-100 left-0 top-0 origin-bottom transition-all duration-700 ease-link" />
                     <span
                       data-text={"Submit"}
                       className="relative inline-block after:content-[attr(data-text)] after:absolute after:top-[130%] after:left-0 group-hover:translate-y-[-130%] transition-transform duration-1000 ease-link"
                     >
                       Submit
                     </span>
-                    
                     <svg
                       className="relative -rotate-[135deg] w-[1.1vw] h-[1.1vw] tablet:w-[2vw] tablet:h-[2vw] mobile:w-[5vw] mobile:h-[5vw] "
                       width="19"

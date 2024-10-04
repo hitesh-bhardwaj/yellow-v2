@@ -140,6 +140,116 @@ async function getAllPosts(apolloClient, process, verbose = false) {
 }
 
 /**
+ * getAllSearchPosts
+ */
+
+async function getAllSearchPosts(apolloClient, process, verbose = false) {
+  const query = gql`
+    {
+      posts(first: 10000) {
+        edges {
+          node {
+            title
+            slug
+            date
+            categories {
+              edges {
+                node {
+                  name
+                }
+              }
+            }
+            contentType {
+              node {
+                label
+              }
+            }
+          }
+        }
+      }
+      pages(first: 10000, where: {notIn: "homepage"}) {
+        edges {
+          node {
+            title
+            slug
+            date
+            contentType {
+              node {
+                label
+              }
+            }
+          }
+        }
+      }
+      portfolio(first: 10000) {
+        edges {
+          node {
+            title
+            slug
+            date
+            portfolioIndustries {
+              edges {
+                node {
+                  name
+                }
+              }
+            }
+            contentType {
+              node {
+                label
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  let posts = [];
+
+  try {
+    const data = await apolloClient.query({ query });
+
+    // Combine posts, pages, and portfolios
+    const postsNodes = data.data.posts.edges.map(({ node }) => node);
+    const pagesNodes = data.data.pages.edges.map(({ node }) => node);
+    const portfoliosNodes = data.data.portfolio.edges.map(({ node }) => node);
+
+    const allNodes = [...postsNodes, ...pagesNodes, ...portfoliosNodes];
+
+    posts = allNodes.map((post) => {
+      const data = { ...post };
+
+      if (data.portfolioIndustries) {
+        data.portfolioIndustries = data.portfolioIndustries.edges.map(({ node }) => node.name);
+      }
+
+      if (data.excerpt) {
+        // Sanitize the excerpt by removing all HTML tags
+        const regExHtmlTags = /(<([^>]+)>)/g;
+        data.excerpt = data.excerpt.replace(regExHtmlTags, '');
+      }
+
+      return data;
+    });
+
+    verbose &&
+      console.log(
+        `[${process}] Successfully fetched posts, pages, and portfolios from ${apolloClient.link.options.uri}`
+      );
+
+    return {
+      posts,
+    };
+  } catch (e) {
+    throw new Error(
+      `[${process}] Failed to fetch data from ${apolloClient.link.options.uri}: ${e.message}`
+    );
+  }
+}
+
+
+/**
  * getSiteMetadata
  */
 
@@ -296,46 +406,6 @@ async function getTeams(apolloClient, process, verbose = false) {
 }
 
 /**
- * getJobs
- */
-
-async function getJobs(apolloClient, process, verbose = false) {
-  const query = gql`
-    {
-      jobs(first: 10000) {
-        edges {
-          node {
-            slug
-            modified
-          }
-        }
-      }
-    }
-  `;
-
-  let jobs = [];
-
-  try {
-    const data = await apolloClient.query({ query });
-    jobs = [
-      ...data.data.jobs.edges.map(({ node = {} }) => {
-        return {
-          slug: node.slug,
-          modified: node.modified,
-        };
-      }),
-    ];
-
-    verbose && console.log(`[${process}] Successfully fetched team slugs from ${apolloClient.link.options.uri}`);
-    return {
-      jobs,
-    };
-  } catch (e) {
-    throw new Error(`[${process}] Failed to fetch team slugs from ${apolloClient.link.options.uri}: ${e.message}`);
-  }
-}
-
-/**
  * getCategories
  */
 
@@ -411,16 +481,13 @@ async function getPortfolioIndustries(apolloClient, process, verbose = false) {
   }
 }
 
+
 /**
  * generateIndexSearch
  */
 
 function generateIndexSearch({ posts }) {
   const index = posts.map((post = {}) => {
-    // We need to decode the title because we're using the
-    // rendered version which assumes this value will be used
-    // within the DOM
-
     const title = he.decode(post.title);
 
     return {
@@ -428,8 +495,7 @@ function generateIndexSearch({ posts }) {
       slug: post.slug,
       date: post.date,
       excerpt: post.excerpt,
-      contentType: post.contentType.node.label,
-      featuredImage: post.featuredImage.node,
+      contentType: post.contentType.node.label, // Will now include 'Page' and 'Portfolio' types
     };
   });
 
@@ -463,7 +529,6 @@ async function getSitemapData(apolloClient, process, verbose = false) {
   const pages = await getPages(apolloClient, process, verbose);
   const portfolio = await getPortfolio(apolloClient, process, verbose);
   const teams = await getTeams(apolloClient, process, verbose);
-  const jobs = await getJobs(apolloClient, process, verbose);
   const categories = await getCategories(apolloClient, process, verbose);
   const portfolioIndustries = await getPortfolioIndustries(apolloClient, process, verbose);
 
@@ -472,7 +537,6 @@ async function getSitemapData(apolloClient, process, verbose = false) {
     ...pages,
     ...portfolio,
     ...teams,
-    ...jobs,
     ...categories,
     ...portfolioIndustries,
   };
@@ -514,7 +578,7 @@ function generateFeed({ posts = [], metadata = {} }) {
  * generateSitemap
  */
 
-function generateSitemap({ posts = [], portfolio = [], jobs = [], teams = [], categories = [], portfolioIndustries = [] }, nextConfig = {}) {
+function generateSitemap({ posts = [], portfolio = [], teams = [], categories = [], portfolioIndustries = [] }, nextConfig = {}) {
   const { homepage = '' } = config;
   const { trailingSlash } = nextConfig;
 
@@ -567,6 +631,11 @@ function generateSitemap({ posts = [], portfolio = [], jobs = [], teams = [], ca
       </url>
       <url>
         <loc>${homepage}/careers</loc>
+        <priority>0.9</priority>
+        <lastmod>${new Date().toISOString()}</lastmod>
+      </url>
+      <url>
+        <loc>${homepage}/careers/career-detail</loc>
         <priority>0.9</priority>
         <lastmod>${new Date().toISOString()}</lastmod>
       </url>
@@ -629,17 +698,6 @@ function generateSitemap({ posts = [], portfolio = [], jobs = [], teams = [], ca
               const modifiedDate = industry.modified ? new Date(industry.modified).toISOString() : new Date().toISOString();
               return `<url>
                         <loc>${homepage}/our-work/industry/${industry.slug}${trailingSlash ? '/' : ''}</loc>
-                        <priority>0.7</priority>
-                        <lastmod>${modifiedDate}</lastmod>
-                      </url>
-                  `;
-            })
-            .join('')}
-          ${jobs
-            .map((job) => {
-              const modifiedDate = job.modified ? new Date(job.modified).toISOString() : new Date().toISOString();
-              return `<url>
-                        <loc>${homepage}/careers/${job.slug}${trailingSlash ? '/' : ''}</loc>
                         <priority>0.7</priority>
                         <lastmod>${modifiedDate}</lastmod>
                       </url>
@@ -745,7 +803,7 @@ module.exports = {
   getPages,
   getPortfolio,
   getTeams,
-  getJobs,
+  getAllSearchPosts,
   generateIndexSearch,
   getCategories,
   getPortfolioIndustries,

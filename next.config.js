@@ -17,6 +17,40 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/homepage',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/brand-strategy',
+        destination: '/what-we-do/brand-strategy',
+        permanent: true,
+      },
+      {
+        source: '/brand-identity',
+        destination: '/what-we-do/brand-identity',
+        permanent: true,
+      },
+      {
+        source: '/brand-naming',
+        destination: '/what-we-do/naming',
+        permanent: true,
+      },
+      {
+        source: '/communication',
+        destination: '/what-we-do/communication',
+        permanent: true,
+      },
+      {
+        source: '/digital',
+        destination: '/what-we-do/digital',
+        permanent: true,
+      },
+    ]
+  },
   env: {
     POSTS_PRERENDER_COUNT: "10",
     WORDPRESS_GRAPHQL_ENDPOINT: process.env.WORDPRESS_GRAPHQL_ENDPOINT,

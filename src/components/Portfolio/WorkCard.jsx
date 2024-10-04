@@ -14,12 +14,12 @@ const WorkCard = ({ index, work }) => {
             </div>
             <div className={`absolute bottom-[10%] left-[3%] text-white ${index % 3 === 0 ? "bottom-[10%] left-[3%] mobile:left-[7%] mobile:bottom-[5%]" : "bottom-[10%] left-[7%] mobile:bottom-[7%]"}`}>
                 <h3 data-title-anim className="text-[2.5vw] mb-[1.5vw] drop-shadow-lg mobile:text-[7.5vw] tablet:text-[3vw]">{work.title}</h3>
-                <div
+                {/* <div
                     className={`text-[1.1vw] drop-shadow-lg leading-[1.4] mobile:text-[4vw] tablet:text-[2vw] fadein ${index % 3 === 0 ? "w-[70%] mobile:w-[90%]" : "w-[90%] mobile:w-[90%]"} `}
                     dangerouslySetInnerHTML={{
                         __html: work.excerpt
                     }}
-                />
+                /> */}
             </div>
             <div className={`absolute flex gap-[1.5vw] text-white mobile:gap-[2.5vw] ${index % 3 === 0 ? "bottom-[10%] right-[3%] mobile:top-[5%] mobile:left-[7%] mobile:bottom-auto" : "top-[7%] left-[7%]"}`}>
                 {work.portfolioIndustries && work.portfolioIndustries.slice(0, 2).map((category, i) => (
