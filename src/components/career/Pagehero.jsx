@@ -18,7 +18,7 @@ export default function Pagehero() {
                 As a digital branding agency, we help businesses connect with their customers by using a variety of tools and services.As a digital branding agency, we help businesses connect with their customers by using a variety of tools and services.
               </p>
             </div>
-            <div className="w-[30vw] h-[40vw] relative mobile:w-[85vw] mobile:h-[120vw] image-animation-left-wrapper">
+            <div className="w-[30vw] h-[40vw] relative mobile:w-[85vw] mobile:h-[120vw] image-animation-left-wrapper rounded-xl overflow-hidden">
               <div>
                 <Image src="/assets/images/career/work-with-us.webp" quality={100} alt="career-hero" fill priority={true}/>
               </div>

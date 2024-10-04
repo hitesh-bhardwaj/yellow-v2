@@ -20,7 +20,7 @@ export default function Pagehero() {
               others.
             </p>
           </div>
-          <div className="w-[50vw] h-[40vw] relative mobile:w-[85vw] mobile:h-[120vw] image-animation-left-wrapper">
+          <div className="w-[50vw] h-[40vw] relative mobile:w-[85vw] mobile:h-[120vw] image-animation-left-wrapper rounded-xl overflow-hidden">
             <div>
               <Image src="/assets/images/contact/contact-head.webp" alt="contac-head-img" className="object-cover h-full w-full " fill priority={true}/>
             </div>

@@ -6,7 +6,7 @@ export default function Address() {
     <>
       <section className="w-full h-full bg-black ">
         <div className="container flex justify-between gap-[5vw] mobile:flex-col mobile:gap-[10vw] tablet:flex-col py-[8%]  mobile:py-[15%] bg-white">
-          <div className="h-[100vh] w-[50%] mobile:w-full mobile:h-[80vh] mobile:order-2 mobile:rounded-[10px] mobile:overflow-hidden tablet:w-full tablet:h-[40vh]">
+          <div className="h-[100vh] w-[50%] mobile:w-full mobile:h-[80vh] mobile:order-2 mobile:rounded-[10px] mobile:overflow-hidden tablet:w-full tablet:h-[40vh] rounded-xl overflow-hidden">
             <iframe
               loading="async"
               style={{ pointerEvents: "auto" }}

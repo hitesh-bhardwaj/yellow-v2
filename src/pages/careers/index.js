@@ -1,5 +1,5 @@
 import Essentials from '@/components/career/Essentials'
-import Listing from '@/components/career/Listing'
+// import Listing from '@/components/career/Listing'
 import Pagehero from '@/components/career/Pagehero'
 import Layout from '@/components/Layout'
 import { titleAnim, paraAnim, lineAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
@@ -30,8 +30,8 @@ export default function Career({jobs}) {
       <WebpageJsonLd metadata={metadata} />
       <Layout>
           <Pagehero/>
-          <Listing jobs={jobs} />
-          <Essentials/>
+          {/* <Listing jobs={jobs} /> */}
+          <Essentials jobs={jobs}/>
       </Layout>
     </>
   )
