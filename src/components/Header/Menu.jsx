@@ -165,9 +165,9 @@ export default function Menu({ menuOpen }) {
                 </li>
                 <li className="translate-x-[50px] opacity-0">
                   <MenuLink 
-                    className={`text-[1.4vw] font-medium mobile:text-[4.5vw] tablet:text-[2.5vw] ${pathname=="/what-we-do"?"text-gray-300 pointer-events-none":""}`}
+                    className={`font-[600] ${pathname=="/what-we-do"?"text-gray-300 pointer-events-none":""}`}
                     href="/what-we-do"
-                    text="View All"
+                    text="View All Services"
                   />
                 </li>
               </ul>
@@ -217,8 +217,8 @@ export default function Menu({ menuOpen }) {
             <div className="w-fit overflow-hidden">
               <MenuLink 
                 className="link-anim"
-                href="tel:+971545178971"
-                text="+971 54 517 8971"
+                href="tel:+97145820205"
+                text="+971 4582 0205"
               />
             </div>
           </div>

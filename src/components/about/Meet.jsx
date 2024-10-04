@@ -72,7 +72,6 @@ export default function Meet({ teams }) {
               ref={cardContainer}
               className="grid grid-cols-3 gap-[3vw] mt-[8vw] justify-between gap-y-[3vw] mobile:flex mobile:flex-nowrap mobile:w-fit mobile:overflow-scroll mobile:gap-[5vw] mobile:h-fit tablet:gap-y-[3.5vw] tablet:grid-cols-2"
             >
-
               {teamInfo.map((member) => (
                   <div
                     key={member.id}

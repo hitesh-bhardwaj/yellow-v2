@@ -3,7 +3,7 @@ import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { CustomEase } from 'gsap/dist/CustomEase';
-import { SplitInLineWordChar, SplitInLine } from './splitTextUtils';
+import { SplitInLineWord, SplitInLine } from './splitTextUtils';
 
 gsap.registerPlugin(ScrollTrigger, CustomEase, useGSAP);
 
@@ -13,17 +13,17 @@ export function titleAnim() {
   useGSAP(() => {
     const headings = document.querySelectorAll("[data-title-anim]");
     headings.forEach((heading) => {
-      SplitInLineWordChar(heading);
-      let headingWord = heading.querySelectorAll(".word .char");
+      SplitInLineWord(heading);
+      let headingWord = heading.querySelectorAll(".word");
       gsap.from(headingWord, {
         scrollTrigger: {
           trigger: heading,
           start: "top 85%",
         },
         rotate: "5deg",
-        duration: 0.8,
+        duration: 1.5,
         yPercent: 100,
-        stagger: 0.05,
+        stagger: 0.1,
         ease: primaryEase,
       });
     });

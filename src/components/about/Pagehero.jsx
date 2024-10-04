@@ -45,7 +45,7 @@ export default function Pagehero() {
                 </ul>
               </div>
             </div>
-            <div className="h-[41vw] w-[30vw] relative mobile:w-[85vw] mobile:h-[105vw] tablet:w-[80vw] tablet:h-[80vw] image-animation-left-wrapper">
+            <div className="h-[41vw] w-[30vw] relative mobile:w-[85vw] mobile:h-[105vw] tablet:w-[80vw] tablet:h-[80vw] image-animation-left-wrapper rounded-xl">
               <div className="h-full w-full">
                 <Image src="/assets/images/about/partners-image.webp" alt="about-hero" fill className="object-cover h-full w-full tablet:object-top" priority={true} quality={100} />
               </div>

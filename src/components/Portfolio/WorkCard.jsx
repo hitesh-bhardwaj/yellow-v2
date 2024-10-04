@@ -6,7 +6,7 @@ const WorkCard = ({ index, work }) => {
 
     return (
         <Link className="relative w-full h-full block group overflow-hidden rounded-[10px]" href={workPathBySlug(work.slug)}>
-            <div className={`relative overflow-hidden image-animation-wrapper h-[45vw] mobile:h-[85vw] scale-[1.05] group-hover:scale-100 transition-all duration-300 ease-in-out`}>
+            <div className={`relative overflow-hidden image-animation-wrapper h-[45vw] mobile:h-[100vw] scale-[1.05] group-hover:scale-100 transition-all duration-300 ease-in-out`}>
                 <MediaRender
                     className="z-[0] static"
                     url={work.workFields.featuredImagevideo.node.mediaItemUrl}

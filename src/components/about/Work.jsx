@@ -12,6 +12,7 @@ export default function Work({ works }) {
     <>
       <Section className='bg-black' id='work'>
         <div className='container bg-white py-[8%] mobile:py-[15%]'>
+        
           <div className='w-full flex justify-between mb-[5vw] mobile:flex-col mobile:mb-[10vw] items-end'>
             <div className='w-[50%] mobile:w-full'>
               <SectionTitle text={"Our work"} className={"mb-[3vw]"} />
@@ -26,7 +27,7 @@ export default function Work({ works }) {
 
           <div className='w-full flex justify-between gap-[3vw] mobile:flex-col mobile:gap-[7vw] fadeup'>
             {works.map((work) => (
-              <div key={work.node.slug} className='w-[45vw] h-[45vw] relative  rounded-[15px] overflow-hidden mobile:w-[85vw] group hover:drop-shadow-2xl hover:shadow-2xl transition all ease-in duration-300  mobile:h-[90vw] mobile:rounded-none'>
+              <div key={work.node.slug} className='w-[45vw] h-[45vw] relative  rounded-[15px] overflow-hidden mobile:w-full group hover:drop-shadow-2xl hover:shadow-2xl transition all ease-in duration-300  mobile:h-[100vw]'>
                 <Link href={workPathBySlug(work.node.slug)} className='w-full h-full block'>
                   {work.node.workFields.featuredImagevideo && (
                     <MediaRender url={work.node.workFields.featuredImagevideo.node.mediaItemUrl} className='group-hover:scale-105 duration-300' />

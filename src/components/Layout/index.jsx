@@ -1,6 +1,6 @@
 import Footer from "../Footer";
 import Header from "../Header";
-import Transition from "../transition/Transition";
+// import Transition from "../transition/Transition";
 
 const Layout = ({ children, className = "" }) => {
   return (
@@ -8,7 +8,7 @@ const Layout = ({ children, className = "" }) => {
       <Header />
         <main className={className}>{children}</main>
       <Footer />
-      <Transition />
+      {/* <Transition /> */}
     </>
   )
 };

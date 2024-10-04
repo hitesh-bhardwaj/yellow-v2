@@ -6,12 +6,14 @@ export default function TeamDetail({ member, handleClose, teams }) {
 
   if (!member) return null;
 
+  // Find the index of the selected member in the teams array
+  const memberIndex = teams.findIndex((item) => item.id === member.id);
+
   return (
     <>
-        
           <div className='w-full flex justify-between pt-[5%] mobile:pt-[10%]'>
             <div className='w-[3vw] h-[3vw] cursor-pointer relative mobile:w-[10vw] mobile:h-[10vw] tablet:w-[7vw] tablet:h-[7vw]' onClick={handleClose} ><Image src="/assets/icons/cross.svg" alt='cross' fill /></div>
-            <span className='text-[1.5vw] mobile:text-[4.5vw] tablet:text-[2.5vw]'>{member.menuOrder}/{teams.length}</span>
+            <span className='text-[1.5vw] mobile:text-[4.5vw] tablet:text-[2.5vw]'>{memberIndex + 1}/{teams.length}</span>
           </div>
           <div className='w-full h-[1px] py-[0.01vw] bg-black lineDraw mobile:my-[4vw] mobile:py-[0.1vw] tablet:my-[2vw]'></div>
           <div className='w-full flex gap-[2vw] mobile:flex-col mobile:gap-[5vw]'>

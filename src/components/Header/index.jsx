@@ -11,17 +11,20 @@ const Header = () => {
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const [isInverted, setIsInverted] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false); // New state for tracking scroll position
   const observerRef = useRef(null);
   const lenis = useLenis();
   const router = useRouter();
   const prevScrollPos = useRef(0);
   const currentScrollPos = useRef(0);
 
+  // Effect to handle color inversion based on sections in view and scroll position
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
       (entries) => {
         const darkSectionInView = entries.some((entry) => entry.isIntersecting);
-        setIsInverted(darkSectionInView);
+        // Update isInverted only if not scrolled past 500px
+        setIsInverted(darkSectionInView && !isScrolled);
       },
       { threshold: [0.1] }
     );
@@ -32,7 +35,7 @@ const Header = () => {
     return () => {
       observerRef.current.disconnect();
     };
-  }, []);
+  }, [isScrolled]);
 
   const handleMenuButtonClick = () => {
     setButtonDisabled(true);
@@ -55,6 +58,7 @@ const Header = () => {
     }, 700);
   };
 
+  // Effect to restart lenis on route change
   useEffect(() => {
     const handleRouteChange = () => {
       lenis.start();
@@ -67,24 +71,30 @@ const Header = () => {
     };
   }, [router, lenis]);
 
+  // Effect to handle header visibility and background based on scroll
   useEffect(() => {
     const handleScroll = () => {
+      currentScrollPos.current = window.pageYOffset;
+
+      // Update isScrolled based on scroll position
+      if (currentScrollPos.current > 100) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+
       if (!menuOpen) {
-        currentScrollPos.current = window.pageYOffset;
         const visible =
           prevScrollPos.current > currentScrollPos.current ||
           currentScrollPos.current < 50;
         setShowHeader(visible);
         prevScrollPos.current = currentScrollPos.current;
+      } else {
+        setShowHeader(true);
       }
     };
 
-    if (!menuOpen) {
-      window.addEventListener("scroll", handleScroll);
-    } else {
-      setShowHeader(true);
-      window.removeEventListener("scroll", handleScroll);
-    }
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -93,13 +103,17 @@ const Header = () => {
 
   return (
     <>
+      <span className={`block w-full fixed z-[198] h-[8vw] tablet:h-[15vw] mobile:h-[21vw] transition-all ${isScrolled ? "bg-white" : "bg-transparent"} ${showHeader ? "transform-none" : "transform -translate-y-full"}`} />
       <header
-        className={`fixed top-0 w-full z-[200] transition-transform duration-300 ${showHeader ? "transform-none" : "transform -translate-y-full"}`}>
-        <div className="container pt-[2.5%] flex justify-between items-center mobile:py-[7%]">
+        className={`fixed top-0 w-full z-[200] transition-all duration-300 ${showHeader ? "transform-none" : "transform -translate-y-full"}`}
+      >
+        <div className="container pt-[2.2%] tablet:pt-[1%] flex justify-between items-center mobile:py-[4%]">
           <div className="w-fit overflow-hidden">
             <Link href="/" className="pointer-events-auto">
               <Image
-                className={`w-[9vw] mobile:w-[26vw] relative z-[202] tablet:w-[15vw] transition-all duration-500 ease-out ${isInverted ? "invert" : ""}`}
+                className={`w-[9vw] mobile:w-[26vw] relative z-[202] tablet:w-[15vw] transition-all duration-500 ease-out ${
+                  isInverted ? "invert" : ""
+                }`}
                 id="header-logo"
                 src="/logo-black.svg"
                 alt="Yellow Brand Logo"
@@ -108,7 +122,7 @@ const Header = () => {
               />
             </Link>
           </div>
-          <div className="flex items-center gap-8 tablet:gap-4 mobile:gap-0 mobile:items-start">
+          <div className="flex items-center gap-8 relative z-[205] tablet:gap-4 mobile:gap-0 mobile:items-start">
             <SearchButton isInverted={isInverted} menuOpen={menuOpen} />
             <div className="w-[3.5vw] mr-[-0.5%] h-[3.5vw] mobile:w-[15vw] mobile:h-[15vw] relative tablet:w-[8vw] tablet:h-[10vw] mobile:mr-[-5%]">
               <button
@@ -116,11 +130,15 @@ const Header = () => {
                 disabled={buttonDisabled}
                 onClick={handleMenuButtonClick}
                 aria-label="Open Menu"
-                className={`menu-btn cursor-pointer pointer-events-auto h-[3.5vw] transition-all fixed z-[200] w-[3.5vw] mobile:w-[12vw] mobile:h-[12vw] tablet:w-[8vw] tablet:h-[10vw] ${menuOpen ? "open" : ""}`}
+                className={`menu-btn cursor-pointer pointer-events-auto h-[3.5vw] transition-all fixed z-[200] w-[3.5vw] mobile:w-[12vw] mobile:h-[12vw] tablet:w-[8vw] tablet:h-[10vw] ${
+                  menuOpen ? "open" : ""
+                }`}
               >
-              <span className={`bg ${isInverted ? "invert" : ""}`}/>
+                <span className={`bg ${isInverted ? "invert" : ""}`} />
                 <svg
-                  className={`overflow-hidden mr-[-10px] w-full h-full transition-all duration-500 ease-out ${isInverted ? "invert" : ""}`}
+                  className={`overflow-hidden mr-[-10px] w-full h-full transition-all duration-500 ease-out ${
+                    isInverted ? "invert" : ""
+                  }`}
                   viewBox="25 25 50 50"
                   xmlns="http://www.w3.org/2000/svg"
                 >

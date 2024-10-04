@@ -4,11 +4,11 @@ import Pagehero from '@/components/PortfolioDetail/Pagehero';
 import Section from '@/components/Section';
 import Information from '@/components/PortfolioDetail/Information';
 import styles from "@/styles/work.module.css";
-import RelatedWorks from '@/components/PortfolioDetail/RelatedWorks';
 import { titleAnim, lineAnim, fadeUp, paraAnimWordpress, imageAnimationWork } from '@/components/gsapAnimations';
 import { WebpageJsonLd } from '@/lib/json-ld';
 import config from '../../../package.json';
 import { NextSeo } from 'next-seo';
+import RelatedWork from '@/components/RelatedWork';
 
 export default function Work({ project }) {
   const {
@@ -107,7 +107,10 @@ export default function Work({ project }) {
           </div>
         </Section>
         {relatedPortfolio && relatedPortfolio.length > 0 && (
-          <RelatedWorks works={relatedPortfolio} />
+          <RelatedWork 
+            works={relatedPortfolio}
+            heading={"Related Work"}
+          />
         )}
       </Layout>
     </>

@@ -4,7 +4,7 @@ import { ReactLenis } from 'lenis/react';
 import { DefaultSeo } from "next-seo";
 import { getSiteMetadata } from '@/lib/site';
 import { SiteContext, useSiteContext } from '@/hooks/use-site';
-import { AnimatePresence } from "framer-motion";
+// import { AnimatePresence } from "framer-motion";
 import { ImageObjectJsonLd, OrganizationJsonLd, WebsiteJsonLd } from "@/lib/json-ld";
 import { useEffect } from "react";
 import config from "../../package.json";
@@ -12,7 +12,7 @@ import config from "../../package.json";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { SearchProvider } from "@/hooks/use-search";
-export default function App({ Component, pageProps = {}, router, metadata }) {
+export default function App({ Component, pageProps = {}, metadata }) {
 
   const { homepage = "" } = config;
 
@@ -108,9 +108,9 @@ export default function App({ Component, pageProps = {}, router, metadata }) {
       <SiteContext.Provider value={site}>
         <SearchProvider>
           <ReactLenis root>
-            <AnimatePresence mode="wait">
-              <Component {...pageProps} key={router.route} />
-            </AnimatePresence>
+            {/* <AnimatePresence mode="wait"> */}
+              <Component {...pageProps} />
+            {/* </AnimatePresence> */}
           </ReactLenis>
         </SearchProvider>
       </SiteContext.Provider>

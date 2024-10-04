@@ -17,7 +17,7 @@ const Consultant = ({ consultant }) => {
                         </h2>
                     </div>
                     <div className="flex justify-between items-start mobile:flex-col">
-                        <div className="w-[35%] tablet:w-[40%] mobile:w-full mobile:h-[40vh] relative overflow-hidden mobile:rounded-lg image-animation-wrapper">
+                        <div className="w-[35%] tablet:w-[40%] mobile:w-full mobile:h-[100vw] relative overflow-hidden mobile:rounded-lg image-animation-wrapper">
                             <div className="h-full w-full overflow-hidden">
                                 <Image
                                     className="w-full h-full object-cover object-top"

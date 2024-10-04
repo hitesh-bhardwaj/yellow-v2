@@ -93,7 +93,7 @@ const Portfolio = ({ works }) => {
         <div className="flex justify-between items-start mobile:flex-col mobile:gap-[5vw]">
           <SectionTitle text="Our Work"/>
           <div className="w-[45%] mobile:w-full tablet:w-[45%] mt-[1%]">
-            <p data-para-anim className="text-[1.9vw] font-medium leading-[1.4] mobile:text-[4vw]">
+            <p className="text-[1.9vw] fadeup font-medium leading-[1.4] mobile:text-[4vw]">
               We are lucky to have collaborated with several brands and industries over the last 7+ years. Our experience pans various industries from startups to established global brands with a keen focus on collaboration and results.
             </p>
           </div>

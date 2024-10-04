@@ -1,7 +1,6 @@
 import Layout from '@/components/Layout';
 import Join from '@/components/about/Join';
 import Pagehero from '@/components/about/Pagehero';
-import Work from '@/components/about/Work';
 import Values from '@/components/about/Values';
 import React from 'react';
 import { titleAnim, paraAnim, lineAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
@@ -10,6 +9,7 @@ import Meet from '@/components/about/Meet';
 import { WebpageJsonLd } from '@/lib/json-ld';
 import MetaData from '@/components/Metadata';
 import { getAllTeams } from '@/lib/teams';
+import RelatedWork from '@/components/RelatedWork';
 
 export default function About({ relatedWorks, teams }) {
 
@@ -37,7 +37,11 @@ export default function About({ relatedWorks, teams }) {
         <Values />
         <Meet teams={teams} />
         <Join />
-        <Work works={relatedWorks} />
+        <RelatedWork 
+          works={relatedWorks} 
+          heading={"Our Work"}  
+          subheading={"We grow amazing companies through exceptional branding and communications."}
+        />
       </Layout>
     </>
   );

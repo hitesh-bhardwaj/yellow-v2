@@ -3,9 +3,9 @@ import Pagehero from '@/components/services/Pagehero'
 import ServiceList from '@/components/services/ServiceList'
 import { titleAnim, paraAnim, lineAnim, fadeUp } from '@/components/gsapAnimations';
 import { getRelatedPortfolioForPages } from '@/lib/portfolio';
-import RecentWorks from '@/components/services/RecentWorks';
 import MetaData from '@/components/Metadata';
 import { WebpageJsonLd } from '@/lib/json-ld';
+import RelatedWork from '@/components/RelatedWork';
 
 export default function services({ recentWorks }) {
 
@@ -30,7 +30,11 @@ export default function services({ recentWorks }) {
       <Layout>
         <Pagehero />
         <ServiceList />
-        <RecentWorks heading={"Our Works"} works={recentWorks} />
+        <RelatedWork
+          works={recentWorks}
+          heading={"Our Work"}  
+          subheading={"We grow amazing companies through exceptional branding and communications."}
+        />
       </Layout>
     </>
   )

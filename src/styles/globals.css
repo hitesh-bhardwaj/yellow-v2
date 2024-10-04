@@ -456,7 +456,7 @@ input:-webkit-autofill:active{
   margin-bottom: 5vw !important;
   }
   .fullSizeImage, .wp-block-video{
-    height: 40vh;
+    height: 26vh;
     margin-bottom: 5vw !important;
   }
 }

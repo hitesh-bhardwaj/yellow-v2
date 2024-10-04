@@ -79,6 +79,17 @@ const Hero = () => {
             duration: 0.5,
             delay: -0.3,
         })
+        .to(".lineWord .line .line-internal", {
+            yPercent: -100,
+            stagger: 0.07,
+            duration: 1.47,
+            delay: 7,
+            onComplete: function () {
+                gsap.set(text.current, {
+                    display: "none",
+                });
+            } 
+        })
     });
 
     return (
@@ -108,14 +119,14 @@ const Hero = () => {
                 <div className="container h-full flex justify-start items-center relative mobile:flex-col mobile:pt-[35%] mobile:gap-[7vw] tablet:flex-col tablet:pt-[35%] tablet:gap-[7vw]" data-magnetic-target data-magnetic-strength="200">
                     <div className="w-[45%] relative z-[11] mobile:flex mobile:items-center mobile:justify-center mobile:w-[90%] tablet:flex tablet:items-center tablet:justify-center tablet:w-[70%]">
                         <h1 ref={text} className="text-body font-display text-[2.8vw] leading-[1.3] drop-shadow-lg lineWord mobile:text-[11vw] mobile:text-center tablet:text-center tablet:text-[5vw]">
-                            We are Yellow. A strategic branding and communications agency in Dubai.
+                            A creative consultancy that helps you cut through the noise.
                         </h1>
                     </div>
                     <div className="absolute left-1/2 -translate-x-1/2 mobile:static mobile:translate-x-0 tablet:static tablet:translate-x-0">
                         <PrimaryButton onClick={handleOpen} text="Play Reel" className="magnetic-inner"/>
                     </div>
                 </div>
-                <div className="absolute bottom-[5%] cursor-pointer left-1/2 -translate-x-1/2 z-[9] mobile:bottom-[8%]">
+                <div className="absolute bottom-[5%] cursor-pointer left-1/2 -translate-x-1/2 z-[9] mobile:bottom-[25px]">
                     <ScrollButton />
                 </div>
                 {isModalOpen && (

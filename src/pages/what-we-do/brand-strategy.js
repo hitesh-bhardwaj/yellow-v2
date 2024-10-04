@@ -3,12 +3,12 @@ import Layout from '@/components/Layout'
 import { titleAnim, paraAnim, lineAnim, fadeUp, imageAnimationDown } from '@/components/gsapAnimations';
 import MetaData from '@/components/Metadata';
 import { WebpageJsonLd } from '@/lib/json-ld';
-import Work from '@/components/services-detail/Work';
 import { getRelatedPortfolioForPages } from '@/lib/portfolio';
 import Image from 'next/image';
 import Line from '@/components/Line';
 import LinkButton from '@/components/Button/LinkButton';
 import React from 'react';
+import RelatedWork from '@/components/RelatedWork';
 
 export default function servicesdetail({ recentWorks }) {
   titleAnim();
@@ -236,7 +236,11 @@ export default function servicesdetail({ recentWorks }) {
         </section>
 
         {/* Related Works Section */}
-        <Work works={recentWorks} />
+        <RelatedWork
+          works={recentWorks}
+          heading={"Our Work"}  
+          subheading={"We grow amazing companies through exceptional branding and communications."}
+        />
       </Layout>
     </>
   )
