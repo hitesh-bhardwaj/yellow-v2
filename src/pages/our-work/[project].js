@@ -39,7 +39,7 @@ export default function Work({ project }) {
   paraAnimWordpress();
   lineAnim();
   fadeUp();
-  imageAnimationWork();
+  // imageAnimationWork();
 
   const metadata = {
     title: metaTitle,
