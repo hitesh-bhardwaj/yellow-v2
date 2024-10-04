@@ -1,14 +1,20 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import Layout from '@/components/Layout'
-import { titleAnim, paraAnim, lineAnim, fadeUp, imageAnimationDown } from '@/components/gsapAnimations';
-import MetaData from '@/components/Metadata';
-import { WebpageJsonLd } from '@/lib/json-ld';
-import { getRelatedPortfolioForPages } from '@/lib/portfolio';
-import Image from 'next/image';
-import Line from '@/components/Line';
-import LinkButton from '@/components/Button/LinkButton';
-import React from 'react';
-import RelatedWork from '@/components/RelatedWork';
+import Layout from "@/components/Layout";
+import {
+  titleAnim,
+  paraAnim,
+  lineAnim,
+  fadeUp,
+  imageAnimationDown,
+} from "@/components/gsapAnimations";
+import MetaData from "@/components/Metadata";
+import { WebpageJsonLd } from "@/lib/json-ld";
+import { getRelatedPortfolioForPages } from "@/lib/portfolio";
+import Image from "next/image";
+import Line from "@/components/Line";
+import LinkButton from "@/components/Button/LinkButton";
+import React from "react";
+import RelatedWork from "@/components/RelatedWork";
 
 export default function servicesdetail({ recentWorks }) {
   titleAnim();
@@ -18,42 +24,36 @@ export default function servicesdetail({ recentWorks }) {
   imageAnimationDown();
 
   const metadata = {
-    title: "Integrated Marketing & Advertising Services in Dubai - Yellow Agency",
-    description: "Create lasting relationships with your audience through compelling communication. Learn about advertising & marketing services that empower your brand here.",
+    title:
+      "Integrated Marketing & Advertising Services in Dubai - Yellow Agency",
+    description:
+      "Create lasting relationships with your audience through compelling communication. Learn about advertising & marketing services that empower your brand here.",
     img: "home.png",
     date_published: "2017-10-22T06:17",
     date_modified: "2024-08-01T12:32",
-    slug: "what-we-do/communication"
-  }
+    slug: "what-we-do/communication",
+  };
 
   const services = [
     {
-      title: "Brand positioning",
+      title: "Marketing strategy",
       paragraphs: [
-        "Knowing where your brand stands right now is key to making more empowered choices that will serve your goals in the future. Through brand workshop, audit and research, make the smart decisions for your brand through a data-based, results-driven brand workshop, audit and research.",
-        "Building a brand strategy in Dubai and similarly high-stake markets requires a discovery process that uses a big-thinking, growth-driven approach. The brand audit is an opportunity to not just take an honest look at your brand’s direction, but more importantly to challenge it. Yellow has the framework to allow you to accomplish this delicate process with precision and expertise.",
-        "Schedule a brand workshop here.",
+        "Your brand is unique, so we start with a bespoke marketing strategy. Every piece of content we create – from outdoor to radio to social media content – will be crafted to ignite meaningful conversations about your brand and product and inspire your target audience to take action.",
+        "We act like your in-house marketing team in defining your marketing objectives and strategy that acts like a blueprint with a detailed yearly plan that covers everything from advertising ideas to marketing activations to social media calendars and more. We outline budgets and tactical campaigns and proactive initiatives along with recommended media investments. This helps businesses plan their budgets alongside KPIs and impact, and for some clients, we are also responsible for executing and delivering on the strategy and plan.",
+        
       ],
-      image: "/assets/images/service/brand-strategy/Brand-Positioning.png",
+      image: "/assets/images/service/communication/Marketing-strategy.webp",
     },
     {
-      title: "Brand architecture",
+      title: "Marketing execution",
       paragraphs: [
-        "From holding companies spanning multiple sectors to product ranges and sub-brands, defining your brand architecture brings order to your organization. This process allows you to transfer equity between business units, thereby allowing a newer, less established service to capitalize on the recognition of a more well-known one.",
-        "Through brand architecture shown in visual format such as diagrams and illustrations, we create association between business units where you need it and distance where you don’t. A well-defined, thoughtfully designed brand architecture diagram allows you to define the brand accurately, in a way that the target audience can understand and truly resonate with.",
-        "Define brand perception and brand reputation with a smartly designed brand architecture.",
+        "As a marketing partner for global brands like Mitsubishi Motors MEA, and local brands like Emaar Malls Group and several others, Yellow acts like an extension to the team, and ensures all marketing executions, regardless of media channel, delivers the desired results. We measure the effectiveness of each campaign to understand engagement, click through rates, top of mind awareness and increase in revenue.",
+        "We believe communications, to be effective, needs to be specific and purpose-led. Fusing creativity and technology and leveraging our relationships with respected local and global media publishers, we’ll deliver and amplify your story in a way that makes a measurable impact on your business.",
+        
       ],
-      image: "/assets/images/service/brand-strategy/Brand-Architecture.png",
+      image: "/assets/images/service/communication/mitsubishi-detail.webp",
     },
-    {
-      title: "Staff engagement",
-      paragraphs: [
-        "When your team fully understands and embraces your brand, they become your greatest champions. Through structured workshops and seminars, we make sure your staff grasps your brand positioning, what makes it different from your competitors and how it looks, sounds and acts when interacting with the market it serves.",
-        "We believe that a brand’s own people are its greatest ambassadors. Combining data analytics, talent insights and company culture exercises, we’ll work directly with you to make sure that your staff are your brand’s most passionate voice.",
-        "Engage your brand’s very own champions.",
-      ],
-      image: "/assets/images/service/brand-strategy/Staff-Engagement.png",
-    },
+  
   ];
 
   return (
@@ -61,18 +61,23 @@ export default function servicesdetail({ recentWorks }) {
       <MetaData metadata={metadata} />
       <WebpageJsonLd metadata={metadata} />
       <Layout>
-
         {/* Hero Section  */}
-        <section className='w-full h-full  pt-[10%] tablet:pt-[15%] mobile:pt-[30%]  flex items-center bg-white' id='hero'>
-          <div className='container '>
-            <h1 data-para-anim className='text-[5.8vw] w-[80%] uppercase font-display mb-[7vw] leading-[1.3] mobile:text-[12vw] tablet:w-[90%]  mobile:w-full tablet:text-[7vw] mobile:mb-[15vw]'>
+        <section
+          className="w-full h-full  pt-[10%] tablet:pt-[15%] mobile:pt-[30%]  flex items-center bg-white"
+          id="hero"
+        >
+          <div className="container ">
+            <h1
+              data-para-anim
+              className="text-[5.8vw] w-[80%] uppercase font-display mb-[7vw] leading-[1.3] mobile:text-[12vw] tablet:w-[90%]  mobile:w-full tablet:text-[7vw] mobile:mb-[15vw]"
+            >
               Advertising & Marketing Services
             </h1>
             <div className="w-[90vw] h-[45vw] rounded-[15px] overflow-hidden relative fadeup mobile:w-[85vw] mobile:h-[140vw] tablet:w-[85vw]">
               <Image
-                src="/assets/images/service/service-detail/service-detail-hero.png"
+                src="/assets/images/service/communication/main-image.webp"
                 alt="service-detail-hero"
-                className='object-cover w-full h-full'
+                className="object-cover w-full h-full"
                 fill
                 priority={true}
               />
@@ -81,91 +86,109 @@ export default function servicesdetail({ recentWorks }) {
         </section>
 
         {/* Second Section */}
-        <section className="" id='about'>
-          <div className='container pb-[2%] mobile:pt-[5%]'>
+        <section className="" id="about">
+          <div className="container pb-[2%] mobile:pt-[5%]">
             <div className="w-full flex justify-between mt-[5vw] mb-[12vw] mobile:flex-col">
-              <p data-para-anim className="text-[1.75vw] font-medium text-[#333333] w-[45%] leading-[1.4] mobile:text-[5vw]  mobile:w-full mobile:mb-[7vw] tablet:text-[2.5vw] tablet:w-[50%]">
-                Our approach to branding and design transcends simple aesthetics to
-                forge meaningful brands. We believe that a successful brand identity
-                requires alignment with core beliefs and an impactful purpose.
-              </p>
-              <p data-para-anim className="text-[1.3vw] font-medium text-[#111111] w-[40%] mobile:font-normal mobile:text-[4vw]  mobile:w-full tablet:text-[2vw] tablet:w-[40%]">
-                Our approach to branding and design transcends simple aesthetics to
-                forge meaningful brands. We believe that a successful brand identity
-                requires alignment with core beliefs and an impactful purpose.
+              <p
+                data-para-anim
+                className="text-[1.75vw] font-medium text-[#333333] w-[45%] leading-[1.4] mobile:text-[5vw]  mobile:w-full mobile:mb-[7vw] tablet:text-[2.5vw] tablet:w-[50%]"
+              >
+                Driven by data, research, and insights and guided by experience
+                and creativity, our communication strategies and campaigns
+                always intersect cultural movements, consumer needs and your
+                brand&apos;s best self. This is why they strike a chord, create
+                impact and deliver results.
               </p>
             </div>
             <div className="w-full grid grid-cols-3 gap-x-[5vw] gap-y-[2vw] mobile:flex mobile:flex-col mobile:gap-[10vw] tablet:flex tablet:flex-col tablet:gap-[5vw]">
               <div className="col-span-1">
-                <h3 data-para-anim className="text-[2vw] font-display mobile:text-[8vw] tablet:font-medium tablet:text-[4vw] capitalize leading-[1.4]">
-                  Brand workshop, audit and research
+                <h3
+                  data-para-anim
+                  className="text-[2vw] font-display mobile:text-[8vw] tablet:font-medium tablet:text-[4vw] capitalize leading-[1.4]"
+                >
+                  Advertising campaign brief
                 </h3>
                 <div className="h-[1px] w-full bg-black mobile:block hidden lineDraw my-[6vw] tablet:block tablet:my-[3vw]"></div>
-                <p data-para-anim className='hidden mobile:block text-[4.5vw] tablet:block tablet:text-[2.5vw]'>
-                  Relevance. Differentiation. Connections. Conversions. Stay true to
-                  your brand promise and make a meaningful impact with a clear
-                  mission and plan of action when you work with our brand strategy
-                  agency in Dubai
+                <p
+                  data-para-anim
+                  className="hidden mobile:block text-[4.5vw] tablet:block tablet:text-[2.5vw]"
+                >
+                  It all starts with a solid brief. We work with brands to
+                  define their business and marketing objectives, we then dive
+                  into research and analytics (lots of it) to find the sweet
+                  spot where the product insight, market insight and consumer
+                  insight converge towards a communication positioning
                 </p>
               </div>
               <div className="col-span-1 col-start-2 mobile:flex mobile:flex-col ">
-                <h3 data-para-anim className=" text-[2vw] font-display mobile:text-[8vw] tablet:font-medium tablet:text-[4vw] capitalize leading-[1.4]">
-                  Why work with us
+                <h3
+                  data-para-anim
+                  className=" text-[2vw] font-display mobile:text-[8vw] tablet:font-medium tablet:text-[4vw] capitalize leading-[1.4]"
+                >
+                  Results-focused communication
                 </h3>
                 <div className="h-[1px] w-full bg-black mobile:block hidden lineDraw my-[6vw] tablet:block tablet:my-[3vw]"></div>
-                <p data-para-anim className='hidden mobile:block text-[4.5vw] tablet:block tablet:text-[2.5vw]'>
-                  Brand strategy development is inevitably complex and complicated.
-                  The beauty of working with Yellow is you get to move forward with
-                  brand building without disrupting your operations. More than
-                  planning, we’ll help you design a clear, compelling vision and a
-                  plan to make it happen.
+                <p
+                  data-para-anim
+                  className="hidden mobile:block text-[4.5vw] tablet:block tablet:text-[2.5vw]"
+                >
+                  At Yellow, we believe there’s power in simplicity. We focus on
+                  delivering the right message to the right audience through the
+                  right medium (media channel). And how do we know that we have
+                  been successful? We are persistent to find out the impact and
+                  results of our campaign, along with our clients.
                 </p>
               </div>
               <div className="col-span-1 col-start-3 flex mobile:flex-col tablet:flex-col">
-                <h3 data-para-anim className=" text-[2vw] font-display mobile:text-[8vw] tablet:font-medium tablet:text-[4vw] capitalize leading-[1.4]">
-                  What to expect: Brand strategy consulting
+                <h3
+                  data-para-anim
+                  className=" text-[2vw] font-display mobile:text-[8vw] tablet:font-medium tablet:text-[4vw] capitalize leading-[1.4]"
+                >
+                  Why work with us?
                 </h3>
                 <div className="h-[1px] w-full bg-black mobile:block hidden lineDraw my-[6vw] tablet:block tablet:my-[3vw]"></div>
-                <p data-para-anim className='hidden mobile:block text-[4.5vw] tablet:block tablet:text-[2.5vw]'>
-                  Before we begin defining your brand strategy, it is important for
-                  us to understand as much about your business, your sector and your
-                  customers as we can. During our client-agency brand workshop,
-                  we’ll spend time with you and other key stakeholders in the
-                  business learning about your aspirations for the brand and your
-                  market. Together, we’ll begin the process of mapping out the best
-                  path to elevate your brand to its full potential.
+                <p
+                  data-para-anim
+                  className="hidden mobile:block text-[4.5vw] tablet:block tablet:text-[2.5vw]"
+                >
+                  Yellow is indisputably client-centric. We spend time inside
+                  your organisation, understanding your hows and whys, your
+                  challenges and ambitions. We conduct a comprehensive marketing
+                  audit, study the industry and competitor landscape, and create
+                  a strategy that integrates data and expert insights, followed
+                  with an execution that has thumb-stopping power.
                 </p>
               </div>
-              <div className='col-span-3 tablet:hidden'>
+              <div className="col-span-3 tablet:hidden">
                 <Line className="my-[1.8vw] " />
               </div>
 
               <div className="col-span-1 mobile:hidden tablet:hidden">
                 <p data-para-anim className="text-[1.2vw] font-medium ">
-                  Relevance. Differentiation. Connections. Conversions. Stay true to
-                  your brand promise and make a meaningful impact with a clear
-                  mission and plan of action when you work with our brand strategy
-                  agency in Dubai.
+                  It all starts with a solid brief. We work with brands to
+                  define their business and marketing objectives, we then dive
+                  into research and analytics (lots of it) to find the sweet
+                  spot where the product insight, market insight and consumer
+                  insight converge towards a communication positioning
                 </p>
               </div>
               <div className="col-span-1 col-start-2 mobile:hidden tablet:hidden">
                 <p data-para-anim className="text-[1.2vw] font-medium ">
-                  Brand strategy development is inevitably complex and complicated.
-                  The beauty of working with Yellow is you get to move forward with
-                  brand building without disrupting your operations. More than
-                  planning, we’ll help you design a clear, compelling vision and a
-                  plan to make it happen.
+                  At Yellow, we believe there’s power in simplicity. We focus on
+                  delivering the right message to the right audience through the
+                  right medium (media channel). And how do we know that we have
+                  been successful? We are persistent to find out the impact and
+                  results of our campaign, along with our clients.
                 </p>
               </div>
               <div className="col-span-1 col-start-3 mobile:hidden tablet:hidden">
                 <p data-para-anim className="text-[1.2vw] font-medium ">
-                  Before we begin defining your brand strategy, it is important for
-                  us to understand as much about your business, your sector and your
-                  customers as we can. During our client-agency brand workshop,
-                  we’ll spend time with you and other key stakeholders in the
-                  business learning about your aspirations for the brand and your
-                  market. Together, we’ll begin the process of mapping out the best
-                  path to elevate your brand to its full potential.
+                  Yellow is indisputably client-centric. We spend time inside
+                  your organisation, understanding your hows and whys, your
+                  challenges and ambitions. We conduct a comprehensive marketing
+                  audit, study the industry and competitor landscape, and create
+                  a strategy that integrates data and expert insights, followed
+                  with an execution that has thumb-stopping power.
                 </p>
               </div>
               <div className="h-[1px] col-span-3 bg-black my-[4vw] lineDraw hidden mobile:block tablet:block"></div>
@@ -186,7 +209,7 @@ export default function servicesdetail({ recentWorks }) {
                     <div className="w-[22.5vw] h-[28vw] rounded-[10px] overflow-hidden relative image-animation-down-wrapper mobile:w-[86vw] mobile:h-[85vw] mobile:mt-[5vw] tablet:w-[30vw] tablet:h-[30vw]">
                       <div>
                         <Image
-                          loading='lazy'
+                          loading="lazy"
                           src={service.image}
                           alt={`${service.title} Image`}
                           className="absolute h-full w-full object-cover"
@@ -196,7 +219,10 @@ export default function servicesdetail({ recentWorks }) {
                     </div>
                   </div>
                   <div className="col-span-2 flex flex-col w-[60%] gap-[1.5vw] mobile:w-full mobile:my-[10vw] mobile:gap-[5vw]">
-                    <h2 data-para-anim className="text-[2.5vw] font-display mobile:text-[8vw] tablet:text-[4vw]">
+                    <h2
+                      data-para-anim
+                      className="text-[2.5vw] font-display mobile:text-[8vw] tablet:text-[4vw]"
+                    >
                       {service.title}
                     </h2>
                     {service.paragraphs.map((para, paraIndex) => (
@@ -222,33 +248,24 @@ export default function servicesdetail({ recentWorks }) {
                 </div>
               </React.Fragment>
             ))}
-            <div className="flex flex-col gap-[1.5vw] mobile:order-8 mobile:my-[5vw]">
-              <h3 data-para-anim className="text-[2.2vw] font-display mobile:text-[7.5vw] tablet:text-[3vw]">Brand Strategy</h3>
-              <ul className="list-disc pl-[1.5vw] mobile:pl-[4vw]">
-                <li data-para-anim className="text-[1.2vw] font-medium mobile:text-[4vw] mobile:font-normal tablet:text-[2vw]">
-                  Brand Guidelines
-                </li>
-                <li data-para-anim className="text-[1.2vw] font-medium mobile:text-[4vw] mobile:font-normal tablet:text-[2vw]">
-                  Brand Imagery
-                </li>
-              </ul>
-            </div>
+           
           </div>
         </section>
 
         {/* Related Works Section */}
         <RelatedWork
           works={recentWorks}
-          heading={"Our Work"}  
-          subheading={"We grow amazing companies through exceptional branding and communications."}
+          heading={"Our Work"}
+          subheading={
+            " Where in-depth research and great strategy meet incredible execution."
+          }
         />
       </Layout>
     </>
-  )
+  );
 }
 
 export async function getStaticProps() {
-
   const recentWorks = await getRelatedPortfolioForPages("brand-strategy");
 
   return {
@@ -258,7 +275,3 @@ export async function getStaticProps() {
     revalidate: 500,
   };
 }
-
-
-
-

@@ -124,7 +124,7 @@ const Header = () => {
           </div>
           <div className="flex items-center gap-8 relative z-[205] tablet:gap-4 mobile:gap-0 mobile:items-start">
             <SearchButton isInverted={isInverted} menuOpen={menuOpen} />
-            <div className="w-[3.5vw] mr-[-0.5%] h-[3.5vw] mobile:w-[15vw] mobile:h-[15vw] relative tablet:w-[8vw] tablet:h-[10vw] mobile:mr-[-5%]">
+            <div className="w-[3.5vw] mr-[-0.5%] h-[3.5vw] mobile:w-[12vw] mobile:h-[15vw] relative tablet:w-[8vw] tablet:h-[10vw] mobile:mr-[-5%]">
               <button
                 id="header-hamburger"
                 disabled={buttonDisabled}
