@@ -30,13 +30,12 @@ const formSchema = z.object({
   detail: z.string().min(50, {
     message: "Detail must be at least 50 characters.",
   }),
-  other:z.string().min(0, {
-    
+  other: z.string().min(0, {
   }),
 });
 
 const options = ["Google", "Instagram", "LinkedIn", "Word of mouth"];
-const services = ["Brand Identity", "Strategy", "Naming", "Advertising", "Digital"];
+const services = ["Brand Identity", "Strategy", "Naming", "Advertising", "Digital", "Other"]; // Include "Other" as a service option
 
 export default function ContactForm() {
   const [selectedValue, setSelectedValue] = useState("Google");
@@ -52,7 +51,7 @@ export default function ContactForm() {
       email: "",
       number: "",
       detail: "",
-      other:""
+      other: ""
     },
   });
 
@@ -66,6 +65,7 @@ export default function ContactForm() {
       [service]: !prevState[service],
     }));
   };
+
   const onSubmit = async (data) => {
     console.log("Form Submitted Successfully:", data);
     router.push("/thank-you");
@@ -76,9 +76,9 @@ export default function ContactForm() {
       detail: data.detail,
       source: selectedValue,
       services: checkedState,
-      other:data.other
+      other: data.other
     };
-    // console.log(formData)
+
     try {
       const res = await fetch("/api/contactform", {
         method: "POST",
@@ -90,8 +90,6 @@ export default function ContactForm() {
       });
       if (!res.ok) throw new Error("Failed to send message");
       form.reset();
-      // setSubmitting(false);
-      // setSubmissionSuccess(true);
     } catch (error) {
       console.log(error);
     }
@@ -115,8 +113,8 @@ export default function ContactForm() {
 
       <Form {...form} >
         <form onSubmit={form.handleSubmit(onSubmit)} className="form flex flex-wrap gap-y-[1.4vw] mobile:gap-[2.5vw] mobile:gap-y-[7vw] mobile:py-[10vw] tablet:gap-y-[2vw] fadeup">
-          
-          
+
+
           <p className="text-[2.5vw] font-medium leading-[1.4] tablet:text-[3.5vw] mobile:text-[6.4vw]">
             Hello! My name is
           </p>
@@ -180,6 +178,7 @@ export default function ContactForm() {
           <p className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw] tablet:mt-[3vw] tablet:mb-[1vw]">
             I’m looking for Service:
           </p>
+
           {/* Service Selection filed  */}
           <FormField
             control={form.control}
@@ -187,7 +186,7 @@ export default function ContactForm() {
             render={() => (
               <FormItem>
                 <FormControl>
-                  <div className="flex gap-[1vw] px-[2vw] justify-center items-center mobile:flex-col mobile:gap-[3vw] ">
+                  <div className="flex gap-[1vw] px-[2vw] justify-center items-center mobile:flex-col mobile:gap-[3vw] flex-wrap">
                     {services.map((service) => (
                       <Checkbox
                         key={service}
@@ -198,8 +197,7 @@ export default function ContactForm() {
                         data-state={checkedState[service] ? "checked" : "unchecked"}
                       >
                         <span
-                          className={`w-full h-full absolute bottom-0 left-0 block origin-bottom transition-all duration-300 ease-out bg-black z-[-1] ${checkedState[service] ? "scale-y-[1]" : "scale-y-0"
-                            }`}
+                          className={`w-full h-full absolute bottom-0 left-0 block origin-bottom transition-all duration-300 ease-out bg-black z-[-1] ${checkedState[service] ? "scale-y-[1]" : "scale-y-0"}`}
                         />
                         <label className="text-[1.2vw] font-medium leading-none cursor-pointer peer-disabled:opacity-70 tablet:text-[2vw] tablet:ml-0 mobile:text-[4.5vw]">
                           {service}
@@ -217,23 +215,26 @@ export default function ContactForm() {
               </FormItem>
             )}
           />
-          <p className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw] tablet:mt-[3vw] tablet:mb-[1vw]">other</p>
-          <div className="w-[87%] overflow-hidden ml-[1.5vw]">
 
-          <FormField
-            control={form.control}
-            name="other"
-            render={({ field }) => (
-              <FormItem className=" detail h-full flex justify-center flex-col">
-                <FormControl>
-                  <Input placeholder="Type your other services details*" {...field} type="text" />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          </div>
+          {/* Conditionally render the "Other" input field if "Other" is selected */}
+          {checkedState["Other"] && (
+            <div className="w-[87%] overflow-hidden ml-[1.5vw]">
+              <FormField
+                control={form.control}
+                name="other"
+                render={({ field }) => (
+                  <FormItem className="detail h-full flex justify-center flex-col">
+                    <FormControl>
+                      <Input placeholder="Type your other service details*" {...field} type="text" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+          )}
 
+          {/* Email Field */}
           <div>
             <p className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw] tablet:mt-[3vw] tablet:mb-[1vw]">
               Feel free to reach me at

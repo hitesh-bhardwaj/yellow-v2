@@ -6,7 +6,10 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async (req, res) => {
   try {
-    const { name, email, number, detail , services , source , other} = req.body;
+    const { name, email, number, detail, services, source } = req.body;
+
+    // Handle "Other" service selection within the services object
+    let otherService = services["Other"] ? req.body.other : null;
 
     const { data, error } = await resend.emails.send({
       from: "Yellow <onboarding@resend.dev>",
@@ -19,7 +22,7 @@ export default async (req, res) => {
         userDetail: detail,
         userService: services,
         userSource: source,
-        userOthers:other
+        userOther: otherService, // Only include if "Other" was selected
       }),
     });
 

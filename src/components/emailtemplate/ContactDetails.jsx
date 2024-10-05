@@ -1,5 +1,5 @@
 import React from "react";
-import { Body, Column, Container, Head, Hr, Html, Img, Link, Preview, Row, Section, Text} from "@react-email/components";
+import { Body, Column, Container, Head, Hr, Html, Img, Link, Preview, Row, Section, Text } from "@react-email/components";
 
 const ContactDetails = ({ userName, userEmail, userNumber, userDetail, userService, userSource, userOther }) => {
   const selectedServices = Object.keys(userService).filter(service => userService[service]);
@@ -32,7 +32,7 @@ const ContactDetails = ({ userName, userEmail, userNumber, userDetail, userServi
             </Row>
             <Row style={row}>
               <Column style={columnHead}>Email</Column>
-              <Column style={{...columnText, textDecoration: "underline", color: "#067df7"}}>{userEmail}</Column>
+              <Column style={{ ...columnText, textDecoration: "underline", color: "#067df7" }}>{userEmail}</Column>
             </Row>
             <Row style={row}>
               <Column style={columnHead}>Number</Column>
@@ -50,10 +50,15 @@ const ContactDetails = ({ userName, userEmail, userNumber, userDetail, userServi
                 )) : <div>No services selected</div>}
               </Column>
             </Row>
-            <Row style={row}>
-              <Column style={columnHead}>Other service</Column>
-              <Column style={columnText}>{userOther}</Column>
-            </Row>
+
+            {/* Only show the "Other" service details if provided */}
+            {userOther && (
+              <Row style={row}>
+                <Column style={columnHead}>Other Service</Column>
+                <Column style={columnText}>{userOther}</Column>
+              </Row>
+            )}
+
             <Row style={row}>
               <Column style={columnHead}>Detail</Column>
               <Column style={columnText}>{userDetail}</Column>
@@ -62,13 +67,9 @@ const ContactDetails = ({ userName, userEmail, userNumber, userDetail, userServi
           <Text style={footer}>
             This form is submitted from <Link href="/contact-us">Contact Page.</Link>
           </Text>
-          <Text style={paragraph}>
-            - Team Yellow
-          </Text>
+          <Text style={paragraph}>- Team Yellow</Text>
           <Hr style={hr} />
-          <Text style={footer}>
-          Loft offices 2, Office 107, Dubai Media City, Dubai UAE
-          </Text>
+          <Text style={footer}>Loft offices 2, Office 107, Dubai Media City, Dubai UAE</Text>
         </Container>
       </Body>
     </Html>

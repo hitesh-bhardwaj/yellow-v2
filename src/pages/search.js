@@ -10,10 +10,7 @@ import { postPathBySlug } from '@/lib/posts';
 import { workPathBySlug } from '@/lib/portfolio';
 import { formatDate } from '@/lib/datetime';
 import LinkButton from '@/components/Button/LinkButton';
-
-export function pagePathBySlug(slug) {
-    return `/${slug}`; // Adjust based on your routing setup
-}
+import { pagePathBySlug } from '@/lib/pages';
 
 export default function Search() {
     const { query, results, search } = useSearch();

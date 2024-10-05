@@ -110,54 +110,75 @@ export function imageAnim() {
     });
   });
 }
+
 export function imageAnimationWork() {
   useGSAP(() => {
     const imageAnimations = document.querySelectorAll(".img-work-anim");
-
-    imageAnimations.forEach((imgWrapper) => {
-      // Check if inner-div already exists
-      if (!imgWrapper.querySelector(".inner-div")) {
-        // Create a new div element inside the .img-work-anim element
-        const newDiv = document.createElement("div");
-        newDiv.className = "inner-div"; // add a class to the new div
-
-        // Wrap all existing content of imgWrapper into innerDiv
-        while (imgWrapper.firstChild) {
-          newDiv.appendChild(imgWrapper.firstChild);
-        }
-        // Append the newly wrapped content back to imgWrapper
-        imgWrapper.appendChild(newDiv);
-      }
-
-      const innerDiv = imgWrapper.querySelector(".inner-div");
-      const img = innerDiv.querySelector("img, video");
-
-      const tl = gsap.timeline({
+    imageAnimations.forEach((imageAnimation) => {
+      gsap.from(imageAnimation, {
         scrollTrigger: {
-          trigger: imgWrapper,
-          start: "top 80%",
+          trigger: imageAnimation,
+          start: "top 90%",
+          end: "bottom 60%",
         },
-        defaults: {
-          ease: 'power3.inOut',
-        },
+        opacity: 0,
+        delay: 0.3,
+        y: 50,
+        ease: "power3.Out",
+        duration: 0.7,
+        stagger: 0.5
       });
-
-      tl.fromTo(innerDiv, {
-        xPercent: -100,
-      }, {
-        duration: 1,
-        xPercent: 0,
-      });
-
-      tl.fromTo(img, {
-        xPercent: 100,
-      }, {
-        duration: 1,
-        xPercent: 0,
-      }, "<");
     });
   });
 }
+
+// export function imageAnimationWork() {
+//   useGSAP(() => {
+//     const imageAnimations = document.querySelectorAll(".img-work-anim");
+//     imageAnimations.forEach((imgWrapper) => {
+//       // Check if inner-div already exists
+//       if (!imgWrapper.querySelector(".inner-div")) {
+//         // Create a new div element inside the .img-work-anim element
+//         const newDiv = document.createElement("div");
+//         newDiv.className = "inner-div"; // add a class to the new div
+
+//         // Wrap all existing content of imgWrapper into innerDiv
+//         while (imgWrapper.firstChild) {
+//           newDiv.appendChild(imgWrapper.firstChild);
+//         }
+//         // Append the newly wrapped content back to imgWrapper
+//         imgWrapper.appendChild(newDiv);
+//       }
+
+//       const innerDiv = imgWrapper.querySelector(".inner-div");
+//       const img = innerDiv.querySelector("img, video");
+
+//       const tl = gsap.timeline({
+//         scrollTrigger: {
+//           trigger: imgWrapper,
+//           start: "top 80%",
+//         },
+//         defaults: {
+//           ease: 'power3.inOut',
+//         },
+//       });
+
+//       tl.fromTo(innerDiv, {
+//         xPercent: -100,
+//       }, {
+//         duration: 1,
+//         xPercent: 0,
+//       });
+
+//       tl.fromTo(img, {
+//         xPercent: 100,
+//       }, {
+//         duration: 1,
+//         xPercent: 0,
+//       }, "<");
+//     });
+//   });
+// }
 
 
 export function imageAnimationLeft() {
@@ -279,7 +300,6 @@ export function fadeUp() {
       });
     });
   });
-
 }
 
 

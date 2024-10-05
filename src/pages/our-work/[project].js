@@ -39,7 +39,7 @@ export default function Work({ project }) {
   paraAnimWordpress();
   lineAnim();
   fadeUp();
-  // imageAnimationWork();
+  imageAnimationWork();
 
   const metadata = {
     title: metaTitle,
@@ -60,14 +60,14 @@ export default function Work({ project }) {
           description: metaDescription,
           images: metaImage
             ? [
-                {
-                  url: metaImage.sourceUrl,
-                  width: metaImage.mediaDetails?.width,
-                  height: metaImage.mediaDetails?.height,
-                  alt: metaImage.mediaDetails?.alt || title,
-                  type: "image/webp",
-                },
-              ]
+              {
+                url: metaImage.sourceUrl,
+                width: metaImage.mediaDetails?.width,
+                height: metaImage.mediaDetails?.height,
+                alt: metaImage.mediaDetails?.alt || title,
+                type: "image/webp",
+              },
+            ]
             : [],
           siteName: "Yellow",
         }}
@@ -108,7 +108,7 @@ export default function Work({ project }) {
           </div>
         </Section>
         {relatedPortfolio && relatedPortfolio.length > 0 && (
-          <RelatedWork 
+          <RelatedWork
             works={relatedPortfolio}
             heading={"Related Work"}
           />

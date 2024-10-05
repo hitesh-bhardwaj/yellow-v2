@@ -3,15 +3,11 @@ import styles from "./styles.module.css";
 import useSearch, { SEARCH_STATE_LOADED } from '@/hooks/use-search';
 import { postPathBySlug } from "@/lib/posts";
 import { workPathBySlug } from "@/lib/portfolio";
-
-export function pagePathBySlug(slug) {
-    return `/${slug}`; // Adjust based on your routing setup
-}
-
 import { useLenis } from "lenis/react";
 import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { pagePathBySlug } from "@/lib/pages";
 
 const SEARCH_VISIBLE = 'visible';
 const SEARCH_HIDDEN = 'hidden';

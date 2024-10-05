@@ -204,17 +204,17 @@ export default function Menu({ menuOpen }) {
           <div className="w-full h-[1px] bg-white py-[0.1vw] my-[6vw] hidden mobile:block"></div>
           <div className="text-[1.1vw] font-medium text-white flex flex-col space-y-[0.5vw] mobile:text-[5vw] mobile:mb-[7vw] tablet:text-[3vw]">
             <div className="w-fit overflow-hidden">
-              <MenuLink 
+              <MenuLink
                 className="link-anim"
                 href="mailto:hello@welcometoyellow.com"
                 text="hello@welcometoyellow.com"
               />
             </div>
             <div className="w-fit overflow-hidden">
-              <MenuLink 
+              <MenuLink
                 className="link-anim"
                 href="tel:+97145820205"
-                text="+971 4582 0205"
+                text="+971 4 582 0205"
               />
             </div>
           </div>
