@@ -1,7 +1,7 @@
 import React from "react";
 import { Body, Column, Container, Head, Hr, Html, Img, Link, Preview, Row, Section, Text} from "@react-email/components";
 
-const ContactDetails = ({ userName, userEmail, userNumber, userDetail, userService, userSource }) => {
+const ContactDetails = ({ userName, userEmail, userNumber, userDetail, userService, userSource, userOther }) => {
   const selectedServices = Object.keys(userService).filter(service => userService[service]);
 
   return (
@@ -39,10 +39,6 @@ const ContactDetails = ({ userName, userEmail, userNumber, userDetail, userServi
               <Column style={columnText}>{userNumber}</Column>
             </Row>
             <Row style={row}>
-              <Column style={columnHead}>Detail</Column>
-              <Column style={columnText}>{userDetail}</Column>
-            </Row>
-            <Row style={row}>
               <Column style={columnHead}>Source</Column>
               <Column style={columnText}>{userSource}</Column>
             </Row>
@@ -53,6 +49,14 @@ const ContactDetails = ({ userName, userEmail, userNumber, userDetail, userServi
                   <div key={index}>{service}</div>
                 )) : <div>No services selected</div>}
               </Column>
+            </Row>
+            <Row style={row}>
+              <Column style={columnHead}>Other service</Column>
+              <Column style={columnText}>{userOther}</Column>
+            </Row>
+            <Row style={row}>
+              <Column style={columnHead}>Detail</Column>
+              <Column style={columnText}>{userDetail}</Column>
             </Row>
           </Section>
           <Text style={footer}>

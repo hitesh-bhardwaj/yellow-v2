@@ -54,10 +54,10 @@ export default function Address() {
                   </p>
                   <Link
                     className="w-fit text-[1.2vw] font-medium mobile:text-[4.5vw] mobile:font-normal tablet:text-[2.5vw]"
-                    href="mailto:career@welcometoyellow.com"
+                    href="mailto:hello@welcometoyellow.com"
                   >
                     <span data-para-anim className="link-line">
-                      career@welcometoyellow.com
+                    hello@welcometoyellow.com
                     </span>
                   </Link>
                 </span>

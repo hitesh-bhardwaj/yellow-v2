@@ -1,7 +1,6 @@
 import React from "react";
 import BlackButton from "../Button/BlackButton";
 import Image from "next/image";
-import { imageAnimationLeft } from "../gsapAnimations";
 
 const services = [
   {
@@ -43,7 +42,7 @@ const services = [
 
 export default function ServiceList() {
 
-  imageAnimationLeft();
+  // imageAnimationLeft();
 
   return (
     <>
@@ -61,7 +60,7 @@ export default function ServiceList() {
                         src={service.imageSrc}
                         alt={`${service.title} Image`}
                         title={`${service.title} Image`}
-                        className="object-cover w-full h-full"
+                        className="object-cover w-full h-full fadeup"
                         fill
                       />
                     </div>

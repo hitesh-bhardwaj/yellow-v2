@@ -30,6 +30,9 @@ const formSchema = z.object({
   detail: z.string().min(50, {
     message: "Detail must be at least 50 characters.",
   }),
+  other:z.string().min(0, {
+    
+  }),
 });
 
 const options = ["Google", "Instagram", "LinkedIn", "Word of mouth"];
@@ -49,6 +52,7 @@ export default function ContactForm() {
       email: "",
       number: "",
       detail: "",
+      other:""
     },
   });
 
@@ -72,6 +76,7 @@ export default function ContactForm() {
       detail: data.detail,
       source: selectedValue,
       services: checkedState,
+      other:data.other
     };
     // console.log(formData)
     try {
@@ -212,6 +217,22 @@ export default function ContactForm() {
               </FormItem>
             )}
           />
+          <p className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw] tablet:mt-[3vw] tablet:mb-[1vw]">other</p>
+          <div className="w-[87%] overflow-hidden ml-[1.5vw]">
+
+          <FormField
+            control={form.control}
+            name="other"
+            render={({ field }) => (
+              <FormItem className=" detail h-full flex justify-center flex-col">
+                <FormControl>
+                  <Input placeholder="Type your other services details*" {...field} type="text" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          </div>
 
           <div>
             <p className="text-[2.5vw] font-medium tablet:text-[3.5vw] mobile:text-[6.4vw] tablet:mt-[3vw] tablet:mb-[1vw]">

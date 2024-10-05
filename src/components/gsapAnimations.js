@@ -222,24 +222,24 @@ export function imageAnimationDown() {
   })
 }
 
-export function imgAnim() {
-  useGSAP(() => {
-    const images = document.querySelectorAll(".imganim");
-    images.forEach((img) => {
-      gsap.to(img, {
-        scrollTrigger: {
-          trigger: img,
-          start: "top 90%",
-        },
-        '--beforeHeight': '0%',
-        duration: 1.5,
-        stagger: 0.05,
-        ease: "power3.inOut",
-      });
-    });
-  });
+// export function imgAnim() {
+//   useGSAP(() => {
+//     const images = document.querySelectorAll(".imganim");
+//     images.forEach((img) => {
+//       gsap.to(img, {
+//         scrollTrigger: {
+//           trigger: img,
+//           start: "top 90%",
+//         },
+//         '--beforeHeight': '0%',
+//         duration: 1.5,
+//         stagger: 0.05,
+//         ease: "power3.inOut",
+//       });
+//     });
+//   });
 
-}
+// }
 export function fadeIn() {
   useGSAP(() => {
     const content = document.querySelectorAll(".fadein");

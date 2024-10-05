@@ -8,12 +8,12 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Section from "../Section";
 import { useLenis } from "lenis/react";
 import TeamDetail from "./TeamDetail";
-import { imageAnimationWork } from "../gsapAnimations";
+
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Meet({ teams }) {
 
-  imageAnimationWork();
+  // imageAnimationWork();
 
   const [detailOpen, setDetailOpen] = useState(false);
   const [selectedMember, setSelectedMember] = useState(null);
@@ -75,7 +75,7 @@ export default function Meet({ teams }) {
               {teamInfo.map((member) => (
                   <div
                     key={member.id}
-                    className="w-fit overflow-hidden"
+                    className="w-fit overflow-hidden fadeup"
                     onClick={() => handleDetail(member)}
                   >
                     <div

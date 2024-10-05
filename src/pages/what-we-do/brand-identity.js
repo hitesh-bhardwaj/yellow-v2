@@ -69,7 +69,7 @@ export default function servicesdetail({ recentWorks }) {
             >
               Corporate Brand Identity
             </h1>
-            <div className="w-[90vw] h-[45vw] rounded-[15px] overflow-hidden relative fadeup mobile:w-[85vw] mobile:h-[140vw] tablet:w-[85vw]">
+            <div className="w-[90vw] h-[45vw] rounded-[15px] overflow-hidden relative fadeup mobile:w-[85vw] mobile:h-[100vw] tablet:w-[85vw]">
               <Image
                 quality={100}
                 src="/assets/images/service/brand-identity/brand-identity-listing.webp"

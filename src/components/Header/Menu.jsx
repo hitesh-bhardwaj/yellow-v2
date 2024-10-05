@@ -117,7 +117,7 @@ export default function Menu({ menuOpen }) {
                 <button 
                   onClick={()=> {servicehandler()}}
                   className="relative link-anim flex tablet:gap-[1vw]">
-                  <span className="links link-line">Expertise</span>
+                  <Link href={"/what-we-do"} className="links link-line">Expertise</Link>
                   <div className="rounded-full border-white border text-white text-[25%] w-[2vw] h-[2vw] flex items-center justify-center mt-2 mobile:w-[7vw] mobile:h-[7vw] mobile:mt-0 tablet:w-[4vw] tablet:h-[4vw] tablet:text-[30%]">5</div>
                  </button>
               </div>
@@ -163,13 +163,13 @@ export default function Menu({ menuOpen }) {
                     className={`${pathname=="/what-we-do/digital"?"text-gray-300 pointer-events-none":""}`}
                   />
                 </li>
-                <li className="translate-x-[50px] opacity-0">
+                {/* <li className="translate-x-[50px] opacity-0">
                   <MenuLink 
                     className={`font-[600] ${pathname=="/what-we-do"?"text-gray-300 pointer-events-none":""}`}
                     href="/what-we-do"
                     text="View All Services"
                   />
-                </li>
+                </li> */}
               </ul>
             </li>
             <li className="overflow-hidden">

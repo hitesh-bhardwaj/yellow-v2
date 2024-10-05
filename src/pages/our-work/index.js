@@ -59,34 +59,34 @@ export default function Works({ initialPortfolio, initialPagination, portfolioIn
     }
   };
 
-  useEffect(() => {
-      const imageAnimations = document.querySelectorAll(".image-animation-wrapper")
-      imageAnimations.forEach((img) => {
-        const imgHolder = img.querySelector("div");
-        const imgImage = img.querySelector("img, video");
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: img,
-            start: "top 80%",
-          },
-          defaults: {
-            ease: 'power3.inOut',
-          }
-        })
-        tl.fromTo(imgHolder, {
-          xPercent: -100,
-        }, {
-          duration: 1.5,
-          xPercent: 0,
-        })
-        tl.fromTo(imgImage, {
-          xPercent: 100,
-        }, {
-          duration: 1.5,
-          xPercent: 0,
-        }, "<")
-      })
-  }, [portfolio]);
+  // useEffect(() => {
+  //     const imageAnimations = document.querySelectorAll(".image-animation-wrapper")
+  //     imageAnimations.forEach((img) => {
+  //       const imgHolder = img.querySelector("div");
+  //       const imgImage = img.querySelector("img, video");
+  //       const tl = gsap.timeline({
+  //         scrollTrigger: {
+  //           trigger: img,
+  //           start: "top 80%",
+  //         },
+  //         defaults: {
+  //           ease: 'power3.inOut',
+  //         }
+  //       })
+  //       tl.fromTo(imgHolder, {
+  //         xPercent: -100,
+  //       }, {
+  //         duration: 1.5,
+  //         xPercent: 0,
+  //       })
+  //       tl.fromTo(imgImage, {
+  //         xPercent: 100,
+  //       }, {
+  //         duration: 1.5,
+  //         xPercent: 0,
+  //       }, "<")
+  //     })
+  // }, [portfolio]);
 
   return (
     <>
@@ -106,7 +106,7 @@ export default function Works({ initialPortfolio, initialPagination, portfolioIn
                 const isFullWidth = index % 3 === 0;
                 const cardClass = isFullWidth ? 'col-span-2' : 'col-span-1';
                 return (
-                  <div key={work.slug} className={`work-card h-full ${cardClass}`}>
+                  <div key={work.slug} className={`work-card h-full fadeup ${cardClass}`}>
                     <WorkCard key={work.slug} work={work} index={index} />
                   </div>
                 );

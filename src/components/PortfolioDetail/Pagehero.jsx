@@ -13,9 +13,9 @@ export default function Pagehero({src, title, date, tags}) {
           <h1 data-title-anim className='text-[5.4vw] text-white uppercase font-display mobile:text-[12vw] mobile:ps-0 mobile:mb-[10vw] tablet:ps-[2%] tablet:text-[7vw] '>
             {title}
           </h1>
-          <div className="absolute bottom-[7%] right-[7%] flex gap-[1.5vw] text-white mobile:static mobile:gap-[3vw]">
+          <div className="absolute bottom-[7%] right-[7%] flex flex-wrap gap-[1.5vw] text-white mobile:static mobile:gap-[3vw]">
             {tags.slice(0, 2).map((tag) => (
-              <p key={tag.slug} className="w-fit border-[1px] capitalize border-white rounded-[60px] backdrop-blur-md px-[1.7vw] py-[0.5vw] text-[1.2vw] mobile:text-[4vw] mobile:px-[3vw] mobile:py-[1.5vw] bg-white/15 tablet:text-[2vw]">{tag.name}</p>
+              <p key={tag.slug} className="w-fit border-[1px] capitalize border-white rounded-[60px] backdrop-blur-md px-[1.7vw] py-[0.5vw] text-[1.2vw] mobile:text-[4vw] mobile:px-[5vw] mobile:py-[1.7vw] bg-white/15 tablet:text-[2vw]">{tag.name}</p>
             ))}
             <p className="w-fit border-[1px] border-white rounded-[60px] backdrop-blur-md px-[2.5vw] py-[0.5vw] text-[1.2vw] mobile:text-[4vw] mobile:hidden tablet:text-[2vw] bg-white/15">
               {formatDateYear(date)}
