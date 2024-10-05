@@ -11,7 +11,7 @@ const essentialsData = [
     id: 2,
     title: "Full of curiosity, wonder and passion",
     content:
-      '"Every child is an artist. The problem is how to remain an artist once we grow up" Picasso <br/> We look for those who have managed to hold on to their inner child and the artist within. The ones who want to keep learning, not just about their craft, but about the world around them, about people, trends, fashion, cuisines. They&apos;re discoverers, curators and storytellers. And they bring all of this into the work they do, every day, sprinkling each project with their own magic.',
+      '<span class="italic mb-[1vw]">"Every child is an artist. The problem is how to remain an artist once we grow up" - <span class="not-italic">Picasso</span></span> <br> We look for those who have managed to hold on to their inner child and the artist within. The ones who want to keep learning, not just about their craft, but about the world around them, about people, trends, fashion, cuisines. They&apos;re discoverers, curators and storytellers. And they bring all of this into the work they do, every day, sprinkling each project with their own magic.',
   },
   {
     id: 3,

@@ -9,7 +9,7 @@ import AccordionLine from "../AcoordionLine";
 const serviceData = [
     {
       id: 1,
-      title: "Corporate Branding Strategy",
+      title: "Brand Strategy",
       link:"/what-we-do/brand-strategy",
       description:"<p data-para-anim>A brand is a decision-making shortcut for people. What are the first names that pop in your head when you think of the freshest juices on supermarket shelves? Barakat? A children&apos;s play space? OliOli. Fuel delivery…Cafu. That&apos;s Yellow - creating inimitable brands that are often the first one to pop in your head when you think of the category.</p><br><p data-para-anim>This isn&apos;t done through aesthetics and marketing, although both are undeniably important. It&apos;s always about understanding the problem we are trying to solve - not for the business owners but the consumers. Our rigorous process involves research, workshops, benchmarking, understand global trends, cultural movements across generations followed by creating a strong foundation that drives everything you do, from the creation of the elements that make up your brand to the stories you tell to your internal culture and customer experience. </p>",
     },
@@ -27,13 +27,13 @@ const serviceData = [
     },
     {
       id: 4,
-      title: "Advertising",
+      title: "Communication",
       link:"/what-we-do/communication",
       description: "<p data-para-anim>Driven by data, research, and insights and guided by experience and creativity, our communication strategies and campaigns always intersect cultural movements, consumer needs and your brand's best self. This is why they strike a chord, create impact and deliver results. From bridge banners to reels, activation ideas or radio, we can go all out or rein it in, depending on what feels right for your brand, needs and budgets. Our roster includes global brands such as <a class='link-style' href='/our-work/mitsubishi-motors'>Mitsubishi Motors</a> to local powerhouses like <a class='link-style' href='/our-work/emaar-malls-group'>Emaar Malls Group</a> to many independent, homegrown brands.</p>"
     },
     {
       id: 5,
-      title: "Content & Production",
+      title: "Digital",
       link:"/what-we-do/digital",
       description: "<p data-para-anim>We work with you to bring your brand to life across social media channels based on the strategy and objectives. We support brands with ideation and exploring trends that work within the industry and with the audience. Following ideation, we manage the complete production process from sourcing the right videographer/photographer, location, talent, influencer and overseeing the total output. We produce content that converts.</p>"
     },
