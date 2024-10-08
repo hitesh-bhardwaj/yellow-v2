@@ -8,7 +8,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { SearchProvider } from "@/hooks/use-search";
 
-export default function App({ Component, pageProps = {},}) {
+export default function App({ Component, pageProps = {}, }) {
   const { homepage = "" } = config;
 
   useEffect(() => {
@@ -23,52 +23,36 @@ export default function App({ Component, pageProps = {},}) {
     };
   }, []);
 
+  // Load both Google Tag Manager and Google Analytics after a 2-second delay
   useEffect(() => {
-    const handleUserInteraction = () => {
-      const script = document.createElement('script');
-      script.src = `https://www.googletagmanager.com/gtm.js?id=GTM-W99KBPB`;
-      script.async = true;
-      document.body.appendChild(script);
-  
-      window.removeEventListener('scroll', handleUserInteraction);
-      window.removeEventListener('click', handleUserInteraction);
-    };
-  
-    window.addEventListener('scroll', handleUserInteraction);
-    window.addEventListener('click', handleUserInteraction);
-  
-    return () => {
-      window.removeEventListener('scroll', handleUserInteraction);
-      window.removeEventListener('click', handleUserInteraction);
-    };
-  }, []);
+    const loadScripts = () => {
+      // Load Google Tag Manager
+      const gtmScript = document.createElement('script');
+      gtmScript.src = `https://www.googletagmanager.com/gtm.js?id=GTM-W99KBPB`;
+      gtmScript.async = true;
+      document.body.appendChild(gtmScript);
 
-  useEffect(() => {
-    const loadGoogleAnalytics = () => {
-      const script = document.createElement('script');
-      script.src = `https://www.googletagmanager.com/gtag/js?id=G-CSXSBEQKTY`;
-      script.async = true;
-      document.body.appendChild(script);
+      // Load Google Analytics
+      const gaScript = document.createElement('script');
+      gaScript.src = `https://www.googletagmanager.com/gtag/js?id=G-CSXSBEQKTY`;
+      gaScript.async = true;
+      document.body.appendChild(gaScript);
 
-      script.onload = () => {
+      gaScript.onload = () => {
         window.dataLayer = window.dataLayer || [];
         // eslint-disable-next-line no-undef
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-CSXSBEQKTY');
       };
-
-      window.removeEventListener('scroll', loadGoogleAnalytics);
-      window.removeEventListener('click', loadGoogleAnalytics);
     };
 
-    // Add event listeners for scroll and click to load Google Analytics after interaction
-    window.addEventListener('scroll', loadGoogleAnalytics);
-    window.addEventListener('click', loadGoogleAnalytics);
+    // Set a timeout to load the scripts after 2 seconds
+    const loadScriptsWithDelay = setTimeout(loadScripts, 2000);
 
+    // Clean up the timeout if the component unmounts
     return () => {
-      window.removeEventListener('scroll', loadGoogleAnalytics);
-      window.removeEventListener('click', loadGoogleAnalytics);
+      clearTimeout(loadScriptsWithDelay);
     };
   }, []);
 
@@ -146,11 +130,11 @@ export default function App({ Component, pageProps = {},}) {
       <WebsiteJsonLd />
       <ImageObjectJsonLd />
 
-        <SearchProvider>
-          <ReactLenis root options={{duration: 2}}>
-            <Component {...pageProps} />
-          </ReactLenis>
-        </SearchProvider>
+      <SearchProvider>
+        <ReactLenis root options={{ duration: 2 }}>
+          <Component {...pageProps} />
+        </ReactLenis>
+      </SearchProvider>
 
       <SpeedInsights />
       <Analytics />

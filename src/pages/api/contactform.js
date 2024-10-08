@@ -12,8 +12,8 @@ export default async (req, res) => {
     let otherService = services["Other"] ? req.body.other : null;
 
     const { data, error } = await resend.emails.send({
-      from: "Yellow <onboarding@resend.dev>",
-      to: ["hitesh@weareenigma.com"],
+      from: "Yellow <webforms@welcometoyellow.com>",
+      to: ["hello@welcometoyellow.com"],
       subject: "Contact Form Submission - New Enquiry",
       react: ContactDetails({
         userName: name,
@@ -22,7 +22,7 @@ export default async (req, res) => {
         userDetail: detail,
         userService: services,
         userSource: source,
-        userOther: otherService, // Only include if "Other" was selected
+        userOther: otherService,
       }),
     });
 
