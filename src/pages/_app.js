@@ -4,8 +4,6 @@ import { DefaultSeo } from "next-seo";
 import { ImageObjectJsonLd, OrganizationJsonLd, WebsiteJsonLd } from "@/lib/json-ld";
 import { useEffect } from "react";
 import config from "../../package.json";
-import { GoogleAnalytics, 
-} from '@next/third-parties/google';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { SearchProvider } from "@/hooks/use-search";
@@ -42,6 +40,35 @@ export default function App({ Component, pageProps = {},}) {
     return () => {
       window.removeEventListener('scroll', handleUserInteraction);
       window.removeEventListener('click', handleUserInteraction);
+    };
+  }, []);
+
+  useEffect(() => {
+    const loadGoogleAnalytics = () => {
+      const script = document.createElement('script');
+      script.src = `https://www.googletagmanager.com/gtag/js?id=G-CSXSBEQKTY`;
+      script.async = true;
+      document.body.appendChild(script);
+
+      script.onload = () => {
+        window.dataLayer = window.dataLayer || [];
+        // eslint-disable-next-line no-undef
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-CSXSBEQKTY');
+      };
+
+      window.removeEventListener('scroll', loadGoogleAnalytics);
+      window.removeEventListener('click', loadGoogleAnalytics);
+    };
+
+    // Add event listeners for scroll and click to load Google Analytics after interaction
+    window.addEventListener('scroll', loadGoogleAnalytics);
+    window.addEventListener('click', loadGoogleAnalytics);
+
+    return () => {
+      window.removeEventListener('scroll', loadGoogleAnalytics);
+      window.removeEventListener('click', loadGoogleAnalytics);
     };
   }, []);
 
@@ -124,8 +151,6 @@ export default function App({ Component, pageProps = {},}) {
             <Component {...pageProps} />
           </ReactLenis>
         </SearchProvider>
-
-      <GoogleAnalytics gaId="G-CSXSBEQKTY" />
 
       <SpeedInsights />
       <Analytics />

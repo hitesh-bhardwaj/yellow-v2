@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import Layout from "@/components/Layout";
 import Hero from "@/components/HomePage/Hero";
 import AboutUs from "@/components/HomePage/AboutUs";
@@ -7,14 +6,13 @@ import Services from "@/components/HomePage/Services";
 import Clients from "@/components/HomePage/Clients";
 import Blogs from "@/components/HomePage/Blogs";
 import { getHomePagePosts } from "@/lib/posts";
-import { getRelatedPortfolioForPages } from "@/lib/portfolio";
 import { titleAnim, paraAnim, lineAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
 import { gsap } from 'gsap/dist/gsap';
 import { WebpageJsonLd } from "@/lib/json-ld";
 import config from '../../package.json';
 import { NextSeo } from "next-seo";
 
-export default function Home({ recentPosts, recentWorks }) {
+export default function Home({ recentPosts }) {
 
   const { homepage = '' } = config;
 
@@ -72,25 +70,23 @@ export default function Home({ recentPosts, recentWorks }) {
       <Layout>
         <Hero />
         <AboutUs />
-        {/* <Portfolio works={recentWorks} /> */}
+        <Portfolio />
         <Services />
         <Clients />
-        {/* <Blogs posts={recentPosts} /> */}
+        <Blogs posts={recentPosts} />
       </Layout>
     </>
   );
 }
 
-// export async function getStaticProps() {
+export async function getStaticProps() {
 
-//   const recentPosts = await getHomePagePosts();
-//   const recentWorks = await getRelatedPortfolioForPages("homepage");
+  const recentPosts = await getHomePagePosts();
 
-//   return {
-//     props: {
-//       recentPosts,
-//       recentWorks,
-//     },
-//     revalidate: 500,
-//   };
-// }
+  return {
+    props: {
+      recentPosts,
+    },
+    revalidate: 500,
+  };
+}

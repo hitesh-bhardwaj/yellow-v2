@@ -9,15 +9,15 @@ import { gsap } from "gsap/dist/gsap";
 import { initMagneticButton, SplitInLine } from "../splitTextUtils";
 import { CustomEase } from "gsap/dist/CustomEase";
 
-gsap.registerPlugin(useGSAP, CustomEase);
-
-const primaryEase = CustomEase.create("primary-ease", "0.62, 0.05, 0.01, 0.99");
-
 const VideoModal = dynamic(() => import('@/components/VideoPlayer'), {
     ssr: false,
 });
 
 const Hero = () => {
+
+    gsap.registerPlugin(useGSAP, CustomEase);
+    const primaryEase = CustomEase.create("primary-ease", "0.62, 0.05, 0.01, 0.99");
+
     const [isModalOpen, setIsModalOpen] = useState(false);
     const lenis = useLenis();
     const text = useRef();
