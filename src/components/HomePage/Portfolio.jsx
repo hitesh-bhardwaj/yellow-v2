@@ -115,6 +115,7 @@ const Portfolio = () => {
 
   return (
     <Section className="py-[5%] mobile:py-[15%]" id="portfolio">
+      
       <div className="container">
         <div className="flex justify-between items-start mobile:flex-col mobile:gap-[5vw]">
           <SectionTitle text="Our Work" />
@@ -124,10 +125,9 @@ const Portfolio = () => {
             </p>
           </div>
         </div>
+
         <div className="flex justify-between items-end mt-[5vw] mobile:flex-col mobile:items-start mobile:gap-[10vw] mobile:mt-[10vw]">
-
           <div className="flex items-center justify-start gap-[5vw] mobile:grid mobile:grid-cols-2 mobile:items-start mobile:space-between mobile:w-full mobile:gap-y-[5vw]">
-
             <div className="flex items-end gap-[8px] mobile:flex-col mobile:items-start mobile:gap-0">
               <div className="font-display">
                 <div className="counter">

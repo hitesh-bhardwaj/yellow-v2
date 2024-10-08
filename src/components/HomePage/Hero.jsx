@@ -104,6 +104,7 @@ const Hero = () => {
                         <span className="h-full block w-1/5 bg-white origin-bottom" />
                     </div>
                     <video
+                        preload=""
                         id="hero-video"
                         poster="/assets/images/homepage/showreel-poster.webp"
                         autoPlay
