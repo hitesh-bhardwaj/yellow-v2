@@ -10,7 +10,7 @@ export default async (req, res) => {
 
     const { data, error } = await resend.emails.send({
       from: "Yellow <onboarding@resend.dev>",
-      to: ["hitesh@weareenigma.com.com"],
+      to: ["hitesh@weareenigma.com"],
       subject: "Career Form Submission - New Application",
       react: ContactDetails({
         userName: name,
