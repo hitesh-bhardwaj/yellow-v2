@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { gsap } from 'gsap/dist/gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import PortfolioIndustries from '@/components/Portfolio/PortfolioIndustries';
 import Layout from '@/components/Layout';
 import Section from '@/components/Section';
@@ -10,47 +8,15 @@ import { getPortfolioIndustryByIdForPortfolio } from '@/lib/portfolio';
 import WorkCard from '@/components/Portfolio/WorkCard';
 import MetaData from '@/components/Metadata';
 import Consultant from '@/components/Portfolio/Consultant';
-import { titleAnim, paraAnim, lineAnim, fadeUp, fadeIn } from '@/components/gsapAnimations';
-
-gsap.registerPlugin(ScrollTrigger);
+import { paraAnim, lineAnim, fadeUp, fadeIn } from '@/components/gsapAnimations';
 
 const Category = ({ portfolioIndustry, portfolio, portfolioIndustries }) => {
   const [activeIndustry, setActiveIndustry] = useState(`${portfolioIndustry.slug}`);
 
-  titleAnim();
   paraAnim();
   lineAnim();
   fadeUp();
   fadeIn();
-
-  // useEffect(() => {
-  //   const imageAnimations = document.querySelectorAll(".image-animation-wrapper")
-  //   imageAnimations.forEach((img) => {
-  //     const imgHolder = img.querySelector("div");
-  //     const imgImage = img.querySelector("img, video");
-  //     const tl = gsap.timeline({
-  //       scrollTrigger: {
-  //         trigger: img,
-  //         start: "top 80%",
-  //       },
-  //       defaults: {
-  //         ease: 'power3.inOut',
-  //       }
-  //     })
-  //     tl.fromTo(imgHolder, {
-  //       xPercent: -100,
-  //     }, {
-  //       duration: 1.5,
-  //       xPercent: 0,
-  //     })
-  //     tl.fromTo(imgImage, {
-  //       xPercent: 100,
-  //     }, {
-  //       duration: 1.5,
-  //       xPercent: 0,
-  //     }, "<")
-  //   })
-  // }, [portfolio]);
 
   const metadata = {
     title: `${portfolioIndustry.name} Portfolio Archive | Yellow`,
@@ -66,7 +32,7 @@ const Category = ({ portfolioIndustry, portfolio, portfolioIndustries }) => {
           <Section id="hero" >
             <div className="container">
               <div className='pt-[10%] mobile:pt-[30%] tablet:pt-[15%]'>
-                <h1 data-title-anim className='text-[5.7vw] font-display leading-[1.3] mobile:text-[10vw]'>
+                <h1 className='text-[5.7vw] font-display leading-[1.3] mobile:text-[10vw]'>
                   {portfolioIndustry.name} Works
                 </h1>
               </div>

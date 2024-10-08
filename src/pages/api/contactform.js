@@ -12,9 +12,9 @@ export default async (req, res) => {
     let otherService = services["Other"] ? req.body.other : null;
 
     const { data, error } = await resend.emails.send({
-      from: "Yellow <onboarding@resend.dev>",
-      to: ["harshgoyalrss7@gmail.com"],
-      subject: "New Lead: New Contact Form Submission",
+      from: "Yellow <onboarding@resend.com>",
+      to: ["hitesh@weareenigma.com"],
+      subject: "Contact Form Submission - New Enquiry",
       react: ContactDetails({
         userName: name,
         userEmail: email,

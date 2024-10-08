@@ -15,6 +15,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'wordpress-156292-4703703.cloudwaysapps.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'wordpress.welcometoyellow.com',
+      }
     ],
   },
   async redirects() {
@@ -52,6 +56,7 @@ const nextConfig = {
     ]
   },
   env: {
+    PORTFOLIO_PER_PAGE: "9",
     POSTS_PRERENDER_COUNT: "10",
     WORDPRESS_GRAPHQL_ENDPOINT: process.env.WORDPRESS_GRAPHQL_ENDPOINT,
     WORDPRESS_MENU_LOCATION_NAVIGATION: process.env.WORDPRESS_MENU_LOCATION_NAVIGATION || 'PRIMARY',
