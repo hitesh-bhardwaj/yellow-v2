@@ -1,7 +1,7 @@
 import Section from "@/components/Section";
 import React from "react";
 import { titleAnim , paraAnim ,fadeUp} from '@/components/gsapAnimations';
-import Header from "@/components/Header";
+// import Header from "@/components/Header";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import MetaData from "@/components/Metadata";
 import BlackButton from "@/components/Button/BlackButton";
@@ -24,7 +24,7 @@ function Thankyou() {
     <>
       <MetaData metadata={metadata} />
       <WebpageJsonLd metadata={metadata} />
-      <Header/>
+      {/* <Header/> */}
         <Section id={"thank-you"} className="bg-black">
           <div className="container flex justify-center items-center bg-white">
             <div className="w-full h-screen flex flex-col justify-center items-center ">
