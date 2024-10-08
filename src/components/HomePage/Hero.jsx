@@ -19,11 +19,9 @@ const Hero = () => {
     const primaryEase = CustomEase.create("primary-ease", "0.62, 0.05, 0.01, 0.99");
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isVideoLoaded, setIsVideoLoaded] = useState(false);
     const lenis = useLenis();
     const text = useRef();
     const cover = useRef();
-    const videoRef = useRef();
 
     const handleOpen = () => {
         setIsModalOpen(true);
@@ -34,13 +32,6 @@ const Hero = () => {
         setIsModalOpen(false);
         lenis.start();
     };
-
-    useEffect(() => {
-        const loadVideo = setTimeout(() => {
-            setIsVideoLoaded(true);
-        }, 2000);
-        return () => clearTimeout(loadVideo);
-    }, []);
 
     useEffect(() => {
         initMagneticButton();
@@ -113,7 +104,6 @@ const Hero = () => {
                         <span className="h-full block w-1/5 bg-white origin-bottom" />
                     </div>
                     <video
-                        ref={videoRef}
                         id="hero-video"
                         poster="/assets/images/homepage/showreel-poster.webp"
                         autoPlay
@@ -122,7 +112,7 @@ const Hero = () => {
                         playsInline
                         loading="lazy"
                         className="w-full h-full aspect-video object-cover brightness-[.65]"
-                        src={isVideoLoaded ? "/assets/showreel-6sec-optimized.mp4" : null}
+                        src="/assets/showreel-6sec-optimized.mp4"
                     >
                     </video>
                 </div>

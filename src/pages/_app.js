@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import config from "../../package.json";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-// import { SearchProvider } from "@/hooks/use-search";
+import { SearchProvider } from "@/hooks/use-search";
 
 export default function App({ Component, pageProps = {}, }) {
   const { homepage = "" } = config;
@@ -136,11 +136,11 @@ export default function App({ Component, pageProps = {}, }) {
       <WebsiteJsonLd />
       <ImageObjectJsonLd />
 
-      {/* <SearchProvider> */}
+      <SearchProvider>
         <ReactLenis root options={{ duration: 2 }}>
           <Component {...pageProps} />
         </ReactLenis>
-      {/* </SearchProvider> */}
+      </SearchProvider>
 
       <SpeedInsights />
       <Analytics />

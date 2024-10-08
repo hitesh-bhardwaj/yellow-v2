@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-// import Header from '@/components/Header'
+import Header from '@/components/Header'
 import Line from '@/components/Line'
 import Section from '@/components/Section'
 import React from 'react'
@@ -72,7 +72,7 @@ function Empty() {
     <>
       <MetaData metadata={metadata} />
       <WebpageJsonLd metadata={metadata} />
-      {/* <Header /> */}
+      <Header />
       <Section id="404" className='bg-black w-screen h-screen relative dark mobile:h-dvh tablet:h-dvh'>
         {/* Background image */}
         <div className='w-screen h-screen absolute z-[2] blur-2xl'>

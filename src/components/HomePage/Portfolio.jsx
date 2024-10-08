@@ -4,41 +4,45 @@ import Section from "../Section";
 import SectionTitle from "../SectionTitle";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import LinkButton from "../Button/LinkButton";
 import RoundButton from "../Button/RoundButton";
-import MediaRender from "../MediaRender";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
-
-const works = [
-  {
-    title: "Mitsubishi Motors MEA",
-    year: "2024",
-    industry: "Automotive",
-    imgSource: "/assets/images/homepage/mitsubishi.webp",
-    slug: "/our-work/mitsubishi-motors"
-  },
-  {
-    title: "Barakat",
-    year: "2024",
-    industry: "FMCG",
-    imgSource: "/assets/images/homepage/barakat.mp4",
-    slug: "/our-work/barakat"
-  },
-  {
-    title: "Cafu",
-    year: "2024",
-    industry: "Automotive",
-    imgSource: "/assets/images/homepage/cafu.webp",
-    slug: "/our-work/cafu",
-  },
-]
 
 const Portfolio = () => {
 
   const containerRef = useRef(null);
   const scrollRef = useRef(null);
+  const videoRef = useRef();
+  const observer = useRef(null);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
+  // Lazy load the video using Intersection Observer
+  useEffect(() => {
+    observer.current = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setIsVideoLoaded(true);
+                    observer.current.disconnect();  // Stop observing after loading
+                }
+            });
+        },
+        { threshold: 0.1 }  // Load video when 10% of it is in view
+    );
+    if (videoRef.current) {
+        observer.current.observe(videoRef.current);
+    }
+
+    return () => {
+        if (observer.current && videoRef.current) {
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            observer.current.unobserve(videoRef.current);
+        }
+    };
+}, []);
 
   const createTimeline = (triggerClass, countClasses, start, end) => {
     useGSAP(() => {
@@ -231,36 +235,108 @@ const Portfolio = () => {
           ref={scrollRef}
           className="flex h-screen w-[300%] mobile:h-auto whitespace-nowrap mobile:flex-col mobile:w-full mobile:gap-[10vw] tablet:flex-col tablet:gap-[5vw] tablet:w-full tablet:justify-center tablet:items-center tablet:h-auto"
         >
-          {works.map((work, index) => (
-            <div key={index} className="h-screen w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:h-[50vh] mobile:mx-auto tablet:rounded-xl mobile:rounded-xl tablet:h-[40vh]" data-magnetic-target data-magnetic-strength="200">
-              <MediaRender
-                className="brightness-[.80]"
-                url={work.imgSource}
+            <div className="h-screen w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:h-[50vh] mobile:mx-auto tablet:rounded-xl mobile:rounded-xl tablet:h-[40vh]" data-magnetic-target data-magnetic-strength="200">
+              <Image
+                src="/assets/images/homepage/mitsubishi.webp"
+                alt="Mitsubishi Image"
+                fill
+                loading="lazy"
+                className="brightness-75 object-cover w-full h-full"
               />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 z-[1] -translate-y-1/2">
-                <RoundButton href={work.slug} text="View More" className="magnetic-inner pointer-events-auto tablet:w-[10vw] tablet:h-[10vw] tablet:text-[1.5vw] tablet:px-[2vw]" />
+                <RoundButton href="/our-work/mitsubishi-motors" text="View More" className="magnetic-inner pointer-events-auto tablet:w-[10vw] tablet:h-[10vw] tablet:text-[1.5vw] tablet:px-[2vw]" />
               </div>
               <div className="relative w-full flex text-white h-full items-end">
                 <div className="flex justify-between items-end w-full mobile:flex-col mobile:h-full mobile:items-start">
                   <div className="whitespace-normal flex gap-[2.5vw] flex-col mobile:order-2">
                     <h3 className="text-[2.8vw] font-display leading-[1] mobile:text-[8vw] tablet:text-[5vw]">
-                      {work.title}
+                      Mitsubishi Motors MEA
                     </h3>
                   </div>
                   <div className="flex flex-col justify-between gap-[1.5vw] items-end text-[1.2vw] mobile:text-[4vw] tablet:text-[2vw] mobile:w-full mobile:items-end">
                     <p className="py-[0.5vw] px-[2vw] border border-white rounded-full bg-white/25 backdrop-blur-lg mobile:hidden">
-                      {work.year}
+                      2024
                     </p>
                     <div className="flex items-center gap-[2vw]">
                       <p className="py-[0.5vw] px-[2vw] border border-white rounded-full bg-white/10 backdrop-blur-lg mobile:px-[4vw] mobile:py-[1vw]">
-                        {work.industry}
+                        Automotive
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          ))}
+
+            <div className="h-screen w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:h-[50vh] mobile:mx-auto tablet:rounded-xl mobile:rounded-xl tablet:h-[40vh]" data-magnetic-target data-magnetic-strength="200">
+              <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full brightness-75">
+                <video
+                  ref={videoRef}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  alt="Barakat Video"
+                  loading="lazy"
+                  className="object-cover w-full h-full"
+                  src={isVideoLoaded ? "/assets/images/homepage/barakat.mp4" : ""}
+                />
+              </div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 z-[1] -translate-y-1/2">
+                <RoundButton href="/our-work/barakat" text="View More" className="magnetic-inner pointer-events-auto tablet:w-[10vw] tablet:h-[10vw] tablet:text-[1.5vw] tablet:px-[2vw]" />
+              </div>
+              <div className="relative w-full flex text-white h-full items-end">
+                <div className="flex justify-between items-end w-full mobile:flex-col mobile:h-full mobile:items-start">
+                  <div className="whitespace-normal flex gap-[2.5vw] flex-col mobile:order-2">
+                    <h3 className="text-[2.8vw] font-display leading-[1] mobile:text-[8vw] tablet:text-[5vw]">
+                      Barakat
+                    </h3>
+                  </div>
+                  <div className="flex flex-col justify-between gap-[1.5vw] items-end text-[1.2vw] mobile:text-[4vw] tablet:text-[2vw] mobile:w-full mobile:items-end">
+                    <p className="py-[0.5vw] px-[2vw] border border-white rounded-full bg-white/25 backdrop-blur-lg mobile:hidden">
+                      2024
+                    </p>
+                    <div className="flex items-center gap-[2vw]">
+                      <p className="py-[0.5vw] px-[2vw] border border-white rounded-full bg-white/10 backdrop-blur-lg mobile:px-[4vw] mobile:py-[1vw]">
+                        FMCG
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="h-screen w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:h-[50vh] mobile:mx-auto tablet:rounded-xl mobile:rounded-xl tablet:h-[40vh]" data-magnetic-target data-magnetic-strength="200">
+              <Image
+                src="/assets/images/homepage/cafu.webp"
+                alt="Cafu Image"
+                fill
+                loading="lazy"
+                className="brightness-75 object-cover w-full h-full"
+              />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 z-[1] -translate-y-1/2">
+                <RoundButton href="/our-work/cafu-branding-and-digital" text="View More" className="magnetic-inner pointer-events-auto tablet:w-[10vw] tablet:h-[10vw] tablet:text-[1.5vw] tablet:px-[2vw]" />
+              </div>
+              <div className="relative w-full flex text-white h-full items-end">
+                <div className="flex justify-between items-end w-full mobile:flex-col mobile:h-full mobile:items-start">
+                  <div className="whitespace-normal flex gap-[2.5vw] flex-col mobile:order-2">
+                    <h3 className="text-[2.8vw] font-display leading-[1] mobile:text-[8vw] tablet:text-[5vw]">
+                      Cafu
+                    </h3>
+                  </div>
+                  <div className="flex flex-col justify-between gap-[1.5vw] items-end text-[1.2vw] mobile:text-[4vw] tablet:text-[2vw] mobile:w-full mobile:items-end">
+                    <p className="py-[0.5vw] px-[2vw] border border-white rounded-full bg-white/25 backdrop-blur-lg mobile:hidden">
+                      2024
+                    </p>
+                    <div className="flex items-center gap-[2vw]">
+                      <p className="py-[0.5vw] px-[2vw] border border-white rounded-full bg-white/10 backdrop-blur-lg mobile:px-[4vw] mobile:py-[1vw]">
+                        Automotive
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           <div className="h-full w-[30vw] relative bg-amber-50 tablet:bg-transparent mobile:bg-transparent flex items-center justify-center flex-col pannel mobile:hidden tablet:h-fit tablet:gap-[3vw]">
             <p className="font-display text-[4vw] tablet:text-[6vw] tablet:hidden">Want More?</p>
             <LinkButton btnText="View Showcase" btnLink="/our-work" className="tablet:text-[3vw]" />
