@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import config from "../../package.json";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-import { SearchProvider } from "@/hooks/use-search";
+// import { SearchProvider } from "@/hooks/use-search";
 
 export default function App({ Component, pageProps = {}, }) {
   const { homepage = "" } = config;
@@ -23,7 +23,7 @@ export default function App({ Component, pageProps = {}, }) {
     };
   }, []);
 
-  // Load both Google Tag Manager and Google Analytics after a 2-second delay
+  // Load Google Tag Manager and Google Analytics based on user interaction
   useEffect(() => {
     const loadScripts = () => {
       // Load Google Tag Manager
@@ -45,14 +45,20 @@ export default function App({ Component, pageProps = {}, }) {
         gtag('js', new Date());
         gtag('config', 'G-CSXSBEQKTY');
       };
+
+      // Remove event listeners after the scripts are loaded
+      window.removeEventListener('scroll', loadScripts);
+      window.removeEventListener('click', loadScripts);
     };
 
-    // Set a timeout to load the scripts after 2 seconds
-    const loadScriptsWithDelay = setTimeout(loadScripts, 2000);
+    // Add event listeners for scroll and click to load Google Tag Manager and Google Analytics
+    window.addEventListener('scroll', loadScripts);
+    window.addEventListener('click', loadScripts);
 
-    // Clean up the timeout if the component unmounts
+    // Clean up event listeners if the component unmounts
     return () => {
-      clearTimeout(loadScriptsWithDelay);
+      window.removeEventListener('scroll', loadScripts);
+      window.removeEventListener('click', loadScripts);
     };
   }, []);
 
@@ -130,11 +136,11 @@ export default function App({ Component, pageProps = {}, }) {
       <WebsiteJsonLd />
       <ImageObjectJsonLd />
 
-      <SearchProvider>
+      {/* <SearchProvider> */}
         <ReactLenis root options={{ duration: 2 }}>
           <Component {...pageProps} />
         </ReactLenis>
-      </SearchProvider>
+      {/* </SearchProvider> */}
 
       <SpeedInsights />
       <Analytics />

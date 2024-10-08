@@ -31,6 +31,7 @@ const works = [
     year: "2024",
     industry: "Automotive",
     imgSource: "/assets/images/homepage/cafu.webp",
+    slug: "/our-work/cafu",
   },
 ]
 
