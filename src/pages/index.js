@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Layout from "@/components/Layout";
 import Hero from "@/components/HomePage/Hero";
 import AboutUs from "@/components/HomePage/AboutUs";
@@ -70,23 +71,23 @@ export default function Home({ recentPosts }) {
       <Layout>
         <Hero />
         <AboutUs />
-        <Portfolio />
+        {/* <Portfolio /> */}
         <Services />
-        <Clients />
-        <Blogs posts={recentPosts} />
+        {/* <Clients /> */}
+        {/* <Blogs posts={recentPosts} /> */}
       </Layout>
     </>
   );
 }
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
 
-  const recentPosts = await getHomePagePosts();
+//   const recentPosts = await getHomePagePosts();
 
-  return {
-    props: {
-      recentPosts,
-    },
-    revalidate: 500,
-  };
-}
+//   return {
+//     props: {
+//       recentPosts,
+//     },
+//     revalidate: 500,
+//   };
+// }
