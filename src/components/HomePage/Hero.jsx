@@ -104,7 +104,6 @@ const Hero = () => {
                         <span className="h-full block w-1/5 bg-white origin-bottom" />
                     </div>
                     <video
-                        preload=""
                         id="hero-video"
                         poster="/assets/images/homepage/showreel-poster.webp"
                         autoPlay
@@ -113,7 +112,7 @@ const Hero = () => {
                         playsInline
                         loading="lazy"
                         className="w-full h-full aspect-video object-cover brightness-[.65]"
-                        src="/assets/showreel-6sec-optimized.mp4"
+                        // src="/assets/showreel-6sec-optimized.mp4"
                     >
                     </video>
                 </div>
