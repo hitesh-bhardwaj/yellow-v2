@@ -28,6 +28,15 @@
     width: 110%;
 }
 
+.blogContent a{
+    color: #006aff;
+    text-decoration: none;
+    transition: all .2s;
+}
+.blogContent a:hover {
+    color: #0af;
+}
+
 .anchor {
     float: left;
     margin-left: -30px;

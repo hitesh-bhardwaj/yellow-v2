@@ -262,9 +262,7 @@ export default function servicesdetail({ recentWorks }) {
         <RelatedWork
           works={recentWorks}
           heading={"Our Work"}
-          subheading={
-            "Let's find your onlyness.Just like we have for some incredible brands."
-          }
+          subheading={"Let's find your onlyness. Just like we have for some incredible brands."}
         />
       </Layout>
     </>

@@ -14,8 +14,6 @@ const AboutUs = () => {
     const textRef = useRef(null);
     const texth2Ref = useRef(null);
 
-    // imageAnimationLeft();
-
     useGSAP(() => {
         const container = containerRef.current;
         const text = textRef.current;
@@ -82,27 +80,23 @@ const AboutUs = () => {
                 stagger: 1,
                 ease: "power2.inOut"
             })
-
         }
-
     });
 
     return (
         <Section className="py-[10%] mobile:py-[20%]" id="second-section">
             <div ref={containerRef} className="container">
                 <div className="flex justify-between items-start mobile:flex-col">
-                    <div className="w-[40%] h-[45vw] mobile:w-full mobile:h-[100vw] overflow-hidden rounded-xl fadeup image-animation-left-wrapper">
-                        <div className="overflow-hidden relative h-full w-full">
-                            <Image
-                                src="/assets/images/homepage/yellow-office.webp"
-                                alt="About Image"
-                                title="About Us Image"
-                                fill
-                                quality={100}
-                                priority={false}
-                                className="block object-cover"
-                            />
-                        </div>
+                    <div className="w-[40%] h-[45vw] mobile:w-full mobile:h-[100vw] overflow-hidden rounded-xl fadeup">
+                        <Image
+                            src="/assets/images/homepage/yellow-office.webp"
+                            alt="About Image"
+                            title="About Us Image"
+                            fill
+                            quality={100}
+                            priority={false}
+                            className="block object-cover"
+                        />
                     </div>
                     <div ref={textRef} className="w-[52%] mobile:w-full">
                         <div className="text-left pr-[3vw] space-y-[2vw] mobile:space-y-[5vw] mobile:pt-[8vw] mobile:pr-0 tablet:pr-0">

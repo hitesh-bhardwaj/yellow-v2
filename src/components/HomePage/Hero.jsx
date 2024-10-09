@@ -7,16 +7,14 @@ import ScrollButton from "@/components/Button/ScrollButton";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap/dist/gsap";
 import { initMagneticButton, SplitInLine } from "../splitTextUtils";
-import { CustomEase } from "gsap/dist/CustomEase";
 
 const VideoModal = dynamic(() => import('@/components/VideoPlayer'), {
     ssr: false,
 });
 
-const Hero = () => {
+gsap.registerPlugin(useGSAP);
 
-    gsap.registerPlugin(useGSAP, CustomEase);
-    const primaryEase = CustomEase.create("primary-ease", "0.62, 0.05, 0.01, 0.99");
+const Hero = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const lenis = useLenis();
@@ -42,7 +40,7 @@ const Hero = () => {
 
         const tl = gsap.timeline({
             defaults: {
-                ease: primaryEase,
+                ease: "power4.out",
             }
         });
         tl.from(".lineWord .line .line-internal", {
@@ -112,7 +110,7 @@ const Hero = () => {
                         playsInline
                         loading="lazy"
                         className="w-full h-full aspect-video object-cover brightness-[.65]"
-                        // src="/assets/showreel-6sec-optimized.mp4"
+                        src="/assets/showreel-6sec-optimized.mp4"
                     >
                     </video>
                 </div>

@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 
 const MenuLink = ({href, text, className=""}) => {
   return (
-    <Link href={href} className={`block w-fit ${className}`}>
+    <Link aria-hidden href={href} className={`block w-fit ${className}`}>
       <span className="link-line block w-fit">{text}</span>
     </Link>
   )

@@ -1,5 +1,3 @@
-// import Footer from "../Footer";
-// import Header from "../Header";
 import dynamic from "next/dynamic";
 
 const DynamicHeader = dynamic(() => import('../Header'), {

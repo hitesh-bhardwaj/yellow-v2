@@ -219,6 +219,7 @@ export default function servicesdetail({ recentWorks }) {
                   <div className="col-start-3 flex justify-end mobile:justify-center tablet:order-1 order-1 mobile:order-none">
                     <div className="w-[22.5vw] h-[28vw] rounded-[10px] overflow-hidden relative fadeup mobile:w-[86vw] mobile:h-[85vw] mobile:mt-[5vw] tablet:w-[30vw] tablet:h-[30vw]">
                         <Image
+                          quality={100}
                           loading="lazy"
                           src={service.image}
                           alt={`${service.title} Image`}

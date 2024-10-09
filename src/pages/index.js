@@ -71,23 +71,23 @@ export default function Home({ recentPosts }) {
       <Layout>
         <Hero />
         <AboutUs />
-        {/* <Portfolio /> */}
+        <Portfolio />
         <Services />
-        {/* <Clients /> */}
-        {/* <Blogs posts={recentPosts} /> */}
+        <Clients />
+        <Blogs posts={recentPosts} />
       </Layout>
     </>
   );
 }
 
-// export async function getStaticProps() {
+export async function getStaticProps() {
 
-//   const recentPosts = await getHomePagePosts();
+  const recentPosts = await getHomePagePosts();
 
-//   return {
-//     props: {
-//       recentPosts,
-//     },
-//     revalidate: 500,
-//   };
-// }
+  return {
+    props: {
+      recentPosts,
+    },
+    revalidate: 500,
+  };
+}
