@@ -6,6 +6,10 @@ import { SplitInLineWord, SplitInLine } from './splitTextUtils';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
+gsap.config({
+  nullTargetWarn: false,
+});
+
 export function titleAnim() {
   useGSAP(() => {
     const headings = document.querySelectorAll("[data-title-anim]");

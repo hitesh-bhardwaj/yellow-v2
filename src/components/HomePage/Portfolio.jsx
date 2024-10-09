@@ -4,7 +4,7 @@ import Section from "../Section";
 import SectionTitle from "../SectionTitle";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import LinkButton from "../Button/LinkButton";
 import RoundButton from "../Button/RoundButton";
 import Image from "next/image";
@@ -15,34 +15,6 @@ const Portfolio = () => {
 
   const containerRef = useRef(null);
   const scrollRef = useRef(null);
-  const videoRef = useRef();
-  const observer = useRef(null);
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-
-  // Lazy load the video using Intersection Observer
-  useEffect(() => {
-    observer.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVideoLoaded(true);
-            observer.current.disconnect();  // Stop observing after loading
-          }
-        });
-      },
-      { threshold: 0.02 }  // Load video when 10% of it is in view
-    );
-    if (videoRef.current) {
-      observer.current.observe(videoRef.current);
-    }
-
-    return () => {
-      if (observer.current && videoRef.current) {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        observer.current.unobserve(videoRef.current);
-      }
-    };
-  }, []);
 
   const createTimeline = (triggerClass, countClasses, start, end) => {
     useGSAP(() => {
@@ -123,7 +95,7 @@ const Portfolio = () => {
           <SectionTitle text="Our Work" />
           <div className="w-[45%] mobile:w-full tablet:w-[45%] mt-[1%]">
             <p className="text-[1.9vw] fadeup font-medium leading-[1.4] mobile:text-[4vw]">
-              We are lucky to have collaborated with several brands and industries over the last 7+ years. Our experience pans various industries from startups to established global brands with a keen focus on collaboration and results.
+              We are lucky to have partnered with several brands over the last 7+ years. Our experience pans various industries from startups to established global brands with a keen focus on collaboration and results.
             </p>
           </div>
         </div>
@@ -239,6 +211,7 @@ const Portfolio = () => {
         >
           <div className="h-screen w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:h-[50vh] mobile:mx-auto tablet:rounded-xl mobile:rounded-xl tablet:h-[40vh]" data-magnetic-target data-magnetic-strength="200">
             <Image
+              quality={100}
               src="/assets/images/homepage/mitsubishi.webp"
               alt="Mitsubishi Image"
               fill
@@ -270,19 +243,14 @@ const Portfolio = () => {
           </div>
 
           <div className="h-screen w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:h-[50vh] mobile:mx-auto tablet:rounded-xl mobile:rounded-xl tablet:h-[40vh]" data-magnetic-target data-magnetic-strength="200">
-            <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full brightness-75">
-              <video
-                ref={videoRef}
-                autoPlay
-                muted
-                loop
-                playsInline
-                alt="Barakat Video"
-                loading="lazy"
-                className="object-cover w-full h-full"
-                src={isVideoLoaded ? "/assets/images/homepage/barakat.mp4" : ""}
-              />
-            </div>
+            <Image
+              quality={100}
+              src="/assets/images/homepage/barakat.webp"
+              alt="Barakat Image"
+              fill
+              loading="lazy"
+              className="brightness-75 object-cover w-full h-full"
+            />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 z-[1] -translate-y-1/2">
               <RoundButton href="/our-work/barakat" text="View More" className="magnetic-inner pointer-events-auto tablet:w-[10vw] tablet:h-[10vw] tablet:text-[1.5vw] tablet:px-[2vw]" />
             </div>
@@ -309,6 +277,7 @@ const Portfolio = () => {
 
           <div className="h-screen w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:h-[50vh] mobile:mx-auto tablet:rounded-xl mobile:rounded-xl tablet:h-[40vh]" data-magnetic-target data-magnetic-strength="200">
             <Image
+              quality={100}
               src="/assets/images/homepage/cafu.webp"
               alt="Cafu Image"
               fill
