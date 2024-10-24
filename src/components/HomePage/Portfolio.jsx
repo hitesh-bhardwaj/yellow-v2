@@ -7,7 +7,6 @@ import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import LinkButton from "../Button/LinkButton";
 import RoundButton from "../Button/RoundButton";
-import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
