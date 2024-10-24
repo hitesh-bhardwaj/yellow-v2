@@ -38,7 +38,7 @@ const CareerDetails = ({
         <Container style={container}>
           <Img
             src={
-              "https://yellow-v2.vercel.app/_next/image?url=%2Flogo-black.png&w=256&q=75"
+              "https://welcometoyellow.com/logo-black.png"
             }
             width="140"
             height="50"
@@ -63,10 +63,6 @@ const CareerDetails = ({
             <Section style={querySection}>
               <Heading style={h1}>Email:</Heading>
               <Text style={paragraph}>{userEmail}</Text>
-            </Section>
-            <Section style={querySection}>
-              <Heading style={h1}>Phone:</Heading>
-              <Text style={paragraph}>{userNumber}</Text>
             </Section>
             <Section style={querySection}>
               <Heading style={h1}>Phone:</Heading>

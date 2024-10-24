@@ -1,7 +1,9 @@
+import BrandsMarquee from "../Extra/BrandsMarquee";
+import Testimonial from "../Extra/Testimonial";
 import Section from "../Section"
-import BrandsMarquee from "./BrandsMarquee";
+// import BrandsMarquee from "./BrandsMarquee";
 import SectionTitle from "../SectionTitle";
-import Testimonial from "./Testimonial";
+// import Testimonial from "./Testimonial";
 
 const Clients = () => {
 
@@ -17,6 +19,7 @@ const Clients = () => {
                     </div>
                 </div>
                 <div className="mb-[18vw] w-full overflow-hidden">
+                    {/* <BrandsMarquee /> */}
                     <BrandsMarquee />
                 </div>
                 <div className="w-full overflow-hidden relative z-10">
@@ -24,6 +27,7 @@ const Clients = () => {
                         <SectionTitle text="Client Reviews" className="mobile:hidden"/>
                         <h2 className="text-[12vw] hidden mobile:block font-display">Client Reviews</h2>
                     </div>
+                    {/* <Testimonial /> */}
                     <Testimonial />
                 </div>
             </div>
