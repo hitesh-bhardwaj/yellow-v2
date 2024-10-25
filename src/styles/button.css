@@ -14,7 +14,8 @@
   justify-content: center;
   width: 8vw;
   height: 8vw;
-  font-family: Satoshi, Arial, Helvetica, sans-serif;
+  /* font-family: Satoshi, Arial, Helvetica, sans-serif; */
+  font-family: var(--font-satoshi);
   font-weight: 500;
   font-size: 1.2vw;
   line-height: 1.2;

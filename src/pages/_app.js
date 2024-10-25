@@ -7,12 +7,32 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { SearchProvider } from "@/hooks/use-search";
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
+import localFont from 'next/font/local';
+
+
+const outfit = localFont({
+  src: [
+    { path: './fonts/Outfit-Regular.woff', weight: '400', style: 'normal' },
+    { path: './fonts/Outfit-Medium.woff', weight: '500', style: 'normal' }
+  ],
+  display: 'swap',
+  variable: '--font-outfit'
+});
+
+const satoshi = localFont({
+  src: [
+    { path: './fonts/Satoshi-Regular.woff', weight: '400', style: 'normal' },
+    { path: './fonts/Satoshi-Medium.woff', weight: '500', style: 'normal' }
+  ],
+  display: 'swap',
+  variable: '--font-satoshi'
+});
 
 export default function App({ Component, pageProps = {}, }) {
 
   useEffect(() => {
     const handleRouteChange = () => {
-      window.scrollTo(0, 0)
+      window.scrollTo(0, 0);
     };
 
     window.addEventListener("beforeunload", handleRouteChange);
@@ -21,45 +41,6 @@ export default function App({ Component, pageProps = {}, }) {
       window.removeEventListener("beforeunload", handleRouteChange);
     };
   }, []);
-
-  // // Load Google Tag Manager and Google Analytics based on user interaction
-  // useEffect(() => {
-  //   const loadScripts = () => {
-  //     // Load Google Tag Manager
-  //     const gtmScript = document.createElement('script');
-  //     gtmScript.src = `https://www.googletagmanager.com/gtm.js?id=GTM-W99KBPB`;
-  //     gtmScript.async = true;
-  //     document.body.appendChild(gtmScript);
-
-  //     // Load Google Analytics
-  //     const gaScript = document.createElement('script');
-  //     gaScript.src = `https://www.googletagmanager.com/gtag/js?id=G-CSXSBEQKTY`;
-  //     gaScript.async = true;
-  //     document.body.appendChild(gaScript);
-
-  //     gaScript.onload = () => {
-  //       window.dataLayer = window.dataLayer || [];
-  //       // eslint-disable-next-line no-undef
-  //       function gtag() { dataLayer.push(arguments); }
-  //       gtag('js', new Date());
-  //       gtag('config', 'G-CSXSBEQKTY');
-  //     };
-
-  //     // Remove event listeners after the scripts are loaded
-  //     window.removeEventListener('scroll', loadScripts);
-  //     window.removeEventListener('click', loadScripts);
-  //   };
-
-  //   // Add event listeners for scroll and click to load Google Tag Manager and Google Analytics
-  //   window.addEventListener('scroll', loadScripts);
-  //   window.addEventListener('click', loadScripts);
-
-  //   // Clean up event listeners if the component unmounts
-  //   return () => {
-  //     window.removeEventListener('scroll', loadScripts);
-  //     window.removeEventListener('click', loadScripts);
-  //   };
-  // }, []);
 
   return (
     <>
@@ -90,20 +71,6 @@ export default function App({ Component, pageProps = {}, }) {
           {
             rel: 'apple-touch-icon',
             href: '/favicon-300x300.jpg',
-          },
-          {
-            rel: 'preload',
-            href: '/assets/fonts/Outfit-Regular.woff2',
-            as: 'font',
-            type: 'font/woff2',
-            crossOrigin: 'anonymous',
-          },
-          {
-            rel: 'preload',
-            href: '/assets/fonts/Satoshi-Medium.woff2',
-            as: 'font',
-            type: 'font/woff2',
-            crossOrigin: 'anonymous',
           },
           {
             rel: 'alternate',
@@ -141,7 +108,9 @@ export default function App({ Component, pageProps = {}, }) {
 
       <SearchProvider>
         <ReactLenis root options={{ duration: 2 }}>
-          <Component {...pageProps} />
+          <main className={`${outfit.variable} ${satoshi.variable}`}>
+            <Component {...pageProps} />
+          </main>
         </ReactLenis>
       </SearchProvider>
 
@@ -149,8 +118,7 @@ export default function App({ Component, pageProps = {}, }) {
       <Analytics />
 
       <GoogleTagManager gtmId="GTM-W99KBPB" />
-      <GoogleAnalytics gaId="G-CSXSBEQKTY"/>
-
+      <GoogleAnalytics gaId="G-CSXSBEQKTY" />
     </>
   );
 }
