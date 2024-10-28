@@ -4,7 +4,7 @@ import Hero from "@/components/HomePage/Hero";
 import AboutUs from "@/components/HomePage/AboutUs";
 import Portfolio from "@/components/HomePage/Portfolio";
 import Services from "@/components/HomePage/Services";
-import Clients from "@/components/HomePage/Clients";
+// import Clients from "@/components/HomePage/Clients";
 import { getHomePagePosts } from "@/lib/posts";
 import { titleAnim, paraAnim, lineAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
 import { WebpageJsonLd } from "@/lib/json-ld";
@@ -12,7 +12,8 @@ import MetaData from "@/components/Metadata";
 import dynamic from 'next/dynamic';
 
 // Dynamically import Blogs component
-const Blogs = dynamic(() => import('@/components/HomePage/Blogs'));
+const Blogs = dynamic(() => import('@/components/HomePage/Blogs'),{ssr:false});
+const Clients = dynamic(() => import('@/components/HomePage/Clients'),{ssr:false});
 
 export default function Home({ recentPosts }) {
 
