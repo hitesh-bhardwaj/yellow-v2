@@ -6,7 +6,7 @@ import { gsap } from "gsap/dist/gsap";
 import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
-import { SplitInChar } from "../splitTextUtils";
+// import { SplitInChar } from "../splitTextUtils";
 import Line from "../Line";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, useGSAP);
