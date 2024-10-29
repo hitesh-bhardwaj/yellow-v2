@@ -1,9 +1,10 @@
-import BrandsMarquee from "../Extra/BrandsMarquee";
-import Testimonial from "../Extra/Testimonial";
+
 import Section from "../Section"
-// import BrandsMarquee from "./BrandsMarquee";
 import SectionTitle from "../SectionTitle";
-// import Testimonial from "./Testimonial";
+import dynamic from 'next/dynamic';
+const BrandsMarquee = dynamic(() => import('../Extra/BrandsMarquee'),{ssr:false});
+const Testimonial = dynamic(() => import('../Extra/Testimonial'),{ssr:false});
+
 
 const Clients = () => {
 
