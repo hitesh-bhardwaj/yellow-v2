@@ -123,6 +123,7 @@ const Header = () => {
                 alt="Yellow Brand Logo"
                 width={153}
                 height={48}
+                priority={true}
               />
             </Link>
           </div>
