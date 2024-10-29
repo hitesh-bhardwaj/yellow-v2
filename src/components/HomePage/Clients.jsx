@@ -9,7 +9,7 @@ const Testimonial = dynamic(() => import('../Extra/Testimonial'),{ssr:false});
 const Clients = () => {
 
     return (
-        <Section className="py-[5%] dark" id="clients">
+        <Section className="py-[5%] dark h-[125vw] overflow-hidden tablet:h-[180vw] mobile:h-[255vw]" id="clients">
             <div className="bg-body pt-[5%] pb-[10%] text-white relative min-h-screen mobile:py-[15%]">
                 <div className="container mb-[8vw]">
                     <div className="space-y-[1.5vw] mobile:space-y-[4vw]">
@@ -25,8 +25,7 @@ const Clients = () => {
                 </div>
                 <div className="w-full overflow-hidden relative z-10">
                     <div className="w-full container flex justify-center mb-[8vw] mobile:justify-start">
-                        <SectionTitle text="Client Reviews" className="mobile:hidden"/>
-                        <h2 className="text-[12vw] hidden mobile:block font-display">Client Reviews</h2>
+                        <SectionTitle text="Client Reviews" className="mobile:!text-[10vw]"/>
                     </div>
                     {/* <Testimonial /> */}
                     <Testimonial />

@@ -1,14 +1,12 @@
 import LinkButton from "../Button/LinkButton"
-import { fadeUp, imageAnimationDown, paraAnim } from "../gsapAnimations"
+// import { fadeUp, imageAnimationDown, paraAnim } from "../gsapAnimations"
 import Section from "../Section"
 import SectionTitle from "../SectionTitle"
 import BlogCard from "./BlogCard"
 
 const Blogs = ({posts}) => {
     
-    imageAnimationDown();
-    paraAnim()
-    fadeUp()
+   
 
     return (
         <Section id="Blogs" className="bg-black">

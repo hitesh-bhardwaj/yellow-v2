@@ -5,7 +5,7 @@ import AboutUs from "@/components/HomePage/AboutUs";
 import Portfolio from "@/components/HomePage/Portfolio";
 import Services from "@/components/HomePage/Services";
 import { getHomePagePosts } from "@/lib/posts";
-import { fadeIn, fadeUp, lineAnim, paraAnim, titleAnim } from '@/components/gsapAnimations';
+import { fadeIn, fadeUp, imageAnimationDown, lineAnim, paraAnim, titleAnim } from '@/components/gsapAnimations';
 import { WebpageJsonLd } from "@/lib/json-ld";
 import MetaData from "@/components/Metadata";
 import dynamic from 'next/dynamic';
@@ -13,7 +13,7 @@ import dynamic from 'next/dynamic';
 import Clients from "@/components/HomePage/Clients";
 
 // Dynamically import Blogs component
-const Blogs = dynamic(() => import('@/components/HomePage/Blogs'),{ssr:false});
+const Blogs = dynamic(() => import('@/components/HomePage/Blogs'));
 // const Clients = dynamic(() => import('@/components/HomePage/Clients'),{ssr:false});
 
 export default function Home({ recentPosts }) {
@@ -33,6 +33,7 @@ export default function Home({ recentPosts }) {
   lineAnim();
   fadeIn();
   fadeUp();
+  imageAnimationDown();
 
   return (
     <>
