@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import LinkButton from "../Button/LinkButton";
 import RoundButton from "../Button/RoundButton";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -209,10 +210,11 @@ const Portfolio = () => {
           className="flex h-screen w-[300%] mobile:h-auto whitespace-nowrap mobile:flex-col mobile:w-full mobile:gap-[10vw] tablet:flex-col tablet:gap-[5vw] tablet:w-full tablet:justify-center tablet:items-center tablet:h-auto"
         >
           <div className="h-screen w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:h-[50vh] mobile:mx-auto tablet:rounded-xl mobile:rounded-xl tablet:h-[40vh]" data-magnetic-target data-magnetic-strength="200">
-            <img
+            <Image
               src="/assets/images/homepage/mitsubishi.webp"
               alt="Mitsubishi Image"
               loading="lazy"
+              fill
               className="brightness-75 object-cover h-full w-full absolute left-0 right-0 top-0 bottom-0"
             />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 z-[1] -translate-y-1/2">
@@ -240,10 +242,11 @@ const Portfolio = () => {
           </div>
 
           <div className="h-screen w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:h-[50vh] mobile:mx-auto tablet:rounded-xl mobile:rounded-xl tablet:h-[40vh]" data-magnetic-target data-magnetic-strength="200">
-            <img
+            <Image
               src="/assets/images/homepage/barakat.webp"
               alt="Barakat Image"
               loading="lazy"
+              fill
               className="brightness-75 object-cover h-full w-full absolute left-0 right-0 top-0 bottom-0"
             />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 z-[1] -translate-y-1/2">
@@ -271,10 +274,11 @@ const Portfolio = () => {
           </div>
 
           <div className="h-screen w-[90vw] relative pannel overflow-hidden p-[5vw] mobile:h-[50vh] mobile:mx-auto tablet:rounded-xl mobile:rounded-xl tablet:h-[40vh]" data-magnetic-target data-magnetic-strength="200">
-            <img
+            <Image
               src="/assets/images/homepage/cafu.webp"
               alt="Cafu Image"
               loading="lazy"
+              fill
               className="brightness-75 object-cover h-full w-full absolute left-0 right-0 top-0 bottom-0"
             />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 z-[1] -translate-y-1/2">
