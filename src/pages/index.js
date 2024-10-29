@@ -13,7 +13,7 @@ import dynamic from 'next/dynamic';
 import Clients from "@/components/HomePage/Clients";
 
 // Dynamically import Blogs component
-const Blogs = dynamic(() => import('@/components/HomePage/Blogs'));
+const Blogs = dynamic(() => import('@/components/HomePage/Blogs'),{ssr:false});
 // const Clients = dynamic(() => import('@/components/HomePage/Clients'),{ssr:false});
 
 export default function Home({ recentPosts }) {
