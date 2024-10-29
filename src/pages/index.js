@@ -4,9 +4,8 @@ import Hero from "@/components/HomePage/Hero";
 import AboutUs from "@/components/HomePage/AboutUs";
 import Portfolio from "@/components/HomePage/Portfolio";
 import Services from "@/components/HomePage/Services";
-// import Clients from "@/components/HomePage/Clients";
 import { getHomePagePosts } from "@/lib/posts";
-import { titleAnim, paraAnim, lineAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
+import { fadeIn, fadeUp } from '@/components/gsapAnimations';
 import { WebpageJsonLd } from "@/lib/json-ld";
 import MetaData from "@/components/Metadata";
 import dynamic from 'next/dynamic';
@@ -27,9 +26,9 @@ export default function Home({ recentPosts }) {
   }
 
   // Trigger animations
-  titleAnim();
-  paraAnim();
-  lineAnim();
+  // titleAnim();
+  // paraAnim();
+  // lineAnim();
   fadeIn();
   fadeUp();
 
