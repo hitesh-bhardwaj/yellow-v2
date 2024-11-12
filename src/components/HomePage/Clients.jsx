@@ -5,7 +5,6 @@ import dynamic from 'next/dynamic';
 const BrandsMarquee = dynamic(() => import('../Extra/BrandsMarquee'),{ssr:false});
 const Testimonial = dynamic(() => import('../Extra/Testimonial'),{ssr:false});
 
-
 const Clients = () => {
 
     return (
@@ -19,11 +18,11 @@ const Clients = () => {
                         </h4>
                     </div>
                 </div>
-                <div className="mb-[18vw] w-full overflow-hidden">
+                <div className="mb-[18vw] w-full overflow-hidden h-[18.5vw] tablet:h-[16.5] mobile:h-[32vw]">
                     {/* <BrandsMarquee /> */}
                     <BrandsMarquee />
                 </div>
-                <div className="w-full overflow-hidden relative z-10">
+                <div className="w-full overflow-hidden relative z-10 h-[41.5vw] tablet:h-[88vw] mobile:h-[115vw]">
                     <div className="w-full container flex justify-center mb-[8vw] mobile:justify-start">
                         <SectionTitle text="Client Reviews" className="mobile:!text-[10vw]"/>
                     </div>

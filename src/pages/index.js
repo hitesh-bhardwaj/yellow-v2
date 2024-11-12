@@ -9,12 +9,10 @@ import { fadeIn, fadeUp, lineAnim, paraAnim, titleAnim } from '@/components/gsap
 import { WebpageJsonLd } from "@/lib/json-ld";
 import MetaData from "@/components/Metadata";
 import dynamic from 'next/dynamic';
-// import Blogs from "@/components/HomePage/Blogs";
 import Clients from "@/components/HomePage/Clients";
 
 // Dynamically import Blogs component
 const Blogs = dynamic(() => import('@/components/HomePage/Blogs'));
-// const Clients = dynamic(() => import('@/components/HomePage/Clients'),{ssr:false});
 
 export default function Home({ recentPosts }) {
 
@@ -27,14 +25,12 @@ export default function Home({ recentPosts }) {
     date_modified: "2024-08-01T12:32",
   }
 
-  // Trigger animations
   titleAnim();
   paraAnim();
   lineAnim();
   fadeIn();
   fadeUp();
   
-
   return (
     <>
       <MetaData metadata={metadata} />

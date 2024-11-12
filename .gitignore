@@ -31,12 +31,11 @@ yarn-error.log*
 # vercel
 .vercel
 
+#local files
+/public/feed.xml/
+/public/sitemap.xml/
+/public/wp-search.json/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-public/feed.xml
-public/feed.xml
-public/feed.xml
-public/feed.xml
-public/sitemap.xml
-public/wp-search.json

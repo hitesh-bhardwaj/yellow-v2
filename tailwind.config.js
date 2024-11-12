@@ -14,10 +14,8 @@ module.exports = {
       'tablet':{'min':'541px','max':'1024px'}
     },
     fontFamily: {
-      // 'display': ['Outfit', 'Arial', 'sans-serif'],
-      // 'body': ['Satoshi', 'Arial', 'sans-seri'],
-      'display': ['var(--font-outfit)'],
-      'body': ['var(--font-satoshi)'],
+      'display': 'var(--font-outfit)',
+      'body': 'var(--font-satoshi)',
     },
     extend: {
       colors: {

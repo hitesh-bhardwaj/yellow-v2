@@ -130,8 +130,6 @@ const Hero = () => {
           <div className="absolute left-1/2 -translate-x-1/2 mobile:static mobile:translate-x-0 tablet:static tablet:translate-x-0">
             <PrimaryButton
               onClick={handleOpen}
-              text="Play Reel"
-              className="magnetic-inner"
             />
           </div>
         </div>
