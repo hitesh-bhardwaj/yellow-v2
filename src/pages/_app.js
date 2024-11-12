@@ -1,26 +1,26 @@
 import "@/styles/globals.css";
 import { ReactLenis } from 'lenis/react';
 import { DefaultSeo } from "next-seo";
-import { ImageObjectJsonLd, OrganizationJsonLd, WebsiteJsonLd } from "@/lib/json-ld";
 import { useEffect } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-import { SearchProvider } from "@/hooks/use-search";
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
 import localFont from 'next/font/local';
 import nextSeoConfig from "../../next-seo.config";
+import { SearchProvider } from "@/hooks/use-search";
 
 const outfit = localFont({
   src: [
-    { 
-      path: './fonts/Outfit-Regular.woff', 
-      weight: '400', 
-      style: 'normal' 
+    {
+      path: './fonts/Outfit-Regular.woff',
+      weight: '400',
+      style: 'normal'
     },
-    { 
-      path: './fonts/Outfit-Medium.woff', 
-      weight: '500', 
-      style: 'normal' }
+    {
+      path: './fonts/Outfit-Medium.woff',
+      weight: '500',
+      style: 'normal'
+    }
   ],
   display: 'swap',
   variable: '--font-outfit'
@@ -28,15 +28,15 @@ const outfit = localFont({
 
 const satoshi = localFont({
   src: [
-    { 
-      path: './fonts/Satoshi-Regular.woff', 
-      weight: '400', 
-      style: 'normal' 
+    {
+      path: './fonts/Satoshi-Regular.woff',
+      weight: '400',
+      style: 'normal'
     },
-    { 
-      path: './fonts/Satoshi-Medium.woff', 
-      weight: '500', 
-      style: 'normal' 
+    {
+      path: './fonts/Satoshi-Medium.woff',
+      weight: '500',
+      style: 'normal'
     }
   ],
   display: 'swap',
@@ -60,18 +60,14 @@ export default function App({ Component, pageProps = {}, }) {
   return (
     <>
       <DefaultSeo {...nextSeoConfig} />
-      
-      <OrganizationJsonLd />
-      <WebsiteJsonLd />
-      <ImageObjectJsonLd />
 
-      <SearchProvider>
-        <ReactLenis root options={{ lerp: 0.05 }}>
+      <ReactLenis root options={{ lerp: 0.05 }}>
+        <SearchProvider>
           <main className={`${outfit.variable} ${satoshi.variable}`}>
             <Component {...pageProps} />
           </main>
-        </ReactLenis>
-      </SearchProvider>
+        </SearchProvider>
+      </ReactLenis>
 
       <SpeedInsights />
       <Analytics />

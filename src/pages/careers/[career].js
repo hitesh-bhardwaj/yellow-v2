@@ -64,17 +64,11 @@ export default function Work({ job, jobsList }) {
           ],
           siteName: "Yellow",
         }}
-        additionalLinkTags={[
-          {
-            rel: "canonical",
-            href: `${path}`,
-          },
-          {
-            rel: "alternate",
-            href: `${path}`,
-            hreflang: "x-default",
-          }
-        ]}
+        canonical={`${path}`}
+        languageAlternates={[{
+          hrefLang: 'x-default',
+          href: `${path}`,
+        }]}
       />
       {/* <JobpostingJsonLd job={job} /> */}
       <Layout>
