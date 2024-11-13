@@ -8,6 +8,7 @@ import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
 import localFont from 'next/font/local';
 import nextSeoConfig from "../../next-seo.config";
 import { SearchProvider } from "@/hooks/use-search";
+import 'lenis/dist/lenis.css';
 
 const outfit = localFont({
   src: [
@@ -60,14 +61,14 @@ export default function App({ Component, pageProps = {}, }) {
   return (
     <>
       <DefaultSeo {...nextSeoConfig} />
-
-      <ReactLenis root options={{ lerp: 0.05 }}>
-        <SearchProvider>
+      
+      <SearchProvider>
+        <ReactLenis root options={{ lerp: 0.05 }}>
           <main className={`${outfit.variable} ${satoshi.variable}`}>
             <Component {...pageProps} />
           </main>
-        </SearchProvider>
-      </ReactLenis>
+        </ReactLenis>
+      </SearchProvider>
 
       <SpeedInsights />
       <Analytics />
