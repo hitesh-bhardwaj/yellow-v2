@@ -41,7 +41,7 @@ export default function Home({ recentPosts }) {
         <AboutUs />
         <Portfolio />
         {/* <Services /> */}
-        {/* <Clients /> */}
+        <Clients />
         <Blogs posts={recentPosts} />
       </Layout>
     </>
