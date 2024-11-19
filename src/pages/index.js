@@ -7,12 +7,12 @@ import { fadeIn, fadeUp, lineAnim, paraAnim, titleAnim } from '@/components/gsap
 import { WebpageJsonLd } from "@/lib/json-ld";
 import MetaData from "@/components/Metadata";
 import dynamic from 'next/dynamic';
-import Clients from "@/components/HomePage/Clients";
 
 // Dynamically import Blogs component
 const Blogs = dynamic(() => import('@/components/HomePage/Blogs'));
 const Portfolio = dynamic(()=> import('@/components/HomePage/Portfolio'));
 const AboutUs = dynamic(()=> import('@/components/HomePage/AboutUs'));
+const Clients = dynamic(()=>import ('@/components/HomePage/Clients'));
 
 
 export default function Home({ recentPosts }) {
