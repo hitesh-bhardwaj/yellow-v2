@@ -39,8 +39,8 @@ export default function Home({ recentPosts }) {
         <Hero />
         <AboutUs />
         <Portfolio />
-        <Services />
-        <Clients />
+        {/* <Services /> */}
+        {/* <Clients /> */}
         <Blogs posts={recentPosts} />
       </Layout>
     </>
