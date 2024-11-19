@@ -2,7 +2,6 @@
 import Layout from "@/components/Layout";
 import Hero from "@/components/HomePage/Hero";
 import AboutUs from "@/components/HomePage/AboutUs";
-import Portfolio from "@/components/HomePage/Portfolio";
 import Services from "@/components/HomePage/Services";
 import { getHomePagePosts } from "@/lib/posts";
 import { fadeIn, fadeUp, lineAnim, paraAnim, titleAnim } from '@/components/gsapAnimations';
@@ -13,6 +12,7 @@ import Clients from "@/components/HomePage/Clients";
 
 // Dynamically import Blogs component
 const Blogs = dynamic(() => import('@/components/HomePage/Blogs'));
+const Portfolio = dynamic(()=> import('@/components/HomePage/Portfolio'));
 
 export default function Home({ recentPosts }) {
 
@@ -37,10 +37,10 @@ export default function Home({ recentPosts }) {
       <WebpageJsonLd metadata={metadata} />
       <Layout>
         <Hero />
-        {/* <AboutUs />
+        {/* <AboutUs /> */}
         <Portfolio />
-        <Services />
-        <Clients /> */}
+        {/* <Services /> */}
+        {/* <Clients /> */}
         <Blogs posts={recentPosts} />
       </Layout>
     </>
