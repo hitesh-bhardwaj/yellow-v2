@@ -60,7 +60,7 @@ export default function App({ Component, pageProps = {}, }) {
 
   return (
     <>
-      <DefaultSeo {...nextSeoConfig} />
+      <DefaultSeo {...nextSeoConfig} dangerouslySetAllPagesToNoFollow={true} dangerouslySetAllPagesToNoIndex={true}/>
       
       <SearchProvider>
         <ReactLenis root options={{ lerp: 0.05 }}>
