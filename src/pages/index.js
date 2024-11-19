@@ -7,14 +7,13 @@ import { WebpageJsonLd } from "@/lib/json-ld";
 import MetaData from "@/components/Metadata";
 import dynamic from 'next/dynamic';
 import AboutUs from "@/components/HomePage/AboutUs";
-import Services from "@/components/HomePage/Services";
+// import Services from "@/components/HomePage/Services";
 
 // Dynamically import Blogs component
 const Blogs = dynamic(() => import('@/components/HomePage/Blogs'));
 const Portfolio = dynamic(()=> import('@/components/HomePage/Portfolio'));
-// const AboutUs = dynamic(()=> import('@/components/HomePage/AboutUs'),{ ssr: false });
 const Clients = dynamic(()=>import ('@/components/HomePage/Clients'), { ssr: false });
-// const Services = dynamic(()=>import ('@/components/HomePage/Services'), { ssr: false });
+const Services = dynamic(()=>import ('@/components/HomePage/Services'), { ssr: false });
 
 
 
@@ -43,7 +42,7 @@ export default function Home({ recentPosts }) {
         <Hero />
         <AboutUs />
         <Portfolio />
-        {/* <Services /> */}
+        <Services />
         <Clients />
         <Blogs posts={recentPosts} />
       </Layout>
