@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import Layout from "@/components/Layout";
 import Hero from "@/components/HomePage/Hero";
-import AboutUs from "@/components/HomePage/AboutUs";
 import Services from "@/components/HomePage/Services";
 import { getHomePagePosts } from "@/lib/posts";
 import { fadeIn, fadeUp, lineAnim, paraAnim, titleAnim } from '@/components/gsapAnimations';
@@ -13,6 +12,8 @@ import Clients from "@/components/HomePage/Clients";
 // Dynamically import Blogs component
 const Blogs = dynamic(() => import('@/components/HomePage/Blogs'));
 const Portfolio = dynamic(()=> import('@/components/HomePage/Portfolio'));
+const AboutUs = dynamic(()=> import('@/components/HomePage/AboutUs'));
+
 
 export default function Home({ recentPosts }) {
 

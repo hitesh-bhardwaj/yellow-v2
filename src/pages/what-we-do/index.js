@@ -5,7 +5,7 @@ import { titleAnim, paraAnim, lineAnim, fadeUp } from '@/components/gsapAnimatio
 import { getRelatedPortfolioForPages } from '@/lib/portfolio';
 import MetaData from '@/components/Metadata';
 import { WebpageJsonLd } from '@/lib/json-ld';
-import RelatedWork from '@/components/RelatedWork';
+import RelatedWork from '@/components/Metadata/RelatedWork';
 
 export default function services({ recentWorks }) {
 
