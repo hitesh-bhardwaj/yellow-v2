@@ -11,8 +11,8 @@ import dynamic from 'next/dynamic';
 // Dynamically import Blogs component
 const Blogs = dynamic(() => import('@/components/HomePage/Blogs'));
 const Portfolio = dynamic(()=> import('@/components/HomePage/Portfolio'));
-const AboutUs = dynamic(()=> import('@/components/HomePage/AboutUs'));
-const Clients = dynamic(()=>import ('@/components/HomePage/Clients'));
+const AboutUs = dynamic(()=> import('@/components/HomePage/AboutUs'),{ ssr: false });
+const Clients = dynamic(()=>import ('@/components/HomePage/Clients'), { ssr: false });
 
 
 export default function Home({ recentPosts }) {
@@ -40,7 +40,7 @@ export default function Home({ recentPosts }) {
         <Hero />
         <AboutUs />
         <Portfolio />
-        {/* <Services /> */}
+        <Services />
         <Clients />
         <Blogs posts={recentPosts} />
       </Layout>
