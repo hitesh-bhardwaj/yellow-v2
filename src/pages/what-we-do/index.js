@@ -6,8 +6,7 @@ import MetaData from '@/components/Metadata';
 import { WebpageJsonLd } from '@/lib/json-ld';
 import RelatedWork from '@/components/Metadata/RelatedWork';
 import dynamic from 'next/dynamic';
-
-const ServiceList = dynamic(()=>import ('@/components/services/ServiceList'), { ssr: false });
+import ServiceList from '@/components/services/ServiceList';
 
 export default function services({ recentWorks }) {
 
@@ -31,7 +30,7 @@ export default function services({ recentWorks }) {
       <WebpageJsonLd metadata={metadata} />
       <Layout>
         <Pagehero />
-        <ServiceList />
+        <ServiceList/>
         <RelatedWork
           works={recentWorks}
           heading={"Our Work"}  

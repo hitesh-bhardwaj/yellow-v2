@@ -52,7 +52,8 @@ export default function ServiceList() {
                 <div className="col-span-4 w-full h-full">
                   <div className={`w-[50vw] h-[33vw] fadeup rounded-xl overflow-hidden relative mobile:w-full mobile:h-[140vw] tablet:w-full tablet:h-[45vw] ${index % 2 === 0 ? '' : 'mobile:mt-[5vw]'}`}>
                       <Image
-                        loading="lazy"
+                        // loading="lazy"
+                        priority={true}
                         quality={100}
                         src={service.imageSrc}
                         alt={`${service.title} Image`}
