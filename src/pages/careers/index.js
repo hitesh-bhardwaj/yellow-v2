@@ -1,4 +1,3 @@
-// import Essentials from '@/components/career/Essentials'
 import Pagehero from '@/components/career/Pagehero'
 import Layout from '@/components/Layout'
 import { titleAnim, paraAnim, lineAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
@@ -6,6 +5,10 @@ import { getAllJobs } from '@/lib/jobs';
 import { WebpageJsonLd } from '@/lib/json-ld';
 import MetaData from '@/components/Metadata';
 import Listing from '@/components/career/Listing';
+import dynamic from 'next/dynamic';
+
+const Essentials = dynamic(()=>import ('@/components/career/Essentials'), { ssr: false });
+
 
 export default function Career({jobs}) {
 
@@ -31,7 +34,7 @@ export default function Career({jobs}) {
       <Layout>
           <Pagehero/>
           <Listing jobs={jobs} />
-          {/* <Essentials /> */}
+          <Essentials />
       </Layout>
     </>
   )
