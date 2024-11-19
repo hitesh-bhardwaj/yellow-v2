@@ -30,8 +30,8 @@ export default function Career({jobs}) {
       <WebpageJsonLd metadata={metadata} />
       <Layout>
           <Pagehero/>
-          <Listing jobs={jobs} />
-          <Essentials />
+          {/* <Listing jobs={jobs} /> */}
+          {/* <Essentials /> */}
       </Layout>
     </>
   )
