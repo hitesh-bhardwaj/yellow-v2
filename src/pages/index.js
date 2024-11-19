@@ -37,10 +37,10 @@ export default function Home({ recentPosts }) {
       <WebpageJsonLd metadata={metadata} />
       <Layout>
         <Hero />
-        {/* <AboutUs /> */}
+        <AboutUs />
         <Portfolio />
-        {/* <Services /> */}
-        {/* <Clients /> */}
+        <Services />
+        <Clients />
         <Blogs posts={recentPosts} />
       </Layout>
     </>
