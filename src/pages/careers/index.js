@@ -9,7 +9,6 @@ import dynamic from 'next/dynamic';
 
 const Essentials = dynamic(()=>import ('@/components/career/Essentials'), { ssr: false });
 
-
 export default function Career({jobs}) {
 
   titleAnim();
