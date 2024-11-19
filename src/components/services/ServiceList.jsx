@@ -54,7 +54,7 @@ export default function ServiceList() {
                       <Image
                         // loading="lazy"
                         priority={true}
-                        quality={100}
+                        quality={90}
                         src={service.imageSrc}
                         alt={`${service.title} Image`}
                         title={`${service.title} Image`}
