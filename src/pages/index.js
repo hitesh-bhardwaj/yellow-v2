@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import Layout from "@/components/Layout";
 import Hero from "@/components/HomePage/Hero";
-import Services from "@/components/HomePage/Services";
 import { getHomePagePosts } from "@/lib/posts";
 import { fadeIn, fadeUp, lineAnim, paraAnim, titleAnim } from '@/components/gsapAnimations';
 import { WebpageJsonLd } from "@/lib/json-ld";
@@ -13,6 +12,8 @@ const Blogs = dynamic(() => import('@/components/HomePage/Blogs'));
 const Portfolio = dynamic(()=> import('@/components/HomePage/Portfolio'));
 const AboutUs = dynamic(()=> import('@/components/HomePage/AboutUs'),{ ssr: false });
 const Clients = dynamic(()=>import ('@/components/HomePage/Clients'), { ssr: false });
+const Services = dynamic(()=>import ('@/components/HomePage/Services'), { ssr: false });
+
 
 
 export default function Home({ recentPosts }) {
