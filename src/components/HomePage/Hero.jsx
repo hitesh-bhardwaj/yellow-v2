@@ -111,7 +111,7 @@ const Hero = () => {
             playsInline
             loading="lazy"
             className="w-full h-full aspect-video object-cover brightness-[.65]"
-            // src="/assets/showreel-6sec-optimized.mp4"
+            src="/assets/showreel-6sec-optimized.mp4"
           ></video>
         </div>
         <div
