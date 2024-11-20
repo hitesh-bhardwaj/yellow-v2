@@ -11,7 +11,7 @@ import Clients from "@/components/HomePage/Clients";
 
 // Dynamically import Blogs component
 const Blogs = dynamic(() => import('@/components/HomePage/Blogs'));
-const Portfolio = dynamic(()=> import('@/components/HomePage/Portfolio'));
+const Portfolio = dynamic(()=> import('@/components/HomePage/Portfolio'),{ ssr: false });
 const Services = dynamic(()=>import ('@/components/HomePage/Services'), { ssr: false });
 
 

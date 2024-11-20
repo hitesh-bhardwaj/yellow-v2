@@ -80,7 +80,7 @@ export default function servicesdetail({ recentWorks }) {
             </h1>
             <div className="w-[90vw] h-[45vw] rounded-[15px] overflow-hidden relative fadeup mobile:w-full mobile:h-[45vw] tablet:w-[85vw]">
               <Image
-                quality={100}
+                quality={90}
                 src="/assets/images/service/brand-strategy/brand-strategy-listing.png"
                 alt="service-detail-hero"
                 className="object-cover w-full h-full"
