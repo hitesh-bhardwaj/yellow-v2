@@ -4,7 +4,7 @@ import { DefaultSeo } from "next-seo";
 import { useEffect } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
+// import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
 import localFont from 'next/font/local';
 import nextSeoConfig from "../../next-seo.config";
 import { SearchProvider } from "@/hooks/use-search";
@@ -73,8 +73,8 @@ export default function App({ Component, pageProps = {}, }) {
       <SpeedInsights />
       <Analytics />
 
-      <GoogleTagManager gtmId="GTM-W99KBPB" />
-      <GoogleAnalytics gaId="G-CSXSBEQKTY" />
+      {/* <GoogleTagManager gtmId="GTM-W99KBPB" /> */}
+      {/* <GoogleAnalytics gaId="G-CSXSBEQKTY" /> */}
     </>
   );
 }
