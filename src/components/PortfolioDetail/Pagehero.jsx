@@ -4,6 +4,9 @@ import MediaRender from '../MediaRender'
 import { formatDateYear } from '@/lib/datetime'
 
 export default function Pagehero({src, title, date, tags}) {
+
+  console.log(tags);
+
   return (
     <>
       <Section className='dark relative w-full h-screen mobile:h-[70vh] tablet:h-[50vh]' id='hero'>
@@ -14,8 +17,8 @@ export default function Pagehero({src, title, date, tags}) {
             {title}
           </h1>
           <div className="absolute bottom-[7%] right-[7%] flex flex-wrap gap-[1.5vw] text-white mobile:static mobile:gap-[3vw]">
-            {tags.slice(0, 2).map((tag) => (
-              <p key={tag.slug} className="w-fit border-[1px] capitalize border-white rounded-[60px] backdrop-blur-md px-[1.7vw] py-[0.5vw] text-[1.2vw] mobile:text-[4vw] mobile:px-[5vw] mobile:py-[1.7vw] bg-white/15 tablet:text-[2vw]">{tag.name}</p>
+            {tags.edges.map((tag) => (
+              <p key={tag.node.slug} className="w-fit border-[1px] capitalize border-white rounded-[60px] backdrop-blur-md px-[1.7vw] py-[0.5vw] text-[1.2vw] mobile:text-[4vw] mobile:px-[5vw] mobile:py-[1.7vw] bg-white/15 tablet:text-[2vw]">{tag.node.name}</p>
             ))}
             <p className="w-fit border-[1px] border-white rounded-[60px] backdrop-blur-md px-[2.5vw] py-[0.5vw] text-[1.2vw] mobile:text-[4vw] mobile:hidden tablet:text-[2vw] bg-white/15">
               {formatDateYear(date)}
