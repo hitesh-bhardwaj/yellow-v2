@@ -4,41 +4,11 @@
         <description><![CDATA[welcometoyellow]]></description>
         <link>https://welcometoyellow.com</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 10 Mar 2025 12:10:54 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 10 Mar 2025 14:24:20 GMT</lastBuildDate>
         <atom:link href="https://welcometoyellow.com/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 10 Mar 2025 12:10:54 GMT</pubDate>
+        <pubDate>Mon, 10 Mar 2025 14:24:20 GMT</pubDate>
         <copyright><![CDATA[2025 welcometoyellow]]></copyright>
         <language><![CDATA[en]]></language>
-        <item>
-            <title><![CDATA[Our thoughts on Dubai Design Week 2018]]></title>
-            <description><![CDATA[With the close of the Dubai Design Week 2018, D3 has reverted to its former quiet self.
-]]></description>
-            <link>https://welcometoyellow.com/dubai-design-week-2018</link>
-            <guid isPermaLink="false">https://welcometoyellow.com/dubai-design-week-2018</guid>
-            <category><![CDATA[Branding]]></category>
-            <pubDate>Thu, 29 Nov 2018 01:30:26 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[5 Elements of a Powerful Branding Strategy]]></title>
-            <description><![CDATA[Apple, Coca-Cola, Nike, Starbucks, and Tesla are only some of the most well-known companies that are killing it with their branding campaigns.
-]]></description>
-            <link>https://welcometoyellow.com/5-elements-of-a-powerful-branding-strategy</link>
-            <guid isPermaLink="false">https://welcometoyellow.com/5-elements-of-a-powerful-branding-strategy</guid>
-            <category><![CDATA[Strategy]]></category>
-            <category><![CDATA[Branding]]></category>
-            <pubDate>Sun, 03 May 2020 08:19:07 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Color Psychology in Branding: Understanding the Emotional Impact of Colors]]></title>
-            <description><![CDATA[Imagine stepping into a world devoid of colors—a world where everything is black and white. Sounds dull, doesn&#8217;t it? That&#8217;s because colors have a profound impact on our emotions and perceptions. In branding, colors play a crucial role in shaping how consumers view and interact with a brand. In the vibrant world of branding, colors [&hellip;]
-]]></description>
-            <link>https://welcometoyellow.com/color-psychology-in-branding-understanding-the-emotional-impact-of-colors</link>
-            <guid isPermaLink="false">https://welcometoyellow.com/color-psychology-in-branding-understanding-the-emotional-impact-of-colors</guid>
-            <category><![CDATA[Strategy]]></category>
-            <category><![CDATA[Digital]]></category>
-            <category><![CDATA[Branding]]></category>
-            <pubDate>Mon, 06 Nov 2023 07:04:38 GMT</pubDate>
-        </item>
         <item>
             <title><![CDATA[Storytelling through Design: Using Visual Elements to Convey Brand Narrative]]></title>
             <description><![CDATA[In the realm of branding, storytelling has transcended mere words to become a powerful tool wielded through design.
@@ -49,16 +19,6 @@
             <category><![CDATA[Digital]]></category>
             <category><![CDATA[Branding]]></category>
             <pubDate>Tue, 12 Nov 2024 05:07:04 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Building an Honest Brand in the Age of Authenticity]]></title>
-            <description><![CDATA[‘We are actively looking into the matter and will comment as soon as we have more information’ or our personal favourite
-]]></description>
-            <link>https://welcometoyellow.com/building-an-honest-brand-in-the-age-of-authenticity</link>
-            <guid isPermaLink="false">https://welcometoyellow.com/building-an-honest-brand-in-the-age-of-authenticity</guid>
-            <category><![CDATA[Communication]]></category>
-            <category><![CDATA[Branding]]></category>
-            <pubDate>Thu, 02 Nov 2023 02:57:43 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Branding in the Service Industry: Strategies for Differentiating Your Offering]]></title>
@@ -138,6 +98,17 @@
             <pubDate>Sun, 05 May 2024 05:04:04 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[Color Psychology in Branding: Understanding the Emotional Impact of Colors]]></title>
+            <description><![CDATA[Imagine stepping into a world devoid of colors—a world where everything is black and white. Sounds dull, doesn&#8217;t it? That&#8217;s because colors have a profound impact on our emotions and perceptions. In branding, colors play a crucial role in shaping how consumers view and interact with a brand. In the vibrant world of branding, colors [&hellip;]
+]]></description>
+            <link>https://welcometoyellow.com/color-psychology-in-branding-understanding-the-emotional-impact-of-colors</link>
+            <guid isPermaLink="false">https://welcometoyellow.com/color-psychology-in-branding-understanding-the-emotional-impact-of-colors</guid>
+            <category><![CDATA[Strategy]]></category>
+            <category><![CDATA[Digital]]></category>
+            <category><![CDATA[Branding]]></category>
+            <pubDate>Mon, 06 Nov 2023 07:04:38 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[Typography and Branding: Choosing Fonts that Reflect Your Brand Personality]]></title>
             <description><![CDATA[In today&#8217;s digital age, where visual communication is paramount, the choice of fonts holds significant power in conveying brand personality and values. 
 ]]></description>
@@ -180,6 +151,16 @@
             <category><![CDATA[Digital]]></category>
             <category><![CDATA[Branding]]></category>
             <pubDate>Sun, 14 Jan 2024 01:29:29 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Building an Honest Brand in the Age of Authenticity]]></title>
+            <description><![CDATA[‘We are actively looking into the matter and will comment as soon as we have more information’ or our personal favourite
+]]></description>
+            <link>https://welcometoyellow.com/building-an-honest-brand-in-the-age-of-authenticity</link>
+            <guid isPermaLink="false">https://welcometoyellow.com/building-an-honest-brand-in-the-age-of-authenticity</guid>
+            <category><![CDATA[Communication]]></category>
+            <category><![CDATA[Branding]]></category>
+            <pubDate>Thu, 02 Nov 2023 02:57:43 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Branding for Small Businesses: Strategies to Stand Out in a Competitive Market]]></title>
@@ -394,6 +375,16 @@
             <pubDate>Mon, 08 Mar 2021 06:25:12 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[5 Elements of a Powerful Branding Strategy]]></title>
+            <description><![CDATA[Apple, Coca-Cola, Nike, Starbucks, and Tesla are only some of the most well-known companies that are killing it with their branding campaigns.
+]]></description>
+            <link>https://welcometoyellow.com/5-elements-of-a-powerful-branding-strategy</link>
+            <guid isPermaLink="false">https://welcometoyellow.com/5-elements-of-a-powerful-branding-strategy</guid>
+            <category><![CDATA[Strategy]]></category>
+            <category><![CDATA[Branding]]></category>
+            <pubDate>Sun, 03 May 2020 08:19:07 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[4 Elements That Define Your Brand’s Social Media Strategy]]></title>
             <description><![CDATA[Every brand needs a customized social media strategy based on its current social media goals, standing, and resources.
 ]]></description>
@@ -600,6 +591,15 @@
             <guid isPermaLink="false">https://welcometoyellow.com/herb-lubalins-influence-on-typography</guid>
             <category><![CDATA[Branding]]></category>
             <pubDate>Tue, 18 Dec 2018 07:20:36 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Our thoughts on Dubai Design Week 2018]]></title>
+            <description><![CDATA[With the close of the Dubai Design Week 2018, D3 has reverted to its former quiet self.
+]]></description>
+            <link>https://welcometoyellow.com/dubai-design-week-2018</link>
+            <guid isPermaLink="false">https://welcometoyellow.com/dubai-design-week-2018</guid>
+            <category><![CDATA[Branding]]></category>
+            <pubDate>Thu, 29 Nov 2018 01:30:26 GMT</pubDate>
         </item>
     </channel>
 </rss>
