@@ -63,6 +63,7 @@
     padding-top: 10px;
     scroll-behavior: smooth;
     scroll-margin-top: 7vw;
+    line-height: 1.2;
 }
 
 .blogContent h2 strong{
@@ -245,10 +246,10 @@
     position: absolute;
     display: block;
     height: 100%;
-    width: 4px;
+    width: 2px;
     top: 0;
     left: 0;
-    background: var(--text-head);
+    background: black;
 }
 
 .blogContent blockquote p{
