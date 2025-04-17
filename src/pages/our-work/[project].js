@@ -105,6 +105,7 @@ export default function Work({ project }) {
           tags={tags}
         />
         <Information
+          packaging={workFields.packagingWorld}
           info={workFields}
           title={title}
           tags={tags}
