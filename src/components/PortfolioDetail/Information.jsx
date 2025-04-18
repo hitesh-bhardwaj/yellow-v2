@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Section from "../Section"
 
-const Information = ({info, title, tags, industry, packaging}) => {
+const Information = ({info, title, tags, industry}) => {
 
     return (
         <Section id="second-section" className="bg-black w-screen">
@@ -33,10 +33,10 @@ const Information = ({info, title, tags, industry, packaging}) => {
                                     <p data-para-anim className="mobile:text-[5vw]">{industry[0].name}</p>
                                 </div>
                             )}
-                            {packaging && (
+                            {info.packagingWorld && (
                                 <div>
                                     <p data-para-anim className="text-[1vw] mb-[0.5vw] mobile:text-[3.5vw] tablet:text-[2vw]">As seen on</p>
-                                    <a target="_blank" href={packaging} className="block w-fit h-fit hover:scale-95 duration-300">
+                                    <a target="_blank" href={info.packagingWorld} className="block w-fit h-fit hover:scale-95 duration-300">
                                         <Image className="w-[15vw] h-auto mt-[0.8vw] tablet:w-[18vw] mobile:w-[40vw]" src="/assets/icons/packaging-logo.svg" alt="packaging of the world logo" width={100} height={30} />
                                     </a>
                                 </div>
