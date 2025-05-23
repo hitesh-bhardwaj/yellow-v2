@@ -53,7 +53,7 @@ export default function Home({ recentPosts }) {
 export async function getStaticProps() {
 
   const recentPosts = await getHomePagePosts();
-  
+
   return {
     props: {
       recentPosts,

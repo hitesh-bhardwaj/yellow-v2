@@ -79,6 +79,7 @@ export default function Works({ initialPortfolio, initialPagination, portfolioIn
                 );
               })}
             </div>
+
             {pagination && pagination.currentPage < pagination.pagesCount && (
               <div className="flex w-full justify-center mobile:mt-[8vw]">
                 <button onClick={loadMorePortfolio} disabled={isLoading} className={`cursor-pointer flex w-fit relative text-[1.3vw] gap-[0.5vw] items-center font-medium group mobile:text-[6vw] mobile:gap-[2vw] tablet:text-[2.5vw]`}>

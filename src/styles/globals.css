@@ -263,7 +263,6 @@ input:-webkit-autofill:active {
 }
 .cardfront {
   backface-visibility: hidden;
-
   transform: perspective(1200px) rotateY(0deg);
 }
 
