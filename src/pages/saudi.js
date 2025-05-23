@@ -1,23 +1,22 @@
+
 /* eslint-disable no-unused-vars */
 import Layout from "@/components/Layout";
-import Hero from "@/components/HomePage/Hero";
-import { getHomePagePosts } from "@/lib/posts";
 import { fadeIn, fadeUp, lineAnim, paraAnim, titleAnim } from '@/components/gsapAnimations';
 import { LocalBusiness, WebpageJsonLd } from "@/lib/json-ld";
 import MetaData from "@/components/Metadata";
-import dynamic from 'next/dynamic';
-import AboutUs from "@/components/HomePage/AboutUs";
-import Clients from "@/components/HomePage/Clients";
-import Faq from "@/components/HomePage/Faq";
-import Awards from "@/components/HomePage/Awards";
+import Hero from "@/components/saudi/Hero";
+import Trusted from "@/components/saudi/Trusted";
+import Services from "@/components/saudi/Services";
+import Details from "@/components/saudi/Details";
+import AdvertisingSolutions from "@/components/saudi/AdvertisingSolutions";
+import Clients from "@/components/saudi/Clients";
+import WhyUs from "@/components/saudi/WhyUs";
+import RelatedWork from "@/components/Metadata/RelatedWork";
+import { getRelatedPortfolioForPages } from "@/lib/portfolio";
 
-// Dynamically import Blogs component
-const Blogs = dynamic(() => import('@/components/HomePage/Blogs'));
-const Portfolio = dynamic(() => import('@/components/HomePage/Portfolio'), { ssr: false });
-const Services = dynamic(() => import('@/components/HomePage/Services'), { ssr: false });
 
-export default function Home({ recentPosts }) {
 
+export default function Home({ recentWorks }) {
   const metadata = {
     title: "Yellow: Branding & Advertising Agency in Dubai, UAE",
     description: "Yellow is a leading branding, creative design & advertising agency serving Dubai, Abu Dhabi & GCC. We provide brand strategy, naming, identity and marketing services that achieve our client's objectives.",
@@ -39,27 +38,32 @@ export default function Home({ recentPosts }) {
       <WebpageJsonLd metadata={metadata} />
       <LocalBusiness />
       <Layout>
-        <Hero />
-        <AboutUs />
-        <Portfolio />
-        <Services />
-        <Clients />
-        <Awards/>
-        <Blogs posts={recentPosts} />
-        <Faq />
+       <Hero/>
+       <Trusted/>
+       <Services/>
+       <Details/>
+       <AdvertisingSolutions/>
+       <Clients/>
+       <WhyUs/>
+        <RelatedWork
+                 works={recentWorks}
+                 heading={"Our Works"}
+                 subheading={
+                   ""
+                 }
+               />
       </Layout>
     </>
   );
 }
-
 export async function getStaticProps() {
-
-  const recentPosts = await getHomePagePosts();
+  const recentWorks = await getRelatedPortfolioForPages("brand-strategy");
 
   return {
     props: {
-      recentPosts,
+      recentWorks,
     },
     revalidate: 500,
   };
 }
+
