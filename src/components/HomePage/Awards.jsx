@@ -39,9 +39,7 @@ const Awards = () => {
         <div className="flex items-start justify-between pt-[5vw] mobile:flex-col mobile:gap-[5vw] mobile:pt-[10%] tablet:flex-col tablet:pt-[10%] tablet:gap-[7vw] overflow-hidden h-[35vw] mobile:h-full tablet:h-full">
           {cardData.map((card, index) => {
             const isActive = activeCard === index;
-
             return (
-              <>
                 <Link href={card.link}
                   key={index}
                   onMouseEnter={() => setActiveCard(index)}
@@ -105,7 +103,6 @@ const Awards = () => {
                     </div>
                   </div>
                 </Link>
-              </>
             );
           })}
         </div>
