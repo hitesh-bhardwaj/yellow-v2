@@ -26,7 +26,7 @@ export default function Trusted() {
                 <div className="col-start-5 col-span-4 w-full mobile:mb-[7vw] tablet:mb-[3vw]">
                   <h3
                     data-para-anim
-                    className="text-[2.5vw] font-display mb-[1.5vw] mobile:text-[9vw] mobile:mb-[5vw] tablet:text-[5vw] "
+                    className="text-[2.5vw] font-display leading-[1.3] mb-[1.5vw] mobile:text-[9vw] mobile:mb-[5vw] tablet:text-[5vw] "
                   >
                     Your Trusted Branding Agency now serving Saudi Arabia
                   </h3>

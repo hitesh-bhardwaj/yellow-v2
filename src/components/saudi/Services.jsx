@@ -13,7 +13,7 @@ export default function Trusted() {
                   <div className={`w-[50vw] h-[28vw] fadeup rounded-xl overflow-hidden relative mobile:w-full mobile:h-[45vw] tablet:w-full tablet:h-[15vw]`}>
                   <h3
                     data-para-anim
-                    className="text-[2.5vw] w-[65%] font-display mb-[1.5vw] mobile:text-[9vw] mobile:mb-[5vw] tablet:text-[5vw] mobile:w-full tablet:w-full "
+                    className="text-[2.5vw] w-[65%] font-display leading-[1.3] mb-[1.5vw] mobile:text-[9vw] mobile:mb-[5vw] tablet:text-[5vw] mobile:w-full tablet:w-full "
                   >
                     Our Branding & Marketing Services in Saudi Arabia
                   </h3>
