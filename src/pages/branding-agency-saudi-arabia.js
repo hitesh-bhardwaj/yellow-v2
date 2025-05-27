@@ -14,16 +14,14 @@ import WhyUs from "@/components/saudi/WhyUs";
 import RelatedWork from "@/components/Metadata/RelatedWork";
 import { getRelatedPortfolioForPages } from "@/lib/portfolio";
 
-
-
 export default function Home({ recentWorks }) {
   const metadata = {
-    title: "Yellow: Branding & Advertising Agency in Dubai, UAE",
-    description: "Yellow is a leading branding, creative design & advertising agency serving Dubai, Abu Dhabi & GCC. We provide brand strategy, naming, identity and marketing services that achieve our client's objectives.",
+    title: "Yellow - Advertising & Branding Agency Riyadh, Saudi Arabia",
+    description: "Yellow is a leading creative branding agency in Riyadh, Saudi Arabia, specializing in brand strategy, identity, and advertising services to elevate your brand.",
     img: "home.png",
     slug: "",
-    date_published: "2017-10-22T06:17",
-    date_modified: "2024-08-01T12:32",
+    date_published: "2025-05-27T06:17",
+    date_modified: "2025-05-27T06:17",
   }
 
   titleAnim();
@@ -38,20 +36,20 @@ export default function Home({ recentWorks }) {
       <WebpageJsonLd metadata={metadata} />
       <LocalBusiness />
       <Layout>
-       <Hero/>
-       <Trusted/>
-       <Services/>
-       <Details/>
-       <AdvertisingSolutions/>
-       <Clients/>
-       <WhyUs/>
+        <Hero />
+        <Trusted />
+        <Services />
+        <Details />
+        <AdvertisingSolutions />
+        <Clients />
+        <WhyUs />
         <RelatedWork
-                 works={recentWorks}
-                 heading={"Our Works"}
-                 subheading={
-                   ""
-                 }
-               />
+          works={recentWorks}
+          heading={"Our Works"}
+          subheading={
+            ""
+          }
+        />
       </Layout>
     </>
   );
