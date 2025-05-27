@@ -43,8 +43,8 @@ export default function Home({ recentPosts }) {
         <AboutUs />
         <Portfolio />
         <Services />
-        <Clients />
         <Awards/>
+        <Clients />
         <Blogs posts={recentPosts} />
         <Faq />
       </Layout>

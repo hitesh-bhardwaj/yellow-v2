@@ -14,7 +14,7 @@ const Awards = () => {
       title: 'Best Visual Identity',
       subtitle: 'Gold - Healthcare & Pharmaceutical',
       bgColor: '#A1A1FF',
-      logo: "/assets/images/homepage/vasave.png",
+      logo: "/assets/images/homepage/ovasave.png",
       link: "https://welcometoyellow.com/our-work/branding-for-an-innovative-fem-tech-platform"
 
     },
@@ -22,7 +22,7 @@ const Awards = () => {
       title: 'Best Visual Identity',
       subtitle: 'Gold - Education',
       bgColor: '#93A374',
-      logo: "/assets/images/homepage/numu-logo.png",
+      logo: "/assets/images/homepage/numu.png",
       link: "https://welcometoyellow.com/our-work/numu-early-childhood-centre-brand-case-study"
     },
   ];
@@ -50,8 +50,8 @@ const Awards = () => {
                 >
                   <div className="flex flex-col items-start justify-between h-full ">
                     <div className="w-[35vw] tablet:w-full mobile:w-full">
-                      <h2 className="text-[4vw] leading-[1.2] font-display font-normal group-hover:font-medium mobile:text-[7vw] tablet:text-[5vw]">{card.title}</h2>
-                      <p className="text-[2vw] font-medium  mobile:text-[3.5vw] mobile:w-full tablet:text-[3vw] tablet:w-full">{card.subtitle}</p>
+                      <h2 className="text-[3.5vw] leading-[1.2] font-display font-normal group-hover:font-medium mobile:text-[7vw] tablet:text-[5vw]">{card.title}</h2>
+                      {/* <p className="text-[2vw] font-medium  mobile:text-[3.5vw] mobile:w-full tablet:text-[3vw] tablet:w-full">{card.subtitle}</p> */}
                     </div>
 
                     <div
@@ -70,7 +70,7 @@ const Awards = () => {
                         height={156}
                         width={277}
                         alt="vasave"
-                        className=" h-full w-full object-contain"
+                        className=" h-full w-full object-contain brightness-[5]"
                       />
                     </div>
 
