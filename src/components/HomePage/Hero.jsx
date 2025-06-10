@@ -40,6 +40,9 @@ const Hero = () => {
         ease: "power4.out",
       },
     });
+    tl.set(".lineWord", {
+      opacity: 1,
+    });
     tl.from(".lineWord .line .line-internal", {
       yPercent: 100,
       duration: 1.47,
