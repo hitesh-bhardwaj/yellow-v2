@@ -75,9 +75,9 @@ const Awards = () => {
                           className={`transition-all duration-300 ease -rotate-[140deg]`}
                         />
                       </div>
-                      <div className={`h-[18vw] w-[8vw] overflow-hidden transition-all duration-300 ease mobile:opacity-100 mobile:h-[30vw] mobile:w-[15vw] tablet:opacity-100 tablet:h-[25vw] tablet:w-[12vw] ${isActive ? 'opacity-100' : 'opacity-0'}`}>
+                      <div className={`h-[35vh] w-[10vw] overflow-hidden transition-all duration-300 ease mobile:opacity-100 mobile:h-[30vw] mobile:w-[15vw] tablet:opacity-100 tablet:h-[25vw] tablet:w-[12vw] ${isActive ? 'opacity-100 delay-300' : 'opacity-0'}`}>
                         <Image
-                          src="/assets/images/homepage/transform-awards.png"
+                          src="/assets/images/homepage/yellow-awards.png"
                           width={163}
                           height={375}
                           alt="transform-awards"
