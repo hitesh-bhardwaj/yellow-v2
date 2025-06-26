@@ -1,6 +1,9 @@
 /* eslint-disable no-unused-vars */
 import Layout from "@/components/Layout";
 import Hero from "@/components/HomePage/Hero";
+import Blogs from "@/components/HomePage/Blogs";
+import Portfolio from "@/components/HomePage/Portfolio";
+import Services from "@/components/HomePage/Services";
 import { getHomePagePosts } from "@/lib/posts";
 import { fadeIn, fadeUp, lineAnim, paraAnim, titleAnim } from '@/components/gsapAnimations';
 import { LocalBusiness, WebpageJsonLd } from "@/lib/json-ld";
@@ -12,11 +15,12 @@ import Faq from "@/components/HomePage/Faq";
 import Awards from "@/components/HomePage/Awards";
 
 // Dynamically import Blogs component
-const Blogs = dynamic(() => import('@/components/HomePage/Blogs'));
-const Portfolio = dynamic(() => import('@/components/HomePage/Portfolio'), { ssr: false });
-const Services = dynamic(() => import('@/components/HomePage/Services'), { ssr: false });
+// const Blogs = dynamic(() => import('@/components/HomePage/Blogs'));
+// const Portfolio = dynamic(() => import('@/components/HomePage/Portfolio'), { ssr: false });
+// const Services = dynamic(() => import('@/components/HomePage/Services'), { ssr: false });
 
 export default function Home({ recentPosts }) {
+
 
   const metadata = {
     title: "Yellow: Branding & Advertising Agency in Dubai, UAE",
