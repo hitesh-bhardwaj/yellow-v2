@@ -1,9 +1,6 @@
 /* eslint-disable no-unused-vars */
 import Layout from "@/components/Layout";
 import Hero from "@/components/HomePage/Hero";
-// import Blogs from "@/components/HomePage/Blogs";
-// import Portfolio from "@/components/HomePage/Portfolio";
-// import Services from "@/components/HomePage/Services";
 import { getHomePagePosts } from "@/lib/posts";
 import { fadeIn, fadeUp, lineAnim, paraAnim, titleAnim } from '@/components/gsapAnimations';
 import { LocalBusiness, WebpageJsonLd } from "@/lib/json-ld";
