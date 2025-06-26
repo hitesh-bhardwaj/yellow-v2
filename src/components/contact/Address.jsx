@@ -22,8 +22,7 @@ export default function Address() {
               data-para-anim
               className="text-[2vw] w-[80%] leading-[1.4] font-medium mb-[7vw] mobile:text-[9.5vw] mobile:font-medium mobile:leading-[1.3] tablet:text-[4vw] "
             >
-              As a digital branding agency, we help businesses connect with
-              their customers by using a variety of tools and services.
+             We help ambitious brands connect with their audience using the right mix of strategy, creativity, and execution - If that&apos;s what you are looking for, look no further.
             </h3>
             <div className="tablet:flex">
               <div className="flex w-full gap-[8vw] mb-[8vw] mobile:flex-col tablet:gap-[12vw]">
