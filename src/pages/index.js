@@ -13,8 +13,8 @@ import Awards from "@/components/HomePage/Awards";
 
 // Dynamically import Blogs component
 const Blogs = dynamic(() => import('@/components/HomePage/Blogs'));
-const Portfolio = dynamic(() => import('@/components/HomePage/Portfolio'), { ssr: false });
-const Services = dynamic(() => import('@/components/HomePage/Services'), { ssr: false });
+const Portfolio = dynamic(() => import('@/components/HomePage/Portfolio'));
+const Services = dynamic(() => import('@/components/HomePage/Services'));
 
 export default function Home({ recentPosts }) {
 
