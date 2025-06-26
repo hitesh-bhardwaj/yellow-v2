@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 
 export default function Pagehero() {
-
   return (
     <>
       <section className="w-full h-full pt-[10%] flex items-center mobile:h-full mobile:pt-[30%] tablet:h-full  tablet:pt-[15%] bg-white " id="hero">
