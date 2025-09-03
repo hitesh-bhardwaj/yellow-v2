@@ -36,7 +36,7 @@ export default function AdvertisingSolutions() {
                     className="text-[1.2vw] mb-[2vw] font-medium space-y-[1vw] mobile:space-y-5 mobile:text-[4.5vw] tablet:text-[2.5vw] w-[92%]"  
                   >
                     <p data-para-anim>Yellow is also known as one of the best <b>advertising agencies in Saudi Arabia.</b> We help you advertise your brand on the right platforms at the right time. Whether it’s a billboard or a Facebook ad, we make sure your message is seen and remembered.</p>
-                    <div div className='space-y-[1vw] mobile:space-y-5'>
+                    <div div className=''>
                       <p data-para-anim>In Riyadh, our local team creates custom ad plans to fit your goals and budget. As a reliable <b>advertising agency in Riyadh,</b> we offer:</p>
                       <ul className="pl-5 list-disc">
                           <li data-para-anim>Outdoor advertising support</li>

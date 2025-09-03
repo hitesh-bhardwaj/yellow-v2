@@ -9,7 +9,6 @@ import LinkButton from "../Button/LinkButton";
 import RoundButton from "../Button/RoundButton";
 import Image from "next/image";
 
-
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const Portfolio = () => {
@@ -134,12 +133,9 @@ const Portfolio = () => {
                   </div>
                 </div>
               </div>
-           
-
               <p data-para-anim className="font-medium text-[1.2vw] mb-[15px] mobile:text-[5vw] tablet:text-[2vw] mobile:mb-0">
                 Projects
               </p>
-          
             </div>
             <div className="flex items-end gap-[8px] mobile:flex-col mobile:items-start mobile:gap-0">
               <div className="countnew font-display">
@@ -156,12 +152,9 @@ const Portfolio = () => {
                   <div className="num">+</div>
                 </div>
               </div>
-             
-
               <p data-para-anim className="font-medium text-[1.2vw] mb-[15px] mobile:text-[5vw] tablet:text-[2vw] mobile:mb-0">
                 Industries
               </p>
-         
             </div>
             <div className="flex items-end gap-[8px] mobile:flex-col mobile:items-start mobile:gap-0">
               <div className="count font-display">
@@ -189,8 +182,6 @@ const Portfolio = () => {
                   <div className="num">+</div>
                 </div>
               </div>
-         
-
               <p data-para-anim className="font-medium text-[1.2vw] mb-[15px] mobile:text-[5vw] tablet:text-[2vw] mobile:mb-0">
                 Brands Named
               </p>

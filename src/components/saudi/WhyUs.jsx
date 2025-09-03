@@ -20,7 +20,7 @@ const WhyUs = () => {
               <div className="text-[1.2vw] mobile:mb-[2vw] tablet:mb-[2vw] space-y-[1.5vw] mobile:space-y-5 mobile:text-[4.5vw] tablet:text-[2.5vw]">
                 <p data-para-anim>Your brand is your identity. It tells your story, builds trust, and makes customers remember you. Yellow is a top branding agency in Saudi Arabia that helps businesses grow their brand with confidence.</p>
                 <p data-para-anim>As a leading creative branding agency in Riyadh and Saudi Arabia, we know the local culture and business trends. Our team creates custom strategies that work for Saudi markets. From startups to large companies, we give every brand the attention it deserves.</p>
-                <div className='space-y-[1vw] mobile:space-y-5'>
+                <div className=''>
                   <p data-para-anim>At Yellow, we:</p>
                   <ul className='pl-5 list-disc'>
                     <li data-para-anim>Build brand strategies that speak your values</li>

@@ -15,14 +15,14 @@ const Awards = () => {
       subtitle: 'Gold - Healthcare & Pharmaceutical',
       bgColor: '#A1A1FF',
       logo: "/assets/images/homepage/ovasave.png",
-      link: "https://welcometoyellow.com/our-work/branding-for-an-innovative-fem-tech-platform"
+      link: "/our-work/branding-for-an-innovative-fem-tech-platform"
     },
     {
       title: 'Best Visual Identity',
       subtitle: 'Gold - Education',
       bgColor: '#93A374',
       logo: "/assets/images/homepage/numu.png",
-      link: "https://welcometoyellow.com/our-work/numu-early-childhood-centre-brand-case-study"
+      link: "/our-work/numu-early-childhood-centre-brand-case-study"
     },
   ];
 
@@ -31,9 +31,6 @@ const Awards = () => {
       <div ref={containerRef} className="container">
         <div className="space-y-[2.5vw] mobile:mt-[5vw] tablet:mt-[5vw] mobile:space-y-[7vw]">
           <SectionTitle data-title-anim text="AWARDS" />
-          {/* <p data-para-anim className="text-[1.9vw] font-medium w-[50%] mobile:text-[4vw] mobile:w-[95%] tablet:text-[3vw] tablet:w-[80%] ">
-            We grow amazing companies through exceptional branding and communications.
-          </p> */}
         </div>
         <div className="flex items-start justify-between pt-[5vw] mobile:flex-col mobile:gap-[5vw] mobile:pt-[10%] tablet:flex-col tablet:pt-[10%] tablet:gap-[7vw] overflow-hidden h-[35vw] mobile:h-full tablet:h-full">
           {cardData.map((card, index) => {

@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.10.8",
-    "@gsap/react": "^2.1.2",
+    "@gsap/react": "^2.1.1",
     "@headlessui/react": "^2.1.2",
     "@hookform/resolvers": "^3.7.0",
     "@next/bundle-analyzer": "^14.2.18",
@@ -34,7 +34,7 @@
     "fs": "^0.0.1-security",
     "fuse.js": "^7.0.0",
     "graphql": "^16.9.0",
-    "gsap": "^3.13.0",
+    "gsap": "^3.12.5",
     "he": "^1.2.0",
     "keen-slider": "^6.8.6",
     "lenis": "^1.1.3",

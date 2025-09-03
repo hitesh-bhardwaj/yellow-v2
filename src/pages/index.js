@@ -13,11 +13,10 @@ import Awards from "@/components/HomePage/Awards";
 
 // Dynamically import Blogs component
 const Blogs = dynamic(() => import('@/components/HomePage/Blogs'));
-const Portfolio = dynamic(() => import('@/components/HomePage/Portfolio'));
-const Services = dynamic(() => import('@/components/HomePage/Services'));
+const Portfolio = dynamic(() => import('@/components/HomePage/Portfolio'), { ssr: false });
+const Services = dynamic(() => import('@/components/HomePage/Services'), { ssr: false });
 
 export default function Home({ recentPosts }) {
-
 
   const metadata = {
     title: "Yellow: Branding & Advertising Agency in Dubai, UAE",
