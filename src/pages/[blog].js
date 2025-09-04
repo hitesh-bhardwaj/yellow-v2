@@ -66,7 +66,7 @@ export default function Post({ post, relatedPosts }) {
               width: metaImage.mediaDetails.width,
               height: metaImage.mediaDetails.height,
               alt: metaImage.mediaDetails.alt,
-              type: "image/jpg",
+              type: "image/webp",
             },
           ],
           siteName: "Yellow",

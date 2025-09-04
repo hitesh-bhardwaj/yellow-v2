@@ -16,7 +16,7 @@ function JsonLd({ json }) {
 }
 
 export function ArticleJsonLd({ post = {} }) {
-  const { homepage = '', faviconPath = '/favicon.ico' } = config || {};
+  const { homepage = '', faviconPath = '/favicon-300x300.jpg' } = config || {};
   const {
     title,
     slug,
@@ -74,7 +74,7 @@ export function OrganizationJsonLd() {
       addressRegion: 'Dubai',
       addressCountry: 'AE',
     },
-    logo: `${homepage}/favicon.ico`,
+    logo: `${homepage}/favicon-300x300.jpg`,
     sameAs: [
       'https://www.instagram.com/welcometoyellow/',
       'https://www.linkedin.com/company/yellow-branding',
