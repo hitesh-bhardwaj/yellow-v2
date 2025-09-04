@@ -3,7 +3,7 @@ import Pagehero from '@/components/services/Pagehero'
 import { titleAnim, paraAnim, lineAnim, fadeUp } from '@/components/gsapAnimations';
 import { getRelatedPortfolioForPages } from '@/lib/portfolio';
 import MetaData from '@/components/Metadata';
-import { WebpageJsonLd } from '@/lib/json-ld';
+import { LocalBusiness, ServicesJsonLd, WebpageJsonLd } from '@/lib/json-ld';
 import RelatedWork from '@/components/Metadata/RelatedWork';
 import ServiceList from '@/components/services/ServiceList';
 
@@ -23,10 +23,22 @@ export default function services({ recentWorks }) {
     slug: "what-we-do"
   }
 
+// const services = [
+//   { name: 'Brand Strategy', description: 'Research, positioning, architecture, and go-to-market planning.', url: '/what-we-do/brand-strategy' },
+//   { name: 'Brand Identity', description: 'Logo systems, typography, color palettes, and brand guidelines.', url: '/what-we-do/brand-identity' },
+//   { name: 'Naming', description: 'Memorable brand and product names with linguistic and cultural checks.', url: '/what-we-do/naming' },
+//   { name: 'Communication', description: 'Campaign concepts, messaging, copywriting, and brand voice across channels.', url: '/what-we-do/communication' },
+//   { name: 'Digital', description: 'Digital strategy, social content, performance creatives, and always-on campaigns.', url: '/what-we-do/digital' },
+  
+// ];
+
+
   return (
     <>
       <MetaData metadata={metadata} />
       <WebpageJsonLd metadata={metadata} />
+      {/* <LocalBusiness/> */}
+      {/* <ServicesJsonLd services={services}/> */}
       <Layout>
         <Pagehero />
         <ServiceList/>

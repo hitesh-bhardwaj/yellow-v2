@@ -199,3 +199,62 @@ export function AuthorJsonLd({ author = {} }) {
 
   return <JsonLd json={json} />;
 }
+
+export function ServicesJsonLd({ services = [], catalogName = 'Yellow — Services' }) {
+  const { homepage = '' } = config || {};
+
+  // simple slug helper for stable @id’s
+  const slugify = (s = '') =>
+    s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+  // Normalize input so you can pass strings or objects
+  const items = services.map((s) =>
+    typeof s === 'string' ? { name: s } : s
+  );
+
+  const json = {
+    '@context': 'https://schema.org',
+    '@type': 'OfferCatalog',
+    '@id': `${homepage}/what-we-do`,
+    name: catalogName,
+    url: homepage,
+    itemListElement: items.map((s, i) => {
+      const id = `${homepage}/what-we-do/${slugify(s.name)}`;
+      const url =
+        s.url
+          ? (s.url.startsWith('http') ? s.url : `${homepage}${s.url}`)
+          : `${homepage}/what-we-do#${slugify(s.name)}`;
+
+      return {
+        '@type': 'Offer',
+        position: i + 1,
+        itemOffered: {
+          '@type': 'Service',
+          '@id': id,
+          name: s.name,
+          ...(s.description ? { description: s.description } : {}),
+          serviceType: s.serviceType || s.name,
+          url,
+          provider: { '@id': `${homepage}/what-we-do` }, // ties to your OrganizationJsonLd
+          ...(s.areaServed
+            ? { areaServed: s.areaServed } // e.g. ['UAE','GCC'] or structured Country objects
+            : { areaServed: ['UAE', 'GCC'] }),
+          ...(s.category ? { category: s.category } : {}),
+          // If you price services, you can include an Offer:
+          ...(s.price
+            ? {
+                offers: {
+                  '@type': 'Offer',
+                  price: String(s.price.value),
+                  priceCurrency: s.price.currency || 'AED',
+                  url,
+                },
+              }
+            : {}),
+        },
+      };
+    }),
+  };
+
+  return <JsonLd json={json} />;
+}
