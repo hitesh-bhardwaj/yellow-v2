@@ -22,9 +22,9 @@ export default function servicesdetail({ recentWorks }) {
   fadeUp();
 
   const metadata = {
-    title: "Brand Strategy Services In Dubai, UAE - Yellow Agency",
+    title: "Brand Strategy Agency Dubai, UAE - Brand Strategy Services",
     description:
-      "Our full-service brand strategy services include brand workshop, audit & research, positioning, architecture & staff engagement. Contact us today for brand strategy expertise in Dubai & UAE.",
+      "Yellow is a leading brand strategy agency in Dubai, UAE. Our services include workshops, audits, research, positioning, and staff engagement.",
     img: "home.png",
     date_published: "2017-10-22T06:17",
     date_modified: "2024-08-01T12:32",
