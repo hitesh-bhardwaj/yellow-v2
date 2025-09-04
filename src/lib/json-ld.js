@@ -41,9 +41,9 @@ export function ArticleJsonLd({ post = {} }) {
   };
 
   return (
-    <Helmet encodeSpecialCharacters={false}>
+    // <Helmet encodeSpecialCharacters={false}>
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-    </Helmet>
+    // </Helmet>
   );
 }
 
@@ -76,9 +76,9 @@ export function OrganizationJsonLd() {
   };
 
   return (
-    <Helmet encodeSpecialCharacters={false}>
+    // <Helmet encodeSpecialCharacters={false}>
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-    </Helmet>
+    // </Helmet>
   );
 }
 
@@ -101,9 +101,9 @@ export function WebsiteJsonLd() {
   };
 
   return (
-    <Helmet encodeSpecialCharacters={false}>
+    // <Helmet encodeSpecialCharacters={false}>
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-    </Helmet>
+    // </Helmet>
   );
 }
 
@@ -121,9 +121,9 @@ export function ImageObjectJsonLd() {
   };
 
   return (
-    <Helmet encodeSpecialCharacters={false}>
+    // <Helmet encodeSpecialCharacters={false}>
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-    </Helmet>
+    // </Helmet>
   );
 }
 
@@ -158,9 +158,9 @@ export function WebpageJsonLd({ metadata = {} }) {
   };
 
   return (
-    <Helmet encodeSpecialCharacters={false}>
+    // <Helmet encodeSpecialCharacters={false}>
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-    </Helmet>
+    // </Helmet>
   );
 }
 
@@ -205,9 +205,9 @@ export function LocalBusiness() {
   };
 
   return (
-    <Helmet encodeSpecialCharacters={false}>
+    // <Helmet encodeSpecialCharacters={false}>
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-    </Helmet>
+    // </Helmet>
   );
 }
 
@@ -226,9 +226,9 @@ export function AuthorJsonLd({ author = {} }) {
   };
 
   return (
-    <Helmet encodeSpecialCharacters={false}>
+    // <Helmet encodeSpecialCharacters={false}>
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-    </Helmet>
+    // </Helmet>
   );
 }
 
@@ -281,8 +281,8 @@ export function JobpostingJsonLd({ job }) {
   };
 
   return (
-    <Helmet encodeSpecialCharacters={false}>
+    // <Helmet encodeSpecialCharacters={false}>
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-    </Helmet>
+    // </Helmet>
   );
 }
