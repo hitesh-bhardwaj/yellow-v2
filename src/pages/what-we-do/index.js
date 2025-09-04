@@ -3,7 +3,7 @@ import Pagehero from '@/components/services/Pagehero'
 import { titleAnim, paraAnim, lineAnim, fadeUp } from '@/components/gsapAnimations';
 import { getRelatedPortfolioForPages } from '@/lib/portfolio';
 import MetaData from '@/components/Metadata';
-import { LocalBusiness, ServicesJsonLd, WebpageJsonLd } from '@/lib/json-ld';
+import { WebpageJsonLd } from '@/lib/json-ld';
 import RelatedWork from '@/components/Metadata/RelatedWork';
 import ServiceList from '@/components/services/ServiceList';
 
