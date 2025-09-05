@@ -65,7 +65,7 @@ export function OrganizationJsonLd() {
     description:
       'A Dubai branding agency and communications company, we help grow amazing businesses through compelling brands.',
     url: homepage,
-    telephone: '+971 4 240 6696',
+    telephone: '+971 4 582 0205',
     email: 'hello@welcometoyellow.com',
     address: {
       '@type': 'PostalAddress',

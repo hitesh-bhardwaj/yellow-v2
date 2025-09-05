@@ -1,5 +1,5 @@
 import { getPostBySlug, getRecentPosts, getRelatedPosts } from '@/lib/posts';
-import { ArticleJsonLd } from '@/lib/json-ld';
+import { ArticleJsonLd, WebpageJsonLd } from '@/lib/json-ld';
 import Layout from '@/components/Layout';
 import FeaturedImage from '@/components/blog-detail/FeaturedImage';
 import Categories from '@/components/blog-detail/Categories';
@@ -28,7 +28,7 @@ export default function Post({ post, relatedPosts }) {
   const router = useRouter();
 
   const { homepage = '' } = config;
-
+   console.log(featuredImage)
   titleAnim();
   paraAnim();
   lineAnim();
@@ -50,6 +50,15 @@ export default function Post({ post, relatedPosts }) {
     };
   }, [router]);
 
+    const metadata = {
+    title:{title},
+    description:{metaDescription},
+    img: metaImage.sourceUrl,
+    date_published: "2017-10-22T06:17",
+    date_modified: "2024-08-01T12:32",
+    slug: `${slug}`,
+  };
+
   return (
     <>
       <NextSeo
@@ -66,7 +75,7 @@ export default function Post({ post, relatedPosts }) {
               width: metaImage.mediaDetails.width,
               height: metaImage.mediaDetails.height,
               alt: metaImage.mediaDetails.alt,
-              type: "image/webp",
+              type: featuredImage.mimeType,
             },
           ],
           siteName: "Yellow",
@@ -77,12 +86,14 @@ export default function Post({ post, relatedPosts }) {
           href: `${homepage}/${slug}`,
         }]}
       />
+      <WebpageJsonLd metadata={metadata} />
       <ArticleJsonLd post={post} />
       <Layout>
         <Pagehero>
           {featuredImage && (
             <div className='mobile:relative mobile:h-[60vh] mobile:w-full tablet:w-full w-[89vw]'>
               <FeaturedImage
+                title={title}
                 src={featuredImage.sourceUrl}
                 alt={featuredImage.altText}
                 sizes={featuredImage.sizes}
@@ -121,7 +132,7 @@ export async function getStaticProps({ params = {} } = {}) {
     };
   }
 
-  const { categories, databaseId: postId } = post;
+  const { categories, databas9eId: postId } = post;
 
   const props = {
     post,
