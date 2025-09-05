@@ -51,8 +51,8 @@ export default function Post({ post, relatedPosts }) {
   }, [router]);
 
     const metadata = {
-    title:{title},
-    description:{metaDescription},
+    title: title,
+    description: metaDescription,
     img: metaImage.sourceUrl,
     date_published: "2017-10-22T06:17",
     date_modified: "2024-08-01T12:32",
