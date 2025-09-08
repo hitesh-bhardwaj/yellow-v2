@@ -28,7 +28,6 @@ export default function Post({ post, relatedPosts }) {
   const router = useRouter();
 
   const { homepage = '' } = config;
-   console.log(featuredImage)
   titleAnim();
   paraAnim();
   lineAnim();
@@ -50,7 +49,7 @@ export default function Post({ post, relatedPosts }) {
     };
   }, [router]);
 
-    const metadata = {
+  const metadata = {
     title: title,
     description: metaDescription,
     img: metaImage.sourceUrl,
