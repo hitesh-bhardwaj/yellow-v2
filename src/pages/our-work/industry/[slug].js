@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+// pages/our-work/industry/[slug].js   <-- fix folder name if needed
 import { useEffect, useState } from "react";
 import PortfolioIndustries from "@/components/Portfolio/PortfolioIndustries";
 import Layout from "@/components/Layout";
@@ -11,39 +13,49 @@ import { getPortfolioIndustryByIdForPortfolio } from "@/lib/portfolio";
 import WorkCard from "@/components/Portfolio/WorkCard";
 import MetaData from "@/components/Metadata";
 import Consultant from "@/components/Portfolio/Consultant";
-import {
-  paraAnim,
-  lineAnim,
-  fadeUp,
-  fadeIn,
-} from "@/components/gsapAnimations";
+import { paraAnim, lineAnim, fadeUp, fadeIn } from "@/components/gsapAnimations";
 import { useRouter } from "next/router";
 
-const Category = ({ portfolioIndustry, portfolio, portfolioIndustries }) => {
-  const [activeIndustry, setActiveIndustry] = useState(
-    `${portfolioIndustry.slug}`
-  );
+const IndustryPage = ({ portfolioIndustry, portfolio, portfolioIndustries }) => {
   const router = useRouter();
 
+  // always call hooks first
+  useEffect(() => {
+    const handleSlugChange = () => window.location.reload();
+    router.events.on("routeChangeComplete", handleSlugChange);
+    return () => router.events.off("routeChangeComplete", handleSlugChange);
+  }, [router]);
+
+  // animations
   paraAnim();
   lineAnim();
   fadeUp();
   fadeIn();
 
-  // Reload the page when the slug changes
-  useEffect(() => {
-    const handleSlugChange = () => {
-      window.location.reload(); // This will force a full page reload
-    };
+  // if CMS was unreachable at build-time, keep route alive (no 404)
+  if (!portfolioIndustry) {
+    return (
+      <Layout>
+        <main>
+          <Section id="hero">
+            <div className="container">
+              <div className="pt-[10%] mobile:pt-[30%] tablet:pt-[15%]">
+                <h1 className="text-[5.7vw] font-display leading-[1.3] mobile:text-[10vw]">
+                  Industry temporarily unavailable
+                </h1>
+                <p className="mt-4">Please refresh in a moment.</p>
+              </div>
+              <div className="lineDraw w-full h-[1px] bg-body mt-[6%] mobile:mt-[10%] mobile:mb-[8%]" />
+            </div>
+          </Section>
+        </main>
+      </Layout>
+    );
+  }
 
-    // Set up a listener to watch for slug changes
-    router.events.on("routeChangeComplete", handleSlugChange);
+  const [activeIndustry, setActiveIndustry] = useState(`${portfolioIndustry.slug}`);
 
-    return () => {
-      // Clean up the listener when the component unmounts
-      router.events.off("routeChangeComplete", handleSlugChange);
-    };
-  }, [router]);
+  // SEO metadata (with optional overrides)
   const metaArray = [
     {
       title: "Real Estate Branding Agency Dubai, UAE - Real Estate Portfolio",
@@ -64,29 +76,20 @@ const Category = ({ portfolioIndustry, portfolio, portfolioIndustries }) => {
       slug: "retail",
     },
   ];
-  // console.log(portfolioIndustry.slug)
+  const norm = (s) => String(s || "").trim().toLowerCase();
+  const match = metaArray.find((m) => norm(m.slug) === norm(portfolioIndustry.slug));
+
   let metadata = {
     title: `${portfolioIndustry.name} Portfolio Archive | Yellow`,
     description: `Dive into our case studies of our latest projects for ${portfolioIndustry.name} industry.`,
     img: "home.png",
     slug: `our-work/industry/${portfolioIndustry.slug}`,
   };
-  const norm = (s) =>
-    String(s || "")
-      .trim()
-      .toLowerCase();
-  const match = metaArray.find(
-    (m) => norm(m.slug) === norm(portfolioIndustry.slug)
-  );
+  if (match) metadata = { ...metadata, title: match.title, description: match.description };
 
-  // if match, override title/description
-  if (match) {
-    metadata = {
-      ...metadata,
-      title: match.title,
-      description: match.description,
-    };
-  }
+  const works = Array.isArray(portfolio) ? portfolio : [];
+  const allIndustries = Array.isArray(portfolioIndustries) ? portfolioIndustries : [];
+
   return (
     <>
       <MetaData metadata={metadata} />
@@ -107,19 +110,20 @@ const Category = ({ portfolioIndustry, portfolio, portfolioIndustries }) => {
             <div className="container py-[5%] bg-white">
               <div className="pb-[5%]">
                 <PortfolioIndustries
-                  portfolioIndustries={portfolioIndustries}
+                  portfolioIndustries={allIndustries}
                   activeIndustry={activeIndustry}
                   setActiveIndustry={setActiveIndustry}
                 />
               </div>
+
               <div className="grid grid-cols-2 w-full h-full gap-x-[3vw] gap-y-[3vw] mb-[3vw] mobile:flex mobile:flex-col mobile:gap-[7vw]">
-                {portfolio.length > 0 ? (
-                  portfolio.map((work, index) => {
+                {works.length > 0 ? (
+                  works.map((work, index) => {
                     const isFullWidth = index % 3 === 0;
                     const cardClass = isFullWidth ? "col-span-2" : "col-span-1";
                     return (
                       <div
-                        key={work.slug}
+                        key={work.slug || index}
                         className={`work-card h-full ${cardClass} ${styles.postCard}`}
                         style={{ animationDelay: `${index * 0.1}s` }}
                       >
@@ -136,58 +140,74 @@ const Category = ({ portfolioIndustry, portfolio, portfolioIndustries }) => {
             </div>
           </Section>
 
-          {portfolioIndustry.industryConsultant &&
-            portfolioIndustry.industryConsultant.consultantName && (
-              <Consultant consultant={portfolioIndustry.industryConsultant} />
-            )}
+          {portfolioIndustry?.industryConsultant?.consultantName && (
+            <Consultant consultant={portfolioIndustry.industryConsultant} />
+          )}
         </main>
       </Layout>
     </>
   );
 };
 
-export default Category;
+export default IndustryPage;
 
 export async function getStaticProps({ params }) {
   const { slug: portfolioIndustrySlug } = params;
-  const { portfolioIndustry } = await getPortfolioIndustryBySlug(
-    portfolioIndustrySlug
-  );
 
-  if (!portfolioIndustry) {
+  try {
+    const { portfolioIndustry } = await getPortfolioIndustryBySlug(portfolioIndustrySlug);
+
+    // real 404 only if CMS confirms it's missing
+    if (!portfolioIndustry) {
+      return { notFound: true, revalidate: 60 };
+    }
+
+    let portfolio = [];
+    let portfolioIndustries = [];
+
+    // fetch works for this industry
+    try {
+      const res = await getPortfolioIndustryByIdForPortfolio({
+        portfolioIndustryId: portfolioIndustry.databaseId,
+        queryIncludes: "all",
+      });
+      portfolio = res?.portfolio || [];
+    } catch {
+      portfolio = [];
+    }
+
+    // fetch all industries (for the filter strip)
+    try {
+      const all = await getAllPortfolioIndustries();
+      portfolioIndustries = all?.portfolioIndustries || [];
+    } catch {
+      portfolioIndustries = [];
+    }
+
     return {
-      notFound: true,
+      props: { portfolioIndustry, portfolio, portfolioIndustries },
+      revalidate: 500,
+    };
+  } catch {
+    // network/CMS error at build time → keep route alive (no 404)
+    return {
+      props: { portfolioIndustry: null, portfolio: [], portfolioIndustries: [] },
+      revalidate: 60,
     };
   }
-
-  const { portfolio } = await getPortfolioIndustryByIdForPortfolio({
-    portfolioIndustryId: portfolioIndustry.databaseId,
-    queryIncludes: "all",
-  });
-
-  const { portfolioIndustries } = await getAllPortfolioIndustries();
-
-  return {
-    props: {
-      portfolioIndustry,
-      portfolio,
-      portfolioIndustries,
-    },
-    revalidate: 500,
-  };
 }
 
 export async function getStaticPaths() {
-  const { portfolioIndustries } = await getAllPortfolioIndustries();
-
-  const paths = portfolioIndustries.map((portfolioIndustry) => ({
-    params: {
-      slug: portfolioIndustry.slug,
-    },
-  }));
-
-  return {
-    paths,
-    fallback: "blocking",
-  };
+  try {
+    const { portfolioIndustries } = await getAllPortfolioIndustries();
+    const paths = Array.isArray(portfolioIndustries)
+      ? portfolioIndustries
+          .filter((i) => typeof i?.slug === "string")
+          .map((i) => ({ params: { slug: i.slug } }))
+      : [];
+    return { paths, fallback: "blocking" };
+  } catch {
+    // if CMS is down during build, return no paths but keep blocking fallback
+    return { paths: [], fallback: "blocking" };
+  }
 }
