@@ -49,7 +49,7 @@ export default function Post({ post, relatedPosts }) {
     };
   }, [router]);
 
-  const metadata = {
+    const metadata = {
     title: title,
     description: metaDescription,
     img: metaImage.sourceUrl,
