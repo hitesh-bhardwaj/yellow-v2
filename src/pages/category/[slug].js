@@ -1,39 +1,42 @@
 // pages/category/[slug].js
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import { getAllCategories, getCategoryBySlug } from '@/lib/categories';
 import { getPostsByCategoryId } from '@/lib/posts';
-
 import CategoryList from '@/components/blog/CategoryList';
 import Layout from '@/components/Layout';
 import Section from '@/components/Section';
 import PostCard from '@/components/blog/PostCard';
-import styles from "@/styles/blogDetail.module.css";
+import styles from '@/styles/blogDetail.module.css';
 import MetaData from '@/components/Metadata';
-import { useRouter } from 'next/router';
+import { skipInCI } from '@/lib/util';
 
 const Category = ({ category, posts, categories }) => {
   const router = useRouter();
 
-  // hooks first (always)
   useEffect(() => {
-    const handleSlugChange = () => window.location.reload();
-    router.events.on('routeChangeComplete', handleSlugChange);
-    return () => router.events.off('routeChangeComplete', handleSlugChange);
-  }, [router]);
+    // no hard reloads; SSR + fallback:'blocking' handles first render
+  }, []);
 
-  // if CMS was unreachable at build-time, keep route alive (no 404)
+  if (router.isFallback) {
+    return (
+      <Layout>
+        <main>
+          <Section id="hero"><div className="container py-20">Loading…</div></Section>
+        </main>
+      </Layout>
+    );
+  }
+
+  // Keep route alive if CMS was unreachable during build
   if (!category) {
     return (
       <Layout>
         <main>
           <Section id="hero">
-            <div className="container">
-              <div className='pt-[10%] tablet:pt-[15%] mobile:pt-[25%]'>
-                <h1 className='text-[5.7vw] font-display leading-[1.3]'>
-                  Category temporarily unavailable
-                </h1>
-                <p className="mt-4">Please refresh in a moment.</p>
-              </div>
+            <div className="container py-20">
+              <h1 className="text-[5.7vw] font-display leading-[1.3]">Category temporarily unavailable</h1>
+              <p className="mt-4">Please refresh in a moment.</p>
             </div>
           </Section>
         </main>
@@ -57,10 +60,8 @@ const Category = ({ category, posts, categories }) => {
         <main>
           <Section id="hero">
             <div className="container">
-              <div className='pt-[10%] tablet:pt-[15%] mobile:pt-[25%]'>
-                <h1 className='text-[5.7vw] font-display leading-[1.3]'>
-                  {category.name} Blogs
-                </h1>
+              <div className="pt-[10%] tablet:pt-[15%] mobile:pt-[25%]">
+                <h1 className="text-[5.7vw] font-display leading-[1.3]">{category.name} Blogs</h1>
               </div>
             </div>
           </Section>
@@ -72,19 +73,17 @@ const Category = ({ category, posts, categories }) => {
                 activeCategory={activeCategory}
                 setActiveCategory={setActiveCategory}
               />
-
               <div className="bg-gray-400 h-[1px] w-screen ml-[-5vw]" />
 
-              <div className='w-full h-full grid grid-cols-3 gap-[2vw] mb-[3vw] mt-[5vw] tablet:grid-cols-2 tablet:gap-y-[4vw] tablet:gap-x-[3vw] mobile:grid-cols-1 mobile:gap-[5vw]'>
+              <div className="w-full h-full grid grid-cols-3 gap-[2vw] mb-[3vw] mt-[5vw] tablet:grid-cols-2 tablet:gap-y-[4vw] tablet:gap-x-[3vw] mobile:grid-cols-1 mobile:gap-[5vw]">
                 {(posts || []).map((post, index) => (
-                  <div
-                    key={post.slug || index}
-                    className={styles.postCard}
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
+                  <div key={post.slug || index} className={`${styles.postCard}`} style={{ animationDelay: `${index * 0.1}s` }}>
                     <PostCard post={post} />
                   </div>
                 ))}
+                {(!posts || posts.length === 0) && (
+                  <p className="col-span-full text-center py-10">No posts in this category yet.</p>
+                )}
               </div>
             </div>
           </Section>
@@ -99,10 +98,14 @@ export default Category;
 export async function getStaticProps({ params }) {
   const { slug: categorySlug } = params;
 
+  // ⛳ Skip remote calls on CI/build so the build never breaks
+  if (skipInCI()) {
+    return { props: { category: null, posts: [], categories: [] }, revalidate: 60 };
+  }
+
   try {
     const { category } = await getCategoryBySlug(categorySlug);
 
-    // real 404 only if CMS confirms it's missing
     if (!category) {
       return { notFound: true, revalidate: 60 };
     }
@@ -110,7 +113,6 @@ export async function getStaticProps({ params }) {
     let posts = [];
     let categories = [];
 
-    // fetch posts in this category (don't crash build if it fails)
     try {
       const res = await getPostsByCategoryId({
         categoryId: category.databaseId,
@@ -121,7 +123,6 @@ export async function getStaticProps({ params }) {
       posts = [];
     }
 
-    // fetch all categories (for the sidebar/list); don't crash on error
     try {
       const all = await getAllCategories();
       categories = all?.categories || [];
@@ -131,29 +132,24 @@ export async function getStaticProps({ params }) {
 
     return {
       props: { category, posts, categories },
-      revalidate: 500,
+      revalidate: 300,
     };
   } catch {
-    // network/CMS error at build time → keep route alive (no 404)
-    return {
-      props: { category: null, posts: [], categories: [] },
-      revalidate: 60,
-    };
+    return { props: { category: null, posts: [], categories: [] }, revalidate: 60 };
   }
 }
 
 export async function getStaticPaths() {
+  // ⛳ CI skip avoids GraphQL on build machines
+  if (skipInCI()) return { paths: [], fallback: 'blocking' };
+
   try {
     const { categories } = await getAllCategories();
     const paths = Array.isArray(categories)
-      ? categories
-          .filter((c) => typeof c?.slug === 'string')
-          .map((c) => ({ params: { slug: c.slug } }))
+      ? categories.filter(c => typeof c?.slug === 'string' && c.slug).map(c => ({ params: { slug: c.slug } }))
       : [];
-
     return { paths, fallback: 'blocking' };
   } catch {
-    // if CMS is down during build, return no paths but keep blocking fallback
     return { paths: [], fallback: 'blocking' };
   }
 }

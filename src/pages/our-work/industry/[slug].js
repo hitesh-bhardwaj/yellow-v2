@@ -1,38 +1,52 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-// pages/our-work/industry/[slug].js   <-- fix folder name if needed
-import { useEffect, useState } from "react";
-import PortfolioIndustries from "@/components/Portfolio/PortfolioIndustries";
+// pages/our-work/industry/[slug].js
+import { useState } from "react";
+import { useRouter } from "next/router";
 import Layout from "@/components/Layout";
 import Section from "@/components/Section";
-import styles from "@/styles/blogDetail.module.css";
+import PortfolioIndustries from "@/components/Portfolio/PortfolioIndustries";
+import WorkCard from "@/components/Portfolio/WorkCard";
+import Consultant from "@/components/Portfolio/Consultant";
+import MetaData from "@/components/Metadata";
+import { paraAnim, lineAnim, fadeUp, fadeIn } from "@/components/gsapAnimations";
 import {
   getAllPortfolioIndustries,
   getPortfolioIndustryBySlug,
 } from "@/lib/portfolioIndustries";
 import { getPortfolioIndustryByIdForPortfolio } from "@/lib/portfolio";
-import WorkCard from "@/components/Portfolio/WorkCard";
-import MetaData from "@/components/Metadata";
-import Consultant from "@/components/Portfolio/Consultant";
-import { paraAnim, lineAnim, fadeUp, fadeIn } from "@/components/gsapAnimations";
-import { useRouter } from "next/router";
+import { skipInCI } from "@/lib/util";
 
 const IndustryPage = ({ portfolioIndustry, portfolio, portfolioIndustries }) => {
+
   const router = useRouter();
 
-  // always call hooks first
-  useEffect(() => {
-    const handleSlugChange = () => window.location.reload();
-    router.events.on("routeChangeComplete", handleSlugChange);
-    return () => router.events.off("routeChangeComplete", handleSlugChange);
-  }, [router]);
-
-  // animations
   paraAnim();
   lineAnim();
   fadeUp();
   fadeIn();
 
-  // if CMS was unreachable at build-time, keep route alive (no 404)
+  // While ISR/SSG is loading on first hit (fallback: 'blocking' should avoid this,
+  // but keep a minimal guard if needed)
+  if (router.isFallback) {
+    return (
+      <Layout>
+        <main>
+          <Section id="hero">
+            <div className="container">
+              <div className="pt-[10%] mobile:pt-[30%] tablet:pt-[15%]">
+                <h1 className="text-[5.7vw] font-display leading-[1.3] mobile:text-[10vw]">
+                  Loading…
+                </h1>
+              </div>
+              <div className="lineDraw w-full h-[1px] bg-body mt-[6%] mobile:mt-[10%] mobile:mb-[8%]" />
+            </div>
+          </Section>
+        </main>
+      </Layout>
+    );
+  }
+
+  // If CMS was unreachable at build time (skip/failure), keep the route alive
   if (!portfolioIndustry) {
     return (
       <Layout>
@@ -55,7 +69,7 @@ const IndustryPage = ({ portfolioIndustry, portfolio, portfolioIndustries }) => 
 
   const [activeIndustry, setActiveIndustry] = useState(`${portfolioIndustry.slug}`);
 
-  // SEO metadata (with optional overrides)
+  // SEO metadata (optional overrides for specific slugs)
   const metaArray = [
     {
       title: "Real Estate Branding Agency Dubai, UAE - Real Estate Portfolio",
@@ -124,7 +138,7 @@ const IndustryPage = ({ portfolioIndustry, portfolio, portfolioIndustries }) => 
                     return (
                       <div
                         key={work.slug || index}
-                        className={`work-card h-full ${cardClass} ${styles.postCard}`}
+                        className={`work-card h-full ${cardClass}`}
                         style={{ animationDelay: `${index * 0.1}s` }}
                       >
                         <WorkCard work={work} index={index} />
@@ -154,10 +168,18 @@ export default IndustryPage;
 export async function getStaticProps({ params }) {
   const { slug: portfolioIndustrySlug } = params;
 
+  // ⛳ Skip ALL remote calls on CI/build machines so build never hits WP
+  if (skipInCI()) {
+    return {
+      props: { portfolioIndustry: null, portfolio: [], portfolioIndustries: [] },
+      revalidate: 60, // ISR can repopulate later at runtime
+    };
+  }
+
   try {
     const { portfolioIndustry } = await getPortfolioIndustryBySlug(portfolioIndustrySlug);
 
-    // real 404 only if CMS confirms it's missing
+    // Real 404 only if CMS confirms it's missing
     if (!portfolioIndustry) {
       return { notFound: true, revalidate: 60 };
     }
@@ -165,7 +187,7 @@ export async function getStaticProps({ params }) {
     let portfolio = [];
     let portfolioIndustries = [];
 
-    // fetch works for this industry
+    // Fetch works for this industry (soft-fail)
     try {
       const res = await getPortfolioIndustryByIdForPortfolio({
         portfolioIndustryId: portfolioIndustry.databaseId,
@@ -176,7 +198,7 @@ export async function getStaticProps({ params }) {
       portfolio = [];
     }
 
-    // fetch all industries (for the filter strip)
+    // Fetch all industries for the filter strip (soft-fail)
     try {
       const all = await getAllPortfolioIndustries();
       portfolioIndustries = all?.portfolioIndustries || [];
@@ -186,10 +208,10 @@ export async function getStaticProps({ params }) {
 
     return {
       props: { portfolioIndustry, portfolio, portfolioIndustries },
-      revalidate: 500,
+      revalidate: 300,
     };
   } catch {
-    // network/CMS error at build time → keep route alive (no 404)
+    // Network/CMS error at build time → keep route alive (no 404)
     return {
       props: { portfolioIndustry: null, portfolio: [], portfolioIndustries: [] },
       revalidate: 60,
@@ -198,12 +220,17 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
+  // ⛳ Skip remote calls during build on CI
+  if (skipInCI()) {
+    return { paths: [], fallback: "blocking" };
+  }
+
   try {
     const { portfolioIndustries } = await getAllPortfolioIndustries();
     const paths = Array.isArray(portfolioIndustries)
       ? portfolioIndustries
-          .filter((i) => typeof i?.slug === "string")
-          .map((i) => ({ params: { slug: i.slug } }))
+        .filter((i) => typeof i?.slug === "string" && i.slug.length > 0)
+        .map((i) => ({ params: { slug: i.slug } }))
       : [];
     return { paths, fallback: "blocking" };
   } catch {
