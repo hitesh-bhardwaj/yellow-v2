@@ -38,7 +38,7 @@ const Awards = () => {
               key={index}
               style={{ backgroundColor: card.bgColor }}
               href={card.link}
-              className="p-[1.8vw] rounded-[1vw] text-white flex items-start justify-between mobile:w-full mobile:h-[50vw] mobile:px-[3vw] mobile:py-[3vw] mobile:rounded-[3vw] tablet:w-full tablet:rounded-[2vw] tablet:h-[45vw] tablet:py-[2vw] tablet:px-[3vw] overflow-hidden w-[49%] h-[25vw] group"
+              className="p-[1.8vw] rounded-[1vw] text-white flex items-start justify-between mobile:w-full mobile:h-[50vw] mobile:px-[3vw] mobile:py-[3vw] mobile:rounded-[3vw] tablet:w-full tablet:rounded-[2vw] tablet:h-[45vw] tablet:py-[2vw] tablet:px-[3vw] overflow-hidden w-[49%] h-[25vw] group fadeup"
             >
               <div className="flex items-start w-full h-full justify-between">
                 <div className="flex flex-col justify-between items-start w-[70%] h-full">
@@ -106,7 +106,7 @@ const Awards = () => {
           ))}
           <Link
             href={"/our-work"}
-            className="p-[1.8vw] rounded-[1vw] text-white flex items-start justify-between mobile:w-full mobile:h-[50vw] mobile:px-[3vw] mobile:py-[3vw] mobile:rounded-[3vw] tablet:w-full tablet:rounded-[2vw] tablet:h-[45vw] tablet:py-[2vw] tablet:px-[3vw] overflow-hidden w-[49%] h-[25vw] group bg-[#F77E83]"
+            className="p-[1.8vw] rounded-[1vw] text-white flex items-start justify-between mobile:w-full mobile:h-[50vw] mobile:px-[3vw] mobile:py-[3vw] mobile:rounded-[3vw] tablet:w-full tablet:rounded-[2vw] tablet:h-[45vw] tablet:py-[2vw] tablet:px-[3vw] overflow-hidden w-[49%] h-[25vw] group bg-[#F77E83] fadeup"
           >
             {/* <div className="flex items-start w-full h-full justify-between absolute p-[1.8vw] bg-black/30 backdrop-blur-lg opacity-0 group-hover:opacity-100 duration-500 ease-out mobile:px-[3vw] mobile:py-[3vw] tablet:py-[2vw] tablet:px-[3vw]">
               <div className="flex flex-col justify-between items-start w-[70%] h-full">
