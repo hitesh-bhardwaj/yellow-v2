@@ -26,10 +26,10 @@ const Awards = () => {
       link: "/our-work/numu-early-childhood-centre-brand-case-study",
     },
     {
-      title: "Branding Agency of the Year",
-      subtitle: " Silver - Campaign Agency of the Year Middle East 2025",
+      title: "Branding Agency of The Year",
+      subtitle: " Silver - Campaign Agency of The Year Middle East 2025",
       bgColor: "#F77E83",
-      awards:"/assets/images/homepage/agency-of-the-year.png",
+      awards:"/assets/images/homepage/agency-of-the-year-img-1.png",
       // logo: "/assets/images/homepage/numu.png",
       link: "/our-work",
     },
@@ -116,7 +116,7 @@ const Awards = () => {
                     </svg>
                   </div>
 
-                  <div className={`h-auto  overflow-hidden mobile:h-auto mobile:w-[16vw] tablet:h-[25vw] tablet:w-[12vw] mobile:opacity-100 tablet:opacity-100 ${index==2?"w-[13vw] mr-[-2vw] mobile:!w-[27vw] mobile:mr-[-4vw] tablet:w-[20vw] tablet:mr-[-3vw]":"w-[7vw]"} transition-all  ease-in-out ${enter==0&&index==0?"opacity-100 duration-500":"opacity-0 duration-400"} ${enter==1&&index==1?"opacity-100 duration-500":"opacity-0 duration-400"} ${enter==2&&index==2?"opacity-100 duration-500":"opacity-0 duration-400"}`}>
+                  <div className={`h-auto  overflow-hidden mobile:h-auto mobile:w-[16vw] tablet:h-[25vw] tablet:w-[12vw] mobile:opacity-100 tablet:opacity-100 w-[7vw] ${index==2?"mr-[1vw] w-[7.5vw]":""} transition-all  ease-in-out ${enter==0&&index==0?"opacity-100 duration-500":"opacity-0 duration-400"} ${enter==1&&index==1?"opacity-100 duration-500":"opacity-0 duration-400"} ${enter==2&&index==2?"opacity-100 duration-500":"opacity-0 duration-400"}`}>
                     <Image
                       src={card.awards}
                       width={163}
