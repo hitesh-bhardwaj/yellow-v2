@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Awards = () => {
   const containerRef = useRef(null);
-  const [enter,setEnter] = useState(0)
+  const [enter,setEnter] = useState(null)
   const cardData = [
     {
       title: "Best Visual Identity",
@@ -63,7 +63,7 @@ const Awards = () => {
                 setEnter(null)
               }}
              
-              className={`p-[1.8vw] rounded-[1vw] text-white flex items-start justify-between mobile:!w-full mobile:!h-[60vw] mobile:px-[5vw] mobile:py-[5vw] mobile:rounded-[4vw] tablet:!w-full tablet:rounded-[2.5vw] tablet:!h-[45vw] tablet:py-[3vw] tablet:px-[3vw] overflow-hidden group relative transition-all duration-500 ease-in-out  ${enter==0&&index==0?"!w-[58.5%] !h-[28vw]":"!w-[40%] h-[25vw]"} ${enter==1&&index==1?"!w-[58.5%] !h-[28vw]":"!w-[40%] h-[20vw]"} ${enter==1&&index==0?"!w-[40%] !h-[28vw]":""} ${enter==2&&index==0?"!w-[49.3%] !h-[20vw]":""} ${enter==2&&index==1?"!w-[49.3%] !h-[20vw]":""} ${enter==2&&index==2?"!w-[58%] !h-[28vw]":""} ${enter==null?"!w-[49.3%] !h-[20vw]":""} `}
+              className={`p-[1.8vw] rounded-[1vw] text-white flex items-start justify-between mobile:!w-full mobile:!h-[60vw] mobile:px-[5vw] mobile:py-[5vw] mobile:rounded-[4vw] tablet:!w-full tablet:rounded-[2.5vw] tablet:!h-[45vw] tablet:py-[3vw] tablet:px-[3vw] overflow-hidden group relative transition-all duration-500 ease-in-out  ${enter==0&&index==0?"!w-[58.5%] !h-[28vw]":"!w-[40%] h-[20vw]"} ${enter==1&&index==1?"!w-[58.5%] !h-[28vw]":"!w-[40%] h-[20vw]"} ${enter==1&&index==0?"!w-[40%] !h-[28vw]":""} ${enter==2&&index==0?"!w-[49.3%] !h-[20vw]":""} ${enter==2&&index==1?"!w-[49.3%] !h-[20vw]":""} ${enter==2&&index==2?"!w-[58%] !h-[28vw]":""} ${enter==null?"!w-[49.3%] !h-[20vw]":""} `}
             >
               <div className="flex items-start w-full h-full justify-between">
                 <div className="flex flex-col justify-between items-start w-[70%] h-full">
