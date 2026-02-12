@@ -1,16 +1,19 @@
 // pages/about-us.js (or .tsx)
+import dynamic from 'next/dynamic';
 import Layout from '@/components/Layout';
-import Join from '@/components/about/Join';
 import Pagehero from '@/components/about/Pagehero';
-import Values from '@/components/about/Values';
 import { titleAnim, paraAnim, lineAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
 import { getRelatedPortfolioForPages } from '@/lib/portfolio';
-import Meet from '@/components/about/Meet';
 import { WebpageJsonLd } from '@/lib/json-ld';
 import MetaData from '@/components/Metadata';
 import { getAllTeams } from '@/lib/teams';
-import RelatedWork from '@/components/Metadata/RelatedWork';
 import { skipInCI } from '@/lib/util';
+
+// Dynamically import below-the-fold components
+const Values = dynamic(() => import('@/components/about/Values'), { ssr: true });
+const Meet = dynamic(() => import('@/components/about/Meet'), { ssr: true });
+const Join = dynamic(() => import('@/components/about/Join'), { ssr: true });
+const RelatedWork = dynamic(() => import('@/components/Metadata/RelatedWork'), { ssr: true });
 
 export default function About({ relatedWorks = [], teams = [] }) {
   
