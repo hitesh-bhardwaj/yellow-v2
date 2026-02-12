@@ -22,7 +22,8 @@ const MediaRender = ({ url, className="" }) => {
         ) : (
           <Image
             src={url}
-            priority={false}
+            priority={true}
+            fetchPriority="high"
             width={1720}
             height={1000}
             alt="Media"
