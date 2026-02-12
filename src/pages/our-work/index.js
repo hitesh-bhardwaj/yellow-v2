@@ -4,11 +4,20 @@ import { getPaginatedPortfolio } from '@/lib/portfolio';
 import Layout from '@/components/Layout';
 import PageHero from '@/components/Portfolio/PageHero';
 import Section from '@/components/Section';
-import WorkCard from '@/components/Portfolio/WorkCard';
+import dynamic from 'next/dynamic';
+
+const WorkCard = dynamic(() => import('@/components/Portfolio/WorkCard'), {
+  ssr: false,
+});
+
 import { titleAnim, paraAnim, lineAnim, fadeUp, fadeIn } from '@/components/gsapAnimations';
 import { WebpageJsonLd } from '@/lib/json-ld';
 import MetaData from '@/components/Metadata';
-import PortfolioIndustries from '@/components/Portfolio/PortfolioIndustries';
+const PortfolioIndustries = dynamic(
+  () => import('@/components/Portfolio/PortfolioIndustries'),
+  { ssr: false }
+);
+
 import { getPortfolioIndustries } from '@/lib/portfolioIndustries';
 import { skipInCI } from '@/lib/util';
 
