@@ -97,7 +97,8 @@ const Hero = () => {
             muted
             loop
             playsInline
-            loading="lazy"
+            preload="auto"
+            fetchpriority="high"
             className="w-full h-full aspect-video object-cover brightness-[.65]"
             src="/assets/showreel-6sec-optimized.mp4"
           ></video>
