@@ -1,10 +1,32 @@
+import dynamic from "next/dynamic";
+
+const SpeedInsights = dynamic(
+  () => import("@vercel/speed-insights/next").then(m => m.SpeedInsights),
+  { ssr: false }
+);
+
+const Analytics = dynamic(
+  () => import("@vercel/analytics/react").then(m => m.Analytics),
+  { ssr: false }
+);
+
+const GoogleTagManager = dynamic(
+  () => import("@next/third-parties/google").then(m => m.GoogleTagManager),
+  { ssr: false }
+);
+
+const GoogleAnalytics = dynamic(
+  () => import("@next/third-parties/google").then(m => m.GoogleAnalytics),
+  { ssr: false }
+);
+
+
+
 import "@/styles/globals.css";
 import { ReactLenis } from 'lenis/react';
 import { DefaultSeo } from "next-seo";
 import { useEffect } from "react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react";
-import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
+
 import localFont from 'next/font/local';
 import nextSeoConfig from "../../next-seo.config";
 import { SearchProvider } from "@/hooks/use-search";

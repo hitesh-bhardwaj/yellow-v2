@@ -7,15 +7,20 @@ import { WebpageJsonLd } from "@/lib/json-ld";
 import MetaData from "@/components/Metadata";
 import dynamic from 'next/dynamic';
 import AboutUs from "@/components/HomePage/AboutUs";
-import Clients from "@/components/HomePage/Clients";
-import Faq from "@/components/HomePage/Faq";
-import Awards from "@/components/HomePage/Awards";
+
+
+
 import { skipInCI } from "@/lib/util";
 
-// Dynamically import Blogs component
-const Blogs = dynamic(() => import('@/components/HomePage/Blogs'));
-const Portfolio = dynamic(() => import('@/components/HomePage/Portfolio'), { ssr: true });
-const Services = dynamic(() => import('@/components/HomePage/Services'), { ssr: true });
+const Portfolio = dynamic(() => import('@/components/HomePage/Portfolio'), { ssr:false, loading: () => null });
+const Services = dynamic(() => import('@/components/HomePage/Services'), { ssr:false });
+const Blogs = dynamic(() => import('@/components/HomePage/Blogs'), { ssr:false });
+const Awards = dynamic(() => import('@/components/HomePage/Awards'), { ssr:false });
+const Clients = dynamic(() => import('@/components/HomePage/Clients'), { ssr:false });
+const Faq = dynamic(() => import('@/components/HomePage/Faq'), { ssr:false });
+
+
+
 
 export default function Home({ recentPosts }) {
 
