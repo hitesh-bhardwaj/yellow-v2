@@ -22,8 +22,7 @@ export default function Pagehero() {
                     alt="We Are Image" 
                     width={60} 
                     height={60}
-                    priority={false}
-                    loading="eager"
+                    loading="lazy"
                   />
                   <h2 data-title-anim className="text-[1.6vw] font-display uppercase heading-anim mobile:text-[7vw] mobile:w-full tablet:text-[3vw] tablet:w-[40%]">
                     We Are -
@@ -47,8 +46,7 @@ export default function Pagehero() {
                     alt="We Are Image" 
                     width={100} 
                     height={100}
-                    priority={false}
-                    loading="eager"
+                    loading="lazy"
                   />
                   <h2 data-title-anim className="text-[1.6vw] font-display mb-[1vw] mobile:mb-[3vw] uppercase heading-anim mobile:text-[7vw] mobile:w-full tablet:text-[3vw] tablet:w-[40%]">
                     We Aren&apos;t -
