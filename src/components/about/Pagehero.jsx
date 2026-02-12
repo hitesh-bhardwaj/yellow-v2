@@ -16,7 +16,14 @@ export default function Pagehero() {
               <div className="mobile:mt-[4vw]">
 
                 <div className="w-full flex gap-[1vw] items-end pl-[0.5vw] mobile:gap-[3vw]">
-                  <Image src="/assets/images/gifs/Minion.gif" className="fadeup" alt="We Are Image" width={60} height={60} />
+                  <Image 
+                    src="/assets/images/gifs/Minion.gif" 
+                    className="fadeup" 
+                    alt="We Are Image" 
+                    width={60} 
+                    height={60}
+                    loading="lazy"
+                  />
                   <h2 data-title-anim className="text-[1.6vw] font-display uppercase heading-anim mobile:text-[7vw] mobile:w-full tablet:text-[3vw] tablet:w-[40%]">
                     We Are -
                   </h2>
@@ -33,7 +40,14 @@ export default function Pagehero() {
               </div>
               <div className="mobile:mb-[10vw]">
                 <div className="w-full flex items-end">
-                  <Image src="/assets/images/gifs/Bart.gif" className="fadeup mobile:ml-[-3vw]" alt="We Are Image" width={100} height={100} />
+                  <Image 
+                    src="/assets/images/gifs/Bart.gif" 
+                    className="fadeup mobile:ml-[-3vw]" 
+                    alt="We Are Image" 
+                    width={100} 
+                    height={100}
+                    loading="lazy"
+                  />
                   <h2 data-title-anim className="text-[1.6vw] font-display mb-[1vw] mobile:mb-[3vw] uppercase heading-anim mobile:text-[7vw] mobile:w-full tablet:text-[3vw] tablet:w-[40%]">
                     We Aren&apos;t -
                   </h2>
@@ -50,7 +64,16 @@ export default function Pagehero() {
               </div>
             </div>
             <div className="h-[41vw] w-[30vw] relative mobile:w-[85vw] rounded-xl mobile:h-[105vw] tablet:w-[80vw] tablet:h-[80vw] overflow-hidden shadow-xl fadeup">
-              <Image src="/assets/images/about/partners-image.webp" alt="about-hero" fill className="object-cover h-full w-full tablet:object-top" priority={true} quality={90} />
+              <Image 
+                src="/assets/images/about/partners-image.webp" 
+                alt="about-hero" 
+                fill 
+                className="object-cover h-full w-full tablet:object-top !opacity-100" 
+                priority={true}
+                fetchPriority="high"
+                quality={75}
+                sizes="(max-width: 768px) 85vw, (max-width: 1024px) 80vw, 30vw"
+              />
             </div>
           </div>
         </div>
