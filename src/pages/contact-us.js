@@ -1,20 +1,26 @@
-
+import dynamic from 'next/dynamic';
 import Layout from "@/components/Layout";
 import Pagehero from '@/components/contact/Pagehero';
-import Address from '@/components/contact/Address';
 import { titleAnim, paraAnim, lineAnim, fadeIn, fadeUp } from '@/components/gsapAnimations';
-import ContactForm from "@/components/contact/ContactForm";
 import MetaData from "@/components/Metadata";
 import { WebpageJsonLd } from "@/lib/json-ld";
 
+// Lazy load non-critical components
+const Address = dynamic(() => import('@/components/contact/Address'), {
+  loading: () => null
+});
+const ContactForm = dynamic(() => import('@/components/contact/ContactForm'), {
+  loading: () => null
+});
+
+
 export default function Contact() {
 
-  titleAnim();
+   titleAnim();
   paraAnim();
   lineAnim();
   fadeIn();
   fadeUp();
-
   const metadata = {
     title: "Contact Our Agency In Dubai, UAE Today - Yellow Agency",
     description: "Talk to us, email us, visit us, work with us! Contact Yellow agency in Dubai for questions & feedback or simply stop by Yellow for coffee today.",
