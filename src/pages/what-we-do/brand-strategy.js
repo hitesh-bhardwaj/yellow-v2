@@ -87,6 +87,7 @@ export default function servicesdetail({ recentWorks = [] }) {
                 className="object-cover w-full h-full"
                 fill
                 priority={true}
+                sizes="(max-width: 768px) 100vw, 90vw"
               />
             </div>
           </div>
