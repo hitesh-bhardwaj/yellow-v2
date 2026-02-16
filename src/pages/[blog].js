@@ -12,11 +12,11 @@ import { titleAnim, paraAnim, lineAnim, fadeIn, fadeUp } from '@/components/gsap
 import { NextSeo } from 'next-seo';
 import config from '../../package.json';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 export default function Post({ post, relatedPosts }) {
   const router = useRouter();
-  const [isClient, setIsClient] = useState(false);
+  
 
   // If the CMS was unreachable at build-time, post can be null.
   // Because fallback: 'blocking' + ISR, the very first request after a blip
