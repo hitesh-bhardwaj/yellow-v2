@@ -1,11 +1,15 @@
 // pages/what-we-do/index.tsx (or .js)
 import Layout from '@/components/Layout';
 import Pagehero from '@/components/services/Pagehero';
+import dynamic from "next/dynamic";
 import { titleAnim, paraAnim, lineAnim, fadeUp } from '@/components/gsapAnimations';
 import { getRelatedPortfolioForPages } from '@/lib/portfolio';
 import MetaData from '@/components/Metadata';
 import { WebpageJsonLd } from '@/lib/json-ld';
-import RelatedWork from '@/components/Metadata/RelatedWork';
+const RelatedWork = dynamic(
+  () => import("@/components/Metadata/RelatedWork"),
+  { ssr: false }
+);
 import ServiceList from '@/components/services/ServiceList';
 import { skipInCI } from '@/lib/util';
 
