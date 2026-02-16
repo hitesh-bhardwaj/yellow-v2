@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import { fadeIn, fadeUp, lineAnim, paraAnim, titleAnim } from "@/components/gsapAnimations";
 import { LocalBusiness, WebpageJsonLd } from "@/lib/json-ld";
 import MetaData from "@/components/Metadata";
+import dynamic from "next/dynamic";
 import Hero from "@/components/saudi/Hero";
 import Trusted from "@/components/saudi/Trusted";
 import Services from "@/components/saudi/Services";
@@ -11,7 +12,18 @@ import Details from "@/components/saudi/Details";
 import AdvertisingSolutions from "@/components/saudi/AdvertisingSolutions";
 import Clients from "@/components/saudi/Clients";
 import WhyUs from "@/components/saudi/WhyUs";
-import RelatedWork from "@/components/Metadata/RelatedWork";
+const RelatedWork = dynamic(() =>
+  import("@/components/Metadata/RelatedWork")
+);
+
+
+// const Trusted = dynamic(() => import("@/components/saudi/Trusted"));
+// const Services = dynamic(() => import("@/components/saudi/Services"));
+// const Details = dynamic(() => import("@/components/saudi/Details"));
+// const AdvertisingSolutions = dynamic(() => import("@/components/saudi/AdvertisingSolutions"));
+// const Clients = dynamic(() => import("@/components/saudi/Clients"));
+// const WhyUs = dynamic(() => import("@/components/saudi/WhyUs"));
+// const RelatedWork = dynamic(() => import("@/components/Metadata/RelatedWork"));
 import { getRelatedPortfolioForPages } from "@/lib/portfolio";
 import { skipInCI } from "@/lib/util";
 

@@ -27,6 +27,7 @@ const MediaRender = ({ url, className="" }) => {
             width={1720}
             height={1000}
             alt="Media"
+            sizes="(max-width:768px) 100vw, (max-width:1200px) 100vw, 90vw"
             className="h-full w-full object-cover block"
           />
         )}

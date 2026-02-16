@@ -18,6 +18,8 @@ const RelatedWork = dynamic(
   () => import("@/components/Metadata/RelatedWork"),
   { ssr: false }
 );
+
+
 import { skipInCI } from "@/lib/util";
 
 export default function servicesdetail({ recentWorks = [] }) {

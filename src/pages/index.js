@@ -4,22 +4,27 @@ import Hero from "@/components/HomePage/Hero";
 import { getHomePagePosts } from "@/lib/posts";
 import { fadeIn, fadeUp, lineAnim, paraAnim, titleAnim } from '@/components/gsapAnimations';
 import { WebpageJsonLd } from "@/lib/json-ld";
+
+
 import MetaData from "@/components/Metadata";
-import dynamic from 'next/dynamic';
 import AboutUs from "@/components/HomePage/AboutUs";
-
-
+// import dynamic from "next/dynamic";
 
 import { skipInCI } from "@/lib/util";
 
-const Portfolio = dynamic(() => import('@/components/HomePage/Portfolio'), { ssr:false, loading: () => null });
-const Services = dynamic(() => import('@/components/HomePage/Services'), { ssr:false });
-const Blogs = dynamic(() => import('@/components/HomePage/Blogs'), { ssr:false });
-const Awards = dynamic(() => import('@/components/HomePage/Awards'), { ssr:false });
-const Clients = dynamic(() => import('@/components/HomePage/Clients'), { ssr:false });
-const Faq = dynamic(() => import('@/components/HomePage/Faq'), { ssr:false });
+// const Portfolio = dynamic(() => import('@/components/HomePage/Portfolio'), { ssr:false, loading: () => null });
+// const Services = dynamic(() => import('@/components/HomePage/Services'), { ssr:false });
+// const Blogs = dynamic(() => import('@/components/HomePage/Blogs'), { ssr:false });
+// const Awards = dynamic(() => import('@/components/HomePage/Awards'), { ssr:false });
+// const Clients = dynamic(() => import('@/components/HomePage/Clients'), { ssr:false });
+// const Faq = dynamic(() => import('@/components/HomePage/Faq'), { ssr:false });
 
-
+import Portfolio from '@/components/HomePage/Portfolio';
+import Services from '@/components/HomePage/Services';
+import Blogs from '@/components/HomePage/Blogs';
+import Awards from '@/components/HomePage/Awards';
+import Clients from '@/components/HomePage/Clients';
+import Faq from '@/components/HomePage/Faq';
 
 
 export default function Home({ recentPosts }) {

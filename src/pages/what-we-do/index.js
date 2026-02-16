@@ -1,15 +1,16 @@
 // pages/what-we-do/index.tsx (or .js)
 import Layout from '@/components/Layout';
 import Pagehero from '@/components/services/Pagehero';
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic';
 import { titleAnim, paraAnim, lineAnim, fadeUp } from '@/components/gsapAnimations';
 import { getRelatedPortfolioForPages } from '@/lib/portfolio';
 import MetaData from '@/components/Metadata';
 import { WebpageJsonLd } from '@/lib/json-ld';
-const RelatedWork = dynamic(
-  () => import("@/components/Metadata/RelatedWork"),
-  { ssr: false }
+const RelatedWork = dynamic(() =>
+  import("@/components/Metadata/RelatedWork")
 );
+// Dynamically import below-the-fold components
+// const ServiceList = dynamic(() => import('@/components/services/ServiceList'), { ssr: true });
 import ServiceList from '@/components/services/ServiceList';
 import { skipInCI } from '@/lib/util';
 

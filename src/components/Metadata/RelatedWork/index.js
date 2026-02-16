@@ -6,9 +6,14 @@ import Section from '../../Section';
 import LinkButton from '../../Button/LinkButton';
 import MediaRender from '../../MediaRender';
 import { workPathBySlug } from '@/lib/portfolio';
+import { titleAnim, paraAnim } from '@/components/gsapAnimations';
+
 
 export default function RelatedWork({ works, heading, subheading }) {
   const list = Array.isArray(works) ? works : [];
+
+  titleAnim();
+  paraAnim();
 
   // normalize each item to a node
   const nodes = list

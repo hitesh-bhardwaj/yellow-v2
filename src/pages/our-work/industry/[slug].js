@@ -2,11 +2,14 @@
 // pages/our-work/industry/[slug].js
 import { useState } from "react";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
+
 import Layout from "@/components/Layout";
 import Section from "@/components/Section";
-import PortfolioIndustries from "@/components/Portfolio/PortfolioIndustries";
+const PortfolioIndustries = dynamic(() => import("@/components/Portfolio/PortfolioIndustries"));
+const Consultant = dynamic(() => import("@/components/Portfolio/Consultant"));
 import WorkCard from "@/components/Portfolio/WorkCard";
-import Consultant from "@/components/Portfolio/Consultant";
+
 import MetaData from "@/components/Metadata";
 import { paraAnim, lineAnim, fadeUp, fadeIn } from "@/components/gsapAnimations";
 import {

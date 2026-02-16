@@ -9,7 +9,7 @@ const WorkCard = ({ index, work }) => {
         <Link className="relative w-full h-full block group overflow-hidden rounded-[10px] fadeup" href={workPathBySlug(work.slug)}>
             {work.workFields.packagingWorld && (
                 <div className="absolute top-0 left-0 -translate-x-[4vw] -translate-y-[4vw] z-[1] mobile:-translate-x-[8vw] mobile:-translate-y-[8vw]">
-                    <Image src={"/assets/icons/as-seen-on.png"} alt="packaging of the world" width={200} height={200} loading="lazy" className="w-[20vw] mobile:w-[40vw] h-full object-cover" />
+                    <Image src={"/assets/icons/as-seen-on.png"} alt="packaging of the world" width={200} height={200} loading="lazy" className="w-[20vw] mobile:w-[40vw] h-full object-cover"  sizes="(max-width:768px) 100vw, 50vw" />
                 </div>
             )}
             <div className={`relative overflow-hidden h-[45vw] scale-[1.05] group-hover:scale-100 transition-all duration-500 ease-in-out ${index % 3 === 0 ? "mobile:h-[60vw]" : "mobile:h-[80vw]"}`}>

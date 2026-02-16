@@ -5,11 +5,16 @@ import Pagehero from '@/components/PortfolioDetail/Pagehero';
 import Section from '@/components/Section';
 import Information from '@/components/PortfolioDetail/Information';
 import styles from "@/styles/work.module.css";
+import dynamic from 'next/dynamic';
 import { titleAnim, lineAnim, fadeUp, paraAnimWordpress, imageAnimationWork } from '@/components/gsapAnimations';
 import { WebpageJsonLd } from '@/lib/json-ld';
 import config from '../../../package.json';
 import { NextSeo } from 'next-seo';
-import RelatedWork from '@/components/Metadata/RelatedWork';
+
+const RelatedWork = dynamic(
+  () => import('@/components/Metadata/RelatedWork'),
+  { ssr: false }
+);
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 

@@ -6,10 +6,11 @@ import { getAllJobs } from '@/lib/jobs';
 import { WebpageJsonLd } from '@/lib/json-ld';
 import MetaData from '@/components/Metadata';
 import Listing from '@/components/career/Listing';
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 import { skipInCI } from '@/lib/util';
 
-const Essentials = dynamic(() => import('@/components/career/Essentials'), { ssr: true });
+// const Essentials = dynamic(() => import('@/components/career/Essentials'), { ssr: true });
+import Essentials from '@/components/career/Essentials'; 
 
 export default function Career({ jobs = [] }) {
    titleAnim(); paraAnim(); lineAnim(); fadeIn(); fadeUp();

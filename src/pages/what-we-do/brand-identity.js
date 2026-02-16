@@ -15,11 +15,11 @@ import Line from "@/components/Line";
 import LinkButton from "@/components/Button/LinkButton";
 import React from "react";
 
-
-const RelatedWork = dynamic(
-  () => import("@/components/Metadata/RelatedWork"),
-  { ssr: false }
+const RelatedWork = dynamic(() =>
+  import("@/components/Metadata/RelatedWork")
 );
+
+
 import { skipInCI } from "@/lib/util";
 
 export default function servicesdetail({ recentWorks = [] }) {
