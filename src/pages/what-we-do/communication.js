@@ -6,6 +6,7 @@ import {
   lineAnim,
   fadeUp,
 } from "@/components/gsapAnimations";
+import dynamic from "next/dynamic";
 import MetaData from "@/components/Metadata";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import { getRelatedPortfolioForPages } from "@/lib/portfolio";
@@ -13,7 +14,10 @@ import Image from "next/image";
 import Line from "@/components/Line";
 import LinkButton from "@/components/Button/LinkButton";
 import React from "react";
-import RelatedWork from "@/components/Metadata/RelatedWork";
+const RelatedWork = dynamic(
+  () => import("@/components/Metadata/RelatedWork"),
+  { ssr: false }
+);
 import { skipInCI } from "@/lib/util";
 
 export default function servicesdetail({ recentWorks = [] }) {
@@ -58,6 +62,7 @@ export default function servicesdetail({ recentWorks = [] }) {
                 className="object-cover w-full h-full"
                 fill
                 priority={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 90vw"
               />
             </div>
           </div>
