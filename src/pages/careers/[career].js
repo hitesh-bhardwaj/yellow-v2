@@ -1,10 +1,15 @@
 // pages/[career].js
 import Layout from '@/components/Layout';
 import { titleAnim, paraAnim, lineAnim, fadeUp } from '@/components/gsapAnimations';
+import dynamic from "next/dynamic";
+
 import { getAllJobs, getJobBySlug } from '@/lib/jobs';
 import Pagehero from '@/components/career-detail/Pagehero';
 import Overview from '@/components/career-detail/Overview';
-import CareerForm from '@/components/career-detail/CareerForm';
+const CareerForm = dynamic(
+  () => import('@/components/career-detail/CareerForm'),
+  { ssr: false }
+);
 import config from '../../../package.json';
 import { NextSeo } from 'next-seo';
 import { useEffect } from 'react';

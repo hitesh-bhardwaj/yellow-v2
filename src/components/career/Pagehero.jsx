@@ -17,7 +17,15 @@ export default function Pagehero() {
             </div>
             <div className="w-[30vw] h-[40vw] relative mobile:w-[85vw] mobile:h-[120vw] rounded-xl overflow-hidden fadeup">
               <div>
-                <Image src="/assets/images/career/work-with-us.webp" quality={100} alt="career-hero" fill priority={true}/>
+                <Image 
+                  src="/assets/images/career/work-with-us.webp" 
+                  quality={100} 
+                  alt="career-hero" 
+                  fill 
+                  priority={true}
+                  sizes="(max-width: 768px) 85vw, 30vw"
+                  fetchPriority="high"
+                />
               </div>
             </div>
           </div>
