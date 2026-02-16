@@ -6,6 +6,7 @@ import {
   lineAnim,
   fadeUp,
 } from "@/components/gsapAnimations";
+import dynamic from "next/dynamic";
 import MetaData from "@/components/Metadata";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import { getRelatedPortfolioForPages } from "@/lib/portfolio";
@@ -13,14 +14,21 @@ import Image from "next/image";
 import Line from "@/components/Line";
 import LinkButton from "@/components/Button/LinkButton";
 import React from "react";
-import RelatedWork from "@/components/Metadata/RelatedWork";
+
+
+const RelatedWork = dynamic(
+  () => import("@/components/Metadata/RelatedWork"),
+  { ssr: false }
+);
 import { skipInCI } from "@/lib/util";
 
 export default function servicesdetail({ recentWorks = [] }) {
-  titleAnim();
-  paraAnim();
-  lineAnim();
-  fadeUp();
+  
+    titleAnim();
+    paraAnim();
+    lineAnim();
+    fadeUp();
+
 
   const metadata = {
     title: "Best Corporate Brand Identity Design Agency in Dubai, UAE",
@@ -45,7 +53,7 @@ export default function servicesdetail({ recentWorks = [] }) {
     {
       title: "Brand guidelines",
       paragraphs: [
-        "We develop a set of guidelines for our brands to provide our clients and their partners with the tools they need to ensure the brand continues to stay consistent. We make sure to include everything anyone will ever need to fully understand, replicate, build on and even improve the overall brand experience. These manuals are much more than a simple set of rules and regulations – they aim to introduce internal and external stakeholders to the brand, give them insight into the brand’s personality and the tone it should be taking with its customers.",
+         "We develop a set of guidelines for our brands to provide our clients and their partners with the tools they need to ensure the brand continues to stay consistent. We make sure to include everything anyone will ever need to fully understand, replicate, build on and even improve the overall brand experience. These manuals are much more than a simple set of rules and regulations – they aim to introduce internal and external stakeholders to the brand, give them insight into the brand’s personality and the tone it should be taking with its customers.",
       ],
       image: "/assets/images/service/brand-identity/Brand-Guidelines.png",
     },
@@ -70,12 +78,13 @@ export default function servicesdetail({ recentWorks = [] }) {
             </h1>
             <div className="w-[90vw] h-[45vw] rounded-[15px] overflow-hidden relative fadeup mobile:w-full mobile:h-[50vw] tablet:w-full">
               <Image
-                quality={100}
+                quality={95}
                 src="/assets/images/service/brand-identity/brand-identity-listing.png"
                 alt="brand-identity-hero"
                 className="object-cover w-full h-full"
                 fill
                 priority={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 90vw"
               />
             </div>
           </div>
@@ -220,12 +229,13 @@ export default function servicesdetail({ recentWorks = [] }) {
                   <div className="col-start-3 flex justify-end mobile:justify-center tablet:order-1 order-1 mobile:order-none">
                     <div className="w-[22.5vw] h-[28vw] rounded-[10px] overflow-hidden relative fadeup mobile:w-[86vw] mobile:h-[85vw] mobile:mt-[5vw] tablet:w-[30vw] tablet:h-[30vw]">
                         <Image
-                          quality={100}
+                          quality={95}
                           loading="lazy"
                           src={service.image}
                           alt={`${service.title} Image`}
                           className="absolute h-full w-full object-cover"
                           fill
+                          sizes="(max-width: 768px) 86vw, (max-width: 1024px) 30vw, 22.5vw"
                         />
                     </div>
                   </div>
